@@ -1,0 +1,13 @@
+{
+  "program": {
+    "title": "Cloud & Data Infra Microfeatures",
+    "owner": "shivacheruvu",
+    "total_days": 80,
+    "start_date": "2026-10-05",
+    "phases": [
+      { "platform": "databricks", "days": [1, 14], "note": "Databricks 14-day free trial" },
+      { "platform": "gcp", "days": [15, 80], "note": "Google Cloud free-trial credits" }
+    ]
+  },
+  "features": []
+}

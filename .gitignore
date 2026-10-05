@@ -1,0 +1,51 @@
+# ── Secrets: never commit these ──────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+credentials.json
+service-account*.json
+*-sa-key*.json
+application_default_credentials.json
+client_secret*.json
+token.json
+.netrc
+.npmrc
+.pypirc
+
+# Cloud CLIs
+.gcloud/
+.config/gcloud/
+.databrickscfg
+.databricks/
+terraform.tfstate
+terraform.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform/
+
+# ── Local / editor noise ─────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+dist/
+.cache/
+
+# Obsidian per-device state (if a vault is ever opened here)
+.obsidian/workspace*.json
+.obsidian/cache
+.trash/
+.pytest_cache/
