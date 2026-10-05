@@ -49,14 +49,23 @@ jobs:
       - if: steps.gate.outputs.run == 'true'
         uses: databricks/setup-cli@main
       - if: steps.gate.outputs.run == 'true'
-        name: Deploy and run Databricks bundles
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - if: steps.gate.outputs.run == 'true'
+        name: Run each Databricks feature (bundle job or cloud.sh)
         run: |
-          for b in features/databricks/day-*/databricks.yml; do
-            [ -f "$b" ] || continue
-            d=$(dirname "$b"); echo "::group::$d"
-            (cd "$d" && databricks bundle deploy -t dev && databricks bundle run -t dev daily) || echo "::warning::$d failed"
+          failed=0
+          for d in features/databricks/day-*/; do
+            echo "::group::$d"
+            if [ -f "$d/databricks.yml" ]; then
+              (cd "$d" && databricks bundle deploy -t dev && databricks bundle run -t dev daily) || { echo "::error::$d failed"; failed=1; }
+            elif [ -f "$d/cloud.sh" ]; then
+              (cd "$d" && bash cloud.sh) || { echo "::error::$d failed"; failed=1; }
+            fi
             echo "::endgroup::"
           done
+          exit $failed
 
   gcp:
     needs: local
@@ -82,9 +91,11 @@ jobs:
           GCP_REGION: us-central1
         run: |
           gcloud config set project "$GCP_PROJECT_ID" --quiet
+          failed=0
           for s in features/gcp/day-*/cloud.sh; do
             [ -f "$s" ] || continue
             d=$(dirname "$s"); echo "::group::$d"
-            (cd "$d" && bash cloud.sh) || echo "::warning::$d failed"
+            (cd "$d" && bash cloud.sh) || { echo "::error::$d failed"; failed=1; }
             echo "::endgroup::"
           done
+          exit $failed

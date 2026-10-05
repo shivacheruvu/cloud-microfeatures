@@ -1,0 +1,89 @@
+{
+  "engine": "duckdb (local) / Databricks SQL (cloud)",
+  "scans": 43,
+  "slots": 13,
+  "busiest_slot": "12:15",
+  "busiest_slot_scans": 6,
+  "healthiest_slot": "09:15",
+  "healthiest_slot_avg_score": 97.0,
+  "by_slot": [
+    {
+      "slot_start": "2026-10-05 07:15",
+      "scans": 3,
+      "avg_health_score": 29.7,
+      "pct_healthy": 0.0
+    },
+    {
+      "slot_start": "2026-10-05 07:45",
+      "scans": 4,
+      "avg_health_score": 56.5,
+      "pct_healthy": 25.0
+    },
+    {
+      "slot_start": "2026-10-05 08:15",
+      "scans": 4,
+      "avg_health_score": 66.3,
+      "pct_healthy": 50.0
+    },
+    {
+      "slot_start": "2026-10-05 08:45",
+      "scans": 3,
+      "avg_health_score": 37.7,
+      "pct_healthy": 0.0
+    },
+    {
+      "slot_start": "2026-10-05 09:15",
+      "scans": 1,
+      "avg_health_score": 97.0,
+      "pct_healthy": 100.0
+    },
+    {
+      "slot_start": "2026-10-05 09:45",
+      "scans": 5,
+      "avg_health_score": 48.8,
+      "pct_healthy": 20.0
+    },
+    {
+      "slot_start": "2026-10-05 10:15",
+      "scans": 1,
+      "avg_health_score": 96.0,
+      "pct_healthy": 100.0
+    },
+    {
+      "slot_start": "2026-10-05 10:45",
+      "scans": 5,
+      "avg_health_score": 51.2,
+      "pct_healthy": 20.0
+    },
+    {
+      "slot_start": "2026-10-05 11:45",
+      "scans": 4,
+      "avg_health_score": 59.3,
+      "pct_healthy": 50.0
+    },
+    {
+      "slot_start": "2026-10-05 12:15",
+      "scans": 6,
+      "avg_health_score": 50.5,
+      "pct_healthy": 33.3
+    },
+    {
+      "slot_start": "2026-10-05 12:45",
+      "scans": 3,
+      "avg_health_score": 39.0,
+      "pct_healthy": 0.0
+    },
+    {
+      "slot_start": "2026-10-05 13:15",
+      "scans": 3,
+      "avg_health_score": 46.7,
+      "pct_healthy": 33.3
+    },
+    {
+      "slot_start": "2026-10-05 13:45",
+      "scans": 1,
+      "avg_health_score": 31.0,
+      "pct_healthy": 0.0
+    }
+  ]
+}
