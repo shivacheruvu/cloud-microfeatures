@@ -1,0 +1,52 @@
+# Daily heartbeat: re-runs every feature's local tests, and runs cloud jobs only
+# when the matching credentials exist as repository secrets.
+name: Daily run
+
+on:
+  schedule:
+    - cron: "17 14 * * *"   # 09:17 Chicago (CDT)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  local:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - run: pip install -r requirements-dev.txt
+      - run: pytest -q
+
+  databricks:
+    needs: local
+    runs-on: ubuntu-latest
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Skip when Databricks isn't connected
+        id: gate
+        run: |
+          if [ -z "$DATABRICKS_HOST" ] || [ -z "$DATABRICKS_TOKEN" ]; then
+            echo "Databricks secrets not set; skipping cloud runs."; echo "run=false" >> "$GITHUB_OUTPUT"
+          else echo "run=true" >> "$GITHUB_OUTPUT"; fi
+      - if: steps.gate.outputs.run == 'true'
+        uses: databricks/setup-cli@main
+      - if: steps.gate.outputs.run == 'true'
+        name: Deploy and run Databricks bundles
+        run: |
+          for b in features/day-*/databricks.yml; do
+            [ -f "$b" ] || continue
+            d=$(dirname "$b"); echo "::group::$d"
+            (cd "$d" && databricks bundle deploy -t dev && databricks bundle run -t dev daily) || echo "::warning::$d failed"
+            echo "::endgroup::"
+          done
