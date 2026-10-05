@@ -32,7 +32,7 @@
         "Serverless SQL warehouse",
         "Statement Execution API"
       ],
-      "status": "ran-local",
+      "status": "ran",
       "path": "features/databricks/day-01-scan-rush-hours",
       "new_feature": {
         "name": "time_bucket SQL function",
@@ -53,7 +53,7 @@
         "GoogleSQL",
         "Workload Identity Federation"
       ],
-      "status": "ran-local",
+      "status": "ran",
       "path": "features/gcp/day-01-filtered-aggregates",
       "new_feature": {
         "name": "WHERE clause in aggregate functions (Preview)",
