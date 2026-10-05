@@ -25,7 +25,7 @@ python scorecard.py --local    # DuckDB (translates AGG(x WHERE c) to the standa
 bash cloud.sh                  # needs gcloud/bq signed in and GCP_PROJECT_ID set
 ```
 `cloud.sh` loads the CSV into a short-lived dataset (1-hour table expiry, deleted at the end anyway), runs the
-query with a 10 MB `maximum_bytes_billed` cap, and fails unless BigQuery's result matches the local one. In CI it
+query with a 20 MiB `maximum_bytes_billed` cap (BigQuery bills at least 10 MiB per query), and fails unless BigQuery's result matches the local one. In CI it
 signs in keylessly (Workload Identity Federation).
 
 ## Cost
