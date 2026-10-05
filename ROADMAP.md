@@ -1,13 +1,16 @@
 # Roadmap
 
-One microfeature per day for 80 days, starting 2026-10-05.
-Each one is small, runs end to end, and shows one data-engineering skill a hiring manager would recognise.
+Two microfeatures a day for 80 days, starting 2026-10-05: one on **Databricks** and one on **Google Cloud**.
+Each one is small, runs end to end, and is built on a platform feature released in the last 180 days, chosen that
+morning from the official release notes (see [CLAUDE.md](CLAUDE.md)). The lists below are **themes**, not fixed
+assignments: each day, match the newest suitable release to a theme that hasn't been covered yet.
+
 The running theme is **grocery data**: [ANTeater](https://github.com/shivacheruvu/ANTeater) scan exports
 and the public [Open Food Facts](https://world.openfoodfacts.org/data) dataset (ODbL), so no private data is ever used.
 
-## Phase 1 — Databricks (days 1–14, 14-day free trial)
+## Databricks track (days 1–14 on the trial, then Free Edition)
 
-| Day | Microfeature | Shows |
+| # | Theme | Typical services |
 |---|---|---|
 | 1 | Medallion pipeline for ANTeater scan exports (bronze → silver → gold) | Lakeflow Declarative Pipelines, Delta Lake |
 | 2 | Unity Catalog as code: catalog, schemas, volumes, grants | Unity Catalog, governance |
@@ -24,9 +27,13 @@ and the public [Open Food Facts](https://world.openfoodfacts.org/data) dataset (
 | 13 | Streaming scan events with exactly-once output | Structured Streaming, checkpoints |
 | 14 | Wrap-up: export every result, move a lite version to Free Edition, confirm nothing bills | Cost control, portability |
 
-## Phase 2 — Google Cloud (days 15–80, free-trial credits)
+After day 14: keep going on Free Edition (serverless only) with new releases: AI functions, metric views,
+dashboards, Lakeflow updates, Unity Catalog features, Databricks Apps.
 
-Built in roughly this order; the daily session picks the next unbuilt item and adds new ideas when fewer than 10 remain.
+## Google Cloud track (days 1–80, free-trial credits)
+
+Items 1 and 2 are **setup**, not microfeatures: do them on the first GCP day alongside that day's feature (they make
+later days run in the cloud and cap spend). After that, follow the newest releases.
 
 1. Budget alert + spend kill switch (Budgets, Pub/Sub, Cloud Run function)
 2. Keyless GitHub Actions → GCP (Workload Identity Federation)
