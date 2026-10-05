@@ -49,7 +49,8 @@ locally), `blocked` (explain in the report).
 
 ## Cloud runs
 - Cloud runs happen in GitHub Actions (`.github/workflows/daily.yml`), right after a merge that touches `features/`
-  and every morning. A Databricks feature ships a `databricks.yml` bundle with a `daily` job; a Google Cloud feature
+  and every morning. A Databricks feature ships a `databricks.yml` bundle with a `daily` job, or a `cloud.sh` that uses
+  `$DATABRICKS_HOST` / `$DATABRICKS_TOKEN` (e.g. the SQL Statement Execution API); a Google Cloud feature
   ships a `cloud.sh` that uses `$GCP_PROJECT_ID` / `$GCP_REGION`, is safe to re-run, and cleans up what it doesn't need.
 - After merging, watch that workflow run (`gh api repos/shivacheruvu/cloud-microfeatures/actions/runs?branch=main`)
   and, once the cloud part succeeds, mark the feature `ran` in a follow-up PR (or the next day's PR).

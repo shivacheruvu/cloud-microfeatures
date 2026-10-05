@@ -1,0 +1,74 @@
+{
+  "engine": "duckdb (local) / BigQuery (cloud)",
+  "products": 24,
+  "categories": 7,
+  "best_category": "bakery",
+  "share_grade_a_or_b_pct": 45.8,
+  "with_high_risk_additives": 7,
+  "avg_organic_advantage_points": 32.7,
+  "by_category": [
+    {
+      "category": "bakery",
+      "products": 3,
+      "grade_a_or_b": 2,
+      "with_high_risk_additives": 0,
+      "avg_score": 71.3,
+      "avg_score_organic": 92.0,
+      "avg_score_conventional": 61.0
+    },
+    {
+      "category": "pantry",
+      "products": 3,
+      "grade_a_or_b": 2,
+      "with_high_risk_additives": 1,
+      "avg_score": 69.7,
+      "avg_score_organic": 97.0,
+      "avg_score_conventional": 56.0
+    },
+    {
+      "category": "breakfast",
+      "products": 2,
+      "grade_a_or_b": 1,
+      "with_high_risk_additives": 1,
+      "avg_score": 65.5,
+      "avg_score_organic": 95.0,
+      "avg_score_conventional": 36.0
+    },
+    {
+      "category": "dairy",
+      "products": 4,
+      "grade_a_or_b": 2,
+      "with_high_risk_additives": 1,
+      "avg_score": 65.0,
+      "avg_score_organic": 79.0,
+      "avg_score_conventional": 60.3
+    },
+    {
+      "category": "drinks",
+      "products": 4,
+      "grade_a_or_b": 2,
+      "with_high_risk_additives": 1,
+      "avg_score": 61.3,
+      "avg_score_organic": 65.5,
+      "avg_score_conventional": 57.0
+    },
+    {
+      "category": "snacks",
+      "products": 5,
+      "grade_a_or_b": 2,
+      "with_high_risk_additives": 2,
+      "avg_score": 54.2,
+      "avg_score_organic": 86.0,
+      "avg_score_conventional": 46.3
+    },
+    {
+      "category": "spreads",
+      "products": 3,
+      "grade_a_or_b": 0,
+      "with_high_risk_additives": 1,
+      "avg_score": 40.3,
+      "avg_score_organic": 61.0,
+      "avg_score_conventional": 30.0
+    }
+  ]
+}
