@@ -1,7 +1,8 @@
 # Cloud & Data Infra Microfeatures
 
-One small, working data-engineering feature a day for 80 days: **Databricks for days 1–14** (the free trial),
-then **Google Cloud for days 15–80**. Each one runs end to end, has a test, and shows one skill.
+Two small, working data-engineering features a day for 80 days: one on **Databricks** and one on
+**Google Cloud**. Each one is built on a platform feature released in the last six months (checked against the
+official release notes that morning), runs end to end, and has a test.
 
 Live progress: [shivacheruvu.github.io/projects.html](https://shivacheruvu.github.io/projects.html#section-microtools) ·
 Plan: [ROADMAP.md](ROADMAP.md)
@@ -10,13 +11,23 @@ Plan: [ROADMAP.md](ROADMAP.md)
 [![Secret scan](https://github.com/shivacheruvu/cloud-microfeatures/actions/workflows/secret-scan.yml/badge.svg)](https://github.com/shivacheruvu/cloud-microfeatures/actions/workflows/secret-scan.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Features
+## Databricks features
 
-<!-- features:start -->
-| Day | Platform | Microfeature | Shows | Status |
+Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
+
+<!-- databricks:start -->
+| Day | Microfeature | New platform feature | Shows | Status |
 |---|---|---|---|---|
-| — | — | First microfeature ships on day 1 | — | — |
-<!-- features:end -->
+| — | First microfeature ships on day 1 | — | — | — |
+<!-- databricks:end -->
+
+## Google Cloud features
+
+<!-- gcp:start -->
+| Day | Microfeature | New platform feature | Shows | Status |
+|---|---|---|---|---|
+| — | First microfeature ships on day 1 | — | — | — |
+<!-- gcp:end -->
 
 ## Run any of them yourself
 
