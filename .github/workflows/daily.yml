@@ -1,11 +1,18 @@
-# Daily heartbeat: re-runs every feature's local tests, and runs cloud jobs only
-# when the matching credentials exist as repository secrets.
+# Runs every feature's local tests, then the cloud parts: right after a feature merges to main, and daily.
+# Cloud jobs run only when the matching access is configured (Databricks secrets / GCP keyless variables).
 name: Daily run
 
 on:
   schedule:
     - cron: "17 14 * * *"   # 09:17 Chicago (CDT)
+  push:
+    branches: [main]
+    paths: ["features/**"]
   workflow_dispatch:
+
+concurrency:
+  group: daily-run
+  cancel-in-progress: false
 
 permissions:
   contents: read
@@ -48,5 +55,36 @@ jobs:
             [ -f "$b" ] || continue
             d=$(dirname "$b"); echo "::group::$d"
             (cd "$d" && databricks bundle deploy -t dev && databricks bundle run -t dev daily) || echo "::warning::$d failed"
+            echo "::endgroup::"
+          done
+
+  gcp:
+    needs: local
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write   # keyless sign-in through Workload Identity Federation
+    if: vars.GCP_WIF_PROVIDER != '' && vars.GCP_SERVICE_ACCOUNT != ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: google-github-actions/auth@v2
+        id: auth
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+      - uses: google-github-actions/setup-gcloud@v2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run each Google Cloud feature's cloud.sh
+        env:
+          GCP_PROJECT_ID: ${{ steps.auth.outputs.project_id }}
+          GCP_REGION: us-central1
+        run: |
+          gcloud config set project "$GCP_PROJECT_ID" --quiet
+          for s in features/gcp/day-*/cloud.sh; do
+            [ -f "$s" ] || continue
+            d=$(dirname "$s"); echo "::group::$d"
+            (cd "$d" && bash cloud.sh) || echo "::warning::$d failed"
             echo "::endgroup::"
           done
