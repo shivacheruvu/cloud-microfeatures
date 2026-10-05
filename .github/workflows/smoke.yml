@@ -1,0 +1,58 @@
+# Connection check for both platforms. Prints only ok / failed, never identities or IDs (logs are public).
+# Runs when this file changes on main, or by hand from the Actions tab.
+name: Cloud smoke test
+
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/smoke.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  databricks:
+    runs-on: ubuntu-latest
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+    steps:
+      - uses: databricks/setup-cli@main
+      - name: Sign in and run one serverless SQL statement
+        run: |
+          set -euo pipefail
+          [ -n "$DATABRICKS_HOST" ] && [ -n "$DATABRICKS_TOKEN" ] || { echo "Databricks secrets are missing"; exit 1; }
+          databricks current-user me -o json > /tmp/me.json && echo "Databricks sign-in: ok"
+          wh=$(databricks warehouses list -o json | jq -r '[.[] | select(.enable_serverless_compute == true)][0].id // empty')
+          if [ -z "$wh" ]; then wh=$(databricks warehouses list -o json | jq -r '.[0].id // empty'); fi
+          [ -n "$wh" ] || { echo "No SQL warehouse found in the workspace"; exit 1; }
+          echo "SQL warehouse found: ok"
+          res=$(databricks api post /api/2.0/sql/statements --json "{\"warehouse_id\":\"$wh\",\"statement\":\"SELECT 1 + 1 AS two\",\"wait_timeout\":\"50s\"}")
+          state=$(echo "$res" | jq -r '.status.state')
+          value=$(echo "$res" | jq -r '.result.data_array[0][0] // empty')
+          echo "Statement state: $state, result: $value"
+          [ "$state" = "SUCCEEDED" ] && [ "$value" = "2" ]
+
+  gcp:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Check keyless variables are set
+        env:
+          P: ${{ vars.GCP_WIF_PROVIDER }}
+          S: ${{ vars.GCP_SERVICE_ACCOUNT }}
+        run: '[ -n "$P" ] && [ -n "$S" ] && echo "GCP variables: ok" || { echo "GCP_WIF_PROVIDER / GCP_SERVICE_ACCOUNT missing"; exit 1; }'
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+      - uses: google-github-actions/setup-gcloud@v2
+      - name: Run one BigQuery query (free tier)
+        run: |
+          set -euo pipefail
+          out=$(bq query --quiet --nouse_legacy_sql --format=csv 'SELECT 1 + 1 AS two' | tail -1)
+          echo "BigQuery result: $out"
+          [ "$out" = "2" ]
