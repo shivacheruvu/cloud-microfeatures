@@ -7,7 +7,7 @@ Shiva values a finished, working feature over an ambitious unfinished one.
 1. Work out today's day number: the next day after the highest `day` in `manifest.json`. If it is above 80, stop:
    the program is complete.
 2. Read `ROADMAP.md` for what that day should build, and the matching skill before touching a cloud service.
-   Skills live in Shiva's Obsidian vault (`AI-Frontier-Vault/50 Skills Library/packages/`) and upstream at
+   Skills live in Shiva's Obsidian vault (`~/Documents/Obsidian Vault/50 Skills Library/packages/`) and upstream at
    `github.com/databricks/databricks-agent-skills` and `github.com/google/skills`. For gcloud, follow Google's rule:
    check `gcloud help <command>` before using any command.
 3. Check `reports/` for yesterday's notes, open problems and anything Shiva asked for.
