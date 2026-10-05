@@ -18,5 +18,48 @@
       }
     }
   },
-  "features": []
+  "features": [
+    {
+      "day": 1,
+      "platform": "databricks",
+      "slug": "day-01-scan-rush-hours",
+      "date": "2026-10-05",
+      "title": "Scan rush hours with time_bucket",
+      "summary": "Buckets a store day of grocery scans into 30-minute slots aligned to the 07:15 opening, with scan counts and health scores per slot.",
+      "headline": "Busiest slot 12:15 \u00b7 6 scans \u00b7 13 slots",
+      "skills": [
+        "Databricks SQL",
+        "Serverless SQL warehouse",
+        "Statement Execution API"
+      ],
+      "status": "ran-local",
+      "path": "features/databricks/day-01-scan-rush-hours",
+      "new_feature": {
+        "name": "time_bucket SQL function",
+        "released": "2026-09-08",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/september"
+      }
+    },
+    {
+      "day": 1,
+      "platform": "gcp",
+      "slug": "day-01-filtered-aggregates",
+      "date": "2026-10-05",
+      "title": "One-pass category scorecard with WHERE inside aggregates",
+      "summary": "Grocery category scorecard (Nutri-Score A/B, high-risk additives, organic vs conventional) computed in a single BigQuery pass.",
+      "headline": "Organic scores +32.7 points \u00b7 7 categories",
+      "skills": [
+        "BigQuery",
+        "GoogleSQL",
+        "Workload Identity Federation"
+      ],
+      "status": "ran-local",
+      "path": "features/gcp/day-01-filtered-aggregates",
+      "new_feature": {
+        "name": "WHERE clause in aggregate functions (Preview)",
+        "released": "2026-09-14",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
+    }
+  ]
 }
