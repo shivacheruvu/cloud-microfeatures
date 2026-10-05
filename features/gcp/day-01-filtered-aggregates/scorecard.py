@@ -81,11 +81,19 @@ def summarise(rows: list[dict]) -> dict:
 if __name__ == "__main__":
     local = run_local()
     if len(sys.argv) > 2 and sys.argv[1] == "--compare":
-        cloud = normalise(json.loads(Path(sys.argv[2]).read_text()))
+        text = Path(sys.argv[2]).read_text()
+        start = text.find("[")  # bq may print a warning line before the JSON
+        try:
+            cloud = normalise(json.loads(text[start:]))
+        except (ValueError, KeyError) as e:
+            print(f"::error title=Unreadable BigQuery output::{type(e).__name__}: {text[:300]!r}")
+            raise SystemExit(1)
         for r in cloud:
             print(r)
         if cloud != local:
-            raise SystemExit("BigQuery result differs from the local DuckDB result")
+            diff = [(c, l) for c, l in zip(cloud, local) if c != l] or [("rows", len(cloud), len(local))]
+            print(f"::error title=BigQuery result differs from local::{json.dumps(diff)[:900]}")
+            raise SystemExit(1)
         print(f"::notice title=Google Cloud day 1::WHERE-in-aggregate ran on BigQuery: {json.dumps(summarise(cloud))}")
     else:
         (HERE / "result.json").write_text(json.dumps({"engine": "duckdb (local) / BigQuery (cloud)", **summarise(local),
