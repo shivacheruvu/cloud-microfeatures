@@ -54,6 +54,12 @@ locally), `blocked` (explain in the report).
   ships a `cloud.sh` that uses `$GCP_PROJECT_ID` / `$GCP_REGION`, is safe to re-run, and cleans up what it doesn't need.
 - After merging, watch that workflow run (`gh api repos/shivacheruvu/cloud-microfeatures/actions/runs?branch=main`)
   and, once the cloud part succeeds, mark the feature `ran` in a follow-up PR (or the next day's PR).
+- Reading results: Actions log/run APIs are blocked in Claude sessions. Find the merge commit's check runs with
+  `gh api repos/shivacheruvu/cloud-microfeatures/commits/SHA/check-runs` and read their annotations
+  (`.../check-runs/ID/annotations`). Cloud scripts must print results as `::notice` and failures as `::error`
+  annotations, never printing project IDs, emails or hostnames (logs are public).
+- `bq` gotchas: pass SQL on stdin (a leading `--` comment is read as a flag), `--maximum_bytes_billed` at least
+  10 MiB (use 20971520), put global flags before the command, and expect a `--scopes` warning before JSON output.
 - GCP access is keyless: repository variables `GCP_WIF_PROVIDER` and `GCP_SERVICE_ACCOUNT`, set up once with
   `scripts/gcp_setup_keyless.sh`. Only workflows on `main` can sign in.
 - Credentials exist only as GitHub Actions secrets (`DATABRICKS_HOST`, `DATABRICKS_TOKEN`, and GCP via Workload

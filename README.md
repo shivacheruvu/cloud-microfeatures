@@ -18,7 +18,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 <!-- databricks:start -->
 | Day | Microfeature | New platform feature | Shows | Status |
 |---|---|---|---|---|
-| 1 | [Scan rush hours with time_bucket](features/databricks/day-01-scan-rush-hours) | [time_bucket SQL function](https://docs.databricks.com/aws/en/release-notes/product/2026/september) (2026-09-08) | Databricks SQL, Serverless SQL warehouse, Statement Execution API | ran-local |
+| 1 | [Scan rush hours with time_bucket](features/databricks/day-01-scan-rush-hours) | [time_bucket SQL function](https://docs.databricks.com/aws/en/release-notes/product/2026/september) (2026-09-08) | Databricks SQL, Serverless SQL warehouse, Statement Execution API | ran |
 <!-- databricks:end -->
 
 ## Google Cloud features
@@ -26,7 +26,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 <!-- gcp:start -->
 | Day | Microfeature | New platform feature | Shows | Status |
 |---|---|---|---|---|
-| 1 | [One-pass category scorecard with WHERE inside aggregates](features/gcp/day-01-filtered-aggregates) | [WHERE clause in aggregate functions (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-14) | BigQuery, GoogleSQL, Workload Identity Federation | ran-local |
+| 1 | [One-pass category scorecard with WHERE inside aggregates](features/gcp/day-01-filtered-aggregates) | [WHERE clause in aggregate functions (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-14) | BigQuery, GoogleSQL, Workload Identity Federation | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself
