@@ -21,6 +21,8 @@ step "Create dataset" bq --quiet --location=US mk -d --default_table_expiration 
 step "Load CSV" bq --quiet --location=US load --source_format=CSV --skip_leading_rows=1 "${GCP_PROJECT_ID}:${DS}.products" data/products.csv \
   barcode:STRING,name:STRING,category:STRING,nutri_grade:STRING,health_score:INT64,organic:BOOL,high_risk_additives:INT64
 python -c "import scorecard; print(scorecard.bigquery_sql('${GCP_PROJECT_ID}.${DS}.products'))" > /tmp/scorecard.sql
-step "Run query" bq --quiet --location=US --format=json query --nouse_legacy_sql --maximum_bytes_billed=10000000 "$(cat /tmp/scorecard.sql)"
+# SQL goes in on stdin: as an argument, its leading "--" comment would be read as a flag.
+run_query() { bq --quiet --location=US --format=json query --nouse_legacy_sql --maximum_bytes_billed=10000000 < /tmp/scorecard.sql; }
+step "Run query" run_query
 cp "$LOG.out" /tmp/bq.json
 python scorecard.py --compare /tmp/bq.json
