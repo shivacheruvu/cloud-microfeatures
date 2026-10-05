@@ -48,6 +48,13 @@ Status values: `built` (code + local test), `ran` (also ran in the cloud), `ran-
 locally), `blocked` (explain in the report).
 
 ## Cloud runs
+- Cloud runs happen in GitHub Actions (`.github/workflows/daily.yml`), right after a merge that touches `features/`
+  and every morning. A Databricks feature ships a `databricks.yml` bundle with a `daily` job; a Google Cloud feature
+  ships a `cloud.sh` that uses `$GCP_PROJECT_ID` / `$GCP_REGION`, is safe to re-run, and cleans up what it doesn't need.
+- After merging, watch that workflow run (`gh api repos/shivacheruvu/cloud-microfeatures/actions/runs?branch=main`)
+  and, once the cloud part succeeds, mark the feature `ran` in a follow-up PR (or the next day's PR).
+- GCP access is keyless: repository variables `GCP_WIF_PROVIDER` and `GCP_SERVICE_ACCOUNT`, set up once with
+  `scripts/gcp_setup_keyless.sh`. Only workflows on `main` can sign in.
 - Credentials exist only as GitHub Actions secrets (`DATABRICKS_HOST`, `DATABRICKS_TOKEN`, and GCP via Workload
   Identity Federation). Never print, log or commit them. Never ask for them in chat.
 - If the secrets aren't set yet, build and test locally, mark the feature `ran-local`, and say in the report what
