@@ -4,10 +4,19 @@
     "owner": "shivacheruvu",
     "total_days": 80,
     "start_date": "2026-10-05",
-    "phases": [
-      { "platform": "databricks", "days": [1, 14], "note": "Databricks 14-day free trial" },
-      { "platform": "gcp", "days": [15, 80], "note": "Google Cloud free-trial credits" }
-    ]
+    "max_feature_age_days": 180,
+    "tracks": {
+      "databricks": {
+        "label": "Databricks",
+        "note": "Days 1-14 on the Databricks 14-day trial, then Databricks Free Edition",
+        "release_notes": "https://docs.databricks.com/aws/en/release-notes/product/"
+      },
+      "gcp": {
+        "label": "Google Cloud",
+        "note": "Google Cloud free-trial credits",
+        "release_notes": "https://cloud.google.com/release-notes"
+      }
+    }
   },
   "features": []
 }

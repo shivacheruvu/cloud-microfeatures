@@ -44,7 +44,7 @@ jobs:
       - if: steps.gate.outputs.run == 'true'
         name: Deploy and run Databricks bundles
         run: |
-          for b in features/day-*/databricks.yml; do
+          for b in features/databricks/day-*/databricks.yml; do
             [ -f "$b" ] || continue
             d=$(dirname "$b"); echo "::group::$d"
             (cd "$d" && databricks bundle deploy -t dev && databricks bundle run -t dev daily) || echo "::warning::$d failed"
