@@ -1,0 +1,26 @@
+barcode,name,category,nutri_grade,health_score,organic,high_risk_additives
+1000000000001,Hazelnut cocoa spread,spreads,e,22,false,0
+1000000000002,Organic peanut butter,spreads,c,61,true,0
+1000000000003,Strawberry jam,spreads,d,38,false,1
+1000000000004,Cola,drinks,e,18,false,1
+1000000000005,Sparkling mineral water,drinks,a,96,false,0
+1000000000006,Organic orange juice,drinks,c,57,true,0
+1000000000007,Oat drink,drinks,b,74,true,0
+1000000000008,Chocolate sandwich cookies,snacks,e,27,false,1
+1000000000009,Salted potato chips,snacks,d,35,false,0
+1000000000010,Organic rice cakes,snacks,a,86,true,0
+1000000000011,Roasted almonds,snacks,a,90,false,0
+1000000000012,Cheese crackers,snacks,d,33,false,1
+1000000000013,Whole wheat bread,bakery,a,82,false,0
+1000000000014,Croissants,bakery,d,40,false,0
+1000000000015,Organic sourdough,bakery,a,92,true,0
+1000000000016,Plain greek yogurt,dairy,a,88,false,0
+1000000000017,Strawberry yogurt drink,dairy,c,52,false,1
+1000000000018,Organic whole milk,dairy,b,79,true,0
+1000000000019,Cheddar slices,dairy,d,41,false,0
+1000000000020,Spaghetti,pantry,a,88,false,0
+1000000000021,Organic chickpeas,pantry,a,97,true,0
+1000000000022,Instant noodles,pantry,e,24,false,1
+1000000000023,Frosted corn flakes,breakfast,d,36,false,1
+1000000000024,Organic rolled oats,breakfast,a,95,true,0
+1000000000025,Organic granola bar,snacks,d,39,true,0
