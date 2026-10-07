@@ -60,6 +60,27 @@
         "released": "2026-09-14",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 2,
+      "platform": "databricks",
+      "slug": "day-02-lane-counters",
+      "date": "2026-10-06",
+      "title": "Lane counters with counter_diff",
+      "summary": "Turns reboot-prone cumulative checkout-lane scanner counters into items scanned per lane, skipping resets.",
+      "headline": "4,964 items \u00b7 4 resets handled \u00b7 naive total 10,443",
+      "skills": [
+        "Databricks SQL",
+        "Window functions",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-02-lane-counters",
+      "new_feature": {
+        "name": "counter_diff SQL window function",
+        "released": "2026-09-14",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/september"
+      }
     }
   ]
 }
