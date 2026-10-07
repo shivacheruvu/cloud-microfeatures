@@ -1,7 +1,8 @@
 """Day 2 (Google Cloud): score two simple grocery "predictors" with BigQuery's new ML.METRICS function.
 
   python metrics.py --local                 # pure-Python metrics with ML.METRICS' documented definitions; writes result.json
-  python metrics.py --compare CLS.json REG.json   # compare BigQuery JSON output with the local result
+  python metrics.py --compare KIND FILE    # compare BigQuery JSON output for one query with the local result
+                                           # KIND: classification | classification_labels | regression
 
 1. Classification: does the "organic" label predict a healthy product (health score >= 70)?
 2. Regression: how well does the Nutri-Score letter alone (a=90, b=75, c=55, d=38, e=22) estimate the score?
@@ -58,6 +59,19 @@ def regression(pred: list[float], actual: list[float]) -> dict:
     }
 
 
+def macro_classification(pred: list[str], actual: list[str]) -> dict:
+    """ML.METRICS with STRING labels: per-label (one-vs-rest) metrics, then the unweighted mean."""
+    per = [classification([p == lab for p in pred], [a == lab for a in actual]) for lab in sorted(set(actual) | set(pred))]
+    return {k: sum(m[k] for m in per) / len(per) for k in CLS_KEYS}
+
+
+def run_local_labels() -> dict:
+    rows = load_rows()
+    lab = lambda b: "healthy" if b else "other"  # noqa: E731
+    return rounded(macro_classification([lab(r["organic"] == "true") for r in rows],
+                                        [lab(int(r["health_score"]) >= HEALTHY) for r in rows]), CLS_KEYS)
+
+
 def run_local() -> dict:
     rows = load_rows()
     cls = classification([r["organic"] == "true" for r in rows], [int(r["health_score"]) >= HEALTHY for r in rows])
@@ -86,16 +100,21 @@ def same(a: dict, b: dict) -> bool:
 if __name__ == "__main__":
     local = run_local()
     if len(sys.argv) > 3 and sys.argv[1] == "--compare":
-        cloud = {"organic_predicts_healthy": read_bq(sys.argv[2], CLS_KEYS),
-                 "nutri_grade_predicts_score": read_bq(sys.argv[3], REG_KEYS)}
-        print(json.dumps(cloud, indent=2))
-        bad = {k: {"bigquery": cloud[k], "local": local[k]} for k in local if not same(cloud[k], local[k])}
-        if bad:
-            print(f"::error title=BigQuery ML.METRICS differs from local::{json.dumps(bad)[:900]}")
+        kind, path = sys.argv[2], sys.argv[3]
+        expected, keys = {"classification": (local["organic_predicts_healthy"], CLS_KEYS),
+                          "classification_labels": (run_local_labels(), CLS_KEYS),
+                          "regression": (local["nutri_grade_predicts_score"], REG_KEYS)}[kind]
+        cloud = read_bq(path, keys)
+        print(kind, json.dumps(cloud))
+        if not same(cloud, expected):
+            print(f"::error title=BigQuery ML.METRICS ({kind}) differs from local::"
+                  f"{json.dumps({'bigquery': cloud, 'local': expected})[:900]}")
             raise SystemExit(1)
-        print(f"::notice title=Google Cloud day 2::ML.METRICS ran on BigQuery and matched local: {json.dumps(cloud)}")
+        print(f"::notice title=Google Cloud day 2 ({kind})::ML.METRICS ran on BigQuery and matched local: {json.dumps(cloud)}")
     else:
         rows = load_rows()
         (HERE / "result.json").write_text(json.dumps({"engine": "python (local) / BigQuery ML.METRICS (cloud)",
-                                                      "products": len(rows), **local}, indent=2) + "\n")
+                                                      "products": len(rows), **local,
+                                                      "organic_predicts_healthy_macro_labels": run_local_labels()},
+                                                     indent=2) + "\n")
         print(json.dumps(local, indent=2))

@@ -48,7 +48,7 @@ def test_sql_uses_ml_metrics():
         assert "FROM ML.METRICS(" in sql and f"task_type => '{task}'" in sql and "`p.d.t`" in sql
 
 
-def test_compare_reads_bq_json_with_warning(tmp_path):
+def test_read_bq_json_with_warning(tmp_path):
     local = mm.run_local()
     f = tmp_path / "c.json"
     f.write_text("WARNING: --scopes ...\n" + json.dumps([{k: str(v) for k, v in local["organic_predicts_healthy"].items()}]))
@@ -58,3 +58,16 @@ def test_compare_reads_bq_json_with_warning(tmp_path):
 def test_result_json_is_current():
     result = json.loads((FEATURE / "result.json").read_text())
     assert {k: result[k] for k in ("organic_predicts_healthy", "nutri_grade_predicts_score")} == mm.run_local()
+
+
+def test_string_label_fallback_is_macro_average():
+    # two labels: accuracy unchanged; precision/recall/F1 are the mean of the "healthy" and "other" classes
+    rows = mm.load_rows()
+    pred = [r["organic"] == "true" for r in rows]
+    act = [int(r["health_score"]) >= 70 for r in rows]
+    pos = mm.classification(pred, act)
+    neg = mm.classification([not p for p in pred], [not a for a in act])
+    expected = {k: (pos[k] + neg[k]) / 2 for k in mm.CLS_KEYS}
+    assert mm.run_local_labels() == mm.rounded(expected, mm.CLS_KEYS)
+    assert mm.run_local_labels()["accuracy"] == mm.run_local()["organic_predicts_healthy"]["accuracy"]
+    assert "IF(organic, 'healthy', 'other') AS predicted" in mm.bigquery_sql("classification_labels", "p.d.t")
