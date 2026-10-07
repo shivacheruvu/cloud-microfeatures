@@ -14,5 +14,11 @@
     "median_absolute_error": 3.0,
     "r2_score": 0.9801,
     "explained_variance": 0.9804
+  },
+  "organic_predicts_healthy_macro_labels": {
+    "precision": 0.6771,
+    "recall": 0.6656,
+    "accuracy": 0.68,
+    "f1_score": 0.6667
   }
 }

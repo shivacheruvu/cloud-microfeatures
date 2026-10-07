@@ -34,11 +34,28 @@ query_with_retry() {  # query_with_retry <sql file>; prints the JSON of the firs
     sleep "$wait"
   done
 }
-for q in classification regression; do
-  python -c "import metrics; print(metrics.bigquery_sql('$q', '${GCP_PROJECT_ID}.${DS}.products'))" > "/tmp/$q.sql"
+# try "<name>" cmd...: like step, but reports the error and returns non-zero instead of exiting.
+try() {
+  local name=$1; shift
+  if ! "$@" >"$LOG.out" 2>"$LOG"; then
+    msg=$( (tail -c 600 "$LOG"; tail -c 600 "$LOG.out") | sed "s/${GCP_PROJECT_ID}/<project>/g" | tr '\n' ' ')
+    echo "::${LEVEL:-error} title=${name} failed::${msg}"
+    return 1
+  fi
+}
+run_and_compare() {  # run_and_compare <query name>: query BigQuery, then compare with the local result
+  python -c "import metrics; print(metrics.bigquery_sql('$1', '${GCP_PROJECT_ID}.${DS}.products'))" > "/tmp/$1.sql"
   # SQL goes in on stdin: as an argument, its leading "--" comment would be read as a flag.
-  step "ML.METRICS ($q)" query_with_retry "/tmp/$q.sql"
-  cp "$LOG.out" "/tmp/$q.json"
-done
-[ -s /tmp/retries.txt ] && echo "::warning title=BigQuery transient errors::retried $(wc -l < /tmp/retries.txt) time(s) before success"
-python metrics.py --compare /tmp/classification.json /tmp/regression.json
+  try "ML.METRICS ($1)" query_with_retry "/tmp/$1.sql" || return 1
+  cp "$LOG.out" "/tmp/$1.json"
+  python metrics.py --compare "$1" "/tmp/$1.json"
+}
+failed=0
+run_and_compare regression || failed=1
+# BOOL labels hit a persistent BigQuery internal error on 2026-10-06; STRING labels are the fallback.
+if ! LEVEL=warning run_and_compare classification; then
+  echo "::warning title=Google Cloud day 2::BOOL classification failed; trying STRING labels"
+  run_and_compare classification_labels || failed=1
+fi
+[ -s /tmp/retries.txt ] && echo "::warning title=BigQuery transient errors::retried $(wc -l < /tmp/retries.txt) time(s)"
+exit $failed
