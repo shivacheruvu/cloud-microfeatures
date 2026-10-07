@@ -23,10 +23,13 @@ an external model's scores, or yesterday's forecast against today's actuals, in 
 ## How to run
 ```bash
 python metrics.py --local                          # pure Python with ML.METRICS' documented definitions; writes result.json
-python metrics.py --compare cls.json reg.json      # compare BigQuery's JSON output with the local result
+python metrics.py --compare regression reg.json    # compare one BigQuery JSON output with the local result
 ```
 In CI, `cloud.sh` (keyless sign-in) loads the CSV into a short-lived dataset (1-hour table expiry, deleted on exit),
-runs both `ML.METRICS` queries, and fails unless BigQuery's metrics match the local ones to 4 decimals. The test
+runs both `ML.METRICS` queries, and fails unless BigQuery's metrics match the local ones to 4 decimals.
+On 2026-10-06 the BOOL-label classification query hit a persistent BigQuery internal error (Preview), so
+`cloud.sh` falls back to the same question with STRING labels (`classification_labels.sql`, macro-averaged over
+"healthy" and "other": precision 0.677, recall 0.666, accuracy 0.68, F1 0.667). Regression runs on its own first. The test
 (`tests/test_day02_gcp_ml_metrics.py`) checks the local metrics against a confusion matrix and DuckDB SQL.
 
 ## Cost
