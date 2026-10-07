@@ -28,7 +28,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | Day | Microfeature | New platform feature | Shows | Status |
 |---|---|---|---|---|
 | 1 | [One-pass category scorecard with WHERE inside aggregates](features/gcp/day-01-filtered-aggregates) | [WHERE clause in aggregate functions (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-14) | BigQuery, GoogleSQL, Workload Identity Federation | ran |
-| 2 | [Grading grocery predictors with ML.METRICS](features/gcp/day-02-ml-metrics) | [ML.METRICS function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Workload Identity Federation | built |
+| 2 | [Grading grocery predictors with ML.METRICS](features/gcp/day-02-ml-metrics) | [ML.METRICS function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Workload Identity Federation | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself

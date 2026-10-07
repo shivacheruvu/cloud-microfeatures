@@ -95,7 +95,7 @@
         "BigQuery ML",
         "Workload Identity Federation"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-02-ml-metrics",
       "new_feature": {
         "name": "ML.METRICS function (Preview)",
