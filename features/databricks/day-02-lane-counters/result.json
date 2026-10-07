@@ -1,0 +1,51 @@
+{
+  "engine": "duckdb (local) / Databricks SQL (cloud)",
+  "lanes": 5,
+  "items_scanned": 4964,
+  "resets_handled": 4,
+  "busiest_lane": "self-checkout",
+  "busiest_lane_items": 1229,
+  "naive_max_minus_min_total": 10443,
+  "by_lane": [
+    {
+      "lane": "lane-1",
+      "readings": 29,
+      "items_scanned": 1006,
+      "resets": 0,
+      "peak_items_15min": 67,
+      "naive_max_minus_min": 1006
+    },
+    {
+      "lane": "lane-2",
+      "readings": 29,
+      "items_scanned": 946,
+      "resets": 1,
+      "peak_items_15min": 60,
+      "naive_max_minus_min": 2186
+    },
+    {
+      "lane": "lane-3",
+      "readings": 29,
+      "items_scanned": 976,
+      "resets": 0,
+      "peak_items_15min": 61,
+      "naive_max_minus_min": 976
+    },
+    {
+      "lane": "lane-4",
+      "readings": 29,
+      "items_scanned": 807,
+      "resets": 2,
+      "peak_items_15min": 55,
+      "naive_max_minus_min": 1922
+    },
+    {
+      "lane": "self-checkout",
+      "readings": 29,
+      "items_scanned": 1229,
+      "resets": 1,
+      "peak_items_15min": 79,
+      "naive_max_minus_min": 4353
+    }
+  ]
+}
