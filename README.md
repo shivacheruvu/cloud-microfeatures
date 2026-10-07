@@ -19,7 +19,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | Day | Microfeature | New platform feature | Shows | Status |
 |---|---|---|---|---|
 | 1 | [Scan rush hours with time_bucket](features/databricks/day-01-scan-rush-hours) | [time_bucket SQL function](https://docs.databricks.com/aws/en/release-notes/product/2026/september) (2026-09-08) | Databricks SQL, Serverless SQL warehouse, Statement Execution API | ran |
-| 2 | [Lane counters with counter_diff](features/databricks/day-02-lane-counters) | [counter_diff SQL window function](https://docs.databricks.com/aws/en/release-notes/product/2026/september) (2026-09-14) | Databricks SQL, Window functions, Statement Execution API | built |
+| 2 | [Lane counters with counter_diff](features/databricks/day-02-lane-counters) | [counter_diff SQL window function](https://docs.databricks.com/aws/en/release-notes/product/2026/september) (2026-09-14) | Databricks SQL, Window functions, Statement Execution API | ran |
 <!-- databricks:end -->
 
 ## Google Cloud features
@@ -28,6 +28,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | Day | Microfeature | New platform feature | Shows | Status |
 |---|---|---|---|---|
 | 1 | [One-pass category scorecard with WHERE inside aggregates](features/gcp/day-01-filtered-aggregates) | [WHERE clause in aggregate functions (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-14) | BigQuery, GoogleSQL, Workload Identity Federation | ran |
+| 2 | [Grading grocery predictors with ML.METRICS](features/gcp/day-02-ml-metrics) | [ML.METRICS function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Workload Identity Federation | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself
