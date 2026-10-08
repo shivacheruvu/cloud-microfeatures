@@ -1,3 +1,4 @@
 pytest>=8
 duckdb>=1.1
 pyspark>=3.5
+numpy>=1.26   # DuckDB Python UDFs (day 3 Databricks local run)
