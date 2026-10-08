@@ -1,0 +1,52 @@
+{
+  "engine": "duckdb + same Python body (local) / Databricks SQL Unity Catalog Python UDF (cloud)",
+  "scans": 240,
+  "invalid_scans": 12,
+  "invalid_pct": 5.0,
+  "worst_lane": "self-checkout",
+  "worst_lane_invalid_pct": 10.9,
+  "by_status": {
+    "valid": 228,
+    "bad_check_digit": 4,
+    "bad_length": 3,
+    "not_numeric": 5
+  },
+  "by_lane": [
+    {
+      "lane": "lane-1",
+      "scans": 75,
+      "valid": 73,
+      "bad_check_digit": 0,
+      "bad_length": 0,
+      "not_numeric": 2,
+      "distinct_bad_codes": 2
+    },
+    {
+      "lane": "lane-2",
+      "scans": 52,
+      "valid": 49,
+      "bad_check_digit": 2,
+      "bad_length": 0,
+      "not_numeric": 1,
+      "distinct_bad_codes": 3
+    },
+    {
+      "lane": "lane-3",
+      "scans": 58,
+      "valid": 57,
+      "bad_check_digit": 0,
+      "bad_length": 1,
+      "not_numeric": 0,
+      "distinct_bad_codes": 1
+    },
+    {
+      "lane": "self-checkout",
+      "scans": 55,
+      "valid": 49,
+      "bad_check_digit": 2,
+      "bad_length": 2,
+      "not_numeric": 2,
+      "distinct_bad_codes": 6
+    }
+  ]
+}
