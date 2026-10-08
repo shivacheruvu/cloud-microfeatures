@@ -30,7 +30,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 |---|---|---|---|---|
 | 1 | [One-pass category scorecard with WHERE inside aggregates](features/gcp/day-01-filtered-aggregates) | [WHERE clause in aggregate functions (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-14) | BigQuery, GoogleSQL, Workload Identity Federation | ran |
 | 2 | [Grading grocery predictors with ML.METRICS](features/gcp/day-02-ml-metrics) | [ML.METRICS function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Workload Identity Federation | ran |
-| 3 | [What moved this week's grocery sales? AI.KEY_DRIVERS](features/gcp/day-03-key-drivers) | [AI.KEY_DRIVERS function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-29) | BigQuery, BigQuery AI functions, Workload Identity Federation | built |
+| 3 | [What moved this week's grocery sales? AI.KEY_DRIVERS](features/gcp/day-03-key-drivers) | [AI.KEY_DRIVERS function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-29) | BigQuery, BigQuery AI functions, Workload Identity Federation | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself
