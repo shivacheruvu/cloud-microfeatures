@@ -61,8 +61,9 @@ def run_local(rows: list[dict]) -> dict[str, dict]:
     for store, category, channel, i, r in cube:
         key = segment_key([f"{d}={v}" for d, v in zip(DIMS, (store, category, channel)) if v is not None])
         # Expected interest value if the segment had changed like the rest of the data (its complement).
+        # The [all] segment has no complement: BigQuery reports its whole difference as unexpected (cloud run 2026-10-07).
         rest_i, rest_r = total_i - i, total_r - r
-        unexpected = None if rest_r == 0 else i - r * rest_i / rest_r
+        unexpected = float(i - r) if rest_r == 0 and rest_i == 0 else (None if rest_r == 0 else i - r * rest_i / rest_r)
         out[key] = {"metric_interest": float(i), "metric_reference": float(r), "difference": float(i - r),
                     "apriori_support": max(i / total_i, r / total_r), "contribution": float(abs(i - r)),
                     "unexpected_difference": unexpected}
