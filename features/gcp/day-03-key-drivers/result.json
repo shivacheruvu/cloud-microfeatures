@@ -1,0 +1,91 @@
+{
+  "engine": "duckdb CUBE (local) / BigQuery AI.KEY_DRIVERS (cloud)",
+  "segments": 72,
+  "units_last_week": 11516,
+  "units_this_week": 11799,
+  "change_pct": 2.5,
+  "top_drivers": [
+    {
+      "segment": "category=produce & store=north",
+      "difference": -430
+    },
+    {
+      "segment": "category=bakery & channel=online",
+      "difference": 368
+    }
+  ],
+  "top_by_contribution": [
+    {
+      "segment": "category=bakery",
+      "metric_interest": 3068.0,
+      "metric_reference": 2581.0,
+      "difference": 487.0,
+      "apriori_support": 0.260022,
+      "contribution": 487.0,
+      "unexpected_difference": 545.92826
+    },
+    {
+      "segment": "category=produce & store=north",
+      "metric_interest": 526.0,
+      "metric_reference": 956.0,
+      "difference": -430.0,
+      "apriori_support": 0.083015,
+      "contribution": 430.0,
+      "unexpected_difference": -494.548106
+    },
+    {
+      "segment": "category=produce & channel=in_store & store=north",
+      "metric_interest": 459.0,
+      "metric_reference": 834.0,
+      "difference": -375.0,
+      "apriori_support": 0.072421,
+      "contribution": 375.0,
+      "unexpected_difference": -426.373526
+    },
+    {
+      "segment": "category=bakery & channel=online",
+      "metric_interest": 828.0,
+      "metric_reference": 460.0,
+      "difference": 368.0,
+      "apriori_support": 0.070175,
+      "contribution": 368.0,
+      "unexpected_difference": 371.536541
+    },
+    {
+      "segment": "category=produce",
+      "metric_interest": 2236.0,
+      "metric_reference": 2603.0,
+      "difference": -367.0,
+      "apriori_support": 0.226033,
+      "contribution": 367.0,
+      "unexpected_difference": -556.829463
+    },
+    {
+      "segment": "channel=online",
+      "metric_interest": 2469.0,
+      "metric_reference": 2128.0,
+      "difference": 341.0,
+      "apriori_support": 0.209255,
+      "contribution": 341.0,
+      "unexpected_difference": 354.146996
+    },
+    {
+      "segment": "category=produce & channel=in_store",
+      "metric_interest": 1883.0,
+      "metric_reference": 2202.0,
+      "difference": -319.0,
+      "apriori_support": 0.191212,
+      "contribution": 319.0,
+      "unexpected_difference": -461.323814
+    },
+    {
+      "segment": "all",
+      "metric_interest": 11799.0,
+      "metric_reference": 11516.0,
+      "difference": 283.0,
+      "apriori_support": 1.0,
+      "contribution": 283.0,
+      "unexpected_difference": null
+    }
+  ]
+}
