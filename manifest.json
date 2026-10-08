@@ -102,6 +102,27 @@
         "released": "2026-09-10",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 3,
+      "platform": "databricks",
+      "slug": "day-03-barcode-udf",
+      "date": "2026-10-07",
+      "title": "Barcode audit with a Unity Catalog Python UDF",
+      "summary": "A governed Python UDF (named handler, environment 6) checks every scan's GS1 check digit and counts bad barcodes per checkout lane.",
+      "headline": "12 of 240 scans invalid \u00b7 self-checkout 10.9%",
+      "skills": [
+        "Unity Catalog",
+        "Python UDFs",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-03-barcode-udf",
+      "new_feature": {
+        "name": "Scalar Unity Catalog Python UDFs with named handlers (GA)",
+        "released": "2026-09-23",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/september"
+      }
     }
   ]
 }
