@@ -30,7 +30,9 @@ python key_drivers.py --sql            # the BigQuery query, data inlined (nothi
 ```
 In CI, `cloud.sh` runs the query with `bq` and fails unless every segment's interest, reference, difference,
 support and contribution equal the local values. `unexpected_difference` is compared with a local formula
-(interest minus reference × complement's growth) and only warns if BigQuery defines it differently.
+(interest minus reference × complement's growth; for `[all]`, the whole difference) and only warns if BigQuery
+defines it differently. The first cloud run (2026-10-07) matched all 72 segments, and the formula on 71; `[all]`
+was aligned to BigQuery afterwards.
 The test (`tests/test_day03_gcp_key_drivers.py`) checks the local reference against a plain-Python segment walk.
 
 ## Cost

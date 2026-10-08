@@ -137,7 +137,7 @@
         "BigQuery AI functions",
         "Workload Identity Federation"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-03-key-drivers",
       "new_feature": {
         "name": "AI.KEY_DRIVERS function (GA)",
