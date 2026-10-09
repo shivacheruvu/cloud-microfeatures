@@ -1,0 +1,15 @@
+{
+  "engine": "pure-Python mean-shift detector (local) / BigQuery ML.DETECT_CHANGE_POINTS (cloud)",
+  "days": 91,
+  "stores": 2,
+  "shifts": {
+    "east": {
+      "change_date": "2026-07-10",
+      "avg_before": 40.4,
+      "avg_after": 62.8,
+      "shift_pct": 55.3
+    },
+    "west": null
+  },
+  "headline": "east: +55% from 2026-07-10; west: no shift"
+}
