@@ -179,7 +179,7 @@
         "BigQuery ML time series",
         "Workload Identity Federation"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-04-change-points",
       "new_feature": {
         "name": "ML.DETECT_CHANGE_POINTS function (Preview)",

@@ -80,3 +80,13 @@ def test_epoch_timestamps_and_unexpected_shapes_are_handled(tmp_path):
         raise AssertionError("expected SystemExit")
     except SystemExit:
         pass
+
+
+def test_null_row_means_no_change_point(tmp_path):
+    """What BigQuery returned for west on 2026-10-08: one row, NULL timestamps and metrics, empty status."""
+    west = {"store": "west", "begin_timestamp": None, "end_timestamp": None,
+            "metrics": {"avg": None, "min": None, "max": None, "stddev": None, "count": None}, "status": ""}
+    errors, warnings, summary = check(tmp_path, [bq_row("east", "2026-06-27", "2026-07-11"), west])
+    assert errors == [] and warnings == []
+    assert summary == {"windows": 1, "metrics_matched": 1,
+                       "by_store": {"east": [("2026-06-27", "2026-07-11")], "west": []}}

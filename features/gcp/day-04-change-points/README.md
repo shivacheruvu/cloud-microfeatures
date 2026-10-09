@@ -39,10 +39,12 @@ The test (`tests/test_day04_gcp_change_points.py`) covers the detector and the c
 One query over a few KB, capped at 20 MiB billed: inside the BigQuery free tier. Nothing is created.
 
 ## Result (synthetic, seeded series)
-| Store | Change | Avg before | Avg after | Shift |
-|---|---|---|---|---|
-| east | 2026-07-10 | 40.4 | 62.8 | +55.3% |
-| west | none | | | |
+| Store | Local change | Avg before | Avg after | Shift | BigQuery change window |
+|---|---|---|---|---|---|
+| east | 2026-07-10 | 40.4 | 62.8 | +55.3% | 2026-06-27 to 2026-07-11 (metrics match local) |
+| west | none | | | | none (one row with NULL timestamps) |
 
 The local detector (best single least-squares split, kept only if the shift is at least 3 within-segment standard
-deviations and each side at least a week) finds the shelf move on the exact day.
+deviations and each side at least a week) finds the shelf move on the exact day. BigQuery (cloud run 2026-10-08) put east's change in a 15-day window
+ending the day after the move, and reported no change for west. A series without a change point comes back as a
+single row with NULL `begin_timestamp`, `end_timestamp` and `metrics`.
