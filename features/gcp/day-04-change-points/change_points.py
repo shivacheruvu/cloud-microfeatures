@@ -113,6 +113,8 @@ def compare(cloud: list[dict], rows: list[dict]) -> tuple[list[str], list[str], 
     bad_status = [w for w in cloud if w["status"]]
     if bad_status:
         errors.append(f"status: {bad_status[0]['status'][:200]}")
+    # A series with no change point comes back as one row with NULL timestamps and metrics (cloud run 2026-10-08).
+    cloud = [w for w in cloud if w["status"] or w["begin"] or w["end"]]
     for w in cloud:
         if w["status"] or w["store"] not in ser:
             continue
