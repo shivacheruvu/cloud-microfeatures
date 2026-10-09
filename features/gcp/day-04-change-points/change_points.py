@@ -15,10 +15,11 @@ from __future__ import annotations
 import csv
 import json
 import math
+import os
 import statistics
 import sys
 from collections import defaultdict
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -70,8 +71,20 @@ def run_local(rows: list[dict]) -> dict[str, dict | None]:
 
 def window_metrics(points: list[tuple[str, int]], begin: str, end: str) -> dict:
     ys = [y for d, y in points if begin <= d <= end]
+    if not ys:
+        return {"count": 0, "min": None, "max": None, "avg": None, "stddev_samp": None, "stddev_pop": None}
     return {"count": len(ys), "min": min(ys), "max": max(ys), "avg": statistics.fmean(ys),
             "stddev_samp": statistics.stdev(ys) if len(ys) > 1 else 0.0, "stddev_pop": statistics.pstdev(ys)}
+
+
+def as_date(v) -> str:
+    """'2026-07-03 00:00:00[ UTC]' or epoch seconds (some bq versions) -> '2026-07-03'."""
+    if v is None:
+        return ""
+    try:
+        return datetime.fromtimestamp(float(v), tz=timezone.utc).date().isoformat()
+    except (TypeError, ValueError):
+        return str(v)[:10]
 
 
 def read_bq(path: str) -> list[dict]:
@@ -82,13 +95,14 @@ def read_bq(path: str) -> list[dict]:
         out = []
         for r in rows:
             m = r.get("metrics") or {}
-            out.append({"store": r["store"], "begin": str(r.get("begin_timestamp") or "")[:10],
-                        "end": str(r.get("end_timestamp") or "")[:10], "status": r.get("status") or "",
+            out.append({"store": r["store"], "begin": as_date(r.get("begin_timestamp")),
+                        "end": as_date(r.get("end_timestamp")), "status": r.get("status") or "",
                         "metrics": {k: (None if m.get(k) is None else float(m[k]))
                                     for k in ("count", "min", "max", "avg", "stddev")}})
         return out
-    except (ValueError, KeyError, TypeError) as e:
-        print(f"::error title=Unreadable BigQuery output::{type(e).__name__}: {text[:300]!r}")
+    except Exception as e:  # noqa: BLE001 - any shape surprise is reported, redacted, as an annotation
+        raw = text[max(start, 0):max(start, 0) + 500].replace(os.environ.get("GCP_PROJECT_ID") or "\0", "<project>")
+        print(f"::error title=Unreadable BigQuery output::{type(e).__name__}: {e}; {raw!r}")
         raise SystemExit(1)
 
 
@@ -104,7 +118,7 @@ def compare(cloud: list[dict], rows: list[dict]) -> tuple[list[str], list[str], 
             continue
         exp, got = window_metrics(ser[w["store"]], w["begin"], w["end"]), w["metrics"]
         ok = (got["count"] == exp["count"] and got["min"] == exp["min"] and got["max"] == exp["max"]
-              and math.isclose(got["avg"] or 0, exp["avg"], rel_tol=1e-6)
+              and exp["count"] > 0 and math.isclose(got["avg"] or 0, exp["avg"], rel_tol=1e-6)
               and any(math.isclose(got["stddev"] or 0, exp[k], rel_tol=1e-6, abs_tol=1e-9)
                       for k in ("stddev_samp", "stddev_pop")))
         if ok:
@@ -138,7 +152,13 @@ if __name__ == "__main__":
     if mode == "--sql":
         print(bigquery_sql(rows))
     elif mode == "--compare":
-        errors, warnings, summary = compare(read_bq(sys.argv[2]), rows)
+        cloud = read_bq(sys.argv[2])
+        try:
+            errors, warnings, summary = compare(cloud, rows)
+        except Exception as e:  # report what BigQuery returned (data rows only: no project or account details)
+            print(f"::error title=ML.DETECT_CHANGE_POINTS output not understood::{type(e).__name__}: {e}; "
+                  f"{len(cloud)} row(s), first: {json.dumps(cloud[:2])[:700]}")
+            raise SystemExit(1)
         for w in warnings:
             print(f"::warning title=ML.DETECT_CHANGE_POINTS vs local::{w[:900]}")
         if errors:
