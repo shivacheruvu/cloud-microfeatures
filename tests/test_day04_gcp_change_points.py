@@ -66,3 +66,17 @@ def test_sql_inlines_every_row_and_uses_id_cols():
 def test_result_json_is_current():
     result = json.loads((FEATURE / "result.json").read_text())
     assert result["shifts"] == cp.run_local(ROWS)
+
+
+def test_epoch_timestamps_and_unexpected_shapes_are_handled(tmp_path):
+    row = bq_row("east", "2026-07-02", "2026-07-18")
+    row["begin_timestamp"], row["end_timestamp"] = "1782950400.0", "1784332800.0"  # some bq versions print epochs
+    errors, warnings, summary = check(tmp_path, [row])
+    assert errors == [] and warnings == [] and summary["metrics_matched"] == 1
+    f = tmp_path / "odd.json"
+    f.write_text('["not a row"]')
+    try:
+        cp.read_bq(str(f))
+        raise AssertionError("expected SystemExit")
+    except SystemExit:
+        pass
