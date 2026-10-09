@@ -1,0 +1,30 @@
+{
+  "engine": "duckdb window functions (local) / Databricks SQL Unity Catalog metric view window measures (cloud)",
+  "days": 28,
+  "month_to_date_units": 22139,
+  "month_to_date_by_store": {
+    "north": 12582,
+    "south": 9557
+  },
+  "last_day_vs_prior_7d_avg": 0.92,
+  "spike_days": [
+    {
+      "store": "north",
+      "sale_date": "2026-09-18",
+      "units_sold": 781,
+      "vs_prior_avg": 1.71
+    },
+    {
+      "store": "south",
+      "sale_date": "2026-09-12",
+      "units_sold": 636,
+      "vs_prior_avg": 2.04
+    },
+    {
+      "store": "south",
+      "sale_date": "2026-09-25",
+      "units_sold": 507,
+      "vs_prior_avg": 1.54
+    }
+  ]
+}
