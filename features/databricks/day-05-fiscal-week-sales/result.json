@@ -1,0 +1,31 @@
+{
+  "engine": "duckdb integer RANGE windows (local) / Databricks SQL metric view window measures on a numeric index (cloud)",
+  "weeks": 13,
+  "first_week": "FY2026 W49",
+  "last_week": "FY2027 W09",
+  "units_to_date": 74222,
+  "units_to_date_by_store": {
+    "north": 43165,
+    "south": 31057
+  },
+  "year_boundary": {
+    "week": "FY2027 W01",
+    "units_sold": 5682,
+    "prev_week": "FY2026 W52",
+    "units_prev_week": 4983
+  },
+  "spike_weeks": [
+    {
+      "store": "north",
+      "week": "FY2027 W03",
+      "units_sold": 4525,
+      "vs_prior_4wk_avg": 1.41
+    },
+    {
+      "store": "south",
+      "week": "FY2027 W06",
+      "units_sold": 3229,
+      "vs_prior_4wk_avg": 1.39
+    }
+  ]
+}
