@@ -186,6 +186,27 @@
         "released": "2026-08-20",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 5,
+      "platform": "databricks",
+      "slug": "day-05-fiscal-week-sales",
+      "date": "2026-10-09",
+      "title": "Fiscal-week sales on a numeric index metric view",
+      "summary": "Week-over-week, prior-4-week and to-date grocery sales from metric view windows on a dense fiscal-week number, straight across the fiscal year end.",
+      "headline": "2 promo weeks flagged \u00b7 FY27 W01 vs FY26 W52 \u00b7 74,222 units",
+      "skills": [
+        "Unity Catalog metric views",
+        "Databricks SQL",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-05-fiscal-week-sales",
+      "new_feature": {
+        "name": "Window measures on numeric index columns in metric views",
+        "released": "2026-09-14",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/september"
+      }
     }
   ]
 }
