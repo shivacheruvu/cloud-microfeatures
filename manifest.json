@@ -200,7 +200,7 @@
         "Databricks SQL",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-05-fiscal-week-sales",
       "new_feature": {
         "name": "Window measures on numeric index columns in metric views",
@@ -221,7 +221,7 @@
         "BigQuery ML time series",
         "Workload Identity Federation"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-05-weekly-seasonality",
       "new_feature": {
         "name": "ML.SEASONALITY function (Preview)",
