@@ -207,6 +207,27 @@
         "released": "2026-09-14",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/september"
       }
+    },
+    {
+      "day": 5,
+      "platform": "gcp",
+      "slug": "day-05-weekly-seasonality",
+      "date": "2026-10-09",
+      "title": "Which weekday sells the most bread? ML.SEASONALITY",
+      "summary": "Separates each store's weekly bread pattern from its trend in one BigQuery call with no model, to set per-weekday bake plans.",
+      "headline": "North peaks Sat +57 loaves \u00b7 south Fri +37",
+      "skills": [
+        "BigQuery",
+        "BigQuery ML time series",
+        "Workload Identity Federation"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-05-weekly-seasonality",
+      "new_feature": {
+        "name": "ML.SEASONALITY function (Preview)",
+        "released": "2026-08-20",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
