@@ -34,6 +34,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 2 | [Grading grocery predictors with ML.METRICS](features/gcp/day-02-ml-metrics) | [ML.METRICS function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Workload Identity Federation | ran |
 | 3 | [What moved this week's grocery sales? AI.KEY_DRIVERS](features/gcp/day-03-key-drivers) | [AI.KEY_DRIVERS function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-29) | BigQuery, BigQuery AI functions, Workload Identity Federation | ran |
 | 4 | [When did oat-milk sales shift? ML.DETECT_CHANGE_POINTS](features/gcp/day-04-change-points) | [ML.DETECT_CHANGE_POINTS function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-20) | BigQuery, BigQuery ML time series, Workload Identity Federation | ran |
+| 5 | [Which weekday sells the most bread? ML.SEASONALITY](features/gcp/day-05-weekly-seasonality) | [ML.SEASONALITY function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-20) | BigQuery, BigQuery ML time series, Workload Identity Federation | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself
