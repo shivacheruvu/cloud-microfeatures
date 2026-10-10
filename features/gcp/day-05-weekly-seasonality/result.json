@@ -1,0 +1,38 @@
+{
+  "engine": "pure-Python classical decomposition (local) / BigQuery ML.SEASONALITY (cloud)",
+  "days": 84,
+  "stores": 2,
+  "weekly": {
+    "north": {
+      "peak_day": "Sat",
+      "trough_day": "Tue",
+      "peak_vs_avg": 56.7,
+      "amplitude": 90.2,
+      "profile": {
+        "Mon": -27.9,
+        "Tue": -33.4,
+        "Wed": -22.4,
+        "Thu": -3.9,
+        "Fri": 22.4,
+        "Sat": 56.7,
+        "Sun": 8.5
+      }
+    },
+    "south": {
+      "peak_day": "Fri",
+      "trough_day": "Mon",
+      "peak_vs_avg": 37.2,
+      "amplitude": 48.4,
+      "profile": {
+        "Mon": -11.1,
+        "Tue": -10.6,
+        "Wed": -7.8,
+        "Thu": 4.6,
+        "Fri": 37.2,
+        "Sat": -4.2,
+        "Sun": -8.1
+      }
+    }
+  },
+  "headline": "north: Sat +57 loaves; south: Fri +37 loaves"
+}
