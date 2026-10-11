@@ -1,0 +1,46 @@
+{
+  "engine": "duckdb delete+insert transaction (local) / Databricks SQL INSERT INTO ... REPLACE USING / REPLACE ON (cloud)",
+  "corrected_day": {
+    "store": "north",
+    "scan_date": "2026-10-02",
+    "before": {
+      "lines": 6,
+      "units": 356,
+      "amount_cents": 107304
+    },
+    "after": {
+      "lines": 4,
+      "units": 233,
+      "amount_cents": 61737
+    }
+  },
+  "totals": {
+    "base": {
+      "lines": 27,
+      "units": 1264,
+      "undated_rows": 1
+    },
+    "using_once": {
+      "lines": 26,
+      "units": 1136,
+      "undated_rows": 2
+    },
+    "using_twice": {
+      "lines": 27,
+      "units": 1131,
+      "undated_rows": 3
+    },
+    "on_once": {
+      "lines": 25,
+      "units": 1139,
+      "undated_rows": 1
+    },
+    "on_twice": {
+      "lines": 25,
+      "units": 1139,
+      "undated_rows": 1
+    }
+  },
+  "replace_using_idempotent": false,
+  "replace_on_idempotent": true
+}
