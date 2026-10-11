@@ -242,7 +242,7 @@
         "Delta Lake",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-06-idempotent-reload",
       "new_feature": {
         "name": "INSERT INTO ... REPLACE USING / REPLACE ON (Databricks SQL 2026.32)",
@@ -263,7 +263,7 @@
         "BigQuery ML time series",
         "Workload Identity Federation"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-06-oat-milk-trend",
       "new_feature": {
         "name": "ML.TREND function (Preview)",
