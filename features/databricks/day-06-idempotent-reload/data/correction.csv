@@ -1,0 +1,6 @@
+store,scan_date,barcode,units,amount_cents
+north,2026-10-02,4011,84,4956
+north,2026-10-02,0070,67,26063
+north,2026-10-02,0072,60,19740
+north,2026-10-02,0076,22,10978
+north,,0076,-5,-2495

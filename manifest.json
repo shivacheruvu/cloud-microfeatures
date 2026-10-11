@@ -228,6 +228,27 @@
         "released": "2026-08-20",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 6,
+      "platform": "databricks",
+      "slug": "day-06-idempotent-reload",
+      "date": "2026-10-10",
+      "title": "Re-load a corrected scan export with INSERT ... REPLACE",
+      "summary": "Replaces one store-day of grocery scans atomically with INSERT INTO ... REPLACE USING, and shows why REPLACE ON with <=> is the idempotent choice when a key can be NULL.",
+      "headline": "North Oct 2: 6 \u2192 4 lines \u00b7 REPLACE ON rerun-safe, REPLACE USING not",
+      "skills": [
+        "Databricks SQL",
+        "Delta Lake",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-06-idempotent-reload",
+      "new_feature": {
+        "name": "INSERT INTO ... REPLACE USING / REPLACE ON (Databricks SQL 2026.32)",
+        "released": "2026-08-24",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
     }
   ]
 }
