@@ -249,6 +249,27 @@
         "released": "2026-08-24",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 6,
+      "platform": "gcp",
+      "slug": "day-06-oat-milk-trend",
+      "date": "2026-10-10",
+      "title": "Is oat milk growing, or just noisy? ML.TREND",
+      "summary": "Pulls each store's oat-milk trend out of noisy, weekend-heavy daily sales in one BigQuery call with no model, classifies it growing / flat, and projects it 14 days ahead.",
+      "headline": "North growing +3.4/wk \u00b7 south flat +0.3/wk",
+      "skills": [
+        "BigQuery",
+        "BigQuery ML time series",
+        "Workload Identity Federation"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-06-oat-milk-trend",
+      "new_feature": {
+        "name": "ML.TREND function (Preview)",
+        "released": "2026-08-20",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
