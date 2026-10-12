@@ -305,7 +305,7 @@
         "BigQuery ML",
         "Causal impact"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-07-endcap-effect",
       "new_feature": {
         "name": "AI.CAUSAL_EFFECT function (Preview)",
