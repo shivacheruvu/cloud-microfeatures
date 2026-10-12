@@ -24,7 +24,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 4 | [Rolling grocery sales with metric view window measures](features/databricks/day-04-rolling-sales-metric-view) | [Metric view window measures (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-06) | Unity Catalog metric views, Databricks SQL, Statement Execution API | ran |
 | 5 | [Fiscal-week sales on a numeric index metric view](features/databricks/day-05-fiscal-week-sales) | [Window measures on numeric index columns in metric views](https://docs.databricks.com/aws/en/release-notes/product/2026/september) (2026-09-14) | Unity Catalog metric views, Databricks SQL, Statement Execution API | ran |
 | 6 | [Re-load a corrected scan export with INSERT ... REPLACE](features/databricks/day-06-idempotent-reload) | [INSERT INTO ... REPLACE USING / REPLACE ON (Databricks SQL 2026.32)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-08-24) | Databricks SQL, Delta Lake, Statement Execution API | ran |
-| 7 | [Which shelf tags to reprint? Automatic change data feed](features/databricks/day-07-shelf-tag-changes) | [Automatic change data feed (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/september) (2026-09-01) | Databricks SQL, Delta Lake, Statement Execution API | built |
+| 7 | [Which shelf tags to reprint? Automatic change data feed](features/databricks/day-07-shelf-tag-changes) | [Automatic change data feed (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/september) (2026-09-01) | Databricks SQL, Delta Lake, Statement Execution API | ran |
 <!-- databricks:end -->
 
 ## Google Cloud features
@@ -38,6 +38,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 4 | [When did oat-milk sales shift? ML.DETECT_CHANGE_POINTS](features/gcp/day-04-change-points) | [ML.DETECT_CHANGE_POINTS function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-20) | BigQuery, BigQuery ML time series, Workload Identity Federation | ran |
 | 5 | [Which weekday sells the most bread? ML.SEASONALITY](features/gcp/day-05-weekly-seasonality) | [ML.SEASONALITY function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-20) | BigQuery, BigQuery ML time series, Workload Identity Federation | ran |
 | 6 | [Is oat milk growing, or just noisy? ML.TREND](features/gcp/day-06-oat-milk-trend) | [ML.TREND function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-20) | BigQuery, BigQuery ML time series, Workload Identity Federation | ran |
+| 7 | [Did the shelf reset move sales? AI.CAUSAL_EFFECT](features/gcp/day-07-endcap-effect) | [AI.CAUSAL_EFFECT function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Causal impact | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself
