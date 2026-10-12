@@ -38,7 +38,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 4 | [When did oat-milk sales shift? ML.DETECT_CHANGE_POINTS](features/gcp/day-04-change-points) | [ML.DETECT_CHANGE_POINTS function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-20) | BigQuery, BigQuery ML time series, Workload Identity Federation | ran |
 | 5 | [Which weekday sells the most bread? ML.SEASONALITY](features/gcp/day-05-weekly-seasonality) | [ML.SEASONALITY function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-20) | BigQuery, BigQuery ML time series, Workload Identity Federation | ran |
 | 6 | [Is oat milk growing, or just noisy? ML.TREND](features/gcp/day-06-oat-milk-trend) | [ML.TREND function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-20) | BigQuery, BigQuery ML time series, Workload Identity Federation | ran |
-| 7 | [Did the shelf reset move sales? AI.CAUSAL_EFFECT](features/gcp/day-07-endcap-effect) | [AI.CAUSAL_EFFECT function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Causal impact | built |
+| 7 | [Did the shelf reset move sales? AI.CAUSAL_EFFECT](features/gcp/day-07-endcap-effect) | [AI.CAUSAL_EFFECT function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Causal impact | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself
