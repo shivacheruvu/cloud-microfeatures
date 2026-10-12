@@ -1,4 +1,4 @@
 pytest>=8
-duckdb>=1.1
+duckdb>=1.4   # MERGE INTO (day 7 Databricks local run)
 pyspark>=3.5
 numpy>=1.26   # DuckDB Python UDFs (day 3 Databricks local run)

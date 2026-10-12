@@ -1,0 +1,62 @@
+{
+  "engine": "duckdb snapshot diff (local) / Databricks SQL table_changes() on automatic change data feed (cloud)",
+  "change_rows": 20,
+  "per_step": {
+    "step1_load": {
+      "insert": 12
+    },
+    "step2_supplier_increase": {
+      "update_preimage": 2,
+      "update_postimage": 2
+    },
+    "step3_discontinue": {
+      "delete": 1
+    },
+    "step4_weekly_feed": {
+      "update_preimage": 1,
+      "update_postimage": 1,
+      "insert": 1
+    }
+  },
+  "feed_rows": 4,
+  "feed_rows_unchanged": 2,
+  "final_items": 12,
+  "tags_to_change": [
+    {
+      "store": "north",
+      "product": "whole milk 1gal",
+      "was_cents": 389,
+      "now_cents": 409,
+      "action": "reprint"
+    },
+    {
+      "store": "north",
+      "product": "oat milk 64oz",
+      "was_cents": 499,
+      "now_cents": null,
+      "action": "remove tag"
+    },
+    {
+      "store": "south",
+      "product": "whole milk 1gal",
+      "was_cents": 379,
+      "now_cents": 399,
+      "action": "reprint"
+    },
+    {
+      "store": "south",
+      "product": "large eggs 12ct",
+      "was_cents": 419,
+      "now_cents": 389,
+      "action": "reprint"
+    },
+    {
+      "store": "south",
+      "product": "ginger kombucha 16oz",
+      "was_cents": null,
+      "now_cents": 349,
+      "action": "new tag"
+    }
+  ],
+  "headline": "3 reprints, 1 new, 1 removed since the tags were printed"
+}
