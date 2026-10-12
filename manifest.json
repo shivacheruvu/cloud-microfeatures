@@ -270,6 +270,27 @@
         "released": "2026-08-20",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 7,
+      "platform": "databricks",
+      "slug": "day-07-shelf-tag-changes",
+      "date": "2026-10-11",
+      "title": "Which shelf tags to reprint? Automatic change data feed",
+      "summary": "Reads every price change on a row-tracking table with table_changes(), without ever enabling change data feed, and turns it into a shelf-tag reprint list.",
+      "headline": "3 reprints, 1 new, 1 removed \u00b7 no enableChangeDataFeed needed",
+      "skills": [
+        "Databricks SQL",
+        "Delta Lake",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-07-shelf-tag-changes",
+      "new_feature": {
+        "name": "Automatic change data feed (GA)",
+        "released": "2026-09-01",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/september"
+      }
     }
   ]
 }
