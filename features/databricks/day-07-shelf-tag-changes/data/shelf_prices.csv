@@ -1,0 +1,13 @@
+store,barcode,product,price_cents
+north,0041303001042,whole milk 1gal,389
+north,0070470003021,large eggs 12ct,429
+north,0072250011379,white bread 20oz,279
+north,0850006801036,oat milk 64oz,499
+north,0033383000014,bananas 1lb,59
+north,0011110038364,cheddar 8oz,349
+south,0041303001042,whole milk 1gal,379
+south,0070470003021,large eggs 12ct,419
+south,0072250011379,white bread 20oz,279
+south,0850006801036,oat milk 64oz,489
+south,0033383000014,bananas 1lb,57
+south,0011110038364,cheddar 8oz,349
