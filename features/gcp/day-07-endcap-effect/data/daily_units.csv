@@ -1,0 +1,337 @@
+sale_date,product,units
+2026-06-09,kombucha 16oz,23
+2026-06-10,kombucha 16oz,24
+2026-06-11,kombucha 16oz,28
+2026-06-12,kombucha 16oz,35
+2026-06-13,kombucha 16oz,37
+2026-06-14,kombucha 16oz,30
+2026-06-15,kombucha 16oz,29
+2026-06-16,kombucha 16oz,25
+2026-06-17,kombucha 16oz,23
+2026-06-18,kombucha 16oz,27
+2026-06-19,kombucha 16oz,34
+2026-06-20,kombucha 16oz,37
+2026-06-21,kombucha 16oz,34
+2026-06-22,kombucha 16oz,24
+2026-06-23,kombucha 16oz,21
+2026-06-24,kombucha 16oz,23
+2026-06-25,kombucha 16oz,28
+2026-06-26,kombucha 16oz,33
+2026-06-27,kombucha 16oz,37
+2026-06-28,kombucha 16oz,31
+2026-06-29,kombucha 16oz,23
+2026-06-30,kombucha 16oz,25
+2026-07-01,kombucha 16oz,26
+2026-07-02,kombucha 16oz,25
+2026-07-03,kombucha 16oz,36
+2026-07-04,kombucha 16oz,41
+2026-07-05,kombucha 16oz,30
+2026-07-06,kombucha 16oz,24
+2026-07-07,kombucha 16oz,26
+2026-07-08,kombucha 16oz,28
+2026-07-09,kombucha 16oz,29
+2026-07-10,kombucha 16oz,30
+2026-07-11,kombucha 16oz,41
+2026-07-12,kombucha 16oz,34
+2026-07-13,kombucha 16oz,26
+2026-07-14,kombucha 16oz,21
+2026-07-15,kombucha 16oz,24
+2026-07-16,kombucha 16oz,25
+2026-07-17,kombucha 16oz,34
+2026-07-18,kombucha 16oz,43
+2026-07-19,kombucha 16oz,31
+2026-07-20,kombucha 16oz,25
+2026-07-21,kombucha 16oz,24
+2026-07-22,kombucha 16oz,24
+2026-07-23,kombucha 16oz,29
+2026-07-24,kombucha 16oz,30
+2026-07-25,kombucha 16oz,41
+2026-07-26,kombucha 16oz,32
+2026-07-27,kombucha 16oz,27
+2026-07-28,kombucha 16oz,27
+2026-07-29,kombucha 16oz,28
+2026-07-30,kombucha 16oz,26
+2026-07-31,kombucha 16oz,30
+2026-08-01,kombucha 16oz,41
+2026-08-02,kombucha 16oz,34
+2026-08-03,kombucha 16oz,28
+2026-08-04,kombucha 16oz,22
+2026-08-05,kombucha 16oz,25
+2026-08-06,kombucha 16oz,25
+2026-08-07,kombucha 16oz,34
+2026-08-08,kombucha 16oz,42
+2026-08-09,kombucha 16oz,30
+2026-08-10,kombucha 16oz,27
+2026-08-11,kombucha 16oz,21
+2026-08-12,kombucha 16oz,27
+2026-08-13,kombucha 16oz,26
+2026-08-14,kombucha 16oz,33
+2026-08-15,kombucha 16oz,42
+2026-08-16,kombucha 16oz,34
+2026-08-17,kombucha 16oz,26
+2026-08-18,kombucha 16oz,27
+2026-08-19,kombucha 16oz,25
+2026-08-20,kombucha 16oz,28
+2026-08-21,kombucha 16oz,34
+2026-08-22,kombucha 16oz,40
+2026-08-23,kombucha 16oz,32
+2026-08-24,kombucha 16oz,25
+2026-08-25,kombucha 16oz,22
+2026-08-26,kombucha 16oz,29
+2026-08-27,kombucha 16oz,26
+2026-08-28,kombucha 16oz,35
+2026-08-29,kombucha 16oz,43
+2026-08-30,kombucha 16oz,31
+2026-08-31,kombucha 16oz,23
+2026-09-01,kombucha 16oz,36
+2026-09-02,kombucha 16oz,39
+2026-09-03,kombucha 16oz,38
+2026-09-04,kombucha 16oz,45
+2026-09-05,kombucha 16oz,54
+2026-09-06,kombucha 16oz,47
+2026-09-07,kombucha 16oz,36
+2026-09-08,kombucha 16oz,33
+2026-09-09,kombucha 16oz,39
+2026-09-10,kombucha 16oz,40
+2026-09-11,kombucha 16oz,47
+2026-09-12,kombucha 16oz,59
+2026-09-13,kombucha 16oz,43
+2026-09-14,kombucha 16oz,34
+2026-09-15,kombucha 16oz,31
+2026-09-16,kombucha 16oz,35
+2026-09-17,kombucha 16oz,42
+2026-09-18,kombucha 16oz,47
+2026-09-19,kombucha 16oz,55
+2026-09-20,kombucha 16oz,46
+2026-09-21,kombucha 16oz,39
+2026-09-22,kombucha 16oz,37
+2026-09-23,kombucha 16oz,37
+2026-09-24,kombucha 16oz,39
+2026-09-25,kombucha 16oz,48
+2026-09-26,kombucha 16oz,55
+2026-09-27,kombucha 16oz,43
+2026-09-28,kombucha 16oz,36
+2026-06-09,oat milk 64oz,37
+2026-06-10,oat milk 64oz,38
+2026-06-11,oat milk 64oz,44
+2026-06-12,oat milk 64oz,53
+2026-06-13,oat milk 64oz,61
+2026-06-14,oat milk 64oz,47
+2026-06-15,oat milk 64oz,41
+2026-06-16,oat milk 64oz,33
+2026-06-17,oat milk 64oz,37
+2026-06-18,oat milk 64oz,43
+2026-06-19,oat milk 64oz,52
+2026-06-20,oat milk 64oz,63
+2026-06-21,oat milk 64oz,47
+2026-06-22,oat milk 64oz,35
+2026-06-23,oat milk 64oz,38
+2026-06-24,oat milk 64oz,40
+2026-06-25,oat milk 64oz,42
+2026-06-26,oat milk 64oz,52
+2026-06-27,oat milk 64oz,62
+2026-06-28,oat milk 64oz,52
+2026-06-29,oat milk 64oz,41
+2026-06-30,oat milk 64oz,36
+2026-07-01,oat milk 64oz,37
+2026-07-02,oat milk 64oz,45
+2026-07-03,oat milk 64oz,50
+2026-07-04,oat milk 64oz,63
+2026-07-05,oat milk 64oz,49
+2026-07-06,oat milk 64oz,35
+2026-07-07,oat milk 64oz,36
+2026-07-08,oat milk 64oz,37
+2026-07-09,oat milk 64oz,41
+2026-07-10,oat milk 64oz,51
+2026-07-11,oat milk 64oz,58
+2026-07-12,oat milk 64oz,50
+2026-07-13,oat milk 64oz,35
+2026-07-14,oat milk 64oz,34
+2026-07-15,oat milk 64oz,41
+2026-07-16,oat milk 64oz,42
+2026-07-17,oat milk 64oz,48
+2026-07-18,oat milk 64oz,63
+2026-07-19,oat milk 64oz,48
+2026-07-20,oat milk 64oz,38
+2026-07-21,oat milk 64oz,36
+2026-07-22,oat milk 64oz,41
+2026-07-23,oat milk 64oz,43
+2026-07-24,oat milk 64oz,47
+2026-07-25,oat milk 64oz,59
+2026-07-26,oat milk 64oz,50
+2026-07-27,oat milk 64oz,38
+2026-07-28,oat milk 64oz,37
+2026-07-29,oat milk 64oz,37
+2026-07-30,oat milk 64oz,41
+2026-07-31,oat milk 64oz,53
+2026-08-01,oat milk 64oz,61
+2026-08-02,oat milk 64oz,53
+2026-08-03,oat milk 64oz,39
+2026-08-04,oat milk 64oz,35
+2026-08-05,oat milk 64oz,40
+2026-08-06,oat milk 64oz,43
+2026-08-07,oat milk 64oz,49
+2026-08-08,oat milk 64oz,63
+2026-08-09,oat milk 64oz,50
+2026-08-10,oat milk 64oz,36
+2026-08-11,oat milk 64oz,34
+2026-08-12,oat milk 64oz,35
+2026-08-13,oat milk 64oz,41
+2026-08-14,oat milk 64oz,48
+2026-08-15,oat milk 64oz,59
+2026-08-16,oat milk 64oz,52
+2026-08-17,oat milk 64oz,36
+2026-08-18,oat milk 64oz,33
+2026-08-19,oat milk 64oz,38
+2026-08-20,oat milk 64oz,46
+2026-08-21,oat milk 64oz,51
+2026-08-22,oat milk 64oz,59
+2026-08-23,oat milk 64oz,49
+2026-08-24,oat milk 64oz,37
+2026-08-25,oat milk 64oz,33
+2026-08-26,oat milk 64oz,36
+2026-08-27,oat milk 64oz,43
+2026-08-28,oat milk 64oz,51
+2026-08-29,oat milk 64oz,60
+2026-08-30,oat milk 64oz,51
+2026-08-31,oat milk 64oz,39
+2026-09-01,oat milk 64oz,24
+2026-09-02,oat milk 64oz,24
+2026-09-03,oat milk 64oz,33
+2026-09-04,oat milk 64oz,37
+2026-09-05,oat milk 64oz,43
+2026-09-06,oat milk 64oz,33
+2026-09-07,oat milk 64oz,28
+2026-09-08,oat milk 64oz,25
+2026-09-09,oat milk 64oz,30
+2026-09-10,oat milk 64oz,27
+2026-09-11,oat milk 64oz,34
+2026-09-12,oat milk 64oz,41
+2026-09-13,oat milk 64oz,36
+2026-09-14,oat milk 64oz,29
+2026-09-15,oat milk 64oz,22
+2026-09-16,oat milk 64oz,25
+2026-09-17,oat milk 64oz,29
+2026-09-18,oat milk 64oz,36
+2026-09-19,oat milk 64oz,45
+2026-09-20,oat milk 64oz,38
+2026-09-21,oat milk 64oz,27
+2026-09-22,oat milk 64oz,23
+2026-09-23,oat milk 64oz,30
+2026-09-24,oat milk 64oz,31
+2026-09-25,oat milk 64oz,35
+2026-09-26,oat milk 64oz,45
+2026-09-27,oat milk 64oz,34
+2026-09-28,oat milk 64oz,24
+2026-06-09,sparkling water 12pk,31
+2026-06-10,sparkling water 12pk,30
+2026-06-11,sparkling water 12pk,37
+2026-06-12,sparkling water 12pk,39
+2026-06-13,sparkling water 12pk,50
+2026-06-14,sparkling water 12pk,43
+2026-06-15,sparkling water 12pk,29
+2026-06-16,sparkling water 12pk,27
+2026-06-17,sparkling water 12pk,35
+2026-06-18,sparkling water 12pk,34
+2026-06-19,sparkling water 12pk,43
+2026-06-20,sparkling water 12pk,51
+2026-06-21,sparkling water 12pk,40
+2026-06-22,sparkling water 12pk,34
+2026-06-23,sparkling water 12pk,29
+2026-06-24,sparkling water 12pk,31
+2026-06-25,sparkling water 12pk,37
+2026-06-26,sparkling water 12pk,41
+2026-06-27,sparkling water 12pk,51
+2026-06-28,sparkling water 12pk,39
+2026-06-29,sparkling water 12pk,29
+2026-06-30,sparkling water 12pk,33
+2026-07-01,sparkling water 12pk,32
+2026-07-02,sparkling water 12pk,36
+2026-07-03,sparkling water 12pk,42
+2026-07-04,sparkling water 12pk,51
+2026-07-05,sparkling water 12pk,41
+2026-07-06,sparkling water 12pk,29
+2026-07-07,sparkling water 12pk,28
+2026-07-08,sparkling water 12pk,29
+2026-07-09,sparkling water 12pk,38
+2026-07-10,sparkling water 12pk,41
+2026-07-11,sparkling water 12pk,53
+2026-07-12,sparkling water 12pk,41
+2026-07-13,sparkling water 12pk,32
+2026-07-14,sparkling water 12pk,33
+2026-07-15,sparkling water 12pk,34
+2026-07-16,sparkling water 12pk,34
+2026-07-17,sparkling water 12pk,43
+2026-07-18,sparkling water 12pk,48
+2026-07-19,sparkling water 12pk,40
+2026-07-20,sparkling water 12pk,33
+2026-07-21,sparkling water 12pk,29
+2026-07-22,sparkling water 12pk,30
+2026-07-23,sparkling water 12pk,38
+2026-07-24,sparkling water 12pk,43
+2026-07-25,sparkling water 12pk,48
+2026-07-26,sparkling water 12pk,45
+2026-07-27,sparkling water 12pk,33
+2026-07-28,sparkling water 12pk,29
+2026-07-29,sparkling water 12pk,34
+2026-07-30,sparkling water 12pk,39
+2026-07-31,sparkling water 12pk,39
+2026-08-01,sparkling water 12pk,53
+2026-08-02,sparkling water 12pk,45
+2026-08-03,sparkling water 12pk,31
+2026-08-04,sparkling water 12pk,31
+2026-08-05,sparkling water 12pk,31
+2026-08-06,sparkling water 12pk,34
+2026-08-07,sparkling water 12pk,41
+2026-08-08,sparkling water 12pk,54
+2026-08-09,sparkling water 12pk,40
+2026-08-10,sparkling water 12pk,33
+2026-08-11,sparkling water 12pk,31
+2026-08-12,sparkling water 12pk,35
+2026-08-13,sparkling water 12pk,37
+2026-08-14,sparkling water 12pk,41
+2026-08-15,sparkling water 12pk,53
+2026-08-16,sparkling water 12pk,40
+2026-08-17,sparkling water 12pk,33
+2026-08-18,sparkling water 12pk,33
+2026-08-19,sparkling water 12pk,35
+2026-08-20,sparkling water 12pk,39
+2026-08-21,sparkling water 12pk,45
+2026-08-22,sparkling water 12pk,49
+2026-08-23,sparkling water 12pk,45
+2026-08-24,sparkling water 12pk,30
+2026-08-25,sparkling water 12pk,33
+2026-08-26,sparkling water 12pk,32
+2026-08-27,sparkling water 12pk,38
+2026-08-28,sparkling water 12pk,45
+2026-08-29,sparkling water 12pk,49
+2026-08-30,sparkling water 12pk,40
+2026-08-31,sparkling water 12pk,33
+2026-09-01,sparkling water 12pk,27
+2026-09-02,sparkling water 12pk,35
+2026-09-03,sparkling water 12pk,34
+2026-09-04,sparkling water 12pk,42
+2026-09-05,sparkling water 12pk,53
+2026-09-06,sparkling water 12pk,43
+2026-09-07,sparkling water 12pk,31
+2026-09-08,sparkling water 12pk,27
+2026-09-09,sparkling water 12pk,32
+2026-09-10,sparkling water 12pk,37
+2026-09-11,sparkling water 12pk,41
+2026-09-12,sparkling water 12pk,53
+2026-09-13,sparkling water 12pk,45
+2026-09-14,sparkling water 12pk,30
+2026-09-15,sparkling water 12pk,28
+2026-09-16,sparkling water 12pk,34
+2026-09-17,sparkling water 12pk,35
+2026-09-18,sparkling water 12pk,45
+2026-09-19,sparkling water 12pk,51
+2026-09-20,sparkling water 12pk,39
+2026-09-21,sparkling water 12pk,33
+2026-09-22,sparkling water 12pk,30
+2026-09-23,sparkling water 12pk,30
+2026-09-24,sparkling water 12pk,33
+2026-09-25,sparkling water 12pk,45
+2026-09-26,sparkling water 12pk,52
+2026-09-27,sparkling water 12pk,41
+2026-09-28,sparkling water 12pk,34
