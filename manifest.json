@@ -284,12 +284,33 @@
         "Delta Lake",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-07-shelf-tag-changes",
       "new_feature": {
         "name": "Automatic change data feed (GA)",
         "released": "2026-09-01",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/september"
+      }
+    },
+    {
+      "day": 7,
+      "platform": "gcp",
+      "slug": "day-07-endcap-effect",
+      "date": "2026-10-11",
+      "title": "Did the shelf reset move sales? AI.CAUSAL_EFFECT",
+      "summary": "Measures the effect of a shelf reset on three products' daily sales with one AI.CAUSAL_EFFECT call: an ARIMA_PLUS counterfactual and a p-value per product.",
+      "headline": "Kombucha endcap +42% \u00b7 oat milk bottom shelf -30% \u00b7 sparkling water no effect",
+      "skills": [
+        "BigQuery",
+        "BigQuery ML",
+        "Causal impact"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-07-endcap-effect",
+      "new_feature": {
+        "name": "AI.CAUSAL_EFFECT function (Preview)",
+        "released": "2026-09-10",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
     }
   ]
