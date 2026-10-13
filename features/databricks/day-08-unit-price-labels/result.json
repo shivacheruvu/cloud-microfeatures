@@ -1,0 +1,143 @@
+{
+  "engine": "pure-Python exact fractions (local) / Databricks SQL truncate() and trim_array() (cloud)",
+  "labels": 10,
+  "rounding_would_overstate": 6,
+  "overstated_items": [
+    "rolled oats 1kg",
+    "greek yogurt 32oz",
+    "peanut butter 16oz",
+    "basmati rice 2kg",
+    "olive oil 500ml",
+    "cheddar 8oz"
+  ],
+  "promo_labels": 5,
+  "table": [
+    {
+      "product": "rolled oats 1kg",
+      "per": "100 g",
+      "unit_price": "0.449000",
+      "label": "0.44",
+      "rounded": "0.45",
+      "promo_saving": "-0.05"
+    },
+    {
+      "product": "greek yogurt 32oz",
+      "per": "100 g",
+      "unit_price": "0.638368",
+      "label": "0.63",
+      "rounded": "0.64",
+      "promo_saving": "-0.08"
+    },
+    {
+      "product": "peanut butter 16oz",
+      "per": "100 g",
+      "unit_price": "0.768722",
+      "label": "0.76",
+      "rounded": "0.77",
+      "promo_saving": "0.00"
+    },
+    {
+      "product": "basmati rice 2kg",
+      "per": "100 g",
+      "unit_price": "0.449500",
+      "label": "0.44",
+      "rounded": "0.45",
+      "promo_saving": "0.00"
+    },
+    {
+      "product": "olive oil 500ml",
+      "per": "100 ml",
+      "unit_price": "2.198000",
+      "label": "2.19",
+      "rounded": "2.20",
+      "promo_saving": "-0.40"
+    },
+    {
+      "product": "coffee beans 12oz",
+      "per": "100 g",
+      "unit_price": "3.673529",
+      "label": "3.67",
+      "rounded": "3.67",
+      "promo_saving": "0.00"
+    },
+    {
+      "product": "almond milk 64oz",
+      "per": "100 ml",
+      "unit_price": "0.211111",
+      "label": "0.21",
+      "rounded": "0.21",
+      "promo_saving": "0.00"
+    },
+    {
+      "product": "cheddar 8oz",
+      "per": "100 g",
+      "unit_price": "1.977974",
+      "label": "1.97",
+      "rounded": "1.98",
+      "promo_saving": "-0.22"
+    },
+    {
+      "product": "spaghetti 16oz",
+      "per": "100 g",
+      "unit_price": "0.394273",
+      "label": "0.39",
+      "rounded": "0.39",
+      "promo_saving": "0.00"
+    },
+    {
+      "product": "honey 12oz",
+      "per": "100 g",
+      "unit_price": "2.350000",
+      "label": "2.35",
+      "rounded": "2.35",
+      "promo_saving": "-0.29"
+    }
+  ],
+  "baskets": [
+    {
+      "basket": "b1",
+      "scanned": 4,
+      "voids": 1,
+      "kept": [
+        "0001",
+        "0002",
+        "0003"
+      ],
+      "items": 3,
+      "total_cents": 1377
+    },
+    {
+      "basket": "b2",
+      "scanned": 3,
+      "voids": 0,
+      "kept": [
+        "0005",
+        "0006",
+        "0010"
+      ],
+      "items": 3,
+      "total_cents": 3147
+    },
+    {
+      "basket": "b3",
+      "scanned": 5,
+      "voids": 2,
+      "kept": [
+        "0009",
+        "0009",
+        "0008"
+      ],
+      "items": 3,
+      "total_cents": 807
+    },
+    {
+      "basket": "b4",
+      "scanned": 2,
+      "voids": 2,
+      "kept": [],
+      "items": 0,
+      "total_cents": 0
+    }
+  ],
+  "headline": "rounding would overstate 6 of 10 unit prices; truncate never does"
+}
