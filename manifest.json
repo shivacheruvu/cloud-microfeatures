@@ -326,12 +326,33 @@
         "SQL functions",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-08-unit-price-labels",
       "new_feature": {
         "name": "truncate and trim_array SQL functions (Databricks SQL 2026.38)",
         "released": "2026-09-21",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
+    },
+    {
+      "day": 8,
+      "platform": "gcp",
+      "slug": "day-08-product-keys",
+      "date": "2026-10-12",
+      "title": "Product keys BigQuery generates: identity columns",
+      "summary": "A product master with GENERATED ALWAYS AS IDENTITY keys: load, add only the vendor feed's new items, refuse a hand-written key, and key the scan facts.",
+      "headline": "10 products keyed from 1000 in steps of 10 \u00b7 2 new from the feed \u00b7 hand-written key refused",
+      "skills": [
+        "BigQuery",
+        "DDL",
+        "Data modeling"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-08-product-keys",
+      "new_feature": {
+        "name": "Identity columns (Preview)",
+        "released": "2026-08-31",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
     }
   ]

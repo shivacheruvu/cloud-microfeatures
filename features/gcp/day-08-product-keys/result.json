@@ -1,0 +1,71 @@
+{
+  "engine": "DuckDB sequence (local) / BigQuery identity column (cloud)",
+  "start_with": 1000,
+  "increment_by": 10,
+  "products": 10,
+  "first_batch": 8,
+  "feed_rows": 4,
+  "new_in_feed": [
+    "ginger kombucha 16oz",
+    "sparkling water 12pk"
+  ],
+  "keys": [
+    1000,
+    1010,
+    1020,
+    1030,
+    1040,
+    1050,
+    1060,
+    1070,
+    1080,
+    1090
+  ],
+  "key_errors": [],
+  "scan_rows": 10,
+  "facts": [
+    {
+      "product_key": 1070,
+      "name": "coffee beans 12oz",
+      "units": 1,
+      "scans": 1
+    },
+    {
+      "product_key": 1080,
+      "name": "ginger kombucha 16oz",
+      "units": 6,
+      "scans": 2
+    },
+    {
+      "product_key": 1010,
+      "name": "large eggs 12ct",
+      "units": 3,
+      "scans": 2
+    },
+    {
+      "product_key": 1040,
+      "name": "oat milk 64oz",
+      "units": 1,
+      "scans": 1
+    },
+    {
+      "product_key": 1020,
+      "name": "sourdough loaf",
+      "units": 1,
+      "scans": 1
+    },
+    {
+      "product_key": 1090,
+      "name": "sparkling water 12pk",
+      "units": 2,
+      "scans": 1
+    },
+    {
+      "product_key": 1000,
+      "name": "whole milk 1gal",
+      "units": 4,
+      "scans": 2
+    }
+  ],
+  "headline": "10 products keyed 1000-1090 by BigQuery, 2 new from the feed"
+}
