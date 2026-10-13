@@ -40,7 +40,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 5 | [Which weekday sells the most bread? ML.SEASONALITY](features/gcp/day-05-weekly-seasonality) | [ML.SEASONALITY function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-20) | BigQuery, BigQuery ML time series, Workload Identity Federation | ran |
 | 6 | [Is oat milk growing, or just noisy? ML.TREND](features/gcp/day-06-oat-milk-trend) | [ML.TREND function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-20) | BigQuery, BigQuery ML time series, Workload Identity Federation | ran |
 | 7 | [Did the shelf reset move sales? AI.CAUSAL_EFFECT](features/gcp/day-07-endcap-effect) | [AI.CAUSAL_EFFECT function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Causal impact | ran |
-| 8 | [Product keys BigQuery generates: identity columns](features/gcp/day-08-product-keys) | [Identity columns (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-31) | BigQuery, DDL, Data modeling | built |
+| 8 | [Product keys BigQuery generates: identity columns](features/gcp/day-08-product-keys) | [Identity columns (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-31) | BigQuery, DDL, Data modeling | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself
