@@ -1,0 +1,11 @@
+barcode,product,price_cents,promo_cents,size,unit
+0001,rolled oats 1kg,449,399,1000,g
+0002,greek yogurt 32oz,579,499,907,g
+0003,peanut butter 16oz,349,349,454,g
+0004,basmati rice 2kg,899,899,2000,g
+0005,olive oil 500ml,1099,899,500,ml
+0006,coffee beans 12oz,1249,1249,340,g
+0007,almond milk 64oz,399,399,1890,ml
+0008,cheddar 8oz,449,399,227,g
+0009,spaghetti 16oz,179,179,454,g
+0010,honey 12oz,799,699,340,g

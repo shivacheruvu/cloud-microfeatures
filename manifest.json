@@ -312,6 +312,27 @@
         "released": "2026-09-10",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 8,
+      "platform": "databricks",
+      "slug": "day-08-unit-price-labels",
+      "date": "2026-10-12",
+      "title": "Cut-to-the-cent unit-price labels: truncate and trim_array",
+      "summary": "Prints unit prices per 100 g with the new truncate() (toward zero, no rounding) and voids the last N scans of a basket with the new trim_array().",
+      "headline": "Rounding would overstate 6 of 10 unit prices \u00b7 truncate never does \u00b7 4 baskets voided with trim_array",
+      "skills": [
+        "Databricks SQL",
+        "SQL functions",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-08-unit-price-labels",
+      "new_feature": {
+        "name": "truncate and trim_array SQL functions (Databricks SQL 2026.38)",
+        "released": "2026-09-21",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
     }
   ]
 }
