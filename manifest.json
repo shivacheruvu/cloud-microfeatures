@@ -347,7 +347,7 @@
         "DDL",
         "Data modeling"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-08-product-keys",
       "new_feature": {
         "name": "Identity columns (Preview)",
