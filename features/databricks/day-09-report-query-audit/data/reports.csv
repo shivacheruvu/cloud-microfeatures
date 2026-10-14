@@ -1,0 +1,9 @@
+name,tables,sql
+weekly_revenue,scans,"SELECT store_id, weekofyear(scanned_at) AS week, sum(units * price) AS revenue FROM scans GROUP BY store_id, weekofyear(scanned_at)"
+top_products,scans products,"SELECT p.product, count(*) AS scan_count FROM scans s JOIN products p ON s.barcode = p.barcode GROUP BY p.product ORDER BY scan_count DESC LIMIT 10"
+promo_lift,promotions scans,"WITH promo AS (SELECT barcode FROM promotions WHERE week = 41) SELECT s.barcode, sum(s.units) AS units FROM scans s WHERE s.barcode IN (SELECT barcode FROM promo) GROUP BY s.barcode"
+stockouts,inventory stores,"SELECT st.store_name, i.barcode FROM inventory i JOIN stores st ON i.store_id = st.store_id WHERE i.on_hand = 0"
+basket_size,scans,"SELECT avg(items) AS avg_basket FROM (SELECT basket_id, count(*) AS items FROM scans GROUP BY basket_id) b"
+revenue_by_store_v2,,"SELECT store_id, sum(units FROM scans GROUP BY store_id"
+lapsed_barcodes,,"SELECT barcode FROM scans WHERE"
+price_list,,"SELEC barcode, price FROM products"
