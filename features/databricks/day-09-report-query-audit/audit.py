@@ -86,6 +86,12 @@ def is_broken(parsed) -> bool:
     """Broken when parse_sql returns nothing, a truthy error-like key, or parser error text."""
     if parsed is None:
         return True
+    # Observed shape (first cloud run, 2026-10-13): a list with one object per statement, carrying
+    # "parse_success" and, when false, "error": {"errorClass": "PARSE_SYNTAX_ERROR", ...}.
+    statements = parsed if isinstance(parsed, list) else [parsed]
+    flags = [s["parse_success"] for s in statements if isinstance(s, dict) and "parse_success" in s]
+    if flags:
+        return not all(flags)
     flagged = []
 
     def visit(n):

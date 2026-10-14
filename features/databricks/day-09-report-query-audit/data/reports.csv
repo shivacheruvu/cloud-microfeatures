@@ -5,5 +5,5 @@ promo_lift,promotions scans,"WITH promo AS (SELECT barcode FROM promotions WHERE
 stockouts,inventory stores,"SELECT st.store_name, i.barcode FROM inventory i JOIN stores st ON i.store_id = st.store_id WHERE i.on_hand = 0"
 basket_size,scans,"SELECT avg(items) AS avg_basket FROM (SELECT basket_id, count(*) AS items FROM scans GROUP BY basket_id) b"
 revenue_by_store_v2,,"SELECT store_id, sum(units FROM scans GROUP BY store_id"
-lapsed_barcodes,,"SELECT barcode FROM scans WHERE"
+lapsed_barcodes,,"SELECT barcode FROM scans WHERE units >"
 price_list,,"SELEC barcode, price FROM products"
