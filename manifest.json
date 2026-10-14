@@ -368,7 +368,7 @@
         "SQL functions",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-09-report-query-audit",
       "new_feature": {
         "name": "parse_sql SQL function (Databricks SQL 2026.36)",
@@ -383,13 +383,13 @@
       "date": "2026-10-13",
       "title": "How much will a new item sell? Zero-shot AI.PREDICT with TabFM",
       "summary": "Forecasts weekly units for 8 new grocery items from 48 known ones with BigQuery's TabFM through AI.PREDICT: no model trained or stored, scored against held-out sales.",
-      "headline": "8 new items forecast zero-shot \u00b7 least-squares MAE 17.3 vs naive 214.0 units/week \u00b7 TabFM must beat naive",
+      "headline": "8 new items forecast zero-shot \u00b7 TabFM MAE 11.4 vs least squares 17.3 vs naive 214.0 units/week",
       "skills": [
         "BigQuery",
         "BigQuery ML",
         "Forecasting"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-09-new-item-forecast",
       "new_feature": {
         "name": "TabFM zero-shot AI.PREDICT (Preview)",
