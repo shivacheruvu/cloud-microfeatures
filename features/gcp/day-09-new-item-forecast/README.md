@@ -41,17 +41,18 @@ A few KB of inlined data, capped at 20 MiB billed. During Preview, on-demand Tab
 processed (free tier). TabFM moves to token-based pricing on 2026-10-30; this check will need a cost note then.
 Nothing is created.
 
-## Result (local)
-| New item | Category | Price | Shelf | Promo | Organic | Actual | Least squares | Naive |
-|---|---|---|---|---|---|---|---|---|
-| N048 | beverages | 7.23 | 2 | yes | yes | 131.5 | 124.6 | 273.5 |
-| N049 | bakery | 8.71 | 4 | yes | yes | 67.6 | 62.0 | 273.5 |
-| N050 | dairy | 6.04 | 2 | | | 146.9 | 159.1 | 273.5 |
-| N051 | produce | 1.79 | 2 | | | 964.0 | 887.0 | 273.5 |
-| N052 | snacks | 8.48 | 3 | | yes | 74.8 | 75.9 | 273.5 |
-| N053 | beverages | 3.35 | 3 | | yes | 308.7 | 274.3 | 273.5 |
-| N054 | bakery | 4.49 | 2 | yes | yes | 154.3 | 153.8 | 273.5 |
-| N055 | dairy | 8.43 | 4 | | yes | 79.7 | 80.5 | 273.5 |
+## Result
+| New item | Category | Price | Shelf | Promo | Organic | Actual | TabFM (cloud) | Least squares | Naive |
+|---|---|---|---|---|---|---|---|---|---|
+| N048 | beverages | 7.23 | 2 | yes | yes | 131.5 | 130.0 | 124.6 | 273.5 |
+| N049 | bakery | 8.71 | 4 | yes | yes | 67.6 | 72.5 | 62.0 | 273.5 |
+| N050 | dairy | 6.04 | 2 | | | 146.9 | 153.0 | 159.1 | 273.5 |
+| N051 | produce | 1.79 | 2 | | | 964.0 | 1024.0 | 887.0 | 273.5 |
+| N052 | snacks | 8.48 | 3 | | yes | 74.8 | 82.5 | 75.9 | 273.5 |
+| N053 | beverages | 3.35 | 3 | | yes | 308.7 | 308.0 | 274.3 | 273.5 |
+| N054 | bakery | 4.49 | 2 | yes | yes | 154.3 | 153.0 | 153.8 | 273.5 |
+| N055 | dairy | 8.43 | 4 | | yes | 79.7 | 89.0 | 80.5 | 273.5 |
 
-Mean absolute error: least squares **17.3** units/week, naive **214.0**. TabFM's numbers come from the cloud run (see
-the day's report). Full numbers in [`result.json`](result.json).
+Mean absolute error: **TabFM 11.4** units/week (first cloud run, 2026-10-13), least squares 17.3, naive 214.0.
+Zero-shot, with no training step, TabFM beat the hand-built model on these 8 items. Its numbers can shift from run
+to run, so only the properties above are checked. Full numbers in [`result.json`](result.json).
