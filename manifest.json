@@ -375,6 +375,27 @@
         "released": "2026-08-31",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 9,
+      "platform": "gcp",
+      "slug": "day-09-new-item-forecast",
+      "date": "2026-10-13",
+      "title": "How much will a new item sell? Zero-shot AI.PREDICT with TabFM",
+      "summary": "Forecasts weekly units for 8 new grocery items from 48 known ones with BigQuery's TabFM through AI.PREDICT: no model trained or stored, scored against held-out sales.",
+      "headline": "8 new items forecast zero-shot \u00b7 least-squares MAE 17.3 vs naive 214.0 units/week \u00b7 TabFM must beat naive",
+      "skills": [
+        "BigQuery",
+        "BigQuery ML",
+        "Forecasting"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-09-new-item-forecast",
+      "new_feature": {
+        "name": "TabFM zero-shot AI.PREDICT (Preview)",
+        "released": "2026-08-31",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
