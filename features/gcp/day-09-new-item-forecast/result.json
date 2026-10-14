@@ -1,0 +1,98 @@
+{
+  "engine": "pure-Python least squares on log(units) (local) / BigQuery AI.PREDICT with TabFM, zero-shot (cloud)",
+  "known_items": 48,
+  "new_items": 8,
+  "mae_naive": 214.0,
+  "mae_least_squares": 17.3,
+  "table": [
+    {
+      "sku": "N048",
+      "category": "beverages",
+      "price": 7.23,
+      "shelf_level": 2,
+      "on_promo": true,
+      "organic": true,
+      "actual": 131.5,
+      "least_squares": 124.6,
+      "naive": 273.5
+    },
+    {
+      "sku": "N049",
+      "category": "bakery",
+      "price": 8.71,
+      "shelf_level": 4,
+      "on_promo": true,
+      "organic": true,
+      "actual": 67.6,
+      "least_squares": 62.0,
+      "naive": 273.5
+    },
+    {
+      "sku": "N050",
+      "category": "dairy",
+      "price": 6.04,
+      "shelf_level": 2,
+      "on_promo": false,
+      "organic": false,
+      "actual": 146.9,
+      "least_squares": 159.1,
+      "naive": 273.5
+    },
+    {
+      "sku": "N051",
+      "category": "produce",
+      "price": 1.79,
+      "shelf_level": 2,
+      "on_promo": false,
+      "organic": false,
+      "actual": 964.0,
+      "least_squares": 887.0,
+      "naive": 273.5
+    },
+    {
+      "sku": "N052",
+      "category": "snacks",
+      "price": 8.48,
+      "shelf_level": 3,
+      "on_promo": false,
+      "organic": true,
+      "actual": 74.8,
+      "least_squares": 75.9,
+      "naive": 273.5
+    },
+    {
+      "sku": "N053",
+      "category": "beverages",
+      "price": 3.35,
+      "shelf_level": 3,
+      "on_promo": false,
+      "organic": true,
+      "actual": 308.7,
+      "least_squares": 274.3,
+      "naive": 273.5
+    },
+    {
+      "sku": "N054",
+      "category": "bakery",
+      "price": 4.49,
+      "shelf_level": 2,
+      "on_promo": true,
+      "organic": true,
+      "actual": 154.3,
+      "least_squares": 153.8,
+      "naive": 273.5
+    },
+    {
+      "sku": "N055",
+      "category": "dairy",
+      "price": 8.43,
+      "shelf_level": 4,
+      "on_promo": false,
+      "organic": true,
+      "actual": 79.7,
+      "least_squares": 80.5,
+      "naive": 273.5
+    }
+  ],
+  "headline": "8 new items: least-squares MAE 17.3 units/week vs naive 214.0; TabFM zero-shot must beat naive"
+}

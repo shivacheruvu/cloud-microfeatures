@@ -64,3 +64,11 @@ def test_sql_inlines_every_query():
     sql = au.sql_statement(REPS)
     assert "parse_sql(query)" in sql and "{reports}" not in sql
     assert all(r["sql"] in sql for r in REPS)
+
+
+def test_observed_parse_sql_shape():
+    # shape seen in the first cloud run: one object per statement with parse_success
+    bad = [{"start": 1, "length": 55, "parse_success": False,
+            "error": {"errorClass": "PARSE_SYNTAX_ERROR", "sqlState": "42601"}}]
+    good = [{"start": 1, "length": 40, "parse_success": True, "tables": [{"name": "scans"}]}]
+    assert au.is_broken(bad) and not au.is_broken(good)
