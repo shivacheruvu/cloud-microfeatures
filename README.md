@@ -26,7 +26,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 6 | [Re-load a corrected scan export with INSERT ... REPLACE](features/databricks/day-06-idempotent-reload) | [INSERT INTO ... REPLACE USING / REPLACE ON (Databricks SQL 2026.32)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-08-24) | Databricks SQL, Delta Lake, Statement Execution API | ran |
 | 7 | [Which shelf tags to reprint? Automatic change data feed](features/databricks/day-07-shelf-tag-changes) | [Automatic change data feed (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/september) (2026-09-01) | Databricks SQL, Delta Lake, Statement Execution API | ran |
 | 8 | [Cut-to-the-cent unit-price labels: truncate and trim_array](features/databricks/day-08-unit-price-labels) | [truncate and trim_array SQL functions (Databricks SQL 2026.38)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-09-21) | Databricks SQL, SQL functions, Statement Execution API | ran |
-| 9 | [Which saved report queries still parse, and what they read: parse_sql](features/databricks/day-09-report-query-audit) | [parse_sql SQL function (Databricks SQL 2026.36)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-08-31) | Databricks SQL, SQL functions, Statement Execution API | built |
+| 9 | [Which saved report queries still parse, and what they read: parse_sql](features/databricks/day-09-report-query-audit) | [parse_sql SQL function (Databricks SQL 2026.36)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-08-31) | Databricks SQL, SQL functions, Statement Execution API | ran |
 <!-- databricks:end -->
 
 ## Google Cloud features
@@ -42,7 +42,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 6 | [Is oat milk growing, or just noisy? ML.TREND](features/gcp/day-06-oat-milk-trend) | [ML.TREND function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-20) | BigQuery, BigQuery ML time series, Workload Identity Federation | ran |
 | 7 | [Did the shelf reset move sales? AI.CAUSAL_EFFECT](features/gcp/day-07-endcap-effect) | [AI.CAUSAL_EFFECT function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Causal impact | ran |
 | 8 | [Product keys BigQuery generates: identity columns](features/gcp/day-08-product-keys) | [Identity columns (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-31) | BigQuery, DDL, Data modeling | ran |
-| 9 | [How much will a new item sell? Zero-shot AI.PREDICT with TabFM](features/gcp/day-09-new-item-forecast) | [TabFM zero-shot AI.PREDICT (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-31) | BigQuery, BigQuery ML, Forecasting | built |
+| 9 | [How much will a new item sell? Zero-shot AI.PREDICT with TabFM](features/gcp/day-09-new-item-forecast) | [TabFM zero-shot AI.PREDICT (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-31) | BigQuery, BigQuery ML, Forecasting | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself
