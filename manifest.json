@@ -354,6 +354,27 @@
         "released": "2026-08-31",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 9,
+      "platform": "databricks",
+      "slug": "day-09-report-query-audit",
+      "date": "2026-10-13",
+      "title": "Which saved report queries still parse, and what they read: parse_sql",
+      "summary": "Parses eight saved grocery report queries with the new parse_sql() without running them: flags the ones that no longer parse and maps which tables each one reads.",
+      "headline": "3 of 8 saved report queries no longer parse \u00b7 5 tables read \u00b7 scans feeds 4 reports",
+      "skills": [
+        "Databricks SQL",
+        "SQL functions",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-09-report-query-audit",
+      "new_feature": {
+        "name": "parse_sql SQL function (Databricks SQL 2026.36)",
+        "released": "2026-08-31",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
     }
   ]
 }
