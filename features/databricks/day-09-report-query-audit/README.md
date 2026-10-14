@@ -51,8 +51,17 @@ One small query on a serverless SQL warehouse (trial credits; also fine on Free 
 | stockouts | yes | inventory, stores |
 | basket_size | yes | scans (through a subquery) |
 | revenue_by_store_v2 | **no**: `sum(units FROM` is missing its `)` | |
-| lapsed_barcodes | **no**: dangling `WHERE` | |
+| lapsed_barcodes | **no**: `WHERE units >` has no right-hand side | |
 | price_list | **no**: `SELEC` | |
 
 **3 of 8** saved report queries no longer parse. The other 5 read 5 tables; `scans` feeds 4 of them.
 Full numbers in [`result.json`](result.json).
+
+## Fix forward (same day, after the first cloud run)
+The first post-merge run (PR #35) matched local on 7 of 8 queries. The odd one was `SELECT barcode FROM scans WHERE`:
+DuckDB rejects it, but **`parse_sql` returned `parse_success: true`**, so Databricks SQL accepts it, presumably
+reading `WHERE` as a table alias. A real dialect difference, and a good reason to lint with the warehouse's own
+parser. The test query became `... WHERE units >`, which neither parser accepts. The run also showed the output
+shape: a JSON list with one object per statement (`start`, `length`, `parse_success`, and on failure `error` with
+`errorClass: PARSE_SYNTAX_ERROR`, `sqlState: 42601` and the hint, e.g. "missing ')'"). The check now reads
+`parse_success` directly.
