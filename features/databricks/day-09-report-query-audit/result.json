@@ -1,0 +1,96 @@
+{
+  "engine": "DuckDB json_serialize_sql (local) / Databricks SQL parse_sql() (cloud)",
+  "queries": 8,
+  "parse": 5,
+  "broken": 3,
+  "broken_queries": [
+    "revenue_by_store_v2",
+    "lapsed_barcodes",
+    "price_list"
+  ],
+  "tables": 5,
+  "lineage": {
+    "scans": [
+      "weekly_revenue",
+      "top_products",
+      "promo_lift",
+      "basket_size"
+    ],
+    "inventory": [
+      "stockouts"
+    ],
+    "products": [
+      "top_products"
+    ],
+    "promotions": [
+      "promo_lift"
+    ],
+    "stores": [
+      "stockouts"
+    ]
+  },
+  "table": [
+    {
+      "query": "weekly_revenue",
+      "parses": true,
+      "tables": [
+        "scans"
+      ],
+      "error": ""
+    },
+    {
+      "query": "top_products",
+      "parses": true,
+      "tables": [
+        "products",
+        "scans"
+      ],
+      "error": ""
+    },
+    {
+      "query": "promo_lift",
+      "parses": true,
+      "tables": [
+        "promotions",
+        "scans"
+      ],
+      "error": ""
+    },
+    {
+      "query": "stockouts",
+      "parses": true,
+      "tables": [
+        "inventory",
+        "stores"
+      ],
+      "error": ""
+    },
+    {
+      "query": "basket_size",
+      "parses": true,
+      "tables": [
+        "scans"
+      ],
+      "error": ""
+    },
+    {
+      "query": "revenue_by_store_v2",
+      "parses": false,
+      "tables": [],
+      "error": "syntax error at or near \"FROM\""
+    },
+    {
+      "query": "lapsed_barcodes",
+      "parses": false,
+      "tables": [],
+      "error": "syntax error at end of input"
+    },
+    {
+      "query": "price_list",
+      "parses": false,
+      "tables": [],
+      "error": "syntax error at or near \"SELEC\""
+    }
+  ],
+  "headline": "3 of 8 saved report queries no longer parse; the other 5 read 5 tables"
+}
