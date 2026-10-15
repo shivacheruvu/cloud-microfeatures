@@ -1,0 +1,23 @@
+sku,product,category,cents_per_100g,pack_g,organic,in_stock
+P01,almond milk,plant_milk,21,1890,0,1
+P02,oat milk barista,plant_milk,30,950,0,1
+P03,organic soy milk,plant_milk,27,1890,1,1
+P04,coconut milk drink,plant_milk,25,1890,0,1
+P05,rolled oats,cereal,45,1000,0,1
+P06,organic granola,cereal,98,500,1,1
+P07,corn flakes,cereal,70,500,0,1
+P08,muesli,cereal,85,750,0,1
+P09,spaghetti,pasta,39,450,0,1
+P10,penne,pasta,43,450,0,1
+P11,whole wheat spaghetti,pasta,52,450,0,1
+P12,gluten-free fusilli,pasta,88,340,0,1
+P13,house blend beans,coffee,367,340,0,1
+P14,organic espresso beans,coffee,420,340,1,1
+P15,ground coffee,coffee,290,900,0,1
+P16,instant coffee,coffee,880,200,0,1
+P17,plain sparkling water,water,13,3550,0,1
+O01,organic oat milk,plant_milk,32,1890,1,0
+O02,organic muesli,cereal,92,750,1,0
+O03,linguine,pasta,40,450,0,0
+O04,dark roast beans,coffee,380,340,0,0
+O05,lime sparkling water,water,15,3550,0,0

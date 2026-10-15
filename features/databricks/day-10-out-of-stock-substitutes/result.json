@@ -1,0 +1,98 @@
+{
+  "engine": "DuckDB cross join + row_number (local) / Databricks SQL NEAREST BY join (cloud)",
+  "out_of_stock": 5,
+  "substitutes": 10,
+  "same_category_first_choice": 5,
+  "second_choice_from_other_category": [
+    "lime sparkling water"
+  ],
+  "median_first_choice_score": 5,
+  "table": [
+    {
+      "out_of_stock": "organic oat milk",
+      "substitutes": [
+        {
+          "rank": 1,
+          "sku": "P03",
+          "product": "organic soy milk",
+          "score": 5
+        },
+        {
+          "rank": 2,
+          "sku": "P04",
+          "product": "coconut milk drink",
+          "score": 57
+        }
+      ]
+    },
+    {
+      "out_of_stock": "organic muesli",
+      "substitutes": [
+        {
+          "rank": 1,
+          "sku": "P06",
+          "product": "organic granola",
+          "score": 31
+        },
+        {
+          "rank": 2,
+          "sku": "P08",
+          "product": "muesli",
+          "score": 57
+        }
+      ]
+    },
+    {
+      "out_of_stock": "linguine",
+      "substitutes": [
+        {
+          "rank": 1,
+          "sku": "P09",
+          "product": "spaghetti",
+          "score": 1
+        },
+        {
+          "rank": 2,
+          "sku": "P10",
+          "product": "penne",
+          "score": 3
+        }
+      ]
+    },
+    {
+      "out_of_stock": "dark roast beans",
+      "substitutes": [
+        {
+          "rank": 1,
+          "sku": "P13",
+          "product": "house blend beans",
+          "score": 13
+        },
+        {
+          "rank": 2,
+          "sku": "P14",
+          "product": "organic espresso beans",
+          "score": 90
+        }
+      ]
+    },
+    {
+      "out_of_stock": "lime sparkling water",
+      "substitutes": [
+        {
+          "rank": 1,
+          "sku": "P17",
+          "product": "plain sparkling water",
+          "score": 2
+        },
+        {
+          "rank": 2,
+          "sku": "P01",
+          "product": "almond milk",
+          "score": 1172
+        }
+      ]
+    }
+  ],
+  "headline": "5 out-of-stock items, 2 substitutes each: 5 first choices from the same category, 1 second choice from another category"
+}

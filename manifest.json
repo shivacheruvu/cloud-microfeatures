@@ -396,6 +396,27 @@
         "released": "2026-08-31",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 10,
+      "platform": "databricks",
+      "slug": "day-10-out-of-stock-substitutes",
+      "date": "2026-10-14",
+      "title": "Out-of-stock substitutes with the NEAREST BY join",
+      "summary": "Finds the two closest in-stock substitutes for each out-of-stock grocery item with the new NEAREST BY join: one join with a mismatch score instead of a cross join, a window and a filter.",
+      "headline": "5 out-of-stock items \u00b7 2 substitutes each \u00b7 5 same-category first choices \u00b7 1 second choice from another category",
+      "skills": [
+        "Databricks SQL",
+        "Joins",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-10-out-of-stock-substitutes",
+      "new_feature": {
+        "name": "NEAREST BY join (Databricks SQL 2026.20)",
+        "released": "2026-06-29",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
     }
   ]
 }
