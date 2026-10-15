@@ -1,0 +1,126 @@
+{
+  "engine": "pure-Python seasonal naive and promo-aware baseline (local) / BigQuery AI.FORECAST with TimesFM 3.0 and a future covariate (cloud)",
+  "history_days": 84,
+  "horizon_days": 14,
+  "promo_days_in_horizon": 3,
+  "history_promo_lift": 1.58,
+  "mae_seasonal_naive": 19.9,
+  "mae_promo_aware_baseline": 6.9,
+  "mae_seasonal_naive_promo_days": 72.9,
+  "mae_promo_aware_baseline_promo_days": 10.8,
+  "table": [
+    {
+      "day": "2026-09-28",
+      "weekday": "Mon",
+      "on_promo": 0,
+      "actual": 116.9,
+      "seasonal_naive": 111.2,
+      "promo_aware_baseline": 112.3
+    },
+    {
+      "day": "2026-09-29",
+      "weekday": "Tue",
+      "on_promo": 1,
+      "actual": 185.5,
+      "seasonal_naive": 112.4,
+      "promo_aware_baseline": 171.8
+    },
+    {
+      "day": "2026-09-30",
+      "weekday": "Wed",
+      "on_promo": 1,
+      "actual": 185.3,
+      "seasonal_naive": 108.7,
+      "promo_aware_baseline": 170.7
+    },
+    {
+      "day": "2026-10-01",
+      "weekday": "Thu",
+      "on_promo": 0,
+      "actual": 126.8,
+      "seasonal_naive": 125.9,
+      "promo_aware_baseline": 120.3
+    },
+    {
+      "day": "2026-10-02",
+      "weekday": "Fri",
+      "on_promo": 0,
+      "actual": 154.6,
+      "seasonal_naive": 143.8,
+      "promo_aware_baseline": 146.4
+    },
+    {
+      "day": "2026-10-03",
+      "weekday": "Sat",
+      "on_promo": 0,
+      "actual": 175.9,
+      "seasonal_naive": 185.0,
+      "promo_aware_baseline": 177.2
+    },
+    {
+      "day": "2026-10-04",
+      "weekday": "Sun",
+      "on_promo": 0,
+      "actual": 157.1,
+      "seasonal_naive": 155.3,
+      "promo_aware_baseline": 156.9
+    },
+    {
+      "day": "2026-10-05",
+      "weekday": "Mon",
+      "on_promo": 0,
+      "actual": 111.8,
+      "seasonal_naive": 111.2,
+      "promo_aware_baseline": 112.3
+    },
+    {
+      "day": "2026-10-06",
+      "weekday": "Tue",
+      "on_promo": 0,
+      "actual": 119.9,
+      "seasonal_naive": 112.4,
+      "promo_aware_baseline": 108.4
+    },
+    {
+      "day": "2026-10-07",
+      "weekday": "Wed",
+      "on_promo": 0,
+      "actual": 119.2,
+      "seasonal_naive": 108.7,
+      "promo_aware_baseline": 107.7
+    },
+    {
+      "day": "2026-10-08",
+      "weekday": "Thu",
+      "on_promo": 1,
+      "actual": 194.9,
+      "seasonal_naive": 125.9,
+      "promo_aware_baseline": 190.7
+    },
+    {
+      "day": "2026-10-09",
+      "weekday": "Fri",
+      "on_promo": 0,
+      "actual": 152.8,
+      "seasonal_naive": 143.8,
+      "promo_aware_baseline": 146.4
+    },
+    {
+      "day": "2026-10-10",
+      "weekday": "Sat",
+      "on_promo": 0,
+      "actual": 189.3,
+      "seasonal_naive": 185.0,
+      "promo_aware_baseline": 177.2
+    },
+    {
+      "day": "2026-10-11",
+      "weekday": "Sun",
+      "on_promo": 0,
+      "actual": 155.0,
+      "seasonal_naive": 155.3,
+      "promo_aware_baseline": 156.9
+    }
+  ],
+  "headline": "14-day strawberry forecast, 3 promo days: promo-aware baseline MAE 6.9 vs seasonal naive 19.9 units/day; TimesFM 3.0 with the promo calendar must beat naive"
+}
