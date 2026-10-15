@@ -410,7 +410,7 @@
         "Joins",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-10-out-of-stock-substitutes",
       "new_feature": {
         "name": "NEAREST BY join (Databricks SQL 2026.20)",
@@ -431,7 +431,7 @@
         "BigQuery ML",
         "Forecasting"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-10-promo-aware-forecast",
       "new_feature": {
         "name": "TimesFM 3.0 in AI.FORECAST with covariates (Preview)",

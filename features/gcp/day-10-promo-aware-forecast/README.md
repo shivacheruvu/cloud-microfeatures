@@ -50,12 +50,17 @@ Local baselines on the 14 held-out days (units/day):
 |---|---|---|
 | Seasonal naive (same weekday last week) | 19.9 | 72.9 |
 | Promo-aware baseline (4-week weekday mean x 1.58 promo lift) | **6.9** | **10.8** |
-| TimesFM 3.0 with the promo calendar (cloud) | after the cloud run | |
+| TimesFM 3.0 with the promo calendar (cloud) | passed the check; numbers in the next run's notice | |
 
 | Day | Promo | Actual | Seasonal naive | Promo-aware baseline |
 |---|---|---|---|---|
 | Tue 09-29 | yes | 185.5 | 112.4 | 171.8 |
 | Wed 09-30 | yes | 185.3 | 108.7 | 170.7 |
 | Thu 10-08 | yes | 194.9 | 125.9 | 190.7 |
+
+**Cloud run (2026-10-14):** both `AI.FORECAST` queries ran on BigQuery in the post-merge workflow and the check
+passed with no warnings: all 14 days forecast, TimesFM-with-promos beat seasonal naive, beat univariate TimesFM, and
+stayed within 1.5x of the promo-aware baseline. Its notice was cut by GitHub's 10-notices-per-step limit, so the
+workflow now runs the newest day first.
 
 Full numbers in [`result.json`](result.json).
