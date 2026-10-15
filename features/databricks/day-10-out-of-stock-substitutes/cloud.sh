@@ -3,4 +3,5 @@
 # each out-of-stock item with the NEAREST BY join and check them against the local DuckDB cross-join ranking.
 # Read-only: nothing is created.
 set -euo pipefail
+pip install -q duckdb   # the local cross-join ranking it's compared with
 python substitutes.py --databricks
