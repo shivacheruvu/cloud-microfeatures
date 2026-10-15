@@ -417,6 +417,27 @@
         "released": "2026-06-29",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 10,
+      "platform": "gcp",
+      "slug": "day-10-promo-aware-forecast",
+      "date": "2026-10-14",
+      "title": "Promo-aware strawberry forecast: TimesFM 3.0 with a future covariate",
+      "summary": "Forecasts 14 days of daily strawberry sales with BigQuery AI.FORECAST and TimesFM 3.0, passing the planned promo calendar as a future covariate: zero-shot, no model stored, scored against held-out sales.",
+      "headline": "14-day forecast \u00b7 3 promo days \u00b7 promo-aware baseline MAE 6.9 vs seasonal naive 19.9 units/day",
+      "skills": [
+        "BigQuery",
+        "BigQuery ML",
+        "Forecasting"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-10-promo-aware-forecast",
+      "new_feature": {
+        "name": "TimesFM 3.0 in AI.FORECAST with covariates (Preview)",
+        "released": "2026-10-07",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
