@@ -27,6 +27,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 7 | [Which shelf tags to reprint? Automatic change data feed](features/databricks/day-07-shelf-tag-changes) | [Automatic change data feed (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/september) (2026-09-01) | Databricks SQL, Delta Lake, Statement Execution API | ran |
 | 8 | [Cut-to-the-cent unit-price labels: truncate and trim_array](features/databricks/day-08-unit-price-labels) | [truncate and trim_array SQL functions (Databricks SQL 2026.38)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-09-21) | Databricks SQL, SQL functions, Statement Execution API | ran |
 | 9 | [Which saved report queries still parse, and what they read: parse_sql](features/databricks/day-09-report-query-audit) | [parse_sql SQL function (Databricks SQL 2026.36)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-08-31) | Databricks SQL, SQL functions, Statement Execution API | ran |
+| 10 | [Out-of-stock substitutes with the NEAREST BY join](features/databricks/day-10-out-of-stock-substitutes) | [NEAREST BY join (Databricks SQL 2026.20)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-06-29) | Databricks SQL, Joins, Statement Execution API | built |
 <!-- databricks:end -->
 
 ## Google Cloud features
