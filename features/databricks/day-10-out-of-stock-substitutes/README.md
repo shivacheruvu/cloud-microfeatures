@@ -55,4 +55,7 @@ One small query on a serverless SQL warehouse (trial credits; also fine on Free 
 | lime sparkling water | plain sparkling water (2) | almond milk (1172): no second sparkling water on the shelf |
 
 All **5** first choices come from the same category; **1** second choice has to come from another category.
+**Cloud run (2026-10-14):** the `NEAREST BY` query ran on a serverless SQL warehouse in the post-merge workflow
+and matched the local ranking exactly (all 10 substitutes, ranks and scores).
+
 Full numbers in [`result.json`](result.json).
