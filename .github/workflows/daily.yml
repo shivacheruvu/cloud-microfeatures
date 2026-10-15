@@ -55,6 +55,8 @@ jobs:
       - if: steps.gate.outputs.run == 'true'
         name: Run each Databricks feature (bundle job or cloud.sh)
         run: |
+          # local comparison engines, installed once so every day's cloud.sh has them whatever the run order
+          pip install -q duckdb numpy
           failed=0
           # newest day first: GitHub keeps only 10 notices per step, so the oldest days' notices are the ones dropped
           for d in $(ls -d features/databricks/day-*/ | sort -r); do
