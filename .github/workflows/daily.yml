@@ -56,7 +56,8 @@ jobs:
         name: Run each Databricks feature (bundle job or cloud.sh)
         run: |
           failed=0
-          for d in features/databricks/day-*/; do
+          # newest day first: GitHub keeps only 10 notices per step, so the oldest days' notices are the ones dropped
+          for d in $(ls -d features/databricks/day-*/ | sort -r); do
             echo "::group::$d"
             if [ -f "$d/databricks.yml" ]; then
               (cd "$d" && databricks bundle deploy -t dev && databricks bundle run -t dev daily) || { echo "::error::$d failed"; failed=1; }
@@ -92,7 +93,8 @@ jobs:
         run: |
           gcloud config set project "$GCP_PROJECT_ID" --quiet
           failed=0
-          for s in features/gcp/day-*/cloud.sh; do
+          # newest day first: GitHub keeps only 10 notices per step, so the oldest days' notices are the ones dropped
+          for s in $(ls features/gcp/day-*/cloud.sh | sort -r); do
             [ -f "$s" ] || continue
             d=$(dirname "$s"); echo "::group::$d"
             (cd "$d" && bash cloud.sh) || { echo "::error::$d failed"; failed=1; }
