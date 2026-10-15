@@ -425,7 +425,7 @@
       "date": "2026-10-14",
       "title": "Promo-aware strawberry forecast: TimesFM 3.0 with a future covariate",
       "summary": "Forecasts 14 days of daily strawberry sales with BigQuery AI.FORECAST and TimesFM 3.0, passing the planned promo calendar as a future covariate: zero-shot, no model stored, scored against held-out sales.",
-      "headline": "14-day forecast \u00b7 3 promo days \u00b7 promo-aware baseline MAE 6.9 vs seasonal naive 19.9 units/day",
+      "headline": "14-day forecast \u00b7 promo calendar cuts TimesFM 3.0 MAE from 18.6 to 8.6 units/day (68.2 to 17.4 on promo days)",
       "skills": [
         "BigQuery",
         "BigQuery ML",
