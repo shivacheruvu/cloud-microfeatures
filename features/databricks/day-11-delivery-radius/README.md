@@ -55,4 +55,7 @@ One small query on a serverless SQL warehouse (trial credits; also fine on Free 
 **39 of 60** homes (65%) are within 2.5 km of a store (49 home-store pairs), **10** can choose between two stores,
 and **21** are outside every radius: the gap a fifth store or a wider radius would have to close.
 
+**Cloud run (2026-10-15):** the `ST_DWithin` spatial join ran on a serverless SQL warehouse in the post-merge
+workflow and matched the local distance filter exactly (all 49 home-store pairs and their distances).
+
 Full numbers in [`result.json`](result.json).
