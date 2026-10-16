@@ -1,0 +1,46 @@
+{
+  "engine": "DuckDB cross join + distance filter (local) / Databricks SQL spatial join on ST_DWithin (cloud)",
+  "radius_m": 2500,
+  "stores": 4,
+  "homes": 60,
+  "pairs": 49,
+  "homes_covered": 39,
+  "homes_uncovered": 21,
+  "homes_with_choice": 10,
+  "coverage_pct": 65.0,
+  "table": [
+    {
+      "store_id": "S1",
+      "store": "Downtown Market",
+      "homes_in_radius": 14,
+      "nearest_store_for": 13,
+      "only_store_for": 9,
+      "median_dist_m": 1581
+    },
+    {
+      "store_id": "S2",
+      "store": "Riverside Fresh",
+      "homes_in_radius": 13,
+      "nearest_store_for": 10,
+      "only_store_for": 7,
+      "median_dist_m": 1738
+    },
+    {
+      "store_id": "S3",
+      "store": "Southgate Grocer",
+      "homes_in_radius": 13,
+      "nearest_store_for": 9,
+      "only_store_for": 7,
+      "median_dist_m": 1766
+    },
+    {
+      "store_id": "S4",
+      "store": "Eastfield Foods",
+      "homes_in_radius": 9,
+      "nearest_store_for": 7,
+      "only_store_for": 6,
+      "median_dist_m": 1932
+    }
+  ],
+  "headline": "39 of 60 homes (65%) within 2.5 km of a store, 10 with a choice of stores, 21 outside every radius"
+}
