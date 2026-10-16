@@ -438,6 +438,27 @@
         "released": "2026-10-07",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 11,
+      "platform": "databricks",
+      "slug": "day-11-delivery-radius",
+      "date": "2026-10-15",
+      "title": "Delivery radius with an ST_DWithin spatial join",
+      "summary": "Finds every household within 2.5 km of each grocery store with one spatial join ON st_dwithin over st_makepoint points, then reports coverage, overlap and gaps.",
+      "headline": "39 of 60 homes within 2.5 km of a store \u00b7 10 with a choice of stores \u00b7 21 outside every radius",
+      "skills": [
+        "Databricks SQL",
+        "Geospatial",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-11-delivery-radius",
+      "new_feature": {
+        "name": "ST_DWithin spatial join condition and st_makepoint (Databricks SQL 2026.15)",
+        "released": "2026-05-26",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
     }
   ]
 }
