@@ -52,7 +52,15 @@ One query over a few KB of inlined data, capped at 20 MiB billed (well inside th
 
 ## Result
 Local baseline (weekday median of the last 4 history weeks, flag beyond ±30%): catches **3 of 3** planted problems
-with **0** false alarms on this clean synthetic data. The cloud result (TimesFM 3.0's flags and bounds) is added
-after the post-merge run.
+with **0** false alarms on this clean synthetic data.
+
+**Cloud run (2026-10-15):** BigQuery accepted `model => 'TimesFM 3.0'` in `AI.DETECT_ANOMALIES` and flagged
+**all 3** planted problems (anomaly probability 1.0 each) with **0 false alarms** on the 81 normal store-days:
+
+| Planted problem | Units | TimesFM 3.0 expected range |
+|---|---|---|
+| bananas, scanner outage | 8 | 208 to 284 |
+| milk, duplicate scans | 297 | 101 to 142 |
+| sandwich bread, short delivery | 36 | 71 to 109 |
 
 Full numbers in [`result.json`](result.json).
