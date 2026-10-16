@@ -1,0 +1,46 @@
+{
+  "engine": "pure-Python weekday-median baseline (local) / BigQuery AI.DETECT_ANOMALIES with TimesFM 3.0 (cloud)",
+  "products": 3,
+  "history_days": 56,
+  "target_days": 28,
+  "target_points": 84,
+  "planted_anomalies": 3,
+  "model": "TimesFM 3.0",
+  "anomaly_prob_threshold": 0.95,
+  "local_baseline": "weekday median of the last 4 history weeks, flag beyond +-30%",
+  "local_caught": 3,
+  "local_false_alarms": 0,
+  "table": [
+    {
+      "product": "bananas (lb)",
+      "day": "2026-09-20",
+      "weekday": "Sun",
+      "what": "scanner outage",
+      "units": 8,
+      "weekday_median": 237.0,
+      "deviation_pct": -96.6,
+      "local_flag": true
+    },
+    {
+      "product": "milk 1 gal",
+      "day": "2026-09-29",
+      "weekday": "Tue",
+      "what": "duplicate scans",
+      "units": 297,
+      "weekday_median": 115.5,
+      "deviation_pct": 157.1,
+      "local_flag": true
+    },
+    {
+      "product": "sandwich bread",
+      "day": "2026-10-07",
+      "weekday": "Wed",
+      "what": "short delivery",
+      "units": 36,
+      "weekday_median": 81.0,
+      "deviation_pct": -55.6,
+      "local_flag": true
+    }
+  ],
+  "headline": "84 store-days checked across 3 staples, 3 planted problems: local baseline catches 3 with 0 false alarms; TimesFM 3.0 must catch at least 2"
+}
