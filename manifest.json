@@ -459,6 +459,27 @@
         "released": "2026-05-26",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 11,
+      "platform": "gcp",
+      "slug": "day-11-scan-anomalies",
+      "date": "2026-10-15",
+      "title": "Scan anomalies with TimesFM 3.0 in AI.DETECT_ANOMALIES",
+      "summary": "Checks four weeks of daily scan counts for three grocery staples with BigQuery AI.DETECT_ANOMALIES and TimesFM 3.0 in one zero-shot query, and scores it against three planted problems.",
+      "headline": "84 store-days \u00b7 3 planted problems (scanner outage, duplicate scans, short delivery) \u00b7 TimesFM 3.0 must flag at least 2",
+      "skills": [
+        "BigQuery",
+        "BigQuery ML",
+        "Anomaly detection"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-11-scan-anomalies",
+      "new_feature": {
+        "name": "TimesFM 3.0 in AI.DETECT_ANOMALIES (Preview)",
+        "released": "2026-10-07",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
