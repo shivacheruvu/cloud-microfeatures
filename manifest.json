@@ -452,7 +452,7 @@
         "Geospatial",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-11-delivery-radius",
       "new_feature": {
         "name": "ST_DWithin spatial join condition and st_makepoint (Databricks SQL 2026.15)",
@@ -467,13 +467,13 @@
       "date": "2026-10-15",
       "title": "Scan anomalies with TimesFM 3.0 in AI.DETECT_ANOMALIES",
       "summary": "Checks four weeks of daily scan counts for three grocery staples with BigQuery AI.DETECT_ANOMALIES and TimesFM 3.0 in one zero-shot query, and scores it against three planted problems.",
-      "headline": "84 store-days \u00b7 3 planted problems (scanner outage, duplicate scans, short delivery) \u00b7 TimesFM 3.0 must flag at least 2",
+      "headline": "84 store-days \u00b7 TimesFM 3.0 flagged all 3 planted problems (scanner outage, duplicate scans, short delivery) \u00b7 0 false alarms",
       "skills": [
         "BigQuery",
         "BigQuery ML",
         "Anomaly detection"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-11-scan-anomalies",
       "new_feature": {
         "name": "TimesFM 3.0 in AI.DETECT_ANOMALIES (Preview)",

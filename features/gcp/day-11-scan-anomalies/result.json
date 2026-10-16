@@ -42,5 +42,24 @@
       "local_flag": true
     }
   ],
-  "headline": "84 store-days checked across 3 staples, 3 planted problems: local baseline catches 3 with 0 false alarms; TimesFM 3.0 must catch at least 2"
+  "headline": "84 store-days across 3 staples: TimesFM 3.0 flagged all 3 planted problems with 0 false alarms (local baseline: 3, 0)",
+  "cloud": {
+    "model": "TimesFM 3.0",
+    "caught": 3,
+    "false_alarms": 0,
+    "expected_range": {
+      "bananas (lb) 2026-09-20": [
+        208,
+        284
+      ],
+      "milk 1 gal 2026-09-29": [
+        101,
+        142
+      ],
+      "sandwich bread 2026-10-07": [
+        71,
+        109
+      ]
+    }
+  }
 }
