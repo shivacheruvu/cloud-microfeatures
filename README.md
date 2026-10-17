@@ -48,6 +48,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 9 | [How much will a new item sell? Zero-shot AI.PREDICT with TabFM](features/gcp/day-09-new-item-forecast) | [TabFM zero-shot AI.PREDICT (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-31) | BigQuery, BigQuery ML, Forecasting | ran |
 | 10 | [Promo-aware strawberry forecast: TimesFM 3.0 with a future covariate](features/gcp/day-10-promo-aware-forecast) | [TimesFM 3.0 in AI.FORECAST with covariates (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-07) | BigQuery, BigQuery ML, Forecasting | ran |
 | 11 | [Scan anomalies with TimesFM 3.0 in AI.DETECT_ANOMALIES](features/gcp/day-11-scan-anomalies) | [TimesFM 3.0 in AI.DETECT_ANOMALIES (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-07) | BigQuery, BigQuery ML, Anomaly detection | ran |
+| 12 | [Forecast accuracy with TimesFM 3.0 in AI.EVALUATE](features/gcp/day-12-forecast-accuracy) | [TimesFM 3.0 in AI.EVALUATE (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-07) | BigQuery, BigQuery ML, Forecast evaluation | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself

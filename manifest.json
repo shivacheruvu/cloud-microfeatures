@@ -501,6 +501,27 @@
         "released": "2026-06-29",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 12,
+      "platform": "gcp",
+      "slug": "day-12-forecast-accuracy",
+      "date": "2026-10-16",
+      "title": "Forecast accuracy with TimesFM 3.0 in AI.EVALUATE",
+      "summary": "Backtests 14-day zero-shot forecasts for three grocery items with BigQuery AI.EVALUATE, TimesFM 3.0 next to TimesFM 2.5, and compares both with a seasonal-naive baseline.",
+      "headline": "3 items x 14 held-out days \u00b7 TimesFM 3.0 vs 2.5 vs seasonal naive (MAPE 2.8-5.0%)",
+      "skills": [
+        "BigQuery",
+        "BigQuery ML",
+        "Forecast evaluation"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-12-forecast-accuracy",
+      "new_feature": {
+        "name": "TimesFM 3.0 in AI.EVALUATE (Preview)",
+        "released": "2026-10-07",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
