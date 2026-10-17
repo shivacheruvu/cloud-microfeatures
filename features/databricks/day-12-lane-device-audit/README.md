@@ -58,5 +58,9 @@ are cleaned to canonical form. Flagged:
 | S2-SCO-2 (self-checkout) | S2 Riverside | `10.12.2.300` | bad_ip | typo in the asset register |
 | S4-REG-3 (register) | S4 Eastfield | `lane-07` | bad_ip | hostname instead of an address |
 
+**Cloud run (2026-10-16):** the audit ran on a serverless SQL warehouse in the post-merge workflow and matched the
+local `ipaddress` audit for all 40 devices (canonical IP, version, matched store and status), including the 3
+cleaned IPv6 addresses and the 2 junk values `try_ip_host` turned into NULL.
+
 All addresses are private (`10.0.0.0/8`) or documentation (`2001:db8::/32`) ranges. Full numbers in
 [`result.json`](result.json).
