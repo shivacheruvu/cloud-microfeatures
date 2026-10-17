@@ -53,5 +53,15 @@ Seasonal-naive baseline on the 14 held-out days:
 | milk 1 gal | 127.3 | 3.86 | 5.14 | 3.04% |
 | oat milk 64 oz | 33.1 | 1.00 | 1.31 | 2.84% |
 
-TimesFM 3.0 and 2.5 metrics come from the cloud run (see the day 12 report). Full numbers in
-[`result.json`](result.json).
+**Cloud run (2026-10-16):** BigQuery accepted `model => 'TimesFM 3.0'` in `AI.EVALUATE` (the reference page doesn't
+list it yet) and returned all six (model, item) rows with no status message:
+
+| Item | Seasonal naive MAE | TimesFM 3.0 MAE / MAPE / MASE | TimesFM 2.5 MAE / MAPE / MASE |
+|---|---|---|---|
+| bananas (lb) | 9.93 | **6.01** / 2.93% / 0.771 | 5.96 / 2.95% / 0.764 |
+| milk 1 gal | 3.86 | **3.82** / 3.13% / 0.663 | 4.07 / 3.26% / 0.706 |
+| oat milk 64 oz | 1.00 | **0.80** / 2.51% / 0.674 | 1.02 / 3.01% / 0.856 |
+
+TimesFM 3.0 beat the seasonal-naive baseline on all three items (by 39% on bananas, barely on milk) and beat
+TimesFM 2.5 on milk and on the growing oat milk (MAE 0.80 vs 1.02); 2.5 was a hair better on bananas.
+Full local numbers in [`result.json`](result.json).
