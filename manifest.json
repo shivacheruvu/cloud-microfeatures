@@ -480,6 +480,27 @@
         "released": "2026-10-07",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 12,
+      "platform": "databricks",
+      "slug": "day-12-lane-device-audit",
+      "date": "2026-10-16",
+      "title": "Lane device network audit with the new IP address functions",
+      "summary": "Matches 40 checkout devices to their store's IPv4/IPv6 subnets with try_ip_host, ip_version and ip_cidr_contains, and flags devices in the wrong store, on an unknown network or with a bad address.",
+      "headline": "34 of 40 devices on their own store's network \u00b7 2 in the wrong store \u00b7 2 on unknown networks \u00b7 2 bad addresses",
+      "skills": [
+        "Databricks SQL",
+        "IP address functions",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-12-lane-device-audit",
+      "new_feature": {
+        "name": "IP address functions: try_ip_host, ip_version, ip_cidr_contains (Databricks SQL 2026.20)",
+        "released": "2026-06-29",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
     }
   ]
 }
