@@ -1,0 +1,379 @@
+item,day,units,role
+bananas (lb),2026-06-01,178,history
+bananas (lb),2026-06-02,167,history
+bananas (lb),2026-06-03,180,history
+bananas (lb),2026-06-04,176,history
+bananas (lb),2026-06-05,215,history
+bananas (lb),2026-06-06,255,history
+bananas (lb),2026-06-07,240,history
+bananas (lb),2026-06-08,178,history
+bananas (lb),2026-06-09,177,history
+bananas (lb),2026-06-10,170,history
+bananas (lb),2026-06-11,190,history
+bananas (lb),2026-06-12,220,history
+bananas (lb),2026-06-13,260,history
+bananas (lb),2026-06-14,225,history
+bananas (lb),2026-06-15,176,history
+bananas (lb),2026-06-16,180,history
+bananas (lb),2026-06-17,185,history
+bananas (lb),2026-06-18,185,history
+bananas (lb),2026-06-19,215,history
+bananas (lb),2026-06-20,247,history
+bananas (lb),2026-06-21,225,history
+bananas (lb),2026-06-22,181,history
+bananas (lb),2026-06-23,179,history
+bananas (lb),2026-06-24,179,history
+bananas (lb),2026-06-25,180,history
+bananas (lb),2026-06-26,199,history
+bananas (lb),2026-06-27,252,history
+bananas (lb),2026-06-28,224,history
+bananas (lb),2026-06-29,188,history
+bananas (lb),2026-06-30,165,history
+bananas (lb),2026-07-01,181,history
+bananas (lb),2026-07-02,195,history
+bananas (lb),2026-07-03,205,history
+bananas (lb),2026-07-04,267,history
+bananas (lb),2026-07-05,221,history
+bananas (lb),2026-07-06,188,history
+bananas (lb),2026-07-07,172,history
+bananas (lb),2026-07-08,181,history
+bananas (lb),2026-07-09,176,history
+bananas (lb),2026-07-10,198,history
+bananas (lb),2026-07-11,249,history
+bananas (lb),2026-07-12,227,history
+bananas (lb),2026-07-13,176,history
+bananas (lb),2026-07-14,171,history
+bananas (lb),2026-07-15,174,history
+bananas (lb),2026-07-16,174,history
+bananas (lb),2026-07-17,207,history
+bananas (lb),2026-07-18,270,history
+bananas (lb),2026-07-19,225,history
+bananas (lb),2026-07-20,173,history
+bananas (lb),2026-07-21,170,history
+bananas (lb),2026-07-22,169,history
+bananas (lb),2026-07-23,183,history
+bananas (lb),2026-07-24,217,history
+bananas (lb),2026-07-25,248,history
+bananas (lb),2026-07-26,239,history
+bananas (lb),2026-07-27,186,history
+bananas (lb),2026-07-28,179,history
+bananas (lb),2026-07-29,170,history
+bananas (lb),2026-07-30,179,history
+bananas (lb),2026-07-31,211,history
+bananas (lb),2026-08-01,249,history
+bananas (lb),2026-08-02,228,history
+bananas (lb),2026-08-03,189,history
+bananas (lb),2026-08-04,171,history
+bananas (lb),2026-08-05,177,history
+bananas (lb),2026-08-06,187,history
+bananas (lb),2026-08-07,208,history
+bananas (lb),2026-08-08,263,history
+bananas (lb),2026-08-09,237,history
+bananas (lb),2026-08-10,183,history
+bananas (lb),2026-08-11,162,history
+bananas (lb),2026-08-12,174,history
+bananas (lb),2026-08-13,187,history
+bananas (lb),2026-08-14,203,history
+bananas (lb),2026-08-15,269,history
+bananas (lb),2026-08-16,236,history
+bananas (lb),2026-08-17,181,history
+bananas (lb),2026-08-18,178,history
+bananas (lb),2026-08-19,177,history
+bananas (lb),2026-08-20,189,history
+bananas (lb),2026-08-21,206,history
+bananas (lb),2026-08-22,249,history
+bananas (lb),2026-08-23,222,history
+bananas (lb),2026-08-24,185,history
+bananas (lb),2026-08-25,160,history
+bananas (lb),2026-08-26,169,history
+bananas (lb),2026-08-27,194,history
+bananas (lb),2026-08-28,201,history
+bananas (lb),2026-08-29,272,history
+bananas (lb),2026-08-30,239,history
+bananas (lb),2026-08-31,173,history
+bananas (lb),2026-09-01,176,history
+bananas (lb),2026-09-02,179,history
+bananas (lb),2026-09-03,191,history
+bananas (lb),2026-09-04,206,history
+bananas (lb),2026-09-05,267,history
+bananas (lb),2026-09-06,223,history
+bananas (lb),2026-09-07,175,history
+bananas (lb),2026-09-08,178,history
+bananas (lb),2026-09-09,167,history
+bananas (lb),2026-09-10,175,history
+bananas (lb),2026-09-11,222,history
+bananas (lb),2026-09-12,268,history
+bananas (lb),2026-09-13,229,history
+bananas (lb),2026-09-14,171,history
+bananas (lb),2026-09-15,161,history
+bananas (lb),2026-09-16,165,history
+bananas (lb),2026-09-17,188,history
+bananas (lb),2026-09-18,222,history
+bananas (lb),2026-09-19,259,history
+bananas (lb),2026-09-20,222,history
+bananas (lb),2026-09-21,183,actual
+bananas (lb),2026-09-22,172,actual
+bananas (lb),2026-09-23,171,actual
+bananas (lb),2026-09-24,186,actual
+bananas (lb),2026-09-25,209,actual
+bananas (lb),2026-09-26,250,actual
+bananas (lb),2026-09-27,237,actual
+bananas (lb),2026-09-28,169,actual
+bananas (lb),2026-09-29,170,actual
+bananas (lb),2026-09-30,183,actual
+bananas (lb),2026-10-01,181,actual
+bananas (lb),2026-10-02,201,actual
+bananas (lb),2026-10-03,250,actual
+bananas (lb),2026-10-04,227,actual
+milk 1 gal,2026-06-01,114,history
+milk 1 gal,2026-06-02,113,history
+milk 1 gal,2026-06-03,116,history
+milk 1 gal,2026-06-04,124,history
+milk 1 gal,2026-06-05,133,history
+milk 1 gal,2026-06-06,171,history
+milk 1 gal,2026-06-07,141,history
+milk 1 gal,2026-06-08,122,history
+milk 1 gal,2026-06-09,118,history
+milk 1 gal,2026-06-10,112,history
+milk 1 gal,2026-06-11,126,history
+milk 1 gal,2026-06-12,140,history
+milk 1 gal,2026-06-13,156,history
+milk 1 gal,2026-06-14,157,history
+milk 1 gal,2026-06-15,114,history
+milk 1 gal,2026-06-16,114,history
+milk 1 gal,2026-06-17,123,history
+milk 1 gal,2026-06-18,118,history
+milk 1 gal,2026-06-19,142,history
+milk 1 gal,2026-06-20,157,history
+milk 1 gal,2026-06-21,146,history
+milk 1 gal,2026-06-22,125,history
+milk 1 gal,2026-06-23,111,history
+milk 1 gal,2026-06-24,115,history
+milk 1 gal,2026-06-25,122,history
+milk 1 gal,2026-06-26,133,history
+milk 1 gal,2026-06-27,156,history
+milk 1 gal,2026-06-28,146,history
+milk 1 gal,2026-06-29,125,history
+milk 1 gal,2026-06-30,116,history
+milk 1 gal,2026-07-01,122,history
+milk 1 gal,2026-07-02,127,history
+milk 1 gal,2026-07-03,143,history
+milk 1 gal,2026-07-04,155,history
+milk 1 gal,2026-07-05,157,history
+milk 1 gal,2026-07-06,117,history
+milk 1 gal,2026-07-07,119,history
+milk 1 gal,2026-07-08,111,history
+milk 1 gal,2026-07-09,124,history
+milk 1 gal,2026-07-10,141,history
+milk 1 gal,2026-07-11,170,history
+milk 1 gal,2026-07-12,141,history
+milk 1 gal,2026-07-13,114,history
+milk 1 gal,2026-07-14,109,history
+milk 1 gal,2026-07-15,114,history
+milk 1 gal,2026-07-16,123,history
+milk 1 gal,2026-07-17,138,history
+milk 1 gal,2026-07-18,155,history
+milk 1 gal,2026-07-19,145,history
+milk 1 gal,2026-07-20,114,history
+milk 1 gal,2026-07-21,111,history
+milk 1 gal,2026-07-22,120,history
+milk 1 gal,2026-07-23,117,history
+milk 1 gal,2026-07-24,134,history
+milk 1 gal,2026-07-25,156,history
+milk 1 gal,2026-07-26,148,history
+milk 1 gal,2026-07-27,118,history
+milk 1 gal,2026-07-28,109,history
+milk 1 gal,2026-07-29,122,history
+milk 1 gal,2026-07-30,119,history
+milk 1 gal,2026-07-31,137,history
+milk 1 gal,2026-08-01,159,history
+milk 1 gal,2026-08-02,146,history
+milk 1 gal,2026-08-03,112,history
+milk 1 gal,2026-08-04,113,history
+milk 1 gal,2026-08-05,114,history
+milk 1 gal,2026-08-06,114,history
+milk 1 gal,2026-08-07,136,history
+milk 1 gal,2026-08-08,170,history
+milk 1 gal,2026-08-09,156,history
+milk 1 gal,2026-08-10,111,history
+milk 1 gal,2026-08-11,109,history
+milk 1 gal,2026-08-12,114,history
+milk 1 gal,2026-08-13,118,history
+milk 1 gal,2026-08-14,131,history
+milk 1 gal,2026-08-15,170,history
+milk 1 gal,2026-08-16,145,history
+milk 1 gal,2026-08-17,121,history
+milk 1 gal,2026-08-18,114,history
+milk 1 gal,2026-08-19,112,history
+milk 1 gal,2026-08-20,125,history
+milk 1 gal,2026-08-21,134,history
+milk 1 gal,2026-08-22,153,history
+milk 1 gal,2026-08-23,154,history
+milk 1 gal,2026-08-24,122,history
+milk 1 gal,2026-08-25,107,history
+milk 1 gal,2026-08-26,118,history
+milk 1 gal,2026-08-27,126,history
+milk 1 gal,2026-08-28,144,history
+milk 1 gal,2026-08-29,165,history
+milk 1 gal,2026-08-30,141,history
+milk 1 gal,2026-08-31,121,history
+milk 1 gal,2026-09-01,113,history
+milk 1 gal,2026-09-02,114,history
+milk 1 gal,2026-09-03,125,history
+milk 1 gal,2026-09-04,140,history
+milk 1 gal,2026-09-05,154,history
+milk 1 gal,2026-09-06,138,history
+milk 1 gal,2026-09-07,112,history
+milk 1 gal,2026-09-08,112,history
+milk 1 gal,2026-09-09,114,history
+milk 1 gal,2026-09-10,112,history
+milk 1 gal,2026-09-11,131,history
+milk 1 gal,2026-09-12,160,history
+milk 1 gal,2026-09-13,147,history
+milk 1 gal,2026-09-14,118,history
+milk 1 gal,2026-09-15,108,history
+milk 1 gal,2026-09-16,111,history
+milk 1 gal,2026-09-17,123,history
+milk 1 gal,2026-09-18,141,history
+milk 1 gal,2026-09-19,163,history
+milk 1 gal,2026-09-20,143,history
+milk 1 gal,2026-09-21,113,actual
+milk 1 gal,2026-09-22,118,actual
+milk 1 gal,2026-09-23,112,actual
+milk 1 gal,2026-09-24,120,actual
+milk 1 gal,2026-09-25,137,actual
+milk 1 gal,2026-09-26,154,actual
+milk 1 gal,2026-09-27,137,actual
+milk 1 gal,2026-09-28,109,actual
+milk 1 gal,2026-09-29,107,actual
+milk 1 gal,2026-09-30,111,actual
+milk 1 gal,2026-10-01,123,actual
+milk 1 gal,2026-10-02,139,actual
+milk 1 gal,2026-10-03,159,actual
+milk 1 gal,2026-10-04,143,actual
+oat milk 64 oz,2026-06-01,23,history
+oat milk 64 oz,2026-06-02,22,history
+oat milk 64 oz,2026-06-03,23,history
+oat milk 64 oz,2026-06-04,25,history
+oat milk 64 oz,2026-06-05,29,history
+oat milk 64 oz,2026-06-06,36,history
+oat milk 64 oz,2026-06-07,30,history
+oat milk 64 oz,2026-06-08,22,history
+oat milk 64 oz,2026-06-09,20,history
+oat milk 64 oz,2026-06-10,23,history
+oat milk 64 oz,2026-06-11,23,history
+oat milk 64 oz,2026-06-12,27,history
+oat milk 64 oz,2026-06-13,33,history
+oat milk 64 oz,2026-06-14,30,history
+oat milk 64 oz,2026-06-15,24,history
+oat milk 64 oz,2026-06-16,21,history
+oat milk 64 oz,2026-06-17,23,history
+oat milk 64 oz,2026-06-18,26,history
+oat milk 64 oz,2026-06-19,27,history
+oat milk 64 oz,2026-06-20,38,history
+oat milk 64 oz,2026-06-21,32,history
+oat milk 64 oz,2026-06-22,23,history
+oat milk 64 oz,2026-06-23,22,history
+oat milk 64 oz,2026-06-24,23,history
+oat milk 64 oz,2026-06-25,25,history
+oat milk 64 oz,2026-06-26,31,history
+oat milk 64 oz,2026-06-27,38,history
+oat milk 64 oz,2026-06-28,31,history
+oat milk 64 oz,2026-06-29,22,history
+oat milk 64 oz,2026-06-30,21,history
+oat milk 64 oz,2026-07-01,23,history
+oat milk 64 oz,2026-07-02,27,history
+oat milk 64 oz,2026-07-03,29,history
+oat milk 64 oz,2026-07-04,35,history
+oat milk 64 oz,2026-07-05,34,history
+oat milk 64 oz,2026-07-06,24,history
+oat milk 64 oz,2026-07-07,23,history
+oat milk 64 oz,2026-07-08,24,history
+oat milk 64 oz,2026-07-09,27,history
+oat milk 64 oz,2026-07-10,31,history
+oat milk 64 oz,2026-07-11,38,history
+oat milk 64 oz,2026-07-12,34,history
+oat milk 64 oz,2026-07-13,24,history
+oat milk 64 oz,2026-07-14,23,history
+oat milk 64 oz,2026-07-15,23,history
+oat milk 64 oz,2026-07-16,27,history
+oat milk 64 oz,2026-07-17,30,history
+oat milk 64 oz,2026-07-18,36,history
+oat milk 64 oz,2026-07-19,33,history
+oat milk 64 oz,2026-07-20,24,history
+oat milk 64 oz,2026-07-21,22,history
+oat milk 64 oz,2026-07-22,24,history
+oat milk 64 oz,2026-07-23,25,history
+oat milk 64 oz,2026-07-24,31,history
+oat milk 64 oz,2026-07-25,36,history
+oat milk 64 oz,2026-07-26,34,history
+oat milk 64 oz,2026-07-27,24,history
+oat milk 64 oz,2026-07-28,23,history
+oat milk 64 oz,2026-07-29,23,history
+oat milk 64 oz,2026-07-30,28,history
+oat milk 64 oz,2026-07-31,32,history
+oat milk 64 oz,2026-08-01,37,history
+oat milk 64 oz,2026-08-02,35,history
+oat milk 64 oz,2026-08-03,25,history
+oat milk 64 oz,2026-08-04,24,history
+oat milk 64 oz,2026-08-05,24,history
+oat milk 64 oz,2026-08-06,29,history
+oat milk 64 oz,2026-08-07,32,history
+oat milk 64 oz,2026-08-08,37,history
+oat milk 64 oz,2026-08-09,33,history
+oat milk 64 oz,2026-08-10,26,history
+oat milk 64 oz,2026-08-11,24,history
+oat milk 64 oz,2026-08-12,24,history
+oat milk 64 oz,2026-08-13,29,history
+oat milk 64 oz,2026-08-14,31,history
+oat milk 64 oz,2026-08-15,39,history
+oat milk 64 oz,2026-08-16,37,history
+oat milk 64 oz,2026-08-17,26,history
+oat milk 64 oz,2026-08-18,25,history
+oat milk 64 oz,2026-08-19,26,history
+oat milk 64 oz,2026-08-20,30,history
+oat milk 64 oz,2026-08-21,33,history
+oat milk 64 oz,2026-08-22,42,history
+oat milk 64 oz,2026-08-23,36,history
+oat milk 64 oz,2026-08-24,26,history
+oat milk 64 oz,2026-08-25,26,history
+oat milk 64 oz,2026-08-26,26,history
+oat milk 64 oz,2026-08-27,28,history
+oat milk 64 oz,2026-08-28,34,history
+oat milk 64 oz,2026-08-29,42,history
+oat milk 64 oz,2026-08-30,36,history
+oat milk 64 oz,2026-08-31,28,history
+oat milk 64 oz,2026-09-01,26,history
+oat milk 64 oz,2026-09-02,26,history
+oat milk 64 oz,2026-09-03,31,history
+oat milk 64 oz,2026-09-04,36,history
+oat milk 64 oz,2026-09-05,43,history
+oat milk 64 oz,2026-09-06,38,history
+oat milk 64 oz,2026-09-07,28,history
+oat milk 64 oz,2026-09-08,27,history
+oat milk 64 oz,2026-09-09,28,history
+oat milk 64 oz,2026-09-10,29,history
+oat milk 64 oz,2026-09-11,36,history
+oat milk 64 oz,2026-09-12,43,history
+oat milk 64 oz,2026-09-13,36,history
+oat milk 64 oz,2026-09-14,28,history
+oat milk 64 oz,2026-09-15,27,history
+oat milk 64 oz,2026-09-16,29,history
+oat milk 64 oz,2026-09-17,31,history
+oat milk 64 oz,2026-09-18,36,history
+oat milk 64 oz,2026-09-19,40,history
+oat milk 64 oz,2026-09-20,38,history
+oat milk 64 oz,2026-09-21,27,actual
+oat milk 64 oz,2026-09-22,28,actual
+oat milk 64 oz,2026-09-23,28,actual
+oat milk 64 oz,2026-09-24,31,actual
+oat milk 64 oz,2026-09-25,35,actual
+oat milk 64 oz,2026-09-26,42,actual
+oat milk 64 oz,2026-09-27,37,actual
+oat milk 64 oz,2026-09-28,29,actual
+oat milk 64 oz,2026-09-29,27,actual
+oat milk 64 oz,2026-09-30,29,actual
+oat milk 64 oz,2026-10-01,32,actual
+oat milk 64 oz,2026-10-02,36,actual
+oat milk 64 oz,2026-10-03,42,actual
+oat milk 64 oz,2026-10-04,41,actual
