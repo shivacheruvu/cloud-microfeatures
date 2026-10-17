@@ -1,0 +1,69 @@
+{
+  "engine": "Python ipaddress (local) / Databricks SQL try_ip_host + ip_cidr_contains (cloud)",
+  "stores": 4,
+  "devices": 40,
+  "ipv4": 30,
+  "ipv6": 8,
+  "ok": 34,
+  "wrong_store": 2,
+  "unknown_network": 2,
+  "bad_ip": 2,
+  "canonicalised": 3,
+  "flagged": [
+    {
+      "device_id": "S1-SCL-2",
+      "device_type": "scale",
+      "home_store": "S1",
+      "reported": "10.12.4.62",
+      "seen_store": "S4",
+      "status": "wrong_store",
+      "why": "scale lent to Eastfield, still registered to Downtown"
+    },
+    {
+      "device_id": "S2-HH-1",
+      "device_type": "handheld",
+      "home_store": "S2",
+      "reported": "2001:db8:12:3::b1",
+      "seen_store": "S3",
+      "status": "wrong_store",
+      "why": "handheld roamed onto Southgate's network"
+    },
+    {
+      "device_id": "S2-SCO-2",
+      "device_type": "self-checkout",
+      "home_store": "S2",
+      "reported": "10.12.2.300",
+      "seen_store": null,
+      "status": "bad_ip",
+      "why": "typo in the asset register"
+    },
+    {
+      "device_id": "S3-REG-4",
+      "device_type": "register",
+      "home_store": "S3",
+      "reported": "10.99.0.15",
+      "seen_store": null,
+      "status": "unknown_network",
+      "why": "register on the guest Wi-Fi"
+    },
+    {
+      "device_id": "S4-HH-2",
+      "device_type": "handheld",
+      "home_store": "S4",
+      "reported": "2001:db8:99::7",
+      "seen_store": null,
+      "status": "unknown_network",
+      "why": "handheld on an unknown IPv6 network"
+    },
+    {
+      "device_id": "S4-REG-3",
+      "device_type": "register",
+      "home_store": "S4",
+      "reported": "lane-07",
+      "seen_store": null,
+      "status": "bad_ip",
+      "why": "hostname entered instead of an address"
+    }
+  ],
+  "headline": "34 of 40 devices on their own store's network; 2 in the wrong store, 2 on an unknown network, 2 bad addresses; 3 IPv6 addresses cleaned to canonical form"
+}
