@@ -1,0 +1,35 @@
+{
+  "engine": "pure-Python seasonal-naive baseline (local) / BigQuery AI.EVALUATE with TimesFM 3.0 and 2.5 (cloud)",
+  "items": 3,
+  "history_days": 112,
+  "horizon_days": 14,
+  "models": [
+    "TimesFM 3.0",
+    "TimesFM 2.5"
+  ],
+  "local_baseline": "seasonal naive: each held-out day = the same weekday in the last history week",
+  "table": [
+    {
+      "item": "bananas (lb)",
+      "mean_actual_units": 199.2,
+      "naive_mae": 9.929,
+      "naive_rmse": 11.292,
+      "naive_mape_pct": 5.01
+    },
+    {
+      "item": "milk 1 gal",
+      "mean_actual_units": 127.3,
+      "naive_mae": 3.857,
+      "naive_rmse": 5.141,
+      "naive_mape_pct": 3.04
+    },
+    {
+      "item": "oat milk 64 oz",
+      "mean_actual_units": 33.1,
+      "naive_mae": 1.0,
+      "naive_rmse": 1.309,
+      "naive_mape_pct": 2.84
+    }
+  ],
+  "headline": "3 items x 14 held-out days scored with AI.EVALUATE (TimesFM 3.0 vs 2.5); seasonal-naive MAPE bananas (lb) 5.01%, milk 1 gal 3.04%, oat milk 64 oz 2.84%"
+}
