@@ -29,6 +29,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 9 | [Which saved report queries still parse, and what they read: parse_sql](features/databricks/day-09-report-query-audit) | [parse_sql SQL function (Databricks SQL 2026.36)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-08-31) | Databricks SQL, SQL functions, Statement Execution API | ran |
 | 10 | [Out-of-stock substitutes with the NEAREST BY join](features/databricks/day-10-out-of-stock-substitutes) | [NEAREST BY join (Databricks SQL 2026.20)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-06-29) | Databricks SQL, Joins, Statement Execution API | ran |
 | 11 | [Delivery radius with an ST_DWithin spatial join](features/databricks/day-11-delivery-radius) | [ST_DWithin spatial join condition and st_makepoint (Databricks SQL 2026.15)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-05-26) | Databricks SQL, Geospatial, Statement Execution API | ran |
+| 12 | [Lane device network audit with the new IP address functions](features/databricks/day-12-lane-device-audit) | [IP address functions: try_ip_host, ip_version, ip_cidr_contains (Databricks SQL 2026.20)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-06-29) | Databricks SQL, IP address functions, Statement Execution API | built |
 <!-- databricks:end -->
 
 ## Google Cloud features
