@@ -1,0 +1,55 @@
+{
+  "engine": "DuckDB nested GROUP BYs (local) / BigQuery multi-level aggregation (cloud)",
+  "stores": 3,
+  "days": 14,
+  "baskets": 208,
+  "kpis": {
+    "S1": {
+      "days": 14,
+      "baskets": 88,
+      "revenue": 104325.0,
+      "avg_daily_revenue": 7451.79,
+      "best_day_revenue": 12480.0,
+      "avg_weekend_day_revenue": 8053.25,
+      "avg_basket_value": 1185.51,
+      "avg_items_per_basket": 3.35,
+      "avg_shelf_price": 480.67,
+      "naive_avg_shelf_price": 348.02
+    },
+    "S2": {
+      "days": 14,
+      "baskets": 70,
+      "revenue": 98454.0,
+      "avg_daily_revenue": 7032.43,
+      "best_day_revenue": 17361.0,
+      "avg_weekend_day_revenue": 11843.75,
+      "avg_basket_value": 1406.49,
+      "avg_items_per_basket": 3.94,
+      "avg_shelf_price": 477.33,
+      "naive_avg_shelf_price": 364.84
+    },
+    "S3": {
+      "days": 14,
+      "baskets": 50,
+      "revenue": 73946.0,
+      "avg_daily_revenue": 5281.86,
+      "best_day_revenue": 9233.0,
+      "avg_weekend_day_revenue": 4960.25,
+      "avg_basket_value": 1478.92,
+      "avg_items_per_basket": 3.68,
+      "avg_shelf_price": 465.67,
+      "naive_avg_shelf_price": 388.65
+    }
+  },
+  "weekend_lift_pct": {
+    "S1": 8.1,
+    "S2": 68.4,
+    "S3": -6.1
+  },
+  "naive_price_skew_cents": {
+    "S1": -132.65,
+    "S2": -112.49,
+    "S3": -77.02
+  },
+  "headline": "Riverside Fresh has the biggest weekend lift (+68.4% vs its average day); avg basket $11.86 / $14.06 / $14.79; a plain AVG over the join misstates the shelf price by up to 133 cents"
+}

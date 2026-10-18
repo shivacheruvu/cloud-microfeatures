@@ -543,6 +543,27 @@
         "released": "2026-08-24",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 13,
+      "platform": "gcp",
+      "slug": "day-13-store-day-kpis",
+      "date": "2026-10-17",
+      "title": "Store-day KPIs with multi-level aggregation",
+      "summary": "Computes average daily revenue, best day, weekend-day revenue, basket value and size, and a per-SKU average shelf price for three stores in one BigQuery GROUP BY, using aggregates of aggregates such as AVG(SUM(revenue) GROUP BY sale_date).",
+      "headline": "3 stores x 14 days \u00b7 Riverside weekend lift +68% \u00b7 plain AVG over the join misstates shelf price by up to $1.33",
+      "skills": [
+        "BigQuery",
+        "GoogleSQL",
+        "Workload Identity Federation"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-13-store-day-kpis",
+      "new_feature": {
+        "name": "Multi-level aggregation (Preview)",
+        "released": "2026-07-08",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
