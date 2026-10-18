@@ -1,0 +1,19 @@
+sku,name,aisle,allergens
+P01,Whole milk 1 gal,dairy,milk
+P02,Greek yogurt,dairy,milk
+P03,Oat milk,dairy,gluten
+P04,Cheddar block,dairy,milk
+P05,Sourdough loaf,bakery,gluten
+P06,Almond croissant,bakery,gluten|milk|eggs|tree_nuts
+P07,Gluten-free bagels,bakery,eggs|sesame
+P08,Bananas,produce,
+P09,Baby spinach,produce,
+P10,Avocados,produce,
+P11,Peanut butter,pantry,peanuts
+P12,Soy sauce,pantry,soy|gluten
+P13,Tahini,pantry,sesame
+P14,Trail mix,pantry,peanuts|tree_nuts|soy
+P15,Canned tuna,pantry,fish
+P16,Frozen shrimp,frozen,crustaceans
+P17,Fish sticks,frozen,fish|gluten|milk|eggs
+P18,Frozen peas,frozen,
