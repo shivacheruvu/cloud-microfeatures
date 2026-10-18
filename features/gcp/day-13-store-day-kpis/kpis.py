@@ -201,7 +201,7 @@ if __name__ == "__main__":
         brief = {st: {k: m[k] for k in ("avg_daily_revenue", "best_day_revenue", "avg_weekend_day_revenue",
                                          "avg_basket_value", "avg_shelf_price")} for st, m in s["kpis"].items()}
         print("::notice title=Google Cloud day 13::Multi-level aggregation (AVG(SUM(...) GROUP BY ...), MAX(SUM ...), "
-              "HAVING, AVG(ANY_VALUE ...)) ran on BigQuery and matched local DuckDB nested GROUP BYs for "
+              "a filtered inner SUM, AVG(ANY_VALUE ...)) ran on BigQuery and matched local DuckDB nested GROUP BYs for "
               f"{len(local)} stores x {len(KPIS)} KPIs: {s['headline']}; cents {json.dumps(brief)[:600]}")
     else:
         summary = summarise(run_local(lines, prices))
