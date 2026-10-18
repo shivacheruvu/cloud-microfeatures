@@ -1,0 +1,74 @@
+{
+  "engine": "Python set unions (local) / Databricks SQL collect_union (cloud)",
+  "baskets": 12,
+  "aisles": 5,
+  "allergen_free_baskets": [
+    "B01",
+    "B07"
+  ],
+  "nut_baskets": [
+    "B02",
+    "B03",
+    "B08",
+    "B10",
+    "B11"
+  ],
+  "widest_basket": {
+    "basket_id": "B11",
+    "allergens": [
+      "crustaceans",
+      "eggs",
+      "fish",
+      "gluten",
+      "milk",
+      "soy",
+      "tree_nuts"
+    ]
+  },
+  "baskets_per_allergen": {
+    "gluten": 8,
+    "milk": 6,
+    "eggs": 5,
+    "peanuts": 3,
+    "soy": 3,
+    "tree_nuts": 3,
+    "crustaceans": 2,
+    "fish": 2,
+    "sesame": 2
+  },
+  "aisle_allergens": {
+    "bakery": [
+      "eggs",
+      "gluten",
+      "milk",
+      "sesame",
+      "tree_nuts"
+    ],
+    "dairy": [
+      "gluten",
+      "milk"
+    ],
+    "frozen": [
+      "crustaceans",
+      "eggs",
+      "fish",
+      "gluten",
+      "milk"
+    ],
+    "pantry": [
+      "fish",
+      "gluten",
+      "peanuts",
+      "sesame",
+      "soy",
+      "tree_nuts"
+    ],
+    "produce": []
+  },
+  "nut_free_aisles": [
+    "dairy",
+    "frozen",
+    "produce"
+  ],
+  "headline": "2 of 12 baskets allergen-free, 5 contain nuts; gluten is in 8 baskets; basket B11 has 7 allergens; 3 of 5 aisles nut-free"
+}

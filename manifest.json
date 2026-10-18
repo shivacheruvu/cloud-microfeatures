@@ -522,6 +522,27 @@
         "released": "2026-10-07",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 13,
+      "platform": "databricks",
+      "slug": "day-13-basket-allergens",
+      "date": "2026-10-17",
+      "title": "Basket and aisle allergens with collect_union",
+      "summary": "Rolls per-product allergen arrays up to 12 shopping baskets and 5 aisles with the new collect_union aggregate, flags baskets with nuts and nut-free aisles, and checks it against array_distinct(flatten(collect_list(...))).",
+      "headline": "2 of 12 baskets allergen-free \u00b7 5 contain nuts \u00b7 gluten in 8 baskets \u00b7 3 of 5 aisles nut-free",
+      "skills": [
+        "Databricks SQL",
+        "Array aggregates",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-13-basket-allergens",
+      "new_feature": {
+        "name": "collect_union aggregate function (Databricks SQL 2026.35)",
+        "released": "2026-08-24",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
     }
   ]
 }
