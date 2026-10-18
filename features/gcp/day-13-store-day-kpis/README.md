@@ -54,5 +54,8 @@ One query over about 50 KB of inlined data, capped at 20 MiB billed (BigQuery fr
 | S2 Riverside Fresh | 70 | $70.32 | $173.61 | $118.44 | +68.4% | $14.06 | 3.94 | $4.77 | $3.65 |
 | S3 Southgate Grocer | 50 | $52.82 | $92.33 | $49.60 | −6.1% | $14.79 | 3.68 | $4.66 | $3.89 |
 
+**Cloud run (2026-10-17, after the fix):** the query ran on BigQuery in the post-merge workflow and all 8 KPIs for
+all 3 stores matched the local DuckDB values to 0.01 cents.
+
 Riverside Fresh does most of its business at the weekend; Southgate's weekend days are slightly below its average.
 Data is made up. Full numbers in [`result.json`](result.json).

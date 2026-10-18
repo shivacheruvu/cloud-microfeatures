@@ -557,7 +557,7 @@
         "GoogleSQL",
         "Workload Identity Federation"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-13-store-day-kpis",
       "new_feature": {
         "name": "Multi-level aggregation (Preview)",
