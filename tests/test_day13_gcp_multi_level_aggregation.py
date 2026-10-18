@@ -75,7 +75,8 @@ def test_compare_accepts_match_and_rejects_differences(tmp_path):
 def test_sql_uses_multi_level_aggregation():
     sql = kp.bigquery_sql(LINES, PRICES)
     for frag in ("AVG(SUM(revenue) GROUP BY sale_date)", "MAX(SUM(revenue) GROUP BY sale_date)",
-                 "GROUP BY sale_date, is_weekend HAVING is_weekend", "AVG(ANY_VALUE(shelf_price) GROUP BY sku)"):
+                 "AVG(SUM(IF(is_weekend, revenue, NULL)) GROUP BY sale_date)", "AVG(ANY_VALUE(shelf_price) GROUP BY sku)"):
         assert frag in sql
     assert "{lines}" not in sql and "{prices}" not in sql and sql.count("STRUCT(") == len(LINES) + len(PRICES)
+    assert "HAVING" not in "\n".join(l for l in sql.splitlines() if not l.lstrip().startswith("--"))  # rejected on 2026-10-17: "Function avg has both having expression and group by list"
     assert ";" not in sql and len(sql) < 1_000_000
