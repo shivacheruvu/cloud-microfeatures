@@ -536,7 +536,7 @@
         "Array aggregates",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-13-basket-allergens",
       "new_feature": {
         "name": "collect_union aggregate function (Databricks SQL 2026.35)",

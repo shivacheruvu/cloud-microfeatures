@@ -59,4 +59,7 @@ created.
 | pantry | fish, gluten, peanuts, sesame, soy, tree_nuts | no |
 | produce | (none) | yes |
 
+**Cloud run (2026-10-17):** the query ran on a serverless SQL warehouse in the post-merge workflow; `collect_union`
+matched the local set unions and `array_distinct(flatten(collect_list(...)))` for all 12 baskets and 5 aisles.
+
 Products and baskets are made up. Full numbers in [`result.json`](result.json).
