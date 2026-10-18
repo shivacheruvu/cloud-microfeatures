@@ -13,7 +13,7 @@ two levels of aggregation:
 ```sql
 AVG(SUM(revenue) GROUP BY sale_date)                                  AS avg_daily_revenue,
 MAX(SUM(revenue) GROUP BY sale_date)                                  AS best_day_revenue,
-AVG(SUM(revenue) GROUP BY sale_date, is_weekend HAVING is_weekend)    AS avg_weekend_day_revenue,
+AVG(SUM(IF(is_weekend, revenue, NULL)) GROUP BY sale_date)           AS avg_weekend_day_revenue,
 AVG(SUM(revenue) GROUP BY basket_id)                                  AS avg_basket_value,
 AVG(SUM(qty) GROUP BY basket_id)                                      AS avg_items_per_basket,
 AVG(ANY_VALUE(shelf_price) GROUP BY sku)                              AS avg_shelf_price,   -- once per SKU
@@ -21,6 +21,12 @@ AVG(shelf_price)                                                      AS naive_a
 ```
 Locally, DuckDB computes the same KPIs the old way (a CTE per inner level, joined back), and the test recomputes
 them in pure Python. In the cloud, every KPI must match the local value to 0.01 cents.
+
+**Fix forward (2026-10-17):** the first cloud run wrote the weekend KPI as
+`AVG(SUM(revenue) GROUP BY sale_date, is_weekend HAVING is_weekend)`, after the reference page's inner-`HAVING`
+example, and BigQuery rejected it: "Function avg has both having expression and group by list. This is not
+supported in multi-level aggregation." The weekend filter now goes inside the inner `SUM` instead: weekday sums
+are NULL and the outer `AVG` skips them, which gives the same number.
 
 ## Why it matters
 "Average daily revenue per store" is a sum per day, then an average per store. Before, that was one CTE per inner
