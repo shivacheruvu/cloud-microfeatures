@@ -1,6 +1,7 @@
 """Day 14 (Google Cloud): what drives ice cream sales? ML.CORRELATION (BigQuery ML, Preview 2026-09-10) correlates
 daily ice cream revenue with the day's high temperature, the promotion depth and foot traffic, per store and overall,
-with Pearson and Spearman, in one SQL call each and no model.
+with Pearson and Spearman, in one SQL call each and no model. Finding from the first cloud run: the SPEARMAN rollup
+row correlates ranks taken within each store, not ranks over all rows; a call without dimension_cols gives the latter.
 
   python drivers.py --make-data    # regenerate data/days.csv (deterministic, no ties in any column)
   python drivers.py --local        # pure-Python Pearson and Spearman; writes result.json
@@ -106,15 +107,23 @@ def spearman(x: list[float], y: list[float]) -> float:
 
 
 def run_local(days: list[dict]) -> dict[tuple[str, str, str], dict]:
-    segments = {"ALL": days, **{s: [r for r in days if r["store"] == s] for s in STORES}}
+    """The rows BigQuery returns. Per store: plain Pearson / Spearman. The overall (rollup) row: Pearson as usual,
+    but BigQuery's SPEARMAN rollup ranks within each store and then correlates the pooled ranks (seen on the first
+    cloud run), so that is modelled here; SPEARMAN_NO_DIMS (a call without dimension_cols) is the all-rows Spearman."""
+    segments = {s: [r for r in days if r["store"] == s] for s in STORES}
+    y = lambda rows: [float(r["ice_cream_revenue"]) for r in rows]  # noqa: E731
+    x = lambda rows, col: [float(r[col]) for r in rows]  # noqa: E731
     out = {}
-    for method in METHODS:
-        fn = pearson if method == "PEARSON" else spearman
+    for col in COLS:
         for seg, rows in segments.items():
-            y = [float(r["ice_cream_revenue"]) for r in rows]
-            for col in COLS:
-                out[(method, seg, col)] = {"correlation": fn([float(r[col]) for r in rows], y),
-                                           "segment_size": len(rows)}
+            out[("PEARSON", seg, col)] = {"correlation": pearson(x(rows, col), y(rows)), "segment_size": len(rows)}
+            out[("SPEARMAN", seg, col)] = {"correlation": spearman(x(rows, col), y(rows)), "segment_size": len(rows)}
+        out[("PEARSON", "ALL", col)] = {"correlation": pearson(x(days, col), y(days)), "segment_size": len(days)}
+        rx = [v for rows in segments.values() for v in ranks(x(rows, col))]
+        ry = [v for rows in segments.values() for v in ranks(y(rows))]
+        out[("SPEARMAN", "ALL", col)] = {"correlation": pearson(rx, ry), "segment_size": len(days)}
+        out[("SPEARMAN_NO_DIMS", "ALL", col)] = {"correlation": spearman(x(days, col), y(days)),
+                                                 "segment_size": len(days)}
     return out
 
 
@@ -158,6 +167,8 @@ def compare(cloud: list[dict], local: dict[tuple[str, str, str], dict]) -> list[
 def summarise(local: dict[tuple[str, str, str], dict]) -> dict:
     table = {m: {s: {c: round(local[(m, s, c)]["correlation"], 3) for c in COLS} for s in ("ALL", *STORES)}
              for m in METHODS}
+    table["SPEARMAN"]["ALL_NO_DIMS"] = {c: round(local[("SPEARMAN_NO_DIMS", "ALL", c)]["correlation"], 3)
+                                        for c in COLS}
     driver = {s: max(COLS, key=lambda c: table["PEARSON"][s][c]) for s in ("ALL", *STORES)}
     p = table["PEARSON"]
     return {
@@ -165,7 +176,9 @@ def summarise(local: dict[tuple[str, str, str], dict]) -> dict:
         "correlation": table, "top_driver": driver,
         "headline": f"Lakeside follows the weather (r={p['S1']['max_temp_c']}), Downtown the promotion "
                     f"(r={p['S2']['promo_pct']}), Campus foot traffic (r={p['S3']['foot_traffic']}); pooled, temperature "
-                    f"shows only r={p['ALL']['max_temp_c']}",
+                    f"shows only r={p['ALL']['max_temp_c']}; the SPEARMAN rollup row ranks within stores "
+                    f"({table['SPEARMAN']['ALL']['foot_traffic']} for foot traffic vs "
+                    f"{table['SPEARMAN']['ALL_NO_DIMS']['foot_traffic']} over all rows)",
     }
 
 
@@ -196,7 +209,7 @@ if __name__ == "__main__":
             raise SystemExit(1)
         s = summarise(local)
         print(f"::notice title=Google Cloud day 14::ML.CORRELATION (PEARSON and SPEARMAN) matched the local "
-              f"correlations to 1e-6 for all {len(local)} (method, store, column) rows: {s['headline']}; "
+              f"correlations to 1e-6 for all {len(local)} (method, store, column) rows (SPEARMAN rollup = within-store ranks, pooled): {s['headline']}; "
               f"Spearman {json.dumps(s['correlation']['SPEARMAN'])}")
     else:
         summary = summarise(run_local(days))

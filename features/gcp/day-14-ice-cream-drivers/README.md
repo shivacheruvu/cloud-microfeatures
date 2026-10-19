@@ -23,7 +23,8 @@ UNION ALL
 SELECT 'SPEARMAN', ... method => 'SPEARMAN')
 ```
 With `dimension_cols => ['store']` the function returns every store plus the overall rollup (its `segment` array is
-empty), so 2 methods x 4 segments x 3 columns = 24 rows. Locally, pure Python computes the same Pearson and Spearman
+empty), so 2 methods x 4 segments x 3 columns = 24 rows. A third call, `SPEARMAN` without `dimension_cols`, adds the
+all-rows Spearman (3 more rows; see the finding below). Locally, pure Python computes the same Pearson and Spearman
 values (the test cross-checks them with numpy). No value repeats in any column, so Spearman needs no tie rule and
 the local ranks must match BigQuery's exactly.
 
@@ -56,5 +57,18 @@ Pearson correlation with daily ice cream revenue. Each store's driver comes out 
 shows only r = 0.48: a chain-level correlation would hide all three stories. Spearman agrees on the drivers;
 Downtown's promotion drops to 0.80 under Spearman because promotions come in a few fixed levels, so the rank
 relationship is looser than the linear one.
+
+**Finding from the first cloud run (2026-10-18):** all Pearson rows and the per-store Spearman rows matched, but
+the three Spearman **rollup** rows did not. BigQuery's rollup Spearman is the Pearson correlation of ranks taken
+**within each store**, pooled (it matched that to 1e-15), not the Spearman over all rows:
+
+| Overall Spearman | temperature | promotion | foot traffic |
+|---|---|---|---|
+| rollup row, `dimension_cols => ['store']` | 0.462 | 0.319 | 0.476 |
+| all rows, no `dimension_cols` | 0.505 | 0.334 | 0.384 |
+
+So the rollup row answers "within a store, do higher-ranked days go together?", which is a reasonable question but
+not what the empty `segment` suggests; for the chain-wide rank correlation, call without `dimension_cols`. The local
+model and the check now cover both (fixed forward the same day).
 
 Stores and sales are made up. Full numbers in [`result.json`](result.json).
