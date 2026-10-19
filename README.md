@@ -52,6 +52,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 11 | [Scan anomalies with TimesFM 3.0 in AI.DETECT_ANOMALIES](features/gcp/day-11-scan-anomalies) | [TimesFM 3.0 in AI.DETECT_ANOMALIES (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-07) | BigQuery, BigQuery ML, Anomaly detection | ran |
 | 12 | [Forecast accuracy with TimesFM 3.0 in AI.EVALUATE](features/gcp/day-12-forecast-accuracy) | [TimesFM 3.0 in AI.EVALUATE (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-07) | BigQuery, BigQuery ML, Forecast evaluation | ran |
 | 13 | [Store-day KPIs with multi-level aggregation](features/gcp/day-13-store-day-kpis) | [Multi-level aggregation (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-07-08) | BigQuery, GoogleSQL, Workload Identity Federation | ran |
+| 14 | [What drives ice cream sales, with ML.CORRELATION](features/gcp/day-14-ice-cream-drivers) | [ML.CORRELATION function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Statistics | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself

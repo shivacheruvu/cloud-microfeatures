@@ -1,0 +1,59 @@
+{
+  "engine": "pure Python (local) / BigQuery ML.CORRELATION (cloud)",
+  "days": 28,
+  "stores": 3,
+  "rows": 84,
+  "correlation": {
+    "PEARSON": {
+      "ALL": {
+        "max_temp_c": 0.479,
+        "promo_pct": 0.344,
+        "foot_traffic": 0.362
+      },
+      "S1": {
+        "max_temp_c": 0.964,
+        "promo_pct": 0.04,
+        "foot_traffic": 0.354
+      },
+      "S2": {
+        "max_temp_c": 0.146,
+        "promo_pct": 0.96,
+        "foot_traffic": 0.093
+      },
+      "S3": {
+        "max_temp_c": 0.1,
+        "promo_pct": 0.118,
+        "foot_traffic": 0.905
+      }
+    },
+    "SPEARMAN": {
+      "ALL": {
+        "max_temp_c": 0.505,
+        "promo_pct": 0.334,
+        "foot_traffic": 0.384
+      },
+      "S1": {
+        "max_temp_c": 0.934,
+        "promo_pct": -0.03,
+        "foot_traffic": 0.407
+      },
+      "S2": {
+        "max_temp_c": 0.304,
+        "promo_pct": 0.799,
+        "foot_traffic": 0.117
+      },
+      "S3": {
+        "max_temp_c": 0.147,
+        "promo_pct": 0.188,
+        "foot_traffic": 0.903
+      }
+    }
+  },
+  "top_driver": {
+    "ALL": "max_temp_c",
+    "S1": "max_temp_c",
+    "S2": "promo_pct",
+    "S3": "foot_traffic"
+  },
+  "headline": "Lakeside follows the weather (r=0.964), Downtown the promotion (r=0.96), Campus foot traffic (r=0.905); pooled, temperature shows only r=0.479"
+}

@@ -65,5 +65,6 @@ def test_sql_uses_qualify():
     sql = sh.sql_statements(TAGS, SALES)["databricks"]
     assert sql.count("QUALIFY ") == 2
     assert "QUALIFY ROW_NUMBER() OVER (PARTITION BY store, sku ORDER BY effective_date DESC) = 1" in sql
-    assert "QUALIFY RANK() OVER (PARTITION BY aisle ORDER BY SUM(qty) DESC) <= 2" in sql
+    assert "QUALIFY RANK() OVER (PARTITION BY aisle ORDER BY units DESC) <= 2" in sql
+    assert "SUM(qty)" not in sql.split("QUALIFY RANK()")[1]   # Databricks QUALIFY rejects aggregates
     assert "{tags}" not in sql and "{sales}" not in sql and ";" not in sql
