@@ -71,4 +71,7 @@ So the rollup row answers "within a store, do higher-ranked days go together?", 
 not what the empty `segment` suggests; for the chain-wide rank correlation, call without `dimension_cols`. The local
 model and the check now cover both (fixed forward the same day).
 
+**Cloud run (2026-10-18, after the fix):** all 27 rows (Pearson, per-store Spearman, the within-store Spearman
+rollup and the all-rows Spearman without `dimension_cols`) matched local to 1e-6.
+
 Stores and sales are made up. Full numbers in [`result.json`](result.json).
