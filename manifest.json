@@ -599,7 +599,7 @@
         "BigQuery ML",
         "Statistics"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-14-ice-cream-drivers",
       "new_feature": {
         "name": "ML.CORRELATION function (Preview)",
