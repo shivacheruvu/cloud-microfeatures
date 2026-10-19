@@ -1,0 +1,68 @@
+{
+  "engine": "Python (local) / Databricks SQL QUALIFY (cloud)",
+  "shelf_tag_rows": 87,
+  "store_skus": 33,
+  "rows_dropped_by_qualify": 54,
+  "store_skus_with_changes": 24,
+  "latest_change_is_cut": 12,
+  "widest_store_spread": {
+    "sku": "P07",
+    "cents": 120
+  },
+  "top_sellers": {
+    "bakery": [
+      [
+        "P11",
+        66,
+        1
+      ],
+      [
+        "P10",
+        42,
+        2
+      ]
+    ],
+    "dairy": [
+      [
+        "P01",
+        123,
+        1
+      ],
+      [
+        "P03",
+        78,
+        2
+      ]
+    ],
+    "pantry": [
+      [
+        "P08",
+        105,
+        1
+      ],
+      [
+        "P09",
+        63,
+        2
+      ]
+    ],
+    "produce": [
+      [
+        "P04",
+        231,
+        1
+      ],
+      [
+        "P05",
+        90,
+        2
+      ],
+      [
+        "P06",
+        90,
+        2
+      ]
+    ]
+  },
+  "headline": "87 shelf-tag rows -> 33 current prices; 12 of 24 latest changes were cuts; P07 differs by 120 cents across stores; 9 top sellers in 4 aisles (a tie kept by RANK)"
+}
