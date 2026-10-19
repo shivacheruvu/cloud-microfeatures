@@ -64,4 +64,7 @@ for **12** of them the latest change was a cut. P07 has the widest spread across
 | pantry | P08 105 (1), P09 63 (2) |
 | produce | P04 231 (1), P05 90 (2), P06 90 (2): the tie is kept by `RANK` |
 
+**Cloud run (2026-10-18):** after the fix forward, both `QUALIFY` queries ran on a serverless SQL warehouse in the
+post-merge workflow and matched local for all 33 store/SKU prices and 9 top-seller rows.
+
 Stores, prices and sales are made up. Full numbers in [`result.json`](result.json).

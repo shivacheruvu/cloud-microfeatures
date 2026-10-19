@@ -578,7 +578,7 @@
         "Window functions",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-14-current-shelf-prices",
       "new_feature": {
         "name": "QUALIFY clause (Databricks SQL 2026.20)",
@@ -592,7 +592,7 @@
       "slug": "day-14-ice-cream-drivers",
       "date": "2026-10-18",
       "title": "What drives ice cream sales, with ML.CORRELATION",
-      "summary": "Correlates daily ice cream revenue with temperature, promotion depth and foot traffic for 3 stores and overall, Pearson and Spearman, in two ML.CORRELATION calls with no model; checked against pure Python.",
+      "summary": "Correlates daily ice cream revenue with temperature, promotion depth and foot traffic for 3 stores and overall, Pearson and Spearman, with ML.CORRELATION and no model; checked against pure Python. Found that the Spearman rollup row ranks within each store rather than over all rows.",
       "headline": "Lakeside r=0.96 with temperature \u00b7 Downtown r=0.96 with promotion \u00b7 Campus r=0.91 with foot traffic \u00b7 pooled weather only 0.48",
       "skills": [
         "BigQuery",
