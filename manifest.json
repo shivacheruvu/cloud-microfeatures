@@ -564,6 +564,27 @@
         "released": "2026-07-08",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 14,
+      "platform": "databricks",
+      "slug": "day-14-current-shelf-prices",
+      "date": "2026-10-18",
+      "title": "Current shelf prices and aisle top sellers with QUALIFY",
+      "summary": "Turns 87 shelf-tag price changes into each store's current price (with change count and previous price) and picks the top 2 sellers per aisle, each with a QUALIFY instead of a subquery; checked against plain Python and the same query in DuckDB.",
+      "headline": "87 tag rows \u2192 33 current prices \u00b7 12 of 24 latest changes were cuts \u00b7 P07 spread 120\u00a2 \u00b7 produce tie kept by RANK",
+      "skills": [
+        "Databricks SQL",
+        "Window functions",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-14-current-shelf-prices",
+      "new_feature": {
+        "name": "QUALIFY clause (Databricks SQL 2026.20)",
+        "released": "2026-06-29",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
     }
   ]
 }
