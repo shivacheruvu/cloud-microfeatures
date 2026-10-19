@@ -28,9 +28,9 @@
     },
     "SPEARMAN": {
       "ALL": {
-        "max_temp_c": 0.505,
-        "promo_pct": 0.334,
-        "foot_traffic": 0.384
+        "max_temp_c": 0.462,
+        "promo_pct": 0.319,
+        "foot_traffic": 0.476
       },
       "S1": {
         "max_temp_c": 0.934,
@@ -46,6 +46,11 @@
         "max_temp_c": 0.147,
         "promo_pct": 0.188,
         "foot_traffic": 0.903
+      },
+      "ALL_NO_DIMS": {
+        "max_temp_c": 0.505,
+        "promo_pct": 0.334,
+        "foot_traffic": 0.384
       }
     }
   },
@@ -55,5 +60,5 @@
     "S2": "promo_pct",
     "S3": "foot_traffic"
   },
-  "headline": "Lakeside follows the weather (r=0.964), Downtown the promotion (r=0.96), Campus foot traffic (r=0.905); pooled, temperature shows only r=0.479"
+  "headline": "Lakeside follows the weather (r=0.964), Downtown the promotion (r=0.96), Campus foot traffic (r=0.905); pooled, temperature shows only r=0.479; the SPEARMAN rollup row ranks within stores (0.476 for foot traffic vs 0.384 over all rows)"
 }

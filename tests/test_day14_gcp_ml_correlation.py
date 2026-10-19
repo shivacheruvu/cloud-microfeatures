@@ -35,7 +35,14 @@ def test_local_matches_numpy():
         rows = DAYS if seg == "ALL" else [r for r in DAYS if r["store"] == seg]
         x = np.array([float(r[col]) for r in rows])
         y = np.array([float(r["ice_cream_revenue"]) for r in rows])
-        if method == "SPEARMAN":
+        if method == "SPEARMAN" and seg == "ALL":     # BigQuery's rollup: ranks within each store, pooled
+            stores = np.array([r["store"] for r in rows])
+            rx, ry = np.empty(len(rows)), np.empty(len(rows))
+            for s in dr.STORES:
+                m = stores == s
+                rx[m], ry[m] = rank(x[m]), rank(y[m])
+            x, y = rx, ry
+        elif method.startswith("SPEARMAN"):
             x, y = rank(x), rank(y)
         assert abs(np.corrcoef(x, y)[0, 1] - v["correlation"]) < 1e-12
         assert v["segment_size"] == (84 if seg == "ALL" else 28)
@@ -48,11 +55,15 @@ def test_planted_drivers():
     assert p["S1"]["max_temp_c"] > 0.9 and p["S2"]["promo_pct"] > 0.9 and p["S3"]["foot_traffic"] > 0.9
     assert p["ALL"]["max_temp_c"] < 0.6                       # pooling the stores hides the weather effect
     assert s["correlation"]["SPEARMAN"]["S2"]["promo_pct"] < p["S2"]["promo_pct"] - 0.1   # stepwise promo levels
+    # the rollup Spearman (within-store ranks, values seen in the first cloud run) is not the all-rows Spearman
+    sp = s["correlation"]["SPEARMAN"]
+    assert (sp["ALL"]["max_temp_c"], sp["ALL"]["foot_traffic"]) == (0.462, 0.476)
+    assert (sp["ALL_NO_DIMS"]["max_temp_c"], sp["ALL_NO_DIMS"]["foot_traffic"]) == (0.505, 0.384)
 
 
 def test_compare_accepts_match_and_rejects_differences():
     rows = bq_rows(LOCAL)
-    assert len(rows) == 24 and dr.compare(rows, LOCAL) == []
+    assert len(rows) == 27 and dr.compare(rows, LOCAL) == []
     assert dr.compare(rows[1:], LOCAL)                                       # missing row
     assert dr.compare(rows + rows[:1], LOCAL)                                # duplicate row
     off = json.loads(json.dumps(rows))
@@ -68,7 +79,7 @@ def test_compare_accepts_match_and_rejects_differences():
 
 def test_sql_calls_ml_correlation_with_inlined_data():
     sql = dr.bigquery_sql(DAYS)
-    assert sql.count("FROM ML.CORRELATION(") == 2
+    assert sql.count("FROM ML.CORRELATION(") == 3 and sql.count("dimension_cols =>") == 2
     assert "method => 'PEARSON'" in sql and "method => 'SPEARMAN'" in sql
     assert "dimension_cols => ['store']" in sql and "target_col => 'ice_cream_revenue'" in sql
     assert "{days}" not in sql and sql.count("STRUCT(") == 84
