@@ -21,11 +21,14 @@ SELECT store, sku, price_cents, effective_date,
 FROM tags
 QUALIFY ROW_NUMBER() OVER (PARTITION BY store, sku ORDER BY effective_date DESC) = 1;
 
--- the 2 best sellers per aisle (RANK keeps ties), a window over an aggregate
-SELECT aisle, sku, SUM(qty) AS units, RANK() OVER (PARTITION BY aisle ORDER BY SUM(qty) DESC) AS rnk
-FROM sales GROUP BY aisle, sku
-QUALIFY RANK() OVER (PARTITION BY aisle ORDER BY SUM(qty) DESC) <= 2;
+-- the 2 best sellers per aisle (RANK keeps ties), over units = SUM(qty) GROUP BY aisle, sku
+SELECT aisle, sku, units, RANK() OVER (PARTITION BY aisle ORDER BY units DESC) AS rnk
+FROM units
+QUALIFY RANK() OVER (PARTITION BY aisle ORDER BY units DESC) <= 2;
 ```
+(The first version ranked `SUM(qty)` directly inside `QUALIFY` in the same grouped SELECT. DuckDB accepts that;
+Databricks does not: "QUALIFY does not support aggregate functions". Fixed forward on 2026-10-18 with a `GROUP BY`
+step first.)
 The windows in the select list are evaluated before `QUALIFY` filters, so the surviving row still knows how many
 changes there were and what the previous price was. Locally, plain Python computes the same rows, and the test runs
 the exact query in DuckDB (which also has `QUALIFY`); the cloud result must match row for row.
