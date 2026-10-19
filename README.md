@@ -31,7 +31,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 11 | [Delivery radius with an ST_DWithin spatial join](features/databricks/day-11-delivery-radius) | [ST_DWithin spatial join condition and st_makepoint (Databricks SQL 2026.15)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-05-26) | Databricks SQL, Geospatial, Statement Execution API | ran |
 | 12 | [Lane device network audit with the new IP address functions](features/databricks/day-12-lane-device-audit) | [IP address functions: try_ip_host, ip_version, ip_cidr_contains (Databricks SQL 2026.20)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-06-29) | Databricks SQL, IP address functions, Statement Execution API | ran |
 | 13 | [Basket and aisle allergens with collect_union](features/databricks/day-13-basket-allergens) | [collect_union aggregate function (Databricks SQL 2026.35)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-08-24) | Databricks SQL, Array aggregates, Statement Execution API | ran |
-| 14 | [Current shelf prices and aisle top sellers with QUALIFY](features/databricks/day-14-current-shelf-prices) | [QUALIFY clause (Databricks SQL 2026.20)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-06-29) | Databricks SQL, Window functions, Statement Execution API | built |
+| 14 | [Current shelf prices and aisle top sellers with QUALIFY](features/databricks/day-14-current-shelf-prices) | [QUALIFY clause (Databricks SQL 2026.20)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-06-29) | Databricks SQL, Window functions, Statement Execution API | ran |
 <!-- databricks:end -->
 
 ## Google Cloud features
