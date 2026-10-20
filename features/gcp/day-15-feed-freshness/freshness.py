@@ -6,13 +6,13 @@ written once and called on all three tables.
 
   python freshness.py --make-data    # regenerate data/*.csv (deterministic)
   python freshness.py --local        # plain Python does the same; writes result.json
-  python freshness.py --sql          # print the BigQuery multi-statement query (data inlined)
+  python freshness.py --sql [P.DS]   # print the BigQuery multi-statement query (data inlined) for dataset P.DS
   python freshness.py --compare OUT  # check bq's JSON output against the local result
 
 The cloud check (cloud.sh, GitHub Actions):
   * errors: a missing, extra or duplicate (feed, store) row, or any count or delay that differs from local
-Only temporary tables and a temporary table function are created; they end with the query. Stores and events are
-made up.
+The tables and the function live in a short-lived dataset that cloud.sh deletes (BigQuery doesn't support temporary
+table functions yet). Stores and events are made up.
 """
 from __future__ import annotations
 
@@ -83,11 +83,12 @@ def _struct(r: dict) -> str:
     return "  STRUCT(" + ", ".join(parts) + ")"
 
 
-def bigquery_sql(data: dict[str, list[dict]]) -> str:
+def bigquery_sql(data: dict[str, list[dict]], ds: str = "DATASET") -> str:
+    """ds: the short-lived dataset, as project.dataset (cloud.sh passes it; never printed)."""
     sql = "\n".join(l for l in (HERE / "freshness.sql").read_text().splitlines() if not l.lstrip().startswith("--"))
     for name, rows in data.items():
         sql = sql.replace("{" + name + "}", ",\n".join(_struct(r) for r in rows))
-    return sql
+    return sql.replace("{ds}", ds)
 
 
 def _minutes(r: dict) -> int:
@@ -180,7 +181,7 @@ if __name__ == "__main__":
         raise SystemExit(0)
     data = load()
     if mode == "--sql":
-        print(bigquery_sql(data))
+        print(bigquery_sql(data, *sys.argv[2:3]))
     elif mode == "--compare":
         cloud = read_bq(sys.argv[2])
         local = run_local(data)
@@ -190,7 +191,7 @@ if __name__ == "__main__":
                   f"{json.dumps(errors)[:800]}")
             raise SystemExit(1)
         s = summarise(local, data)
-        print(f"::notice title=Google Cloud day 15::the ANY TABLE table function ran on all 3 temp tables and matched "
+        print(f"::notice title=Google Cloud day 15::the ANY TABLE table function ran on all 3 differently shaped tables and matched "
               f"local for all {len(local)} (feed, store) rows: {s['headline']}; breaches {json.dumps(s['breaches'])}")
     else:
         summary = summarise(run_local(data), data)
