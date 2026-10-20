@@ -108,8 +108,8 @@ def run_local(data: dict[str, list[dict]]) -> dict[tuple[str, str], dict]:
 
 
 def read_bq(path: str) -> list[dict]:
-    """The rows of the final SELECT. bq may print a warning line, and for a script it can print more than one result
-    set, so take the last JSON array whose rows look like ours."""
+    """The rows of the final SELECT. bq may print a warning line first, and for a script it wraps the statements'
+    outputs in one array, so take the last array (top-level or nested one level) whose rows look like ours."""
     text = Path(path).read_text()
     dec, found, i = json.JSONDecoder(), None, text.find("[")
     while i >= 0:
@@ -118,8 +118,11 @@ def read_bq(path: str) -> list[dict]:
         except ValueError:
             i = text.find("[", i + 1)
             continue
-        if isinstance(obj, list) and (not obj or (isinstance(obj[0], dict) and "late_rows" in obj[0])):
-            found = obj
+        # for a script, bq --format=json prints ONE array: a status string per DDL statement, then the final rows as
+        # a nested array, e.g. ["Created p.ds.scans\n", ..., [{"feed": ...}, ...]]
+        for cand in [obj] + (obj if isinstance(obj, list) else []):
+            if isinstance(cand, list) and (not cand or (isinstance(cand[0], dict) and "late_rows" in cand[0])):
+                found = cand
         i = text.find("[", end)
     if found is None:
         raw = text[:500].replace(os.environ.get("GCP_PROJECT_ID") or "\0", "<project>")

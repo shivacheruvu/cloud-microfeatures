@@ -77,6 +77,11 @@ def test_read_bq_takes_the_result_rows(tmp_path):
     out = tmp_path / "out.json"
     out.write_text("WARNING: --scopes ...\n[]\n" + json.dumps(as_bq(LOCAL)) + "\n")
     assert fr.read_bq(str(out)) == as_bq(LOCAL)
+    # the shape bq printed for the script in the 2026-10-19 cloud run: DDL status strings, then the rows nested
+    script_out = ['Created p.mf_day15_1.scans\n', 'Created p.mf_day15_1.deliveries\n',
+                  'Created p.mf_day15_1.price_tags\n', 'Created p.mf_day15_1.late_rows', as_bq(LOCAL)]
+    out.write_text("WARNING: `--scopes` flag may not work as expected\n" + json.dumps(script_out).replace(",", "\n,"))
+    assert fr.read_bq(str(out)) == as_bq(LOCAL)
 
 
 def test_compare_accepts_match_and_rejects_differences():
