@@ -50,7 +50,8 @@ pytest -q tests/test_day15_gcp_any_table_tvf.py
 (feed, store) row.
 
 ## Cost
-One query over ~20 KB of inlined data, capped at 20 MiB billed (well inside the free tier), plus a few KB of storage
+One script over ~20 KB of inlined data. BigQuery bills at least 10 MiB per table read, and the final `SELECT` reads
+3 tables, so the run is billed ~30 MiB and capped at 50 MiB (well inside the 1 TiB/month free tier), plus a few KB of storage
 for minutes: the dataset is deleted on exit and its tables expire after an hour anyway.
 
 ## Result
