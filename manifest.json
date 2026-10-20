@@ -643,7 +643,7 @@
         "Table-valued functions",
         "Data quality"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-15-feed-freshness",
       "new_feature": {
         "name": "ANY TABLE parameters in table-valued functions (GA)",
