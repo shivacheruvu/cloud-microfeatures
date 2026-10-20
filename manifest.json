@@ -606,6 +606,28 @@
         "released": "2026-09-10",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 15,
+      "platform": "databricks",
+      "slug": "day-15-supplier-cost-restage",
+      "date": "2026-10-19",
+      "title": "Re-stage a corrected supplier cost file with CREATE OR REPLACE TEMP TABLE",
+      "summary": "Stages a supplier cost file and its corrected re-delivery in a session-local temporary table, replaced in one statement inside a single SQL script, then flags SKUs under a 25% margin with a suggested price; checked against plain Python and the same statements in DuckDB. First Free Edition day.",
+      "headline": "11 staged rows replaced by 12 \u00b7 3 costs corrected \u00b7 7 of 12 SKUs under 25% margin \u00b7 first file would have got 2 flags wrong",
+      "skills": [
+        "Databricks SQL",
+        "SQL scripting",
+        "Temporary tables",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-15-supplier-cost-restage",
+      "new_feature": {
+        "name": "CREATE OR REPLACE TEMP TABLE (Databricks SQL 2026.15)",
+        "released": "2026-05-26",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
     }
   ]
 }
