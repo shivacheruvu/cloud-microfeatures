@@ -1,0 +1,77 @@
+{
+  "engine": "Python (local) / Databricks SQL temp tables (cloud)",
+  "delivery1_rows": 11,
+  "delivery2_rows": 12,
+  "staged_rows_after_replace": 12,
+  "costs_corrected": [
+    "P02",
+    "P06",
+    "P09"
+  ],
+  "added_in_redelivery": [
+    "P12"
+  ],
+  "skus_priced": 12,
+  "below_target": [
+    [
+      "P01",
+      316,
+      389,
+      429
+    ],
+    [
+      "P03",
+      329,
+      429,
+      439
+    ],
+    [
+      "P05",
+      244,
+      299,
+      329
+    ],
+    [
+      "P07",
+      262,
+      329,
+      359
+    ],
+    [
+      "P08",
+      150,
+      199,
+      209
+    ],
+    [
+      "P09",
+      379,
+      479,
+      509
+    ],
+    [
+      "P10",
+      409,
+      499,
+      549
+    ]
+  ],
+  "below_target_if_first_file_used": [
+    "P01",
+    "P03",
+    "P05",
+    "P06",
+    "P07",
+    "P08",
+    "P10"
+  ],
+  "first_file_wrong_flags": [
+    "P06",
+    "P09"
+  ],
+  "lowest_margin_pct": [
+    "P10",
+    18.0
+  ],
+  "headline": "re-delivery replaced 11 staged rows with 12 (3 costs corrected, 1 added); 7 of 12 SKUs below the 25% margin target (pricing off the first file would have got 2 flags wrong)"
+}
