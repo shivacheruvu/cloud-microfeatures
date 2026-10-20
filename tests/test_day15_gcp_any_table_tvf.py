@@ -62,10 +62,13 @@ def test_duckdb_table_macro_agrees():
 
 
 def test_bigquery_script_shape():
-    sql = fr.bigquery_sql(DATA)
-    assert sql.count("CREATE TEMP TABLE ") == 4 and "CREATE TEMP TABLE FUNCTION late_rows(input_table ANY TABLE" in sql
+    sql = fr.bigquery_sql(DATA, "proj.mf_day15_1")
+    assert "CREATE OR REPLACE TABLE FUNCTION `proj.mf_day15_1.late_rows`(input_table ANY TABLE" in sql
+    assert "TEMP" not in sql                        # BigQuery has no temporary table functions (yet)
     for feed, minutes in fr.SLA.items():
-        assert f"late_rows(TABLE {feed}, '{feed}', {minutes})" in sql
+        assert f"CREATE OR REPLACE TABLE `proj.mf_day15_1.{feed}` AS" in sql
+        assert f"`proj.mf_day15_1.late_rows`(TABLE `proj.mf_day15_1.{feed}`, '{feed}', {minutes})" in sql
+    assert "{ds}" not in sql
     assert all("{" + f + "}" not in sql for f in fr.SLA)  # every placeholder filled
     assert sql.count("STRUCT(") == 129
 
