@@ -64,4 +64,8 @@ for minutes: the dataset is deleted on exit and its tables expire after an hour 
 | price_tags / S2 | 2 / 8 | 38 min |
 | price_tags / S3 | 1 / 8 | 31 min |
 
-Store S1 is inside every SLA. Stores and events are made up. Full numbers in [`result.json`](result.json).
+Store S1 is inside every SLA.
+
+**Cloud run (2026-10-19):** after three fixes forward (no temporary table functions in BigQuery yet, the 10 MiB minimum
+per table read, and the nested array `bq` prints for a script), the `ANY TABLE` function ran on all three tables in
+the post-merge workflow and matched local for all 9 (feed, store) rows. Stores and events are made up. Full numbers in [`result.json`](result.json).
