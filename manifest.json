@@ -628,6 +628,28 @@
         "released": "2026-05-26",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 15,
+      "platform": "gcp",
+      "slug": "day-15-feed-freshness",
+      "date": "2026-10-19",
+      "title": "One freshness check for every feed, with an ANY TABLE table function",
+      "summary": "One temporary table-valued function with an ANY TABLE parameter checks late-arriving rows per store against each feed's SLA, called on three feeds with different columns (scans, deliveries, shelf-tag prices) in a single multi-statement query; checked against plain Python and a DuckDB table macro.",
+      "headline": "1 function \u00b7 3 differently shaped feeds \u00b7 14 of 129 rows late \u00b7 S3 deliveries 5/5 late, up to 521 min",
+      "skills": [
+        "BigQuery",
+        "GoogleSQL",
+        "Table-valued functions",
+        "Data quality"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-15-feed-freshness",
+      "new_feature": {
+        "name": "ANY TABLE parameters in table-valued functions (GA)",
+        "released": "2026-08-11",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
