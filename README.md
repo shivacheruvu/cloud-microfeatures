@@ -54,7 +54,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 12 | [Forecast accuracy with TimesFM 3.0 in AI.EVALUATE](features/gcp/day-12-forecast-accuracy) | [TimesFM 3.0 in AI.EVALUATE (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-07) | BigQuery, BigQuery ML, Forecast evaluation | ran |
 | 13 | [Store-day KPIs with multi-level aggregation](features/gcp/day-13-store-day-kpis) | [Multi-level aggregation (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-07-08) | BigQuery, GoogleSQL, Workload Identity Federation | ran |
 | 14 | [What drives ice cream sales, with ML.CORRELATION](features/gcp/day-14-ice-cream-drivers) | [ML.CORRELATION function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Statistics | ran |
-| 15 | [One freshness check for every feed, with an ANY TABLE table function](features/gcp/day-15-feed-freshness) | [ANY TABLE parameters in table-valued functions (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-11) | BigQuery, GoogleSQL, Table-valued functions, Data quality | built |
+| 15 | [One freshness check for every feed, with an ANY TABLE table function](features/gcp/day-15-feed-freshness) | [ANY TABLE parameters in table-valued functions (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-11) | BigQuery, GoogleSQL, Table-valued functions, Data quality | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself
