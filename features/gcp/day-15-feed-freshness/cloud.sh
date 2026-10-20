@@ -2,7 +2,7 @@
 # Cloud run (GitHub Actions, keyless): in a short-lived BigQuery dataset, one multi-statement query creates 3 tables
 # (scans, deliveries, shelf-tag prices, each with different columns) and a table function with an ANY TABLE parameter
 # (GA 2026-08-11), calls it on all three, and the result is checked row by row against the local Python one. The
-# dataset is deleted on exit (tables also expire after an hour). A few KB of inlined data, capped at 20 MiB billed.
+# dataset is deleted on exit (tables also expire after an hour). A few KB of inlined data; the final SELECT reads 3 tables at the 10 MiB minimum each, so the cap is 50 MiB.
 # Errors are annotations with the project ID redacted (logs are public).
 # (First version used temporary tables and CREATE TEMP TABLE FUNCTION; BigQuery doesn't support temporary table
 # functions yet, so this was fixed forward on 2026-10-19.)
@@ -20,7 +20,7 @@ fi
 python freshness.py --sql "${GCP_PROJECT_ID}.${DS}" > "$SQL"
 for wait in 10 30 0; do
   # SQL goes in on stdin: as an argument, a leading "--" comment would be read as a flag.
-  if bq --quiet --location=US --format=json query --nouse_legacy_sql --maximum_bytes_billed=20971520 \
+  if bq --quiet --location=US --format=json query --nouse_legacy_sql --maximum_bytes_billed=52428800 \
        --max_rows=100 < "$SQL" >"$OUT" 2>"$ERR"; then
     python freshness.py --compare "$OUT"
     exit $?
