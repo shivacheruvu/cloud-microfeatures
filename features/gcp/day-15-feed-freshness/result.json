@@ -1,0 +1,65 @@
+{
+  "engine": "Python (local) / BigQuery ANY TABLE TVF (cloud)",
+  "feeds": 3,
+  "feed_columns": {
+    "scans": [
+      "event_ts",
+      "lane",
+      "loaded_ts",
+      "qty",
+      "sku",
+      "store"
+    ],
+    "deliveries": [
+      "cases",
+      "event_ts",
+      "loaded_ts",
+      "store",
+      "supplier"
+    ],
+    "price_tags": [
+      "event_ts",
+      "loaded_ts",
+      "price_cents",
+      "sku",
+      "store"
+    ]
+  },
+  "sla_minutes": {
+    "scans": 15,
+    "deliveries": 120,
+    "price_tags": 30
+  },
+  "rows_checked": 129,
+  "late_rows": 14,
+  "breaches": {
+    "deliveries/S3": [
+      5,
+      5,
+      521
+    ],
+    "price_tags/S2": [
+      2,
+      8,
+      38
+    ],
+    "price_tags/S3": [
+      1,
+      8,
+      31
+    ],
+    "scans/S2": [
+      6,
+      30,
+      92
+    ]
+  },
+  "worst": {
+    "feed": "deliveries",
+    "store": "S3",
+    "late_rows": 5,
+    "n_rows": 5,
+    "max_delay_min": 521
+  },
+  "headline": "one ANY TABLE function checked 3 feeds with different columns: 14 of 129 rows landed late, in 4 feed/store pairs; worst deliveries at S3 (5/5 late, up to 521 min)"
+}
