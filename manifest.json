@@ -621,7 +621,7 @@
         "Temporary tables",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-15-supplier-cost-restage",
       "new_feature": {
         "name": "CREATE OR REPLACE TEMP TABLE (Databricks SQL 2026.15)",
@@ -664,12 +664,34 @@
         "Geospatial (ST functions)",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-16-flyer-zones",
       "new_feature": {
         "name": "st_makeenvelope SQL function (Databricks SQL 2026.15)",
         "released": "2026-05-26",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
+    },
+    {
+      "day": 16,
+      "platform": "gcp",
+      "slug": "day-16-shelf-price-changes",
+      "date": "2026-10-20",
+      "title": "Shelf-price change log with the CHANGES table function",
+      "summary": "A week of shelf-price edits runs as separate commits on a table with enable_change_history; one CHANGES query returns every insert, update (as an old/new pair) and delete, turned into an old-to-new price report. Checked row by row against a plain Python replay.",
+      "headline": "22 change rows \u00b7 5 commits \u00b7 5 price updates on 4 SKUs \u00b7 P03 repriced twice \u00b7 1 removed, 1 added",
+      "skills": [
+        "BigQuery",
+        "GoogleSQL",
+        "Change history",
+        "Auditing"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-16-shelf-price-changes",
+      "new_feature": {
+        "name": "APPENDS and CHANGES change-history table functions (GA)",
+        "released": "2026-07-27",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
     }
   ]

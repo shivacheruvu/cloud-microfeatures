@@ -56,7 +56,8 @@ One small query on a serverless SQL warehouse (Free Edition). Nothing is created
 **34 flyers** reach **31 of 80** homes; **3** homes get two (the Southgate/Eastfield overlap), and **Mill Road**
 collapsed to a line and would have printed for nobody: fix its corners before the drop.
 
-**Cloud run:** not yet. Databricks cloud runs are blocked until the repository secrets point at the Free Edition
-workspace (see the 2026-10-19 report); status is `built`.
+**Cloud run (2026-10-20, Free Edition):** `st_makeenvelope` + `st_contains` ran on a serverless SQL warehouse in the
+post-merge workflow for #62 and matched the local box filter exactly: same shapes (Mill Road a 2-point line), areas
+and all 34 (zone, home) pairs.
 
 Full numbers in [`result.json`](result.json).

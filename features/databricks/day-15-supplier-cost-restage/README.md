@@ -67,3 +67,6 @@ costs, **7 of 12** SKUs are below the 25% margin target; pricing off the first f
 | P10 | $4.09 | $4.99 | $5.49 (lowest margin, 18%) |
 
 SKUs, costs and prices are made up. Full numbers in [`result.json`](result.json).
+
+**Cloud run (2026-10-20, Free Edition):** the SQL script with `CREATE OR REPLACE TEMP TABLE` ran on a serverless SQL
+warehouse in the post-merge workflow for #62 and matched local for all 12 SKUs, none from the replaced delivery.
