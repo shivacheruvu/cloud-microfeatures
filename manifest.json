@@ -621,7 +621,7 @@
         "Temporary tables",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-15-supplier-cost-restage",
       "new_feature": {
         "name": "CREATE OR REPLACE TEMP TABLE (Databricks SQL 2026.15)",
@@ -664,7 +664,7 @@
         "Geospatial (ST functions)",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-16-flyer-zones",
       "new_feature": {
         "name": "st_makeenvelope SQL function (Databricks SQL 2026.15)",
