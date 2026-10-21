@@ -650,6 +650,27 @@
         "released": "2026-08-11",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 16,
+      "platform": "databricks",
+      "slug": "day-16-flyer-zones",
+      "date": "2026-10-20",
+      "title": "Flyer drop zones with st_makeenvelope",
+      "summary": "Builds five flyer zones with st_makeenvelope from corner pairs typed in any order and joins 80 households with st_contains; flags a zone that collapsed to a line and homes that get two flyers. Checked against plain Python and a DuckDB box filter.",
+      "headline": "34 flyers \u00b7 31 of 80 homes reached \u00b7 3 get two (overlap) \u00b7 reversed corners handled \u00b7 1 zone collapsed to a line",
+      "skills": [
+        "Databricks SQL",
+        "Geospatial (ST functions)",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-16-flyer-zones",
+      "new_feature": {
+        "name": "st_makeenvelope SQL function (Databricks SQL 2026.15)",
+        "released": "2026-05-26",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
     }
   ]
 }
