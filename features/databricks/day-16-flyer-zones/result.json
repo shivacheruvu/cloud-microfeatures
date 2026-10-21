@@ -1,0 +1,64 @@
+{
+  "engine": "DuckDB min/max box filter (local) / Databricks SQL st_makeenvelope + st_contains (cloud)",
+  "zones": 5,
+  "homes": 80,
+  "flyers": 34,
+  "homes_reached": 31,
+  "homes_with_two_flyers": 3,
+  "homes_missed": 49,
+  "bad_zones": [
+    "Z5"
+  ],
+  "reversed_corner_zones": [
+    "Z2"
+  ],
+  "wasted_usd": 0.54,
+  "table": [
+    {
+      "zone_id": "Z1",
+      "zone": "North Hill",
+      "shape": "box",
+      "corners_reversed": false,
+      "area_km2": 12.25,
+      "homes": 5,
+      "also_in_another_zone": 0
+    },
+    {
+      "zone_id": "Z2",
+      "zone": "Riverside",
+      "shape": "box",
+      "corners_reversed": true,
+      "area_km2": 11.52,
+      "homes": 10,
+      "also_in_another_zone": 0
+    },
+    {
+      "zone_id": "Z3",
+      "zone": "Southgate",
+      "shape": "box",
+      "corners_reversed": false,
+      "area_km2": 13.5,
+      "homes": 9,
+      "also_in_another_zone": 3
+    },
+    {
+      "zone_id": "Z4",
+      "zone": "Eastfield",
+      "shape": "box",
+      "corners_reversed": false,
+      "area_km2": 12.0,
+      "homes": 10,
+      "also_in_another_zone": 3
+    },
+    {
+      "zone_id": "Z5",
+      "zone": "Mill Road",
+      "shape": "line",
+      "corners_reversed": false,
+      "area_km2": 0.0,
+      "homes": 0,
+      "also_in_another_zone": 0
+    }
+  ],
+  "headline": "34 flyers reach 31 of 80 homes; 3 homes get two (Z3/Z4 overlap); 1 mistyped zone collapsed to a line and reaches nobody"
+}
