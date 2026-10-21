@@ -1,0 +1,67 @@
+{
+  "engine": "Python replay (local) / BigQuery CHANGES (cloud)",
+  "commits": 5,
+  "change_rows": 22,
+  "by_type": {
+    "DELETE": 6,
+    "INSERT": 11,
+    "UPDATE": 5
+  },
+  "price_updates": 5,
+  "skus_repriced": 4,
+  "repriced_twice": [
+    "P03"
+  ],
+  "removed": [
+    "P09"
+  ],
+  "added": [
+    "P11"
+  ],
+  "net_change_cents": {
+    "P01": 20,
+    "P02": 20,
+    "P03": -30,
+    "P07": -50
+  },
+  "steps": [
+    "Monday load: 10 SKUs",
+    "Tuesday: supplier increase, dairy +20c",
+    "Wednesday: weekend markdown, P03 and P07 -50c",
+    "Thursday: P09 discontinued",
+    "Friday: new seasonal item P11"
+  ],
+  "updates": [
+    {
+      "commit": 2,
+      "sku": "P01",
+      "old_cents": 389,
+      "new_cents": 409
+    },
+    {
+      "commit": 2,
+      "sku": "P02",
+      "old_cents": 549,
+      "new_cents": 569
+    },
+    {
+      "commit": 2,
+      "sku": "P03",
+      "old_cents": 429,
+      "new_cents": 449
+    },
+    {
+      "commit": 3,
+      "sku": "P03",
+      "old_cents": 449,
+      "new_cents": 399
+    },
+    {
+      "commit": 3,
+      "sku": "P07",
+      "old_cents": 479,
+      "new_cents": 429
+    }
+  ],
+  "headline": "CHANGES returned 22 rows over 5 commits: 5 price updates on 4 SKUs (each an old/new pair), P03 repriced twice, 1 removed, 1 added"
+}
