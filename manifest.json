@@ -686,7 +686,7 @@
         "Change history",
         "Auditing"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-16-shelf-price-changes",
       "new_feature": {
         "name": "APPENDS and CHANGES change-history table functions (GA)",
