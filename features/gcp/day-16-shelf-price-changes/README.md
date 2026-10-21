@@ -61,6 +61,8 @@ metadata storage for a 11-row table that's deleted minutes later is negligible.
 `CHANGES` returns **22 rows over 5 commits**: 11 inserts, **5 price updates** on 4 SKUs (each an old/new pair, so
 10 rows), **P03 repriced twice** (net -30c), **P09** removed and **P11** added.
 
-**Cloud run:** pending the post-merge workflow.
+**Cloud run (2026-10-20):** the setup script and the `CHANGES` query ran in BigQuery in the post-merge workflow for
+#63 and matched the local replay for all 22 change rows (same commits, prices, change types and is-for-update flags)
+on the first run.
 
 Full numbers in [`result.json`](result.json).
