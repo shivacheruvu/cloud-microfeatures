@@ -58,7 +58,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 14 | [What drives ice cream sales, with ML.CORRELATION](features/gcp/day-14-ice-cream-drivers) | [ML.CORRELATION function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-10) | BigQuery, BigQuery ML, Statistics | ran |
 | 15 | [One freshness check for every feed, with an ANY TABLE table function](features/gcp/day-15-feed-freshness) | [ANY TABLE parameters in table-valued functions (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-11) | BigQuery, GoogleSQL, Table-valued functions, Data quality | ran |
 | 16 | [Shelf-price change log with the CHANGES table function](features/gcp/day-16-shelf-price-changes) | [APPENDS and CHANGES change-history table functions (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-07-27) | BigQuery, GoogleSQL, Change history, Auditing | ran |
-| 17 | [Ship the price book to the EU with a cross-region table copy](features/gcp/day-17-cross-region-price-book) | [Copy tables across regions (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-15) | BigQuery, Copy jobs, Data residency, bq CLI | built |
+| 17 | [Ship the price book to the EU with a cross-region table copy](features/gcp/day-17-cross-region-price-book) | [Copy tables across regions (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-15) | BigQuery, Copy jobs, Data residency, bq CLI | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself
