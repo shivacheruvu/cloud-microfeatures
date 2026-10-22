@@ -708,12 +708,34 @@
         "SQL scripting",
         "Statement Execution API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-17-atomic-goods-receipts",
       "new_feature": {
         "name": "Multi-statement transactions with BEGIN ATOMIC on managed Delta and Iceberg tables (GA)",
         "released": "2026-10-14",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
+      }
+    },
+    {
+      "day": 17,
+      "platform": "gcp",
+      "slug": "day-17-cross-region-price-book",
+      "date": "2026-10-21",
+      "title": "Ship the price book to the EU with a cross-region table copy",
+      "summary": "Builds a 36-SKU price book in a US dataset and copies it into an EU dataset with one cross-region bq cp; the EU copy's counts, sums and row fingerprint are checked against local and the US table, and a US markdown afterwards shows the copy is a snapshot, not replication.",
+      "headline": "36 SKUs copied US \u2192 EU in one bq cp \u00b7 fingerprint matched \u00b7 US markdown doesn't reach the copy (17288c vs 17318c)",
+      "skills": [
+        "BigQuery",
+        "Copy jobs",
+        "Data residency",
+        "bq CLI"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-17-cross-region-price-book",
+      "new_feature": {
+        "name": "Copy tables across regions (GA)",
+        "released": "2026-10-15",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
     }
   ]
