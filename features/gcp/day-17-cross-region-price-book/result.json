@@ -1,0 +1,49 @@
+{
+  "engine": "plain Python (local) / BigQuery cross-region table copy, bq cp US -> EU (cloud)",
+  "skus": 36,
+  "categories": 6,
+  "source_location": "US",
+  "copy_location": "EU",
+  "copied_rows": 36,
+  "price_book_total_cents": 17318,
+  "markdown_after_copy": {
+    "sku": "S05",
+    "cents_off": 30,
+    "category": "frozen"
+  },
+  "us_total_after_markdown_cents": 17288,
+  "eu_total_after_markdown_cents": 17318,
+  "by_category": [
+    {
+      "category": "dairy",
+      "skus": 6,
+      "total_cents": 2936
+    },
+    {
+      "category": "produce",
+      "skus": 6,
+      "total_cents": 1742
+    },
+    {
+      "category": "bakery",
+      "skus": 6,
+      "total_cents": 3328
+    },
+    {
+      "category": "pantry",
+      "skus": 6,
+      "total_cents": 2322
+    },
+    {
+      "category": "frozen",
+      "skus": 6,
+      "total_cents": 3956
+    },
+    {
+      "category": "snacks",
+      "skus": 6,
+      "total_cents": 3034
+    }
+  ],
+  "headline": "36 SKUs copied US -> EU in one bq cp; after a 30c markdown on S05 in the US, the EU copy still holds the copied snapshot (US 17288c vs EU 17318c)"
+}
