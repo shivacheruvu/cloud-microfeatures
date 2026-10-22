@@ -80,4 +80,9 @@ and dropped in the same run.
 **3 of 6** deliveries booked (**8** receipt lines, **216** units); **3** rejected and rolled back whole, keeping
 **88** units of half-booked deliveries out of stock, and the resent D1 note was not booked twice.
 
+**Cloud run (2026-10-21, Free Edition):** in the post-merge workflow for #65, all six `BEGIN ATOMIC` blocks ran on a
+serverless SQL warehouse through the Statement Execution API and matched the local DuckDB transactions exactly: D1,
+D3 and D6 committed; D2 and D4 rolled back on the `SIGNAL` (their good lines never reached `receipts` or `stock`);
+the resent D1 was refused; final stock and all 8 receipt lines identical.
+
 Full numbers in [`result.json`](result.json).
