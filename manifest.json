@@ -693,6 +693,28 @@
         "released": "2026-07-27",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 17,
+      "platform": "databricks",
+      "slug": "day-17-atomic-goods-receipts",
+      "date": "2026-10-21",
+      "title": "Atomic goods receipts with BEGIN ATOMIC",
+      "summary": "Books six supplier deliveries into receipts and stock, each as one BEGIN ATOMIC transaction on catalog-commit tables: lines are written, checked, and added to stock, and SIGNAL rolls back a delivery with a zero quantity, an unknown SKU or a resent note. Checked against DuckDB transactions and a plain Python model.",
+      "headline": "3 of 6 deliveries booked \u00b7 216 units \u00b7 3 rolled back whole \u00b7 88 half-booked units kept out of stock",
+      "skills": [
+        "Databricks SQL",
+        "Transactions",
+        "SQL scripting",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-17-atomic-goods-receipts",
+      "new_feature": {
+        "name": "Multi-statement transactions with BEGIN ATOMIC on managed Delta and Iceberg tables (GA)",
+        "released": "2026-10-14",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
+      }
     }
   ]
 }

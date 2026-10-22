@@ -1,0 +1,88 @@
+{
+  "engine": "DuckDB BEGIN/ROLLBACK/COMMIT (local) / Databricks SQL BEGIN ATOMIC with SIGNAL (cloud)",
+  "deliveries": 6,
+  "committed": [
+    "D1",
+    "D3",
+    "D6"
+  ],
+  "rejected": [
+    {
+      "delivery": "D2",
+      "supplier": "produce",
+      "reason": "bad line"
+    },
+    {
+      "delivery": "D4",
+      "supplier": "frozen",
+      "reason": "bad line"
+    },
+    {
+      "delivery": "D1",
+      "supplier": "dairy co-op",
+      "reason": "already booked"
+    }
+  ],
+  "receipt_lines": 8,
+  "units_booked": 216,
+  "units_kept_out_by_rollback": 88,
+  "stock": [
+    {
+      "sku": "0702",
+      "product": "whole milk 1gal",
+      "before": 18,
+      "after": 66,
+      "received": 48
+    },
+    {
+      "sku": "0703",
+      "product": "greek yogurt 32oz",
+      "before": 12,
+      "after": 48,
+      "received": 36
+    },
+    {
+      "sku": "0705",
+      "product": "butter 1lb",
+      "before": 20,
+      "after": 32,
+      "received": 12
+    },
+    {
+      "sku": "0711",
+      "product": "large eggs 12ct",
+      "before": 24,
+      "after": 54,
+      "received": 30
+    },
+    {
+      "sku": "0901",
+      "product": "vanilla ice cream 48oz",
+      "before": 10,
+      "after": 10,
+      "received": 0
+    },
+    {
+      "sku": "3283",
+      "product": "honeycrisp apples (lb)",
+      "before": 45,
+      "after": 75,
+      "received": 30
+    },
+    {
+      "sku": "4011",
+      "product": "bananas (lb)",
+      "before": 60,
+      "after": 100,
+      "received": 40
+    },
+    {
+      "sku": "4225",
+      "product": "avocados (each)",
+      "before": 30,
+      "after": 50,
+      "received": 20
+    }
+  ],
+  "headline": "3 of 6 deliveries booked (216 units); 3 rejected and rolled back whole, keeping 88 units of half-booked deliveries out of stock"
+}
