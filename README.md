@@ -34,6 +34,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 14 | [Current shelf prices and aisle top sellers with QUALIFY](features/databricks/day-14-current-shelf-prices) | [QUALIFY clause (Databricks SQL 2026.20)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-06-29) | Databricks SQL, Window functions, Statement Execution API | ran |
 | 15 | [Re-stage a corrected supplier cost file with CREATE OR REPLACE TEMP TABLE](features/databricks/day-15-supplier-cost-restage) | [CREATE OR REPLACE TEMP TABLE (Databricks SQL 2026.15)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-05-26) | Databricks SQL, SQL scripting, Temporary tables, Statement Execution API | ran |
 | 16 | [Flyer drop zones with st_makeenvelope](features/databricks/day-16-flyer-zones) | [st_makeenvelope SQL function (Databricks SQL 2026.15)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-05-26) | Databricks SQL, Geospatial (ST functions), Statement Execution API | ran |
+| 17 | [Atomic goods receipts with BEGIN ATOMIC](features/databricks/day-17-atomic-goods-receipts) | [Multi-statement transactions with BEGIN ATOMIC on managed Delta and Iceberg tables (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-14) | Databricks SQL, Transactions, SQL scripting, Statement Execution API | built |
 <!-- databricks:end -->
 
 ## Google Cloud features
