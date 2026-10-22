@@ -55,4 +55,9 @@ copy job (no query charge; a few KB of cross-region transfer). Well under $0.01 
 
 After the copy, the US marks S05 (frozen) down by 30c: the US book totals **17288c**, the EU copy still **17318c**.
 
+**Cloud run (2026-10-21):** in the post-merge workflow for #66 the cross-region `bq cp` (US -> EU) worked on the
+first try and every check matched: same counts, sums and row fingerprint in both regions at copy time, the US markdown
+showed up in the US only, and `bq show` confirmed the EU copy is in `EU` and **kept its clustering (`category`) and
+description**.
+
 Full numbers in [`result.json`](result.json).
