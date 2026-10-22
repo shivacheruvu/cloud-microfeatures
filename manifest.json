@@ -730,7 +730,7 @@
         "Data residency",
         "bq CLI"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-17-cross-region-price-book",
       "new_feature": {
         "name": "Copy tables across regions (GA)",
