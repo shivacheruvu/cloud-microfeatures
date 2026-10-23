@@ -75,4 +75,5 @@ dark chocolate (70c saving).
 
 **Cloud run note (2026-10-22):** the first post-merge run (#69) turned the opt-in setting on (it took effect after
 about 90 s), but then the comparison step stopped because it imported DuckDB, which the GCP job doesn't install.
-Fixed forward: the cloud comparison uses the plain-Python model.
+Fixed forward: the cloud comparison uses the plain-Python model. The next run (#70) matched: both queries returned the
+same 14 deals as the local model.
