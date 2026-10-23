@@ -774,7 +774,7 @@
         "Reusable column aliases",
         "Project options"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-18-shelf-tag-aliases",
       "new_feature": {
         "name": "Reusable column aliases in GoogleSQL (GA, opt-in)",
