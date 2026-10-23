@@ -40,8 +40,9 @@ python features/gcp/day-18-shelf-tag-aliases/shelf_tags.py --sql aliases P.DS  #
 pytest -q tests/test_day18_gcp_reusable_aliases.py
 ```
 `cloud.sh` (GitHub Actions, keyless) creates a short-lived US dataset and the 25-row table, runs the alias query and
-the expanded control query, and compares both with the local DuckDB run (DuckDB already resolves aliases in `SELECT`
-and `WHERE`; BigQuery's `DIV` is a one-line DuckDB macro). If the project hasn't opted in, the alias query fails with
+the expanded control query, and compares both with the local result: a plain-Python model of the shelf-tag math,
+which the test checks is identical to DuckDB's run of both queries (DuckDB already resolves aliases in `SELECT` and
+`WHERE`; BigQuery's `DIV` is a one-line DuckDB macro). The GitHub Actions GCP job has no DuckDB installed. If the project hasn't opted in, the alias query fails with
 `Unrecognized name`; the script then turns `region-us.reusable_column_aliases_mode` on, retries every 30 s for up to
 10 minutes, and sets the option back to its default (NULL, off) on exit, so the project is left as it was.
 
@@ -71,3 +72,7 @@ cent); `ALTER PROJECT` has no query charge. The dataset is deleted on exit and t
 
 Left out, for example: cheddar 8oz (30% off but 1229c per kg on promo), bananas and eggs (not discounted this week),
 dark chocolate (70c saving).
+
+**Cloud run note (2026-10-22):** the first post-merge run (#69) turned the opt-in setting on (it took effect after
+about 90 s), but then the comparison step stopped because it imported DuckDB, which the GCP job doesn't install.
+Fixed forward: the cloud comparison uses the plain-Python model.

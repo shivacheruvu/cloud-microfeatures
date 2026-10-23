@@ -11,7 +11,7 @@ by name; the same query without the feature has to repeat the promo-price expres
 
 The cloud check (cloud.sh, GitHub Actions), errors when:
   * the alias query fails once the feature is on, or its rows differ from the expanded query's rows
-  * either BigQuery result differs from the local DuckDB result
+  * either BigQuery result differs from the local result (plain-Python model == DuckDB run, checked by the test)
 Items and prices are made up; the dataset is short-lived and deleted by cloud.sh.
 """
 from __future__ import annotations
@@ -167,7 +167,9 @@ if __name__ == "__main__":
     elif mode == "--compare":
         d = Path(sys.argv[2])
         aliases, expanded = read_rows(d / "aliases.json"), read_rows(d / "expanded.json")
-        errors = compare(aliases, expanded, run_local("aliases"))
+        # the GitHub Actions GCP job has no DuckDB: compare with the plain-Python model, which the local test
+        # checks is identical to the DuckDB run of both queries
+        errors = compare(aliases, expanded, pure_python())
         if errors:
             print(f"::error title=Day 18 reusable aliases differ::{len(errors)} difference(s): "
                   f"{_redact(json.dumps(errors))[:850]}")
@@ -175,7 +177,7 @@ if __name__ == "__main__":
         s = summarise(aliases)
         top = [f"{r[1]} {r[6]}c/kg" for r in aliases[:3]]
         print(f"::notice title=Google Cloud day 18::Reusable column aliases query matched the expanded query and "
-              f"local DuckDB: {s['headline']}; best value {json.dumps(top)}")
+              f"the local model (= DuckDB): {s['headline']}; best value {json.dumps(top)}")
     else:
         rows = run_local("aliases")
         s = summarise(rows)
