@@ -1,0 +1,109 @@
+{
+  "engine": "DuckDB on the same pipeline.sql (local) / Lakeflow serverless pipeline with parameters (cloud)",
+  "scan_lines_in_source": 94,
+  "stores": 3,
+  "parameters": [
+    "start_date",
+    "store_id"
+  ],
+  "saved_defaults": {
+    "store_id": "S1",
+    "start_date": "2026-10-12"
+  },
+  "runs": [
+    {
+      "run": "defaults",
+      "store_id": "S1",
+      "start_date": "2026-10-12",
+      "parameters_sent": {},
+      "days": 7,
+      "units": 142,
+      "sales_cents": 56908,
+      "best_day": "2026-10-14",
+      "daily": [
+        {
+          "date": "2026-10-12",
+          "lines": 4,
+          "units": 14,
+          "sales_cents": 6326
+        },
+        {
+          "date": "2026-10-13",
+          "lines": 4,
+          "units": 17,
+          "sales_cents": 6643
+        },
+        {
+          "date": "2026-10-14",
+          "lines": 5,
+          "units": 30,
+          "sales_cents": 11240
+        },
+        {
+          "date": "2026-10-15",
+          "lines": 4,
+          "units": 20,
+          "sales_cents": 8850
+        },
+        {
+          "date": "2026-10-16",
+          "lines": 4,
+          "units": 20,
+          "sales_cents": 7400
+        },
+        {
+          "date": "2026-10-17",
+          "lines": 4,
+          "units": 23,
+          "sales_cents": 8347
+        },
+        {
+          "date": "2026-10-18",
+          "lines": 4,
+          "units": 18,
+          "sales_cents": 8102
+        }
+      ]
+    },
+    {
+      "run": "override",
+      "store_id": "S2",
+      "start_date": "2026-10-15",
+      "parameters_sent": {
+        "store_id": "S2",
+        "start_date": "2026-10-15"
+      },
+      "days": 4,
+      "units": 86,
+      "sales_cents": 31134,
+      "best_day": "2026-10-18",
+      "daily": [
+        {
+          "date": "2026-10-15",
+          "lines": 4,
+          "units": 19,
+          "sales_cents": 5671
+        },
+        {
+          "date": "2026-10-16",
+          "lines": 5,
+          "units": 19,
+          "sales_cents": 8181
+        },
+        {
+          "date": "2026-10-17",
+          "lines": 5,
+          "units": 22,
+          "sales_cents": 8498
+        },
+        {
+          "date": "2026-10-18",
+          "lines": 4,
+          "units": 26,
+          "sales_cents": 8784
+        }
+      ]
+    }
+  ],
+  "headline": "one pipeline, two stores: S1 from 10-12 (defaults) $569.08 over 7 days; S2 from 10-15 (per-run override) $311.34 over 4 days"
+}

@@ -35,6 +35,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 15 | [Re-stage a corrected supplier cost file with CREATE OR REPLACE TEMP TABLE](features/databricks/day-15-supplier-cost-restage) | [CREATE OR REPLACE TEMP TABLE (Databricks SQL 2026.15)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-05-26) | Databricks SQL, SQL scripting, Temporary tables, Statement Execution API | ran |
 | 16 | [Flyer drop zones with st_makeenvelope](features/databricks/day-16-flyer-zones) | [st_makeenvelope SQL function (Databricks SQL 2026.15)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-05-26) | Databricks SQL, Geospatial (ST functions), Statement Execution API | ran |
 | 17 | [Atomic goods receipts with BEGIN ATOMIC](features/databricks/day-17-atomic-goods-receipts) | [Multi-statement transactions with BEGIN ATOMIC on managed Delta and Iceberg tables (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-14) | Databricks SQL, Transactions, SQL scripting, Statement Execution API | ran |
+| 18 | [One store-sales pipeline, any store, with pipeline parameters](features/databricks/day-18-store-pipeline-parameters) | [Pipeline parameters for Lakeflow pipelines (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-12) | Lakeflow pipelines, Pipeline parameters, Materialized views, Pipelines REST API | built |
 <!-- databricks:end -->
 
 ## Google Cloud features
