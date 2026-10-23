@@ -1,0 +1,157 @@
+{
+  "engine": "DuckDB (local) / BigQuery GoogleSQL with reusable column aliases (cloud)",
+  "items": 25,
+  "deals": 14,
+  "rule": "saving >= 75c and promo price <= 1200c per kg",
+  "promo_expression_written": {
+    "with_aliases": 1,
+    "without": 6
+  },
+  "query_chars": {
+    "with_aliases": 452,
+    "without": 618
+  },
+  "deals_table": [
+    {
+      "sku": "0903",
+      "product": "oat milk 64oz",
+      "aisle": "dairy alt",
+      "shelf_cents": 479,
+      "promo_cents": 359,
+      "saving_cents": 120,
+      "cents_per_kg": 190,
+      "checkout_cents": 359
+    },
+    {
+      "sku": "6010",
+      "product": "vanilla ice cream 48oz",
+      "aisle": "frozen",
+      "shelf_cents": 649,
+      "promo_cents": 389,
+      "saving_cents": 260,
+      "cents_per_kg": 286,
+      "checkout_cents": 389
+    },
+    {
+      "sku": "3283",
+      "product": "honeycrisp apples 3lb",
+      "aisle": "produce",
+      "shelf_cents": 599,
+      "promo_cents": 401,
+      "saving_cents": 198,
+      "cents_per_kg": 295,
+      "checkout_cents": 401
+    },
+    {
+      "sku": "5121",
+      "product": "rolled oats 42oz",
+      "aisle": "pantry",
+      "shelf_cents": 599,
+      "promo_cents": 449,
+      "saving_cents": 150,
+      "cents_per_kg": 377,
+      "checkout_cents": 449
+    },
+    {
+      "sku": "5104",
+      "product": "marinara 24oz",
+      "aisle": "pantry",
+      "shelf_cents": 399,
+      "promo_cents": 279,
+      "saving_cents": 120,
+      "cents_per_kg": 410,
+      "checkout_cents": 279
+    },
+    {
+      "sku": "0703",
+      "product": "greek yogurt 32oz",
+      "aisle": "dairy",
+      "shelf_cents": 549,
+      "promo_cents": 412,
+      "saving_cents": 137,
+      "cents_per_kg": 454,
+      "checkout_cents": 412
+    },
+    {
+      "sku": "5110",
+      "product": "basmati rice 2lb",
+      "aisle": "pantry",
+      "shelf_cents": 549,
+      "promo_cents": 439,
+      "saving_cents": 110,
+      "cents_per_kg": 484,
+      "checkout_cents": 439
+    },
+    {
+      "sku": "4225",
+      "product": "avocados 4ct",
+      "aisle": "produce",
+      "shelf_cents": 499,
+      "promo_cents": 399,
+      "saving_cents": 100,
+      "cents_per_kg": 499,
+      "checkout_cents": 399
+    },
+    {
+      "sku": "2207",
+      "product": "bagels 6ct",
+      "aisle": "bakery",
+      "shelf_cents": 399,
+      "promo_cents": 299,
+      "saving_cents": 100,
+      "cents_per_kg": 525,
+      "checkout_cents": 299
+    },
+    {
+      "sku": "8010",
+      "product": "dish soap 19oz",
+      "aisle": "household",
+      "shelf_cents": 399,
+      "promo_cents": 319,
+      "saving_cents": 80,
+      "cents_per_kg": 570,
+      "checkout_cents": 345
+    },
+    {
+      "sku": "2201",
+      "product": "sourdough loaf",
+      "aisle": "bakery",
+      "shelf_cents": 499,
+      "promo_cents": 399,
+      "saving_cents": 100,
+      "cents_per_kg": 587,
+      "checkout_cents": 399
+    },
+    {
+      "sku": "8001",
+      "product": "paper towels 6ct",
+      "aisle": "household",
+      "shelf_cents": 1299,
+      "promo_cents": 974,
+      "saving_cents": 325,
+      "cents_per_kg": 696,
+      "checkout_cents": 1054
+    },
+    {
+      "sku": "6015",
+      "product": "frozen pizza",
+      "aisle": "frozen",
+      "shelf_cents": 799,
+      "promo_cents": 599,
+      "saving_cents": 200,
+      "cents_per_kg": 788,
+      "checkout_cents": 599
+    },
+    {
+      "sku": "7001",
+      "product": "tortilla chips 13oz",
+      "aisle": "snacks",
+      "shelf_cents": 449,
+      "promo_cents": 301,
+      "saving_cents": 148,
+      "cents_per_kg": 816,
+      "checkout_cents": 301
+    }
+  ],
+  "headline": "14 of 25 ad items pass the deal rule; promo-price expression written 1x with reusable aliases vs 6x without"
+}
