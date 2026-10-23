@@ -737,6 +737,28 @@
         "released": "2026-10-15",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 18,
+      "platform": "databricks",
+      "slug": "day-18-store-pipeline-parameters",
+      "date": "2026-10-22",
+      "title": "One store-sales pipeline, any store, with pipeline parameters",
+      "summary": "A serverless Lakeflow pipeline whose SQL reads :store_id and :start_date as pipeline parameters: one update runs with the saved defaults (S1 from 10-12), a second overrides them for that run only (S2 from 10-15). Both store_daily results are checked against DuckDB runs of the same SQL, and the saved defaults must survive the override.",
+      "headline": "one pipeline, two stores \u00b7 S1 (defaults) $569.08 over 7 days \u00b7 S2 (per-run override) $311.34 over 4 days",
+      "skills": [
+        "Lakeflow pipelines",
+        "Pipeline parameters",
+        "Materialized views",
+        "Pipelines REST API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-18-store-pipeline-parameters",
+      "new_feature": {
+        "name": "Pipeline parameters for Lakeflow pipelines (GA)",
+        "released": "2026-10-12",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
+      }
     }
   ]
 }
