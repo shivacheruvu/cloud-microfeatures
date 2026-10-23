@@ -752,12 +752,34 @@
         "Materialized views",
         "Pipelines REST API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-18-store-pipeline-parameters",
       "new_feature": {
         "name": "Pipeline parameters for Lakeflow pipelines (GA)",
         "released": "2026-10-12",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
+      }
+    },
+    {
+      "day": 18,
+      "platform": "gcp",
+      "slug": "day-18-shelf-tag-aliases",
+      "date": "2026-10-22",
+      "title": "Weekly-ad deal finder with reusable column aliases",
+      "summary": "Shelf-tag math for 25 ad items (promo price, saving, price per kg, checkout price with tax) written once with reusable column aliases, with the deal rule in WHERE on the aliases. BigQuery runs it next to the same query with every expression repeated; both must match each other and DuckDB. The opt-in setting is turned on for the run if needed and reset afterwards.",
+      "headline": "14 of 25 ad items pass the deal rule \u00b7 promo-price expression written once instead of 6 times",
+      "skills": [
+        "BigQuery",
+        "GoogleSQL",
+        "Reusable column aliases",
+        "Project options"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-18-shelf-tag-aliases",
+      "new_feature": {
+        "name": "Reusable column aliases in GoogleSQL (GA, opt-in)",
+        "released": "2026-10-15",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
     }
   ]
