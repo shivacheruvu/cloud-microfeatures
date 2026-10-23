@@ -35,7 +35,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 15 | [Re-stage a corrected supplier cost file with CREATE OR REPLACE TEMP TABLE](features/databricks/day-15-supplier-cost-restage) | [CREATE OR REPLACE TEMP TABLE (Databricks SQL 2026.15)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-05-26) | Databricks SQL, SQL scripting, Temporary tables, Statement Execution API | ran |
 | 16 | [Flyer drop zones with st_makeenvelope](features/databricks/day-16-flyer-zones) | [st_makeenvelope SQL function (Databricks SQL 2026.15)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-05-26) | Databricks SQL, Geospatial (ST functions), Statement Execution API | ran |
 | 17 | [Atomic goods receipts with BEGIN ATOMIC](features/databricks/day-17-atomic-goods-receipts) | [Multi-statement transactions with BEGIN ATOMIC on managed Delta and Iceberg tables (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-14) | Databricks SQL, Transactions, SQL scripting, Statement Execution API | ran |
-| 18 | [One store-sales pipeline, any store, with pipeline parameters](features/databricks/day-18-store-pipeline-parameters) | [Pipeline parameters for Lakeflow pipelines (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-12) | Lakeflow pipelines, Pipeline parameters, Materialized views, Pipelines REST API | built |
+| 18 | [One store-sales pipeline, any store, with pipeline parameters](features/databricks/day-18-store-pipeline-parameters) | [Pipeline parameters for Lakeflow pipelines (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-12) | Lakeflow pipelines, Pipeline parameters, Materialized views, Pipelines REST API | ran |
 <!-- databricks:end -->
 
 ## Google Cloud features
@@ -60,6 +60,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 15 | [One freshness check for every feed, with an ANY TABLE table function](features/gcp/day-15-feed-freshness) | [ANY TABLE parameters in table-valued functions (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-11) | BigQuery, GoogleSQL, Table-valued functions, Data quality | ran |
 | 16 | [Shelf-price change log with the CHANGES table function](features/gcp/day-16-shelf-price-changes) | [APPENDS and CHANGES change-history table functions (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-07-27) | BigQuery, GoogleSQL, Change history, Auditing | ran |
 | 17 | [Ship the price book to the EU with a cross-region table copy](features/gcp/day-17-cross-region-price-book) | [Copy tables across regions (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-15) | BigQuery, Copy jobs, Data residency, bq CLI | ran |
+| 18 | [Weekly-ad deal finder with reusable column aliases](features/gcp/day-18-shelf-tag-aliases) | [Reusable column aliases in GoogleSQL (GA, opt-in)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-15) | BigQuery, GoogleSQL, Reusable column aliases, Project options | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself

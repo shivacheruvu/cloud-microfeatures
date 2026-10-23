@@ -70,4 +70,10 @@ serverless warehouse: no charge. Everything is deleted in the same run.
 | | 10-18 | 4 | 26 | 8784 |
 
 One pipeline, two stores: **S1** from 10-12 (saved defaults) **$569.08** over 7 days; **S2** from 10-15 (per-run
-override) **$311.34** over 4 days; the saved defaults are unchanged after the override.
+override) **$311.34** over 4 days.
+
+**Cloud run (2026-10-22, post-merge of #68):** both updates completed on Free Edition and `store_daily` matched the
+local run exactly after each. Each update recorded the values it ran with (`{"store_id": "S1", "start_date":
+"2026-10-12"}` and `{"store_id": "S2", "start_date": "2026-10-15"}`). The `GET /api/2.0/pipelines/{id}` response
+didn't include a `parameters` field, so the "saved defaults unchanged" check had nothing to read and was skipped
+(the check only runs when the field is present).
