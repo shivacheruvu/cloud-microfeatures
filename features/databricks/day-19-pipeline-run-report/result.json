@@ -1,0 +1,35 @@
+{
+  "engine": "DuckDB on a synthetic copy of the two system tables (local) / system.lakeflow on the Free Edition serverless warehouse (cloud)",
+  "window": "2026-10-16 15:00 to 2026-10-23 15:00 UTC (fixture)",
+  "pipelines": [
+    {
+      "pipeline": "microfeatures-day18-store-params",
+      "pipeline_ids": 4,
+      "deleted_ids": 4,
+      "updates": 8,
+      "completed": 8,
+      "failed": 0,
+      "canceled": 0,
+      "running": 0,
+      "full_refreshes": 8,
+      "avg_seconds": 138,
+      "max_seconds": 205,
+      "last_result": "COMPLETED"
+    },
+    {
+      "pipeline": "microfeatures-dev-store-params",
+      "pipeline_ids": 1,
+      "deleted_ids": 0,
+      "updates": 4,
+      "completed": 2,
+      "failed": 1,
+      "canceled": 0,
+      "running": 1,
+      "full_refreshes": 2,
+      "avg_seconds": 1069,
+      "max_seconds": 3900,
+      "last_result": "RUNNING"
+    }
+  ],
+  "headline": "2 pipelines, 12 updates in 7 days; microfeatures-day18-store-params: 8 updates across 4 short-lived IDs (4 deleted), 8 completed, avg 138s"
+}
