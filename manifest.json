@@ -803,6 +803,28 @@
         "released": "2026-10-21",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
       }
+    },
+    {
+      "day": 19,
+      "platform": "gcp",
+      "slug": "day-19-pack-size-udf",
+      "date": "2026-10-23",
+      "title": "Shelf unit prices from free-text pack sizes with a Python UDF",
+      "summary": "A BigQuery Python UDF (standard-library parser, one file shared with the local run) turns shelf labels like '1 gal', '64 fl oz', '12pk 12 fl oz', '1.5 lb' or '12ct' into grams, millilitres or items, and SQL ranks each category by price per 100 g / 100 ml / item. BigQuery's rows must equal the local model, which equals DuckDB running the same SQL with the same function.",
+      "headline": "20 of 21 free-text pack sizes parsed \u00b7 best milk: 1 gal at 10.3c/100 ml",
+      "skills": [
+        "BigQuery",
+        "Python UDFs",
+        "GoogleSQL",
+        "STRUCT"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-19-pack-size-udf",
+      "new_feature": {
+        "name": "Python user-defined functions in BigQuery (GA)",
+        "released": "2026-05-20",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
