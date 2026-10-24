@@ -53,3 +53,8 @@ Two read-only queries on the Free Edition serverless warehouse: no charge. Nothi
 The fixture also holds an older day-18 run (before the window), a pipeline that was renamed into the filter, an update
 split over 11:00 and someone else's pipeline (filtered out). The cloud run's numbers are in the run's annotations and
 the daily report.
+
+**Cloud run (2026-10-23, post-merge of #72):** passed on Free Edition. `system.lakeflow` is readable from the
+serverless warehouse; the last 7 days held **10 updates** of `microfeatures-day18-store-params` across **5
+short-lived pipeline IDs (all deleted)**, **10 of 10 completed**, **avg 38 s** per update. `system.workflow` doesn't
+exist on Free Edition (`TABLE_OR_VIEW_NOT_FOUND`), so the old-name comparison was skipped with a warning.
