@@ -796,7 +796,7 @@
         "Statement Execution API",
         "SCD2"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-19-pipeline-run-report",
       "new_feature": {
         "name": "Lakeflow pipelines system tables (GA)",
@@ -818,7 +818,7 @@
         "GoogleSQL",
         "STRUCT"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-19-pack-size-udf",
       "new_feature": {
         "name": "Python user-defined functions in BigQuery (GA)",
