@@ -781,6 +781,28 @@
         "released": "2026-10-15",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 19,
+      "platform": "databricks",
+      "slug": "day-19-pipeline-run-report",
+      "date": "2026-10-23",
+      "title": "Pipeline run report from the Lakeflow pipelines system tables",
+      "summary": "One SQL statement over system.lakeflow.pipelines and pipeline_update_timeline reports this week's updates for every microfeatures-* pipeline: how many short-lived pipeline IDs the daily runs created and deleted, how each update ended and how long it ran. The cloud run checks the counts add up, that day 18's pipeline is there, and that the old system.workflow name gives the same answer; locally DuckDB runs the same SQL over a synthetic copy and must match a plain-Python model.",
+      "headline": "local fixture: day-18 pipeline 8 updates across 4 short-lived IDs, all completed, avg 138 s",
+      "skills": [
+        "System tables",
+        "Lakeflow pipelines",
+        "Statement Execution API",
+        "SCD2"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-19-pipeline-run-report",
+      "new_feature": {
+        "name": "Lakeflow pipelines system tables (GA)",
+        "released": "2026-10-21",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
+      }
     }
   ]
 }
