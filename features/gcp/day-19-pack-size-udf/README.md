@@ -54,3 +54,6 @@ UDF adds a few seconds of managed compute for 21 calls; well under a cent. Nothi
 20 of 21 labels parsed; `tortilla chips family size` has no size and gets NULLs and no rank. Same-size different
 spelling shows up too: `ground coffee 12oz` and `ground coffee 340 g` are both 340 g, but the 12oz bag is 2.9c/100 g
 cheaper.
+
+**Cloud run (2026-10-23, post-merge of #73):** BigQuery created the Python UDF with the CI service account, the first
+query (container build included) took 16 s, and all 21 rows matched the local model.
