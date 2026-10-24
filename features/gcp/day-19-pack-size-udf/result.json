@@ -1,0 +1,46 @@
+{
+  "engine": "DuckDB with parse_pack as a Python function (local) / BigQuery Python UDF (cloud)",
+  "items": 21,
+  "parsed": 20,
+  "unparsed": [
+    "tortilla chips family size"
+  ],
+  "best_value": [
+    {
+      "category": "chips",
+      "label": "tortilla chips 13oz",
+      "price": "121.7c per 100 g"
+    },
+    {
+      "category": "coffee",
+      "label": "ground coffee 1.5 lb",
+      "price": "220.4c per 100 g"
+    },
+    {
+      "category": "eggs",
+      "label": "large eggs 18 count",
+      "price": "33.3c per item"
+    },
+    {
+      "category": "milk",
+      "label": "whole milk 1 gal",
+      "price": "10.3c per 100 ml"
+    },
+    {
+      "category": "rice",
+      "label": "basmati rice 5 kg",
+      "price": "38.0c per 100 g"
+    },
+    {
+      "category": "water",
+      "label": "sparkling water 1.5L",
+      "price": "8.6c per 100 ml"
+    },
+    {
+      "category": "yogurt",
+      "label": "greek yogurt 32oz",
+      "price": "60.5c per 100 g"
+    }
+  ],
+  "headline": "20 of 21 free-text pack sizes parsed by the Python UDF; best value in 7 categories (e.g. milk: whole milk 1 gal 10.3c/100 ml)"
+}
