@@ -1,0 +1,48 @@
+{
+  "engine": "DuckDB (local) / Databricks SQL informational UNIQUE + FOREIGN KEY constraints (cloud)",
+  "products": 10,
+  "products_without_barcode": 2,
+  "scans": 12,
+  "barcode_scans": 10,
+  "duplicate_barcodes": [
+    {
+      "upc": "041303001127",
+      "listings": 2,
+      "product_ids": [
+        3,
+        8
+      ],
+      "names": [
+        "large eggs 12ct",
+        "large eggs 12ct (supplier relist)"
+      ]
+    },
+    {
+      "upc": "072250011372",
+      "listings": 2,
+      "product_ids": [
+        7,
+        10
+      ],
+      "names": [
+        "sourdough loaf",
+        "sourdough loaf - bakery feed"
+      ]
+    }
+  ],
+  "orphan_scans": [
+    {
+      "scan_id": 110,
+      "upc": "085239311004"
+    }
+  ],
+  "joined_rows": 13,
+  "true_sales": "59.72",
+  "sales_after_barcode_join": "87.56",
+  "overstated_by": "27.84",
+  "enforcing_engine_rejects_product_ids": [
+    8,
+    10
+  ],
+  "headline": "2 barcodes listed twice in the catalog: joining 10 barcode scans on the UNIQUE key gives 13 rows and overstates sales by $27.84 ($87.56 vs $59.72); 1 scan breaks the FOREIGN KEY"
+}
