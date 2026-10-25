@@ -68,4 +68,9 @@ and dropped in the same run.
 | Sales: true vs after the barcode join | **$59.72** vs **$87.56** (+$27.84) |
 | An enforcing engine would refuse | products 8 and 10 |
 
+**Cloud run (2026-10-24):** not run yet. In both post-merge workflows (#75, #76) the Free Edition SQL warehouse
+answered every Statement Execution API call with `400 BAD_REQUEST: The request could not be processed by the
+warehouse`, for days 16-20 alike, so it is a workspace-side problem (most likely the Free Edition daily compute quota),
+not this feature. The next morning run retries it.
+
 Full numbers in [`result.json`](result.json).
