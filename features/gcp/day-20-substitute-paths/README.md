@@ -6,7 +6,8 @@ statement), **generally available 2026-08-31** in the
 [GQL functions](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-sql-functions),
 [Create and query a graph](https://docs.cloud.google.com/bigquery/docs/graph-create),
 [GQL patterns](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-patterns). A property graph is
-a logical view over ordinary tables, needs only BigQuery Data Editor on the dataset, and is billed as normal queries.
+a logical view over ordinary tables and needs only BigQuery Data Editor on the dataset to create, but **graph queries
+need an Enterprise or Enterprise Plus reservation** (see the cloud run below).
 
 ## What it does
 Store staff keep a list of "if X is out, offer Y". Following it one hop isn't always enough (the first substitute is
@@ -47,6 +48,12 @@ pytest -q tests/test_day20_gcp_graph_paths.py
 GQL query and fails if the acyclic walks or the substitute chosen for any product differ from the local model. If the
 quantified pattern is refused, it re-reads the same walks with three fixed-length patterns and says so in a warning.
 The dataset is deleted on exit.
+
+**Cloud run (2026-10-24):** the tables and `CREATE PROPERTY GRAPH` succeeded on on-demand billing, but every GQL
+query was refused: *"BigQuery Graph queries require a reservation with Enterprise or Enterprise Plus edition."* That is
+a paid edition, which this program doesn't buy, so `cloud.sh` now checks the graph exists, says so in a notice and
+stops there; the walks and offers are verified locally (DuckDB recursive CTE = plain-Python model). If an Enterprise
+reservation is ever available, the same script runs the query and compares it with no change.
 
 ## Cost
 Two tiny `INSERT`s and one graph query (three in the fallback), each billed at the 10 MiB minimum and capped at
