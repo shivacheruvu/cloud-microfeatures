@@ -1,0 +1,48 @@
+{
+  "engine": "DuckDB recursive CTE (local) / BigQuery Graph GQL with IS_ACYCLIC (cloud)",
+  "products": 10,
+  "out_of_stock": 7,
+  "substitution_edges": 11,
+  "walks_1_to_3_hops": 33,
+  "acyclic_walks": 19,
+  "looping_walks": 14,
+  "walks_reusing_an_edge": 6,
+  "offers": [
+    {
+      "out_of_stock": "oat milk barista 64oz",
+      "offer": "cashew milk 64oz",
+      "hops": 3
+    },
+    {
+      "out_of_stock": "oat milk original 64oz",
+      "offer": "almond milk 64oz",
+      "hops": 2
+    },
+    {
+      "out_of_stock": "soy milk 64oz",
+      "offer": "almond milk 64oz",
+      "hops": 1
+    },
+    {
+      "out_of_stock": "greek yogurt plain 32oz",
+      "offer": "icelandic yogurt 24oz",
+      "hops": 2
+    },
+    {
+      "out_of_stock": "skyr plain 500g",
+      "offer": "icelandic yogurt 24oz",
+      "hops": 1
+    },
+    {
+      "out_of_stock": "sourdough loaf",
+      "offer": null,
+      "hops": null
+    },
+    {
+      "out_of_stock": "rustic white loaf",
+      "offer": null,
+      "hops": null
+    }
+  ],
+  "headline": "5 of 7 out-of-stock items get an in-stock substitute within 3 hops; IS_ACYCLIC drops 14 of 33 walks that loop back; no offer for sourdough loaf, rustic white loaf"
+}
