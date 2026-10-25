@@ -825,6 +825,28 @@
         "released": "2026-05-20",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 20,
+      "platform": "databricks",
+      "slug": "day-20-unique-barcodes",
+      "date": "2026-10-24",
+      "title": "Unique barcodes with informational UNIQUE constraints",
+      "summary": "The product catalog keeps a surrogate primary key and declares UNIQUE (upc); register scans get a FOREIGN KEY that references the barcode instead of the primary key. Databricks records the constraints in Unity Catalog but doesn't enforce them, so an audit finds duplicate barcodes, orphan scans and the sales overstatement a duplicate causes in a barcode join. The cloud run checks the information schema and that the audit equals local DuckDB.",
+      "headline": "2 duplicate barcodes turn 10 scans into 13 joined rows: sales $87.56 instead of $59.72",
+      "skills": [
+        "Unity Catalog",
+        "Constraints",
+        "information_schema",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-20-unique-barcodes",
+      "new_feature": {
+        "name": "UNIQUE constraints on Unity Catalog tables (Public Preview)",
+        "released": "2026-06-05",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
     }
   ]
 }

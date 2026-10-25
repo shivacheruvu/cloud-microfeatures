@@ -37,6 +37,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 17 | [Atomic goods receipts with BEGIN ATOMIC](features/databricks/day-17-atomic-goods-receipts) | [Multi-statement transactions with BEGIN ATOMIC on managed Delta and Iceberg tables (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-14) | Databricks SQL, Transactions, SQL scripting, Statement Execution API | ran |
 | 18 | [One store-sales pipeline, any store, with pipeline parameters](features/databricks/day-18-store-pipeline-parameters) | [Pipeline parameters for Lakeflow pipelines (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-12) | Lakeflow pipelines, Pipeline parameters, Materialized views, Pipelines REST API | ran |
 | 19 | [Pipeline run report from the Lakeflow pipelines system tables](features/databricks/day-19-pipeline-run-report) | [Lakeflow pipelines system tables (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-21) | System tables, Lakeflow pipelines, Statement Execution API, SCD2 | ran |
+| 20 | [Unique barcodes with informational UNIQUE constraints](features/databricks/day-20-unique-barcodes) | [UNIQUE constraints on Unity Catalog tables (Public Preview)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-06-05) | Unity Catalog, Constraints, information_schema, Statement Execution API | built |
 <!-- databricks:end -->
 
 ## Google Cloud features
