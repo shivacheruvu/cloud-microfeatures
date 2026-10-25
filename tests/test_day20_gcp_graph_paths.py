@@ -70,3 +70,9 @@ def test_read_and_compare(tmp_path):
     wrong.append(("B1", "A1", True, 3, True, True))
     errors, _ = sb.compare(wrong, LOCAL)
     assert len(errors) == 2
+
+
+def test_cloud_script_stops_cleanly_without_enterprise_edition():
+    sh = (FEATURE / "cloud.sh").read_text()
+    assert "require a reservation with Enterprise" in sh and "INFORMATION_SCHEMA.PROPERTY_GRAPHS" in sh
+    assert "trap cleanup EXIT" in sh
