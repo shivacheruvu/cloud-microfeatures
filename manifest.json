@@ -847,6 +847,28 @@
         "released": "2026-06-05",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 20,
+      "platform": "gcp",
+      "slug": "day-20-substitute-paths",
+      "date": "2026-10-24",
+      "title": "Substitute chains for out-of-stock items with BigQuery Graph",
+      "summary": "A property graph over a products table and an 'if X is out, offer Y' edge table; one GQL query with a quantified path lists every 1-3 hop walk from an out-of-stock product, and IS_ACYCLIC / IS_TRAIL / PATH_LENGTH flag the walks that loop back. The nearest in-stock product on an acyclic walk is the substitute. BigQuery's acyclic walks and offers must equal the local model, which equals a DuckDB recursive CTE.",
+      "headline": "5 of 7 out-of-stock items get a substitute within 3 hops; IS_ACYCLIC drops 14 of 33 looping walks",
+      "skills": [
+        "BigQuery Graph",
+        "GQL",
+        "Property graphs",
+        "Recursive CTE"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-20-substitute-paths",
+      "new_feature": {
+        "name": "GQL path functions IS_ACYCLIC, IS_SIMPLE, IS_TRAIL in BigQuery Graph (GA)",
+        "released": "2026-08-31",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
