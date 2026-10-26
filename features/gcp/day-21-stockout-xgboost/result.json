@@ -1,0 +1,13 @@
+{
+  "engine": "pure Python baselines (local) / BigQuery ML BOOSTED_TREE_CLASSIFIER, XGBoost 2.1 (cloud)",
+  "train_rows": 600,
+  "holdout_rows": 200,
+  "holdout_stockouts": 78,
+  "naive_rule_accuracy": 0.795,
+  "naive_rule_missed_stockouts": 33,
+  "lift_rule_accuracy": 0.975,
+  "cloud_thresholds": {
+    "min_accuracy": 0.85,
+    "min_lift_over_naive": 0.1
+  }
+}
