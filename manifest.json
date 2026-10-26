@@ -898,8 +898,8 @@
       "slug": "day-21-stockout-xgboost",
       "date": "2026-10-25",
       "title": "Shelf stockout classifier on XGBoost 2.1 in BigQuery ML",
-      "summary": "800 seeded store-shelf days (department, promo, weekend, on-hand, forecast) train a BigQuery ML boosted-tree classifier pinned to xgboost_version '2.1'; ML.PREDICT scores a 200-day holdout. The naive planner rule 'on_hand < forecast' ignores promo and weekend lift and misses 33 of 78 stockouts; the cloud run requires the model to reach 85% and beat the rule by 10 points.",
-      "headline": "Naive on-hand < forecast rule misses 33 of 78 stockouts (79.5%); the XGBoost 2.1 model must beat it by 10 points",
+      "summary": "800 seeded store-shelf days (department, promo, weekend, on-hand, forecast) train a BigQuery ML boosted-tree classifier pinned to xgboost_version '2.1'; ML.PREDICT scores a 200-day holdout. The naive planner rule 'on_hand < forecast' ignores promo and weekend lift and misses 33 of 78 stockouts; cloud training is off by default because BigQuery's bytes-billed requirement for CREATE MODEL kept tripling (508 MiB to 4.5 GiB).",
+      "headline": "Naive on-hand < forecast rule misses 33 of 78 stockouts (79.5%); XGBoost 2.1 with the same settings scores 95.5%",
       "skills": [
         "BigQuery ML",
         "Boosted trees",
