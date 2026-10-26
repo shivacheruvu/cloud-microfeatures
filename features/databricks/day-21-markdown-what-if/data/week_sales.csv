@@ -1,0 +1,14 @@
+product,department,shelf_price,unit_cost,units
+Bananas (lb),produce,0.69,0.41,412
+Gala apples (lb),produce,1.99,1.12,186
+Strawberries 1 lb,produce,3.99,2.71,143
+Baby spinach 5 oz,produce,3.49,2.05,97
+Avocados (each),produce,1.29,0.92,221
+Sourdough loaf,bakery,4.99,1.86,64
+Croissants 4 ct,bakery,5.49,2.38,52
+Bagels 6 ct,bakery,3.99,1.54,71
+Blueberry muffins 4 ct,bakery,5.99,3.05,38
+Whole milk gallon,dairy,3.79,3.32,268
+Greek yogurt 32 oz,dairy,5.49,3.41,77
+Cheddar block 8 oz,dairy,3.29,2.14,109
+Large eggs 12 ct,dairy,3.19,2.79,240
