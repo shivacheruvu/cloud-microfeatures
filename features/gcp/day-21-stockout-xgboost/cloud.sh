@@ -4,11 +4,16 @@
 # 2026-08-27), predict the holdout, and check the model beats the naive "on_hand < forecast" rule by 10+ points and
 # scores at least 85%. Also reports the XGBoost version BigQuery recorded in the model's training options.
 # The dataset, with its table and model, is deleted on exit (the table also expires after an hour).
-# Billing: a free load job; CREATE MODEL is billed at BigQuery ML's training minimum (the first run was refused under
-# a 20 MiB cap: "532676608 or higher required", ~508 MiB), so it gets a 1 GiB cap, about $0.15 per run on on-demand
-# pricing; ML.PREDICT at the 10 MiB minimum, capped at 20 MiB. Errors are annotations with the project ID redacted.
+# Billing: a free load job; ML.PREDICT at the 10 MiB minimum, capped at 20 MiB. CREATE MODEL is billed far above its
+# input: BigQuery's estimate was 508 MiB on the first run and 1,522 MiB on the second for the same ~50 KB table, so
+# training gets a 4 GiB cap (at most about $1; ~$0.35 at the last estimate) and runs only on push / manual runs, not
+# on the scheduled morning run. Errors are annotations with the project ID redacted (logs are public).
 set -uo pipefail
 : "${GCP_PROJECT_ID:?}"
+if [ "${GITHUB_EVENT_NAME:-}" = "schedule" ]; then
+  echo "::notice title=Google Cloud day 21::skipped on the scheduled run (BigQuery ML training bills ~0.5-1.5 GiB each time); runs after merges and on manual dispatch"
+  exit 0
+fi
 STAMP=$(date +%s)
 DS="mf_day21_${STAMP}"
 DIR=$(mktemp -d); SQL="$DIR/q.sql"; ERR="$DIR/err.txt"
@@ -43,7 +48,7 @@ run_query() {
 fail() { echo "::error title=Day 21 $1 failed::$( (tail -c 600 "$ERR"; tail -c 600 "$2") | redact)"; exit 1; }
 
 T0=$(date +%s)
-run_query model "$DIR/model.json" 1073741824 || fail "CREATE MODEL (xgboost_version 2.1)" "$DIR/model.json"
+run_query model "$DIR/model.json" 4294967296 || fail "CREATE MODEL (xgboost_version 2.1)" "$DIR/model.json"
 echo "::notice title=Day 21 training::CREATE MODEL took $(( $(date +%s) - T0 ))s"
 run_query predict "$DIR/predict.json" || fail "ML.PREDICT" "$DIR/predict.json"
 
