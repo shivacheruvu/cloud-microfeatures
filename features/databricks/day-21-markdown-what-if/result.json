@@ -1,0 +1,38 @@
+{
+  "engine": "duckdb hand-written measures (local) / Databricks SQL metric view with a query-time parameter (cloud)",
+  "lines": 13,
+  "units": 1978,
+  "shelf_price_sales": 5527.02,
+  "shelf_price_margin": 1836.85,
+  "levels": [
+    {
+      "markdown": "0%",
+      "net_sales": 5527.02,
+      "margin": 1836.85,
+      "lines_below_cost": 0
+    },
+    {
+      "markdown": "10%",
+      "net_sales": 4972.34,
+      "margin": 1282.17,
+      "lines_below_cost": 0
+    },
+    {
+      "markdown": "20%",
+      "net_sales": 4417.66,
+      "margin": 727.49,
+      "lines_below_cost": 2
+    },
+    {
+      "markdown": "30%",
+      "net_sales": 3862.98,
+      "margin": 172.81,
+      "lines_below_cost": 3
+    }
+  ],
+  "deepest_markdown_with_no_line_below_cost": {
+    "bakery": "30%",
+    "dairy": "10%",
+    "produce": "20%"
+  }
+}
