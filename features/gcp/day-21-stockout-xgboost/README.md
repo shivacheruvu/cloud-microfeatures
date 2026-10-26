@@ -42,19 +42,20 @@ The local check can't run BigQuery ML, so it scores the two rule baselines; as a
 the open-source XGBoost 2.1.4 with the same hyperparameters (one-hot department) scored **95.5%** on the same holdout.
 
 ## Cost
-A free load job, one `CREATE MODEL` and one `ML.PREDICT` over about 50 KB. `ML.PREDICT` bills the 10 MiB minimum
-(capped at 20 MiB). `CREATE MODEL` bills far more than its input: BigQuery estimated **508 MiB** on the first cloud
-run and **1,522 MiB** on the second for the same table and options (both refused by the caps then in place). Training
-now runs under a **4 GiB** cap (at most about $1; ~$0.35 at the last estimate, at on-demand BigQuery ML pricing, from
-free-trial credit), and `cloud.sh` **skips the scheduled morning run**, so it trains only after a merge that touches
-`features/` or on a manual dispatch.
+Training is **not run in the cloud by default**. For the same ~50 KB table and options, BigQuery's bytes-billed
+requirement for `CREATE MODEL` rose about 3x on every attempt: **508 MiB**, then **1,522 MiB**, then **4,566 MiB**
+("4787798016 or higher required"). Every attempt was refused by the cap, so nothing was trained or billed, but the
+trend makes the cost unpredictable for a free-trial project. `cloud.sh` now posts a notice and stops unless
+`DAY21_TRAIN=1` is set for a deliberate one-off run (then capped at 8 GiB, about $2). `ML.PREDICT` alone would bill the
+10 MiB minimum.
 
-*Fix forward (2026-10-25):* the first two post-merge runs failed on the bytes-billed cap (20 MiB, then 1 GiB); see
-the day's report.
+*Fix forward (2026-10-25):* three post-merge runs failed on the bytes-billed cap (20 MiB, 1 GiB, 4 GiB); see the
+day's report.
 
 ## Result
 | Holdout (200 shelf-days, 78 stockouts) | Accuracy | Missed stockouts |
 |---|---|---|
 | Naive rule `on_hand < forecast` | 79.5% | 33 |
 | Rule with the true lifts (no noise; ceiling) | 97.5% | - |
-| BigQuery ML boosted tree, XGBoost 2.1 | cloud run (must be ≥ 85% and ≥ naive + 10 pts) | cloud run |
+| BigQuery ML boosted tree, XGBoost 2.1 | not trained in the cloud (cost, see above) | - |
+| Open-source XGBoost 2.1.4, same settings (one-off, local) | 95.5% | - |
