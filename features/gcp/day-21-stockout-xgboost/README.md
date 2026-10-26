@@ -43,13 +43,14 @@ the open-source XGBoost 2.1.4 with the same hyperparameters (one-hot department)
 
 ## Cost
 A free load job, one `CREATE MODEL` and one `ML.PREDICT` over about 50 KB. `ML.PREDICT` bills the 10 MiB minimum
-(capped at 20 MiB). `CREATE MODEL` bills BigQuery ML's training minimum, which is much higher: the first cloud run was
-refused under a 20 MiB cap with *"532676608 or higher required"* (~508 MiB), so training now runs under a 1 GiB cap.
-That is roughly **$0.15 per run** at on-demand ML pricing, from free-trial credit (the daily workflow re-runs it each
-morning, so about $4-5 a month).
+(capped at 20 MiB). `CREATE MODEL` bills far more than its input: BigQuery estimated **508 MiB** on the first cloud
+run and **1,522 MiB** on the second for the same table and options (both refused by the caps then in place). Training
+now runs under a **4 GiB** cap (at most about $1; ~$0.35 at the last estimate, at on-demand BigQuery ML pricing, from
+free-trial credit), and `cloud.sh` **skips the scheduled morning run**, so it trains only after a merge that touches
+`features/` or on a manual dispatch.
 
-*Fix forward (2026-10-25):* the first post-merge run failed on that bytes-billed cap; the cap for `CREATE MODEL` was
-raised in a follow-up PR.
+*Fix forward (2026-10-25):* the first two post-merge runs failed on the bytes-billed cap (20 MiB, then 1 GiB); see
+the day's report.
 
 ## Result
 | Holdout (200 shelf-days, 78 stockouts) | Accuracy | Missed stockouts |
