@@ -869,6 +869,28 @@
         "released": "2026-08-31",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 21,
+      "platform": "databricks",
+      "slug": "day-21-markdown-what-if",
+      "date": "2026-10-25",
+      "title": "Markdown what-if KPIs from a parameterised metric view",
+      "summary": "One Unity Catalog metric view over a week of grocery sales declares a `markdown` parameter; net sales, margin and lines-below-cost measures use it, and callers bind it at query time with markdown => 0.2 (or take the default, shelf price). Four markdown scenarios come from one governed definition. The cloud run checks every scenario equals the same measures written by hand in DuckDB.",
+      "headline": "One definition, any markdown: dairy can't go past 10% off, produce 20%, bakery 30%",
+      "skills": [
+        "Unity Catalog",
+        "Metric views",
+        "Parameters",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-21-markdown-what-if",
+      "new_feature": {
+        "name": "Metric view parameters (Public Preview)",
+        "released": "2026-06-26",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/june"
+      }
     }
   ]
 }
