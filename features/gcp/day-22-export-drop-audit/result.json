@@ -1,0 +1,16 @@
+{
+  "engine": "Python over data/exports (local) / BigQuery OBJ.LIST over a Cloud Storage bucket (cloud)",
+  "files_listed": 8,
+  "bytes_listed": 1498,
+  "expected_exports": 9,
+  "ok": 7,
+  "empty": 1,
+  "missing": 1,
+  "problems": [
+    "east 2026-10-24: empty",
+    "south 2026-10-25: missing"
+  ],
+  "complete_stores": [
+    "north"
+  ]
+}
