@@ -935,6 +935,28 @@
         "released": "2026-09-30",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/september"
       }
+    },
+    {
+      "day": 22,
+      "platform": "gcp",
+      "slug": "day-22-export-drop-audit",
+      "date": "2026-10-26",
+      "title": "Store export drop audit with OBJ.LIST",
+      "summary": "Store point-of-sale exports land in a Cloud Storage bucket as exports/<store>_<date>.csv. One BigQuery query lists them with OBJ.LIST (no object table, no connection) and checks the listing against the store x day calendar: ok, empty (zero bytes) or missing. The cloud run uploads the files to a short-lived bucket and checks the result equals the local audit.",
+      "headline": "One query over the drop bucket: 7 of 9 exports ok, east's 10-24 file is empty, south's 10-25 never arrived",
+      "skills": [
+        "BigQuery",
+        "OBJ.LIST",
+        "Cloud Storage",
+        "Data freshness"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-22-export-drop-audit",
+      "new_feature": {
+        "name": "OBJ.LIST function (GA)",
+        "released": "2026-09-30",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
