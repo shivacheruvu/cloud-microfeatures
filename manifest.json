@@ -950,7 +950,7 @@
         "Cloud Storage",
         "Data freshness"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-22-export-drop-audit",
       "new_feature": {
         "name": "OBJ.LIST function (GA)",
