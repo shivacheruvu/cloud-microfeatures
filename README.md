@@ -68,6 +68,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 19 | [Shelf unit prices from free-text pack sizes with a Python UDF](features/gcp/day-19-pack-size-udf) | [Python user-defined functions in BigQuery (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-05-20) | BigQuery, Python UDFs, GoogleSQL, STRUCT | ran |
 | 20 | [Substitute chains for out-of-stock items with BigQuery Graph](features/gcp/day-20-substitute-paths) | [GQL path functions IS_ACYCLIC, IS_SIMPLE, IS_TRAIL in BigQuery Graph (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-31) | BigQuery Graph, GQL, Property graphs, Recursive CTE | built |
 | 21 | [Shelf stockout classifier on XGBoost 2.1 in BigQuery ML](features/gcp/day-21-stockout-xgboost) | [XGBOOST_VERSION option for boosted tree models (XGBoost 2.1, GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-27) | BigQuery ML, Boosted trees, XGBoost, bq load | built |
+| 22 | [Store export drop audit with OBJ.LIST](features/gcp/day-22-export-drop-audit) | [OBJ.LIST function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-30) | BigQuery, OBJ.LIST, Cloud Storage, Data freshness | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself
