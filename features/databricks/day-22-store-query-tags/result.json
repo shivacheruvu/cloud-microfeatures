@@ -1,0 +1,49 @@
+{
+  "engine": "duckdb (local) / Databricks SQL warehouse with statement-level query tags (cloud)",
+  "lines": 17,
+  "stores": [
+    {
+      "store": "east",
+      "units": 830,
+      "net_sales": 2542.37,
+      "top_department": "dairy"
+    },
+    {
+      "store": "north",
+      "units": 1048,
+      "net_sales": 2538.57,
+      "top_department": "dairy"
+    },
+    {
+      "store": "south",
+      "units": 1357,
+      "net_sales": 2511.63,
+      "top_department": "dairy"
+    }
+  ],
+  "tags_per_statement": [
+    "store",
+    "report",
+    "feature"
+  ],
+  "tag_rollup": [
+    {
+      "store": "east",
+      "report": "daily_close",
+      "statements": 1,
+      "produced_rows": 3
+    },
+    {
+      "store": "north",
+      "report": "daily_close",
+      "statements": 1,
+      "produced_rows": 3
+    },
+    {
+      "store": "south",
+      "report": "daily_close",
+      "statements": 1,
+      "produced_rows": 3
+    }
+  ]
+}
