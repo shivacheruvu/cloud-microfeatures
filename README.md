@@ -39,6 +39,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 19 | [Pipeline run report from the Lakeflow pipelines system tables](features/databricks/day-19-pipeline-run-report) | [Lakeflow pipelines system tables (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-21) | System tables, Lakeflow pipelines, Statement Execution API, SCD2 | ran |
 | 20 | [Unique barcodes with informational UNIQUE constraints](features/databricks/day-20-unique-barcodes) | [UNIQUE constraints on Unity Catalog tables (Public Preview)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-06-05) | Unity Catalog, Constraints, information_schema, Statement Execution API | built |
 | 21 | [Markdown what-if KPIs from a parameterised metric view](features/databricks/day-21-markdown-what-if) | [Metric view parameters (Public Preview)](https://docs.databricks.com/aws/en/release-notes/product/2026/june) (2026-06-26) | Unity Catalog, Metric views, Parameters, Statement Execution API | built |
+| 22 | [Per-store report attribution with query tags](features/databricks/day-22-store-query-tags) | [Query tags for SQL warehouses (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/september) (2026-09-30) | Query tags, System tables, Statement Execution API, Cost attribution | built |
 <!-- databricks:end -->
 
 ## Google Cloud features
