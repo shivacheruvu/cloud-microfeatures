@@ -1,0 +1,18 @@
+store,department,product,units,net_sales
+north,produce,Bananas (lb),412,284.28
+north,produce,Gala apples (lb),186,370.14
+north,dairy,Whole milk 1 gal,240,838.80
+north,dairy,Greek yogurt 32oz,95,522.50
+north,bakery,Sourdough loaf,64,319.36
+north,bakery,Bagels 6ct,51,203.49
+south,produce,Bananas (lb),538,371.22
+south,produce,Avocados,210,262.50
+south,dairy,Whole milk 1 gal,301,1051.99
+south,dairy,Cheddar block 8oz,120,358.80
+south,bakery,Tortillas 10ct,188,467.12
+east,produce,Bananas (lb),297,204.93
+east,produce,Baby spinach 5oz,140,418.60
+east,dairy,Oat milk 64oz,166,746.84
+east,dairy,Greek yogurt 32oz,77,423.50
+east,bakery,Sourdough loaf,92,459.08
+east,bakery,Croissants 4ct,58,289.42

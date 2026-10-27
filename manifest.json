@@ -913,6 +913,28 @@
         "released": "2026-08-27",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 22,
+      "platform": "databricks",
+      "slug": "day-22-store-query-tags",
+      "date": "2026-10-26",
+      "title": "Per-store report attribution with query tags",
+      "summary": "Each store's daily-close report is sent through the Statement Execution API with statement-level query tags (store, report, feature). The cloud run checks each report equals a local DuckDB run, then reads the tags back from system.query.history and rolls the work up per store.",
+      "headline": "Every report says which store it ran for: one GROUP BY over query history attributes warehouse work per store",
+      "skills": [
+        "Query tags",
+        "System tables",
+        "Statement Execution API",
+        "Cost attribution"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-22-store-query-tags",
+      "new_feature": {
+        "name": "Query tags for SQL warehouses (GA)",
+        "released": "2026-09-30",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/september"
+      }
     }
   ]
 }
