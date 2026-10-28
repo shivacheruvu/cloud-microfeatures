@@ -972,7 +972,7 @@
         "Regular expressions",
         "Text parsing"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-23-receipt-line-parser",
       "new_feature": {
         "name": "REGEXP_EXTRACT_GROUPS function (Preview)",
