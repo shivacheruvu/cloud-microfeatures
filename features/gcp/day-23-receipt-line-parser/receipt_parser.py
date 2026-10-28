@@ -45,6 +45,15 @@ def groups_from_json(raw: str | None) -> list | None:
     v = json.loads(raw) if isinstance(raw, str) else raw
     if v is None:
         return None
+    # Unwrap one level of nesting: an array holding one struct/array (all matches, one match here), or a struct
+    # holding one array/struct field (e.g. {"groups": [...]}).
+    while True:
+        if isinstance(v, list) and len(v) == 1 and isinstance(v[0], (list, dict)):
+            v = v[0]
+        elif isinstance(v, dict) and len(v) == 1 and isinstance(next(iter(v.values())), (list, dict)):
+            v = next(iter(v.values()))
+        else:
+            break
     if isinstance(v, dict):
         v = list(v.values())
     if not isinstance(v, list) or not v or all(x is None or x == "" for x in v):
@@ -123,15 +132,20 @@ if __name__ == "__main__":
     elif len(sys.argv) > 2 and sys.argv[1] == "--compare":
         raw = Path(sys.argv[2]).read_text()
         start = raw.find("[")  # bq may print a warning line before the JSON
+        rows: list = []
         try:
             rows = json.loads(raw[start:]) if start >= 0 else []
             cloud = parse_cloud(rows)
         except (ValueError, KeyError, TypeError) as e:
+            sample = rows[0] if rows else raw[max(start, 0):max(start, 0) + 300]
+            print(f"::warning title=Day 23 first BigQuery row (receipt data only)::{json.dumps(sample)[:400]}")
             print(f"::error title=Day 23 unreadable BigQuery output::{e!r}")
             raise SystemExit(1)
         errors = [f"{w['receipt']}/{w['line_no']}: BigQuery {g} vs local {w}" for g, w in zip(cloud, local) if g != w]
         if len(cloud) != len(local):
             errors.insert(0, f"BigQuery returned {len(cloud)} rows, local {len(local)}")
+        if errors and rows:
+            print(f"::warning title=Day 23 first BigQuery row (receipt data only)::{json.dumps(rows[0])[:400]}")
         for e in errors[:10]:
             print(f"::error title=Day 23 REGEXP_EXTRACT_GROUPS parse differs from local::{e[:400]}")
         if errors:

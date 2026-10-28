@@ -70,3 +70,12 @@ def test_result_json_is_current():
     lines = rp.load_lines()
     summary = rp.summarise(lines, rp.parse_local(lines))
     assert {k: result[k] for k in summary} == summary
+
+
+def test_nested_result_shapes_unwrap():
+    """Fix forward: the first cloud run got a one-element result, so one level of nesting is unwrapped."""
+    want = ["OAT MILK", "64", "OZ", "2", "3.49"]
+    assert rp.groups_from_json(json.dumps([want])) == want
+    assert rp.groups_from_json(json.dumps([{"a": "OAT MILK", "b": "64", "c": "OZ", "d": "2", "e": "3.49"}])) == want
+    assert rp.groups_from_json(json.dumps({"groups": want})) == want
+    assert rp.groups_from_json(json.dumps({"groups": None})) is None
