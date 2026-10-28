@@ -957,6 +957,28 @@
         "released": "2026-09-30",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 23,
+      "platform": "gcp",
+      "slug": "day-23-receipt-line-parser",
+      "date": "2026-10-27",
+      "title": "Receipt line parser with REGEXP_EXTRACT_GROUPS",
+      "summary": "Till-receipt text lines are split into name, pack size, unit, quantity and price (or weight and price per lb) with REGEXP_EXTRACT_GROUPS: one call returns every capturing group, so each line needs 2 regex calls instead of 8 single-group REGEXP_EXTRACTs. Unmatched lines (coupons, fees) are listed for a person. The cloud run checks BigQuery's parse equals the local Python run.",
+      "headline": "18 receipt lines, 2 regex calls each: 12 packed and 4 weighed items parsed, 2 lines left for a person",
+      "skills": [
+        "BigQuery",
+        "REGEXP_EXTRACT_GROUPS",
+        "Regular expressions",
+        "Text parsing"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-23-receipt-line-parser",
+      "new_feature": {
+        "name": "REGEXP_EXTRACT_GROUPS function (Preview)",
+        "released": "2026-10-26",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
