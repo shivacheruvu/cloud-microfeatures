@@ -1,0 +1,20 @@
+{
+  "engine": "Python re (local) / BigQuery REGEXP_EXTRACT_GROUPS (cloud)",
+  "lines": 18,
+  "packed": 12,
+  "weighed": 4,
+  "no_pack_size": 1,
+  "unparsed": [
+    "COUPON OAT MILK -1.00",
+    "BAG FEE 0.10"
+  ],
+  "parsed_total_by_receipt": {
+    "r1001": 24.96,
+    "r1002": 44.47,
+    "r1003": 28.54
+  },
+  "regex_calls_per_line": {
+    "REGEXP_EXTRACT_GROUPS": 2,
+    "REGEXP_EXTRACT (one per field)": 8
+  }
+}
