@@ -52,3 +52,9 @@ One query over inlined literals: no table is scanned, well under the 20 MiB cap;
 | left for a person | 2 (`COUPON OAT MILK -1.00`, `BAG FEE 0.10`) |
 
 Parsed totals: r1001 $24.96, r1002 $44.47, r1003 $28.54. Full numbers in [`result.json`](result.json).
+
+## Fix-forward log
+- **2026-10-27, first cloud run:** BigQuery accepted the query (so the function and argument order are right), but
+  each result held one value instead of the groups, so the checker failed. The normaliser now unwraps one level of
+  nesting (an array holding one struct/array, or a struct holding one array field), and a failed comparison prints
+  the first BigQuery row as a warning so the exact shape is visible in the next run.

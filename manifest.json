@@ -979,6 +979,28 @@
         "released": "2026-10-26",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 23,
+      "platform": "databricks",
+      "slug": "day-23-price-file-conditional-writes",
+      "date": "2026-10-27",
+      "title": "Shared price file with Files API 3.0 conditional writes",
+      "summary": "HQ and two stores edit the same shelf-price CSV in a Unity Catalog volume. Files API 3.0 ETags with If-None-Match and If-Match reject a duplicate create, a stale upload and a stale delete, so the store working from an old copy re-reads and merges instead of overwriting the other store's markdown. Runs on REST calls only (no SQL warehouse); the cloud run checks every step and the final file against the local run.",
+      "headline": "3 stale or duplicate writes rejected, both store edits kept; last-writer-wins would have lost east's markdown",
+      "skills": [
+        "Files API 3.0",
+        "Unity Catalog volumes",
+        "Optimistic concurrency",
+        "REST API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-23-price-file-conditional-writes",
+      "new_feature": {
+        "name": "Files API 3.0 for Unity Catalog volumes: conditional operations (Beta)",
+        "released": "2026-10-23",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
+      }
     }
   ]
 }
