@@ -40,6 +40,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 20 | [Unique barcodes with informational UNIQUE constraints](features/databricks/day-20-unique-barcodes) | [UNIQUE constraints on Unity Catalog tables (Public Preview)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-06-05) | Unity Catalog, Constraints, information_schema, Statement Execution API | built |
 | 21 | [Markdown what-if KPIs from a parameterised metric view](features/databricks/day-21-markdown-what-if) | [Metric view parameters (Public Preview)](https://docs.databricks.com/aws/en/release-notes/product/2026/june) (2026-06-26) | Unity Catalog, Metric views, Parameters, Statement Execution API | built |
 | 22 | [Per-store report attribution with query tags](features/databricks/day-22-store-query-tags) | [Query tags for SQL warehouses (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/september) (2026-09-30) | Query tags, System tables, Statement Execution API, Cost attribution | built |
+| 23 | [Shared price file with Files API 3.0 conditional writes](features/databricks/day-23-price-file-conditional-writes) | [Files API 3.0 for Unity Catalog volumes: conditional operations (Beta)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-23) | Files API 3.0, Unity Catalog volumes, Optimistic concurrency, REST API | built |
 <!-- databricks:end -->
 
 ## Google Cloud features

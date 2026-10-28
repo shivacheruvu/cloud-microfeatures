@@ -1,0 +1,56 @@
+{
+  "engine": "in-memory volume with Files API 3.0 rules (local) / Files API 3.0 on a Unity Catalog volume (cloud)",
+  "steps": [
+    {
+      "step": "hq publishes (If-None-Match: *)",
+      "outcome": "ok"
+    },
+    {
+      "step": "hq publishes again (If-None-Match: *)",
+      "outcome": "rejected"
+    },
+    {
+      "step": "east and north read the same version",
+      "outcome": "ok"
+    },
+    {
+      "step": "east saves its markdown (If-Match)",
+      "outcome": "ok"
+    },
+    {
+      "step": "north saves with the stale ETag (If-Match)",
+      "outcome": "rejected"
+    },
+    {
+      "step": "north re-reads and saves (If-Match)",
+      "outcome": "ok"
+    },
+    {
+      "step": "delete with the stale ETag (If-Match)",
+      "outcome": "rejected"
+    },
+    {
+      "step": "cleanup delete with the current ETag",
+      "outcome": "ok"
+    }
+  ],
+  "rejected_writes": 3,
+  "final_prices": {
+    "P01": "2.99",
+    "P02": "4.49",
+    "P03": "5.29",
+    "P04": "0.59",
+    "P05": "9.99"
+  },
+  "edits_kept": [
+    "east",
+    "north"
+  ],
+  "last_writer_wins_would_lose": [
+    "east"
+  ],
+  "changed_skus": [
+    "P01",
+    "P02"
+  ]
+}
