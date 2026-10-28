@@ -58,3 +58,6 @@ Parsed totals: r1001 $24.96, r1002 $44.47, r1003 $28.54. Full numbers in [`resul
   each result held one value instead of the groups, so the checker failed. The normaliser now unwraps one level of
   nesting (an array holding one struct/array, or a struct holding one array field), and a failed comparison prints
   the first BigQuery row as a warning so the exact shape is visible in the next run.
+- **2026-10-27, second cloud run:** the printed row showed the real shape: a **STRUCT with anonymous fields**, which
+  `TO_JSON_STRING` writes as `{"":"OAT MILK","":"64","":"OZ","":"2","":"3.49"}` (non-matches are `NULL`). JSON objects
+  are now read as their values in order, so the duplicate `""` keys no longer collapse into one.

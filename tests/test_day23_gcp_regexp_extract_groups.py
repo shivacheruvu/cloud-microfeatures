@@ -79,3 +79,12 @@ def test_nested_result_shapes_unwrap():
     assert rp.groups_from_json(json.dumps([{"a": "OAT MILK", "b": "64", "c": "OZ", "d": "2", "e": "3.49"}])) == want
     assert rp.groups_from_json(json.dumps({"groups": want})) == want
     assert rp.groups_from_json(json.dumps({"groups": None})) is None
+
+
+def test_anonymous_struct_from_bigquery():
+    """The shape BigQuery actually returned on 2026-10-27: a struct with anonymous fields (all keys "")."""
+    raw = '{"":"OAT MILK","":"64","":"OZ","":"2","":"3.49"}'
+    assert rp.groups_from_json(raw) == ["OAT MILK", "64", "OZ", "2", "3.49"]
+    assert rp.groups_from_json('{"":"BREAD WHOLE WHEAT","":null,"":null,"":"1","":"3.99"}') == \
+        ["BREAD WHOLE WHEAT", None, None, "1", "3.99"]
+    assert rp.shape_of(raw) == "struct"
