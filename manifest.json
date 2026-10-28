@@ -994,7 +994,7 @@
         "Optimistic concurrency",
         "REST API"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/databricks/day-23-price-file-conditional-writes",
       "new_feature": {
         "name": "Files API 3.0 for Unity Catalog volumes: conditional operations (Beta)",

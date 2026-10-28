@@ -42,7 +42,10 @@ def groups_from_json(raw: str | None) -> list | None:
     """Normalise TO_JSON_STRING(REGEXP_EXTRACT_GROUPS(...)) to a list of groups, or None for no match."""
     if raw is None:
         return None
-    v = json.loads(raw) if isinstance(raw, str) else raw
+    # REGEXP_EXTRACT_GROUPS returns a STRUCT with anonymous fields, which TO_JSON_STRING writes as an object whose
+    # keys are all "" (seen in the first cloud run). A plain json.loads keeps only the last of those, so read
+    # objects as their values in order.
+    v = json.loads(raw, object_pairs_hook=lambda pairs: [x for _, x in pairs]) if isinstance(raw, str) else raw
     if v is None:
         return None
     # Unwrap one level of nesting: an array holding one struct/array (all matches, one match here), or a struct
