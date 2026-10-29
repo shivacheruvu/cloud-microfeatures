@@ -18,7 +18,8 @@ trap cleanup EXIT
 # Google's rule: check the command's help before using it. The flag is new (2026-10-27), and the runner's
 # preinstalled SDK can lag behind, so fetch the current SDK release into a temp folder when the flag is missing.
 # It reuses the signed-in configuration and credentials from the auth step.
-has_flag() { gcloud help storage buckets create 2>/dev/null | grep -q -- '--labels-file'; }
+# (help text is captured first: with pipefail, `gcloud help | grep -q` reports a miss when grep stops reading early)
+has_flag() { local h; h=$(gcloud help storage buckets create 2>/dev/null) || true; [[ "$h" == *--labels-file* ]]; }
 if ! has_flag; then
   old_sdk=$(gcloud version 2>/dev/null | head -1)
   SDK=$(mktemp -d)

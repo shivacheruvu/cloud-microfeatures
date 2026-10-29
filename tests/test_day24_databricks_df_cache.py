@@ -73,8 +73,10 @@ def test_compare_and_log_fallback():
 
 def test_redact_hides_host_and_user(monkeypatch):
     monkeypatch.setenv("DATABRICKS_HOST", "https://dbc-123.cloud.databricks.com")
-    text = rc.redact("dbc-123.cloud.databricks.com /Users/someone@example.com/cmf-day24 failed for a@b.io")
+    text = rc.redact("dbc-123.cloud.databricks.com /Users/someone@example.com/cmf-day24 failed for a@b.io; "
+                     "runs for organization 1234567890123 are disabled")
     assert "dbc-123" not in text and "someone" not in text and "a@b.io" not in text
+    assert "1234567890123" not in text and "organization <id>" in text
 
 
 class FakeApi:
@@ -127,4 +129,19 @@ def test_cloud_run_reports_a_failed_job_and_still_cleans_up(monkeypatch, capsys)
     monkeypatch.setenv("DATABRICKS_HOST", "https://dbc-123.cloud.databricks.com")
     assert rc.main() == 1
     assert "job ended FAILED: boom" in capsys.readouterr().out
+    assert fake.calls[-1][1] == "/api/2.1/unity-catalog/schemas/workspace.cmf_day24"
+
+
+def test_disabled_workspace_is_reported_without_ids(monkeypatch, capsys):
+    fake = FakeApi({})
+    def disabled(method, path, data=None, headers=None):
+        if path.endswith("/runs/submit"):
+            return 404, json.dumps({"error_code": "FEATURE_DISABLED", "message": "Triggering new runs for "
+                                    "organization 1234567890123 is currently disabled temporarily."}).encode()
+        return fake(method, path, data, headers)
+    monkeypatch.setattr(rc, "_request", disabled)
+    monkeypatch.setenv("DATABRICKS_HOST", "https://dbc-123.cloud.databricks.com")
+    assert rc.main() == 1
+    out = capsys.readouterr().out
+    assert "FEATURE_DISABLED" in out and "Databricks compute disabled" in out and "1234567890123" not in out
     assert fake.calls[-1][1] == "/api/2.1/unity-catalog/schemas/workspace.cmf_day24"

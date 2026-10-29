@@ -60,7 +60,7 @@ FAKE_GCLOUD = r"""#!/usr/bin/env bash
 # fake gcloud: records calls, keeps bucket labels/lifecycle in $FAKE_STATE
 echo "$*" >> "$FAKE_STATE/calls"
 case "$1 $2 $3" in
-  "help storage buckets") echo "  --labels-file=LABELS_FILE";;
+  "help storage buckets") echo "  --labels-file=LABELS_FILE"; seq 1 200000;;  # long, like real help text
   "storage ls gs://cmf-d24-*") exit 1;;
   "storage buckets create")
     b=${4#gs://}; mkdir -p "$FAKE_STATE/$b"
