@@ -11,6 +11,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15   # a stalled run fails instead of blocking the merge
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
