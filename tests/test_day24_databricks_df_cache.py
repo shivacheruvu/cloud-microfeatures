@@ -26,7 +26,10 @@ RESULT = json.loads((FEATURE / "result.json").read_text())
 def spark():
     pyspark_sql = pytest.importorskip("pyspark.sql")
     s = (pyspark_sql.SparkSession.builder.master("local[2]").appName("day24")
-         .config("spark.sql.shuffle.partitions", "4").config("spark.ui.enabled", "false").getOrCreate())
+         .config("spark.sql.shuffle.partitions", "4").config("spark.ui.enabled", "false")
+         # bind to loopback: on CI runners a hostname lookup can stall the local driver
+         .config("spark.driver.host", "127.0.0.1").config("spark.driver.bindAddress", "127.0.0.1")
+         .getOrCreate())
     yield s
     s.stop()
 
