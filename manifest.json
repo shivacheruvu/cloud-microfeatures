@@ -1016,7 +1016,7 @@
         "Resource labels",
         "Lifecycle rules"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-24-labelled-drop-buckets",
       "new_feature": {
         "name": "--labels and --labels-file for gcloud storage buckets create",

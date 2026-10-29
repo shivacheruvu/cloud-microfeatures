@@ -72,7 +72,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 21 | [Shelf stockout classifier on XGBoost 2.1 in BigQuery ML](features/gcp/day-21-stockout-xgboost) | [XGBOOST_VERSION option for boosted tree models (XGBoost 2.1, GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-08-27) | BigQuery ML, Boosted trees, XGBoost, bq load | built |
 | 22 | [Store export drop audit with OBJ.LIST](features/gcp/day-22-export-drop-audit) | [OBJ.LIST function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-09-30) | BigQuery, OBJ.LIST, Cloud Storage, Data freshness | ran |
 | 23 | [Receipt line parser with REGEXP_EXTRACT_GROUPS](features/gcp/day-23-receipt-line-parser) | [REGEXP_EXTRACT_GROUPS function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-26) | BigQuery, REGEXP_EXTRACT_GROUPS, Regular expressions, Text parsing | ran |
-| 24 | [Store drop buckets labelled at creation with gcloud --labels-file](features/gcp/day-24-labelled-drop-buckets) | [--labels and --labels-file for gcloud storage buckets create](https://docs.cloud.google.com/release-notes) (2026-10-27) | Cloud Storage, gcloud CLI, Resource labels, Lifecycle rules | built |
+| 24 | [Store drop buckets labelled at creation with gcloud --labels-file](features/gcp/day-24-labelled-drop-buckets) | [--labels and --labels-file for gcloud storage buckets create](https://docs.cloud.google.com/release-notes) (2026-10-27) | Cloud Storage, gcloud CLI, Resource labels, Lifecycle rules | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself
