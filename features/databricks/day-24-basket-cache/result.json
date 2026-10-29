@@ -1,0 +1,78 @@
+{
+  "engine": "pyspark local (local) / serverless job, environment version 5 (cloud)",
+  "cache": {
+    "cached_before": false,
+    "cached_after_cache": true,
+    "storage_level": "Disk Memory Deserialized 1x Replicated",
+    "cached_after_unpersist": false,
+    "rows_cached": 76345,
+    "reports_from_cache": 3
+  },
+  "reports": {
+    "by_store": [
+      {
+        "store": "east",
+        "baskets": 4286,
+        "items": 33935,
+        "revenue_cents": 17121053
+      },
+      {
+        "store": "hq-express",
+        "baskets": 4285,
+        "items": 42411,
+        "revenue_cents": 18296975
+      },
+      {
+        "store": "north",
+        "baskets": 4286,
+        "items": 33929,
+        "revenue_cents": 17116479
+      },
+      {
+        "store": "west",
+        "baskets": 4286,
+        "items": 42417,
+        "revenue_cents": 18300371
+      }
+    ],
+    "by_category": [
+      {
+        "category": "pantry",
+        "revenue_cents": 21009212
+      },
+      {
+        "category": "drinks",
+        "revenue_cents": 12219788
+      },
+      {
+        "category": "meat",
+        "revenue_cents": 11719232
+      },
+      {
+        "category": "dairy",
+        "revenue_cents": 7409956
+      },
+      {
+        "category": "produce",
+        "revenue_cents": 6965978
+      },
+      {
+        "category": "bakery",
+        "revenue_cents": 5868852
+      },
+      {
+        "category": "frozen",
+        "revenue_cents": 5641860
+      }
+    ],
+    "basket_sizes": {
+      "1": 60,
+      "2": 2886,
+      "3": 2887,
+      "4": 2886,
+      "5": 2886,
+      "6": 2888,
+      "7": 2650
+    }
+  }
+}

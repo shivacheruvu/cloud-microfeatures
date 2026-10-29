@@ -1023,6 +1023,28 @@
         "released": "2026-10-27",
         "source": "https://docs.cloud.google.com/release-notes"
       }
+    },
+    {
+      "day": 24,
+      "platform": "databricks",
+      "slug": "day-24-basket-cache",
+      "date": "2026-10-28",
+      "title": "One basket scan, three reports: df.cache() on serverless",
+      "summary": "A serverless job (environment version 5) builds the week's enriched basket lines once, caches them with df.cache(), and serves revenue by store, revenue by category and a basket-size histogram from the cache, then unpersists. Before 2026-10-23 df.cache() raised NOT_SUPPORTED_WITH_SERVERLESS. Runs on REST calls only (runs/submit, no SQL warehouse); the cloud run checks the cache flags and all three reports against the local pyspark run.",
+      "headline": "76,345 basket lines cached once on serverless, 3 reports served from the cache, all equal to local pyspark",
+      "skills": [
+        "PySpark",
+        "Serverless jobs",
+        "DataFrame caching",
+        "Jobs API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-24-basket-cache",
+      "new_feature": {
+        "name": "DataFrame caching on serverless compute (Public Preview)",
+        "released": "2026-10-23",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
+      }
     }
   ]
 }
