@@ -1,0 +1,8 @@
+[
+  {"id": "east", "name": "East Side #12", "region": "US Central", "owner": "Ops – East",
+   "feed": "POS exports", "retention_days": 30, "cost_center": "CC-4410"},
+  {"id": "west", "name": "Westgate Market", "region": "US Central", "owner": "Ops – East",
+   "feed": "POS exports", "retention_days": 30, "cost_center": "CC-4420"},
+  {"id": "hq", "name": "Head Office Pricing Desk & Category Management (shared price-book drops)",
+   "region": "US", "owner": "Pricing", "feed": "Price book", "retention_days": 90, "cost_center": "CC-1000"}
+]

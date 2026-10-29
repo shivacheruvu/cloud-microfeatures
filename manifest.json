@@ -1001,6 +1001,28 @@
         "released": "2026-10-23",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
       }
+    },
+    {
+      "day": 24,
+      "platform": "gcp",
+      "slug": "day-24-labelled-drop-buckets",
+      "date": "2026-10-28",
+      "title": "Store drop buckets labelled at creation with gcloud --labels-file",
+      "summary": "Each store's raw-drop bucket is created in one gcloud storage buckets create call with --labels-file (owner, cost center, retention, store) and a matching lifecycle rule, so no bucket ever exists unlabelled. Free-text store attributes are normalised to Cloud Storage label rules first. The cloud run reads every bucket back with describe, checks labels and lifecycle against the local plan, and deletes the buckets.",
+      "headline": "3 store buckets, 9 labels each, set in the create call: 0 label-update calls, 1 store name cut to 63 characters",
+      "skills": [
+        "Cloud Storage",
+        "gcloud CLI",
+        "Resource labels",
+        "Lifecycle rules"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-24-labelled-drop-buckets",
+      "new_feature": {
+        "name": "--labels and --labels-file for gcloud storage buckets create",
+        "released": "2026-10-27",
+        "source": "https://docs.cloud.google.com/release-notes"
+      }
     }
   ]
 }
