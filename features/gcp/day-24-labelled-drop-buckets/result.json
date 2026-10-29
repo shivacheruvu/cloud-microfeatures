@@ -1,0 +1,42 @@
+{
+  "engine": "Python label rules (local) / gcloud storage buckets create --labels-file (cloud)",
+  "buckets": 3,
+  "labels_per_bucket": 9,
+  "create_calls_per_bucket": 1,
+  "label_update_calls": 0,
+  "values_cut_to_63_chars": [
+    "hq.store_name"
+  ],
+  "by_owner": {
+    "ops-east": {
+      "buckets": 2,
+      "cost_centers": [
+        "cc-4410",
+        "cc-4420"
+      ],
+      "retention_days": [
+        30
+      ]
+    },
+    "pricing": {
+      "buckets": 1,
+      "cost_centers": [
+        "cc-1000"
+      ],
+      "retention_days": [
+        90
+      ]
+    }
+  },
+  "example_labels": {
+    "store": "east",
+    "store_name": "east-side-12",
+    "region": "us-central",
+    "owner": "ops-east",
+    "feed": "pos-exports",
+    "cost_center": "cc-4410",
+    "retention_days": "30",
+    "program": "cloud-microfeatures",
+    "feature": "day-24"
+  }
+}
