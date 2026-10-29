@@ -11,12 +11,25 @@ WORK=$(mktemp -d); OUT=$(mktemp); CREATED=()
 redact() { sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e "s/cmf-d24-[a-z0-9-]+/<bucket>/g" | tr '\n' ' ' | tail -c 900; }
 cleanup() {
   for b in "${CREATED[@]}"; do gcloud storage rm -r "gs://${b}" --quiet >/dev/null 2>&1 || true; done
-  rm -rf "$WORK" "$OUT"
+  rm -rf "$WORK" "$OUT" "${SDK:-}"
 }
 trap cleanup EXIT
 
-# Google's rule: check the command's help before using it. The flag is new, so an older SDK won't have it.
-if ! gcloud help storage buckets create 2>/dev/null | grep -q -- '--labels-file'; then
+# Google's rule: check the command's help before using it. The flag is new (2026-10-27), and the runner's
+# preinstalled SDK can lag behind, so fetch the current SDK release into a temp folder when the flag is missing.
+# It reuses the signed-in configuration and credentials from the auth step.
+has_flag() { gcloud help storage buckets create 2>/dev/null | grep -q -- '--labels-file'; }
+if ! has_flag; then
+  old_sdk=$(gcloud version 2>/dev/null | head -1)
+  SDK=$(mktemp -d)
+  if curl -fsSL https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.tar.gz | tar -xz -C "$SDK" \
+     && [ -x "$SDK/google-cloud-sdk/bin/gcloud" ]; then
+    export PATH="$SDK/google-cloud-sdk/bin:$PATH"
+    gcloud config set core/disable_usage_reporting true --quiet >/dev/null 2>&1 || true
+    echo "::notice title=Day 24 Cloud SDK::runner had ${old_sdk}; using $(gcloud version 2>/dev/null | head -1) for this run"
+  fi
+fi
+if ! has_flag; then
   echo "::error title=gcloud too old::this Cloud SDK ($(gcloud version 2>/dev/null | head -1)) has no --labels-file on buckets create yet"
   exit 1
 fi
