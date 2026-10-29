@@ -156,7 +156,9 @@ def redact(text: str) -> str:
     for secret in (os.environ.get("DATABRICKS_HOST", "").removeprefix("https://").rstrip("/"),):
         if secret:
             text = text.replace(secret, "<host>")
-    return re.sub(r"/Users/[^/\s\"']+", "/Users/<me>", re.sub(r"[\w.+-]+@[\w-]+\.[\w.]+", "<user>", text))
+    text = re.sub(r"[\w.+-]+@[\w-]+\.[\w.]+", "<user>", text)
+    text = re.sub(r"/Users/[^/\s\"']+", "/Users/<me>", text)
+    return re.sub(r"\b\d{7,}\b", "<id>", text)  # workspace / organization IDs
 
 
 def main() -> int:
@@ -165,6 +167,10 @@ def main() -> int:
         cloud = run()
     except ApiError as e:
         print(f"::error title=Databricks day 24 failed::{redact(str(e))}")
+        if e.code.startswith("FEATURE_DISABLED"):
+            print("::error title=Databricks compute disabled::the workspace refuses new job runs (FEATURE_DISABLED), "
+                  "the same block that makes the SQL warehouse refuse statements; check the workspace for a Free "
+                  "Edition usage-limit banner")
         return 1
     errors = compare(cloud, local)
     for e in errors:
