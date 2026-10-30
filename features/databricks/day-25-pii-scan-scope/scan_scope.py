@@ -382,6 +382,12 @@ def main(mode: str) -> int:
     try:
         cloud = run_databricks()
     except ApiError as e:
+        if e.status == 403 and "not available" in str(e).lower():
+            # Seen on 2026-10-29: Databricks Free Edition answers "Data Classification is not available in this
+            # workspace" before anything is created. A platform limit, not a bug, so the daily run stays green.
+            print("::warning title=Databricks day 25::Data Classification isn't available on this Free Edition "
+                  "workspace (403), so the scope reconciler was verified locally only (nothing was created)")
+            return 0
         print(f"::error title=Databricks day 25 API call failed::{e}")
         return 1
     if cloud is None:

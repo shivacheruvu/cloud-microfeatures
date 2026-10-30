@@ -40,5 +40,9 @@ trial.
 
 ## Result
 Local estimate: verbose 4,745 input tokens, short 1,697, **64.2% fewer** with the short template, smaller for all 24
-products; largest short prompt is the plant-based burger (103 tokens, long ingredient list). Cloud counts: see the
-report once the run is in. Full numbers in [`result.json`](result.json).
+products; largest short prompt is the plant-based burger (103 tokens, long ingredient list).
+
+**Cloud (2026-10-29, `gemini-3.1-flash-lite` tokenizer):** verbose **3,289** input tokens, short **1,202**:
+**63.5% fewer** (local estimate 64.2%), short smaller for all 24 products, largest short prompt again the plant-based
+burger (72 tokens). Gemini's counts were 0.69x the word-piece estimate. Full local numbers in
+[`result.json`](result.json).
