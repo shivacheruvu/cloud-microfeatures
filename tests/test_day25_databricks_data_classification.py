@@ -43,6 +43,8 @@ def test_local_scenario():
 class FakeApi(BaseHTTPRequestHandler):
     api = None
     seen = []
+    catalog_status = 200
+    sent = []  # every config body the client sent
 
     def log_message(self, *a):
         pass
@@ -64,18 +66,27 @@ class FakeApi(BaseHTTPRequestHandler):
 
     def do_GET(self):
         path, _, _ = self._route()
+        if path.endswith("/current-metastore-assignment"):
+            return self._send(200, {"default_catalog_name": "workspace"})
+        if path == "/api/2.1/unity-catalog/schemas":
+            return self._send(200, {"schemas": [{"name": n} for n in ("default", "information_schema", "shiva_data")]})
         s, cfg = self.api.get(path.removeprefix(ss.API + "/"))
         self._send(s, cfg)
 
     def do_POST(self):
         path, _, body = self._route()
+        if path == "/api/2.1/unity-catalog/catalogs":
+            return self._send(self.catalog_status, {"error_code": "INVALID_STATE"} if self.catalog_status != 200
+                              else {"name": body["name"]})
         if path.startswith("/api/2.1/unity-catalog/"):
             return self._send(200, {"name": body["name"]})
+        self.sent.append(body)
         s, cfg = self.api.create(path.removeprefix(ss.API + "/").removesuffix("/config"), body)
         self._send(s, cfg)
 
     def do_PATCH(self):
         path, q, body = self._route()
+        self.sent.append(body)
         s, cfg = self.api.update(path.removeprefix(ss.API + "/"), body, q["update_mask"][0].split(","))
         self._send(s, cfg)
 
@@ -86,8 +97,39 @@ class FakeApi(BaseHTTPRequestHandler):
         self._send(self.api.delete(path.removeprefix(ss.API + "/")))
 
 
+def _serve(monkeypatch, catalog_status):
+    FakeApi.api, FakeApi.seen, FakeApi.sent, FakeApi.catalog_status = ss.LocalApi(), [], [], catalog_status
+    server = ThreadingHTTPServer(("127.0.0.1", 0), FakeApi)
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    monkeypatch.setattr(ss, "SCHEME", "http")
+    monkeypatch.setattr(ss.time, "sleep", lambda s: None)
+    monkeypatch.setenv("DATABRICKS_HOST", f"127.0.0.1:{server.server_port}")
+    monkeypatch.setenv("DATABRICKS_TOKEN", "test-token")
+    return server
+
+
+def test_fallback_on_default_catalog_never_scopes_existing_schemas(monkeypatch):
+    server = _serve(monkeypatch, 400)
+    try:
+        assert ss.run_databricks() == ss.scenario(ss.LocalApi(), ss.SCRATCH_CATALOG)
+    finally:
+        server.shutdown()
+    assert len(FakeApi.sent) == 4  # create, duplicate create, two PATCHes
+    for body in FakeApi.sent:
+        assert body["name"] == "catalogs/workspace/config"
+        inc = (body.get("included_schemas") or {}).get("names", [])
+        exc = (body.get("excluded_schemas") or {}).get("names", [])
+        assert all(n.startswith("mf25_") for n in inc)
+        if exc:  # everything that existed before is opted out, so only scratch schemas are in scope
+            assert {"default", "information_schema", "shiva_data", "mf25_sandbox"} <= set(exc)
+    deletes = [p for m, p, _ in FakeApi.seen if m == "DELETE"]
+    assert sorted(p.rsplit(".", 1)[-1] for p in deletes if "/schemas/" in p) == sorted(
+        "mf25_" + n for n in ss.catalog()["schemas"])
+    assert FakeApi.api.configs == {}
+
+
 def test_rest_client_over_http_matches_local(monkeypatch):
-    FakeApi.api, FakeApi.seen = ss.LocalApi(), []
+    FakeApi.api, FakeApi.seen, FakeApi.catalog_status = ss.LocalApi(), [], 200
     server = ThreadingHTTPServer(("127.0.0.1", 0), FakeApi)
     threading.Thread(target=server.serve_forever, daemon=True).start()
     try:

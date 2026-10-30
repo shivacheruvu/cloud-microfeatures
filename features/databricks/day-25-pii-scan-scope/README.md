@@ -49,9 +49,13 @@ checked without cloud access.
 
 `cloud.sh` (GitHub Actions) needs **no compute**: it creates an empty scratch catalog `microfeatures_day25` with the
 five schemas through the Unity Catalog REST API, plays the scenario, and fails if any step's outcome or the scope read
-back differs from local. The config and the catalog are deleted on exit. Classification is never turned on for an
-existing catalog: if the workspace refuses the scratch catalog, the run says so as a warning and the scenario counts
-as verified locally only.
+back differs from local. The config and the catalog are deleted on exit.
+
+**Fix forward (2026-10-29):** the first cloud run found that this Free Edition workspace refuses new catalogs
+(`400 INVALID_STATE`). The run now falls back to the workspace's default catalog, as long as it has no
+classification config yet: the five schemas are created there as `mf25_<name>`, and every config sent covers only
+those scratch schemas (an included list is prefixed; an excluded list also names every schema that already existed),
+so nothing that existed before is ever in scope. The config and the scratch schemas are deleted on exit.
 
 ## Cost
 A dozen REST calls. The scratch catalog is empty, so classification has nothing to scan; the config exists for a few
