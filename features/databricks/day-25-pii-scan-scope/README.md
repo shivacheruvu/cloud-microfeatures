@@ -57,9 +57,14 @@ classification config yet: the five schemas are created there as `mf25_<name>`, 
 those scratch schemas (an included list is prefixed; an excluded list also names every schema that already existed),
 so nothing that existed before is ever in scope. The config and the scratch schemas are deleted on exit.
 
+**Cloud result (2026-10-29):** the fallback's first call, reading the default catalog's config, returned
+`403 PERMISSION_DENIED: Data Classification is not available in this workspace.` Data Classification isn't offered on
+Databricks Free Edition, so the cloud part can't run there; nothing was created. The run now reports that as a
+warning and the feature stays verified locally (and over HTTP against the documented API) only.
+
 ## Cost
-A dozen REST calls. The scratch catalog is empty, so classification has nothing to scan; the config exists for a few
-seconds. Fine on Free Edition.
+A dozen REST calls on a workspace that offers Data Classification; the scratch schemas are empty, so there is nothing
+to scan. Not available on Free Edition (403), so $0 here.
 
 ## Result
 5 write calls for 3 policy versions (create, rejected duplicate create, two masked PATCHes, delete), 1 no-op
