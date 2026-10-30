@@ -1,0 +1,138 @@
+{
+  "engine": "in-memory Data Classification API with the documented rules (local) / Data Classification API v1 on a scratch catalog (cloud)",
+  "steps": [
+    {
+      "step": "read before any change",
+      "call": "GET",
+      "outcome": "absent",
+      "scope_after": null
+    },
+    {
+      "step": "apply v1",
+      "call": "POST",
+      "outcome": "ok",
+      "scope_after": {
+        "included_schemas": [
+          "loyalty",
+          "pos"
+        ]
+      }
+    },
+    {
+      "step": "create v1 again",
+      "call": "POST",
+      "outcome": "rejected (exists)",
+      "scope_after": {
+        "included_schemas": [
+          "loyalty",
+          "pos"
+        ]
+      }
+    },
+    {
+      "step": "apply v1 again",
+      "call": "none",
+      "outcome": "ok",
+      "scope_after": {
+        "included_schemas": [
+          "loyalty",
+          "pos"
+        ]
+      }
+    },
+    {
+      "step": "apply v2",
+      "call": "PATCH update_mask=included_schemas",
+      "outcome": "ok",
+      "scope_after": {
+        "included_schemas": [
+          "ecommerce",
+          "loyalty",
+          "pos"
+        ]
+      }
+    },
+    {
+      "step": "apply v3",
+      "call": "PATCH update_mask=included_schemas,excluded_schemas",
+      "outcome": "ok",
+      "scope_after": {
+        "excluded_schemas": [
+          "sandbox"
+        ]
+      }
+    },
+    {
+      "step": "delete (disable classification)",
+      "call": "DELETE",
+      "outcome": "ok",
+      "scope_after": null
+    }
+  ],
+  "write_calls": 5,
+  "noop_reapplies": 1,
+  "versions": {
+    "v1": {
+      "why": "start with the two schemas that hold member data",
+      "scope": {
+        "included_schemas": [
+          "loyalty",
+          "pos"
+        ]
+      },
+      "schemas_scanned": [
+        "loyalty",
+        "pos"
+      ],
+      "tables_scanned": 4,
+      "pii_like_columns_scanned": 4,
+      "pii_like_columns_missed": [
+        "ecommerce.customers.email",
+        "ecommerce.customers.delivery_address",
+        "ecommerce.customers.postcode",
+        "ecommerce.customers.phone",
+        "ecommerce.orders.delivery_address",
+        "sandbox.analyst_scratch.email"
+      ]
+    },
+    "v2": {
+      "why": "online orders launched: add ecommerce",
+      "scope": {
+        "included_schemas": [
+          "ecommerce",
+          "loyalty",
+          "pos"
+        ]
+      },
+      "schemas_scanned": [
+        "ecommerce",
+        "loyalty",
+        "pos"
+      ],
+      "tables_scanned": 6,
+      "pii_like_columns_scanned": 9,
+      "pii_like_columns_missed": [
+        "sandbox.analyst_scratch.email"
+      ]
+    },
+    "v3": {
+      "why": "scan everything by default so new schemas are covered; skip only analyst scratch",
+      "scope": {
+        "excluded_schemas": [
+          "sandbox"
+        ]
+      },
+      "schemas_scanned": [
+        "ecommerce",
+        "loyalty",
+        "pos",
+        "pricing"
+      ],
+      "tables_scanned": 7,
+      "pii_like_columns_scanned": 9,
+      "pii_like_columns_missed": [
+        "sandbox.analyst_scratch.email"
+      ]
+    }
+  }
+}
