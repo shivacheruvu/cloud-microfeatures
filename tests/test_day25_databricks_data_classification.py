@@ -152,3 +152,13 @@ def test_result_json_is_current():
     result = json.loads((FEATURE / "result.json").read_text())
     summary = ss.summarise(ss.scenario(ss.LocalApi(), ss.SCRATCH_CATALOG))
     assert {k: result[k] for k in summary} == summary
+
+
+def test_unavailable_on_free_edition_is_a_warning(monkeypatch, capsys):
+    def refuse(*a, **k):
+        raise ss.ApiError(403, "PERMISSION_DENIED", "Data Classification is not available in this workspace.")
+    monkeypatch.setattr(ss, "run_databricks", refuse)
+    assert ss.main("--databricks") == 0
+    assert "::warning" in capsys.readouterr().out
+    monkeypatch.setattr(ss, "run_databricks", lambda: (_ for _ in ()).throw(ss.ApiError(500, "INTERNAL_ERROR")))
+    assert ss.main("--databricks") == 1
