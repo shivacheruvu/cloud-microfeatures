@@ -1,0 +1,14 @@
+{
+  "catalog": "grocery",
+  "note": "Schemas and columns of the grocery lakehouse (ANTeater scan exports + Open Food Facts). Synthetic layout, no data.",
+  "schemas": {
+    "loyalty":   {"members":        ["member_id", "email", "phone", "birth_date", "home_store_id", "joined_on"],
+                  "points_ledger":  ["member_id", "basket_id", "points", "earned_at"]},
+    "pos":       {"baskets":        ["basket_id", "store_id", "lane", "member_id", "card_last4", "total", "scanned_at"],
+                  "basket_lines":   ["basket_id", "barcode", "qty", "unit_price"]},
+    "ecommerce": {"customers":      ["customer_id", "email", "delivery_address", "postcode", "phone"],
+                  "orders":         ["order_id", "customer_id", "delivery_address", "slot_start", "total"]},
+    "pricing":   {"shelf_prices":   ["store_id", "barcode", "price", "valid_from"]},
+    "sandbox":   {"analyst_scratch": ["member_id", "email", "note"]}
+  }
+}
