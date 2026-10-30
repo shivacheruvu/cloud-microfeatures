@@ -1067,6 +1067,28 @@
         "released": "2026-10-14",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
       }
+    },
+    {
+      "day": 25,
+      "platform": "gcp",
+      "slug": "day-25-shelf-blurb-token-budget",
+      "date": "2026-10-29",
+      "title": "Size a Gemini shelf-tag job before running it with AI.COUNT_TOKENS",
+      "summary": "Two prompt templates for writing shelf-tag blurbs for 24 grocery products (a verbose one and a short one) are sized in one BigQuery query with AI.COUNT_TOKENS, which counts Gemini input tokens without a generation call. The cloud run checks every prompt gets a count, the short template is smaller for every product, and the saving and total agree with a local word-piece estimate.",
+      "headline": "Short shelf-tag prompt uses ~64% fewer input tokens than the verbose one, for all 24 products (local estimate)",
+      "skills": [
+        "BigQuery",
+        "AI.COUNT_TOKENS",
+        "Gemini",
+        "Prompt cost"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-25-shelf-blurb-token-budget",
+      "new_feature": {
+        "name": "AI.COUNT_TOKENS function (GA)",
+        "released": "2026-10-27",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
