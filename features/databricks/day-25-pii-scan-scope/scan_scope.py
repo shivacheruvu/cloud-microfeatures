@@ -261,16 +261,98 @@ class RestApi:
         return s
 
 
+class PrefixedApi:
+    """Fallback when the workspace can't create a scratch catalog (Free Edition answered 400 INVALID_STATE on
+    2026-10-29): the scenario runs on the workspace's default catalog, with the grocery schemas created as
+    `mf25_<name>`. Every config sent covers only those scratch schemas: an included list is prefixed, and an
+    excluded list also names every other schema in the catalog, so nothing that already existed is ever in scope.
+    Configs read back are translated the other way, so steps compare equal to the local run."""
+
+    def __init__(self, inner, prefix: str, ours: list[str], others: list[str]):
+        self.inner, self.prefix, self.ours, self.others = inner, prefix, set(ours), sorted(others)
+
+    def _out(self, cfg):
+        if cfg is None:
+            return None
+        cfg = dict(cfg)
+        for key in ("included_schemas", "excluded_schemas"):
+            names = (cfg.get(key) or {}).get("names") or []
+            mine = [n.removeprefix(self.prefix) for n in names if n in self.ours]
+            if mine:
+                cfg[key] = {"names": sorted(mine)}
+            else:
+                cfg.pop(key, None)
+        return cfg
+
+    def _in(self, body):
+        body = dict(body)
+        if body.get("included_schemas"):
+            body["included_schemas"] = {"names": sorted(self.prefix + n for n in body["included_schemas"]["names"])}
+        if body.get("excluded_schemas"):
+            body["excluded_schemas"] = {"names": sorted([self.prefix + n for n in body["excluded_schemas"]["names"]]
+                                                        + self.others)}
+        return body
+
+    def get(self, name):
+        s, cfg = self.inner.get(name)
+        return s, self._out(cfg)
+
+    def create(self, parent, body):
+        s, cfg = self.inner.create(parent, self._in(body))
+        return s, self._out(cfg) if s == 200 else cfg
+
+    def update(self, name, body, mask):
+        s, cfg = self.inner.update(name, self._in(body), mask)
+        return s, self._out(cfg)
+
+    def delete(self, name):
+        return self.inner.delete(name)
+
+
+PREFIX = "mf25_"
+
+
+def _run_on_default_catalog() -> dict | None:
+    assignment = _uc("GET", "/api/2.1/unity-catalog/current-metastore-assignment")
+    cat = assignment.get("default_catalog_name") or "workspace"
+    api = RestApi()
+    if api.get(f"catalogs/{cat}/config")[0] == 200:
+        print("::warning title=Databricks day 25::The default catalog already has a Data Classification config, which "
+              "the run never touches, so the scope reconciler was verified locally only")
+        return None
+    listed = _uc("GET", "/api/2.1/unity-catalog/schemas?" + urllib.parse.urlencode({"catalog_name": cat}))
+    existing = [s["name"] for s in listed.get("schemas", [])]
+    ours = [PREFIX + s for s in catalog()["schemas"]]
+    if any(s in existing for s in ours):
+        print("::warning title=Databricks day 25::mf25_ schemas already exist in the default catalog (left alone), so "
+              "the scope reconciler was verified locally only")
+        return None
+    created = []
+    try:
+        for schema in ours:
+            _uc("POST", "/api/2.1/unity-catalog/schemas",
+                {"name": schema, "catalog_name": cat, "comment": "cloud-microfeatures day 25 scratch"})
+            created.append(schema)
+        return scenario(PrefixedApi(api, PREFIX, ours, [s for s in existing if s not in ours]), cat)
+    finally:  # leave nothing behind: the config (only ever ours: there was none before) and the scratch schemas
+        try:
+            _request("DELETE", f"{API}/catalogs/{cat}/config")
+            for schema in created:
+                _uc("DELETE", f"/api/2.1/unity-catalog/schemas/{cat}.{schema}", ok=(200, 204, 404))
+        except ApiError as e:
+            print(f"::warning title=Databricks day 25 cleanup::dropping scratch schemas returned {e}")
+
+
 def run_databricks() -> dict | None:
     """Scratch catalog with the five grocery schemas (empty: nothing to scan, nothing billed), the scenario, then
-    the catalog is dropped. Classification is never switched on for any existing catalog."""
+    the catalog is dropped. If the workspace can't create catalogs, fall back to prefixed scratch schemas in the
+    default catalog (see PrefixedApi). Classification is never switched on for anything that existed before."""
     s, out = _request("POST", "/api/2.1/unity-catalog/catalogs",
                       {"name": SCRATCH_CATALOG, "comment": "cloud-microfeatures day 25 scratch (deleted by the run)"})
     if s not in (200, 409):
-        print("::warning title=Databricks day 25::This workspace refused a scratch catalog "
-              f"({s} {out.get('error_code', '')}), and the run never enables classification on an existing catalog, "
-              "so the scope reconciler was verified locally only")
-        return None
+        print(f"::notice title=Databricks day 25::No scratch catalog ({s} {out.get('error_code', '')}); using "
+              "prefixed scratch schemas in the default catalog instead")
+        return _run_on_default_catalog()
     try:
         for schema in catalog()["schemas"]:
             _uc("POST", "/api/2.1/unity-catalog/schemas",
