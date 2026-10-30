@@ -1,0 +1,8 @@
+{
+  "note": "Two prompt templates for writing a shelf-tag blurb with Gemini. Placeholders: {name} {brand} {category} {ingredients}.",
+  "endpoint": "gemini-3.1-flash-lite",
+  "templates": {
+    "verbose": "You are an expert grocery merchandiser with years of experience writing shelf tags for a regional supermarket chain. Your task is to write a short, friendly, accurate blurb for a shelf tag. Please follow these rules carefully: keep it under 25 words, do not make health claims, do not invent ingredients, mention one standout ingredient if there is one, and write in plain American English suitable for all shoppers. Here is the product. Product name: {name}. Brand: {brand}. Store category: {category}. Full ingredient list as printed on the package: {ingredients}. Now write the blurb.",
+    "short": "Shelf-tag blurb, max 25 words, no health claims, no invented ingredients. Product: {name} ({brand}, {category}). Ingredients: {ingredients}."
+  }
+}

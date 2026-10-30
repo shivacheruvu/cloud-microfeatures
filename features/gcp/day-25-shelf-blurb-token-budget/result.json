@@ -1,0 +1,14 @@
+{
+  "engine": "word-piece estimate (local) / AI.COUNT_TOKENS (cloud)",
+  "endpoint": "gemini-3.1-flash-lite",
+  "prompts": 48,
+  "products": 24,
+  "tokens_verbose": 4745,
+  "tokens_short": 1697,
+  "saving_pct": 64.2,
+  "short_smaller_for_every_product": true,
+  "largest_short_prompt": {
+    "product": "Plant-Based Burger Patties 2 ct",
+    "tokens": 103
+  }
+}
