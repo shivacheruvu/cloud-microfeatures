@@ -1045,6 +1045,28 @@
         "released": "2026-10-23",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
       }
+    },
+    {
+      "day": 25,
+      "platform": "databricks",
+      "slug": "day-25-pii-scan-scope",
+      "date": "2026-10-29",
+      "title": "Personal-data scan scope as code with the Data Classification API",
+      "summary": "The grocery catalog's Data Classification scope is kept as three reviewed policy versions. A reconciler reads catalogs/<c>/config and plans one call per version: create, PATCH with an update_mask naming only the changed fields, or nothing; a duplicate create is rejected. It also reports the personal-data-looking columns each version leaves unscanned. Runs on REST calls only (no compute) against an empty scratch catalog; the cloud run checks every step and the scope read back against the local run.",
+      "headline": "3 scope versions in 5 write calls, re-apply is a no-op; v1 left 6 personal-data columns unscanned, v3 leaves 1",
+      "skills": [
+        "Data Classification API",
+        "Unity Catalog",
+        "Config as code",
+        "REST API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-25-pii-scan-scope",
+      "new_feature": {
+        "name": "Data Classification API (GA)",
+        "released": "2026-10-14",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
+      }
     }
   ]
 }
