@@ -1,0 +1,11 @@
+{
+  "note": "Three versions of the Data Classification scope for the grocery catalog, applied in order.",
+  "versions": [
+    {"version": "v1", "why": "start with the two schemas that hold member data",
+     "included_schemas": ["loyalty", "pos"]},
+    {"version": "v2", "why": "online orders launched: add ecommerce",
+     "included_schemas": ["loyalty", "pos", "ecommerce"]},
+    {"version": "v3", "why": "scan everything by default so new schemas are covered; skip only analyst scratch",
+     "excluded_schemas": ["sandbox"]}
+  ]
+}
