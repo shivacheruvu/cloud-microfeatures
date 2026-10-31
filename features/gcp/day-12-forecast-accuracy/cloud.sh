@@ -17,7 +17,7 @@ run_query() {  # $1 = models (comma-separated), $2 = output file; retries only B
     if [ "$wait" = 0 ] || ! grep -qiE "internal error|transient|backendError" "$2" "$err"; then break; fi
     echo "::warning title=BigQuery transient error::retrying in ${wait}s"; sleep "$wait"
   done
-  LAST_ERR=$( (tail -c 600 "$err"; tail -c 600 "$2") | sed "s/${GCP_PROJECT_ID}/<project>/g" | tr '\n' ' ')
+  LAST_ERR=$( (tail -c 600 "$err"; tail -c 600 "$2") | tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e 's/[0-9]{6,}/<number>/g')
   return 1
 }
 

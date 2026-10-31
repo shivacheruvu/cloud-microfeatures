@@ -8,7 +8,7 @@ set -uo pipefail
 DS="mf_day08_$(date +%s)"
 FQ="${GCP_PROJECT_ID}.${DS}"
 W=$(mktemp -d)
-redact() { sed "s/${GCP_PROJECT_ID}/<project>/g" | tr '\n' ' ' | tail -c 700; }
+redact() { tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e 's/[0-9]{6,}/<number>/g' | tail -c 700; }
 cleanup() { bq --quiet rm -r -f -d "${GCP_PROJECT_ID}:${DS}" >/dev/null 2>&1 || true; rm -rf "$W"; }
 trap cleanup EXIT
 # SQL goes in on stdin: as an argument, a leading "--" comment would be read as a flag.

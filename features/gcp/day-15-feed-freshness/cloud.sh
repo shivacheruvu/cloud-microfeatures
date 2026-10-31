@@ -10,7 +10,7 @@ set -uo pipefail
 : "${GCP_PROJECT_ID:?}"
 DS="mf_day15_$(date +%s)"
 SQL=$(mktemp); OUT=$(mktemp); ERR=$(mktemp)
-redact() { sed "s/${GCP_PROJECT_ID}/<project>/g" | tr '\n' ' ' | tail -c 900; }
+redact() { tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e 's/[0-9]{6,}/<number>/g' | tail -c 900; }
 cleanup() { bq --quiet rm -r -f -d "${GCP_PROJECT_ID}:${DS}" >/dev/null 2>&1 || true; rm -f "$SQL" "$OUT" "$ERR"; }
 trap cleanup EXIT
 if ! bq --quiet --location=US mk -d --default_table_expiration 3600 --label project:ai-frontier \
