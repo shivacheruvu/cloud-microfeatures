@@ -6,7 +6,7 @@
 set -uo pipefail
 : "${GCP_PROJECT_ID:?}"
 SQL=$(mktemp); OUT=$(mktemp); ERR=$(mktemp)
-redact() { sed -e "s/${GCP_PROJECT_ID}/<project>/g" | tr '\n' ' ' | tail -c 900; }
+redact() { tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e 's/[0-9]{6,}/<number>/g' | tail -c 900; }
 trap 'rm -f "$SQL" "$OUT" "$ERR"' EXIT
 python receipt_parser.py --sql > "$SQL"
 for wait in 10 30 0; do

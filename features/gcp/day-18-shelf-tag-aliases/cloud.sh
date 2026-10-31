@@ -13,7 +13,7 @@ STAMP=$(date +%s)
 DS="mf_day18_${STAMP}"
 DIR=$(mktemp -d); SQL="$DIR/q.sql"; ERR="$DIR/err.txt"
 TURNED_ON=0
-redact() { sed "s/${GCP_PROJECT_ID}/<project>/g" | tr '\n' ' ' | tail -c 900; }
+redact() { tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e 's/[0-9]{6,}/<number>/g' | tail -c 900; }
 
 set_aliases_mode() {   # $1: "on" or NULL
   printf 'ALTER PROJECT `%s`\nSET OPTIONS (`region-us.reusable_column_aliases_mode` = %s)\n' "$GCP_PROJECT_ID" "$1" > "$DIR/alter.sql"

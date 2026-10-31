@@ -8,7 +8,7 @@ set -uo pipefail
 : "${GCP_PROJECT_ID:?}"
 RUN="${GITHUB_RUN_ID:-local}"
 WORK=$(mktemp -d); OUT=$(mktemp); CREATED=()
-redact() { sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e "s/cmf-d24-[a-z0-9-]+/<bucket>/g" | tr '\n' ' ' | tail -c 900; }
+redact() { tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e "s/cmf-d24-[a-z0-9-]+/<bucket>/g" -e 's/[0-9]{6,}/<number>/g' | tail -c 900; }
 cleanup() {
   for b in "${CREATED[@]}"; do gcloud storage rm -r "gs://${b}" --quiet >/dev/null 2>&1 || true; done
   rm -rf "$WORK" "$OUT" "${SDK:-}"

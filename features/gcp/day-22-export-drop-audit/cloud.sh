@@ -7,7 +7,7 @@ set -uo pipefail
 : "${GCP_PROJECT_ID:?}"
 BUCKET="mf-day22-${GITHUB_RUN_ID:-local}-$(date +%s)-${RANDOM}"
 SQL=$(mktemp); OUT=$(mktemp); ERR=$(mktemp)
-redact() { sed -e "s/${GCP_PROJECT_ID}/<project>/g" -e "s/${BUCKET}/<bucket>/g" | tr '\n' ' ' | tail -c 900; }
+redact() { tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e "s/${BUCKET}/<bucket>/g" -e 's/[0-9]{6,}/<number>/g' | tail -c 900; }
 cleanup() { gcloud storage rm -r "gs://${BUCKET}" --quiet >/dev/null 2>&1 || true; rm -f "$SQL" "$OUT" "$ERR"; }
 trap cleanup EXIT
 if ! gcloud storage buckets create "gs://${BUCKET}" --location=US --uniform-bucket-level-access \

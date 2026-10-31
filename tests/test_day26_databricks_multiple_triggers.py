@@ -154,6 +154,14 @@ def test_triggers_not_enabled_is_a_warning(monkeypatch, capsys):
     assert ("DELETE", "/api/2.1/unity-catalog/schemas/workspace.mf26_prices") in FakeWorkspace.seen
 
 
+def test_inactive_account_is_a_warning(monkeypatch, capsys):
+    def refuse():
+        raise tr.ApiError(403, "PERMISSION_DENIED", "Organization <id> has been cancelled or is not active yet.")
+    monkeypatch.setattr(tr, "run_databricks", refuse)
+    assert tr.main("--databricks") == 0
+    assert "::warning" in capsys.readouterr().out
+
+
 def test_unexpected_errors_fail(monkeypatch, capsys):
     def boom():
         raise tr.ApiError(500, "INTERNAL_ERROR")
