@@ -1,0 +1,41 @@
+{
+  "job_name": "mf26 store price refresh",
+  "watched": "/Volumes/{catalog}/mf26_prices/price_drop",
+  "versions": [
+    {
+      "version": "v1",
+      "why": "Nightly refresh only: prices land overnight from head office.",
+      "triggers": [
+        {"schedule": {"quartz_cron_expression": "0 30 3 * * ?", "timezone_id": "America/Chicago"}}
+      ]
+    },
+    {
+      "version": "v2",
+      "why": "Stores drop their own price files: refresh when one lands in the east or west folder, nightly as backup.",
+      "triggers": [
+        {"schedule": {"quartz_cron_expression": "0 30 3 * * ?", "timezone_id": "America/Chicago"}},
+        {"file_arrival": {"url": "/Volumes/{catalog}/mf26_prices/price_drop/east/",
+                          "min_time_between_triggers_seconds": 300, "wait_after_last_change_seconds": 120}},
+        {"file_arrival": {"url": "/Volumes/{catalog}/mf26_prices/price_drop/west/",
+                          "min_time_between_triggers_seconds": 300, "wait_after_last_change_seconds": 120}}
+      ]
+    },
+    {
+      "version": "v3",
+      "why": "Holiday price freeze: pause the nightly run only, keep store drops live, add a 6-hourly safety refresh.",
+      "triggers": [
+        {"pause_status": "PAUSED",
+         "schedule": {"quartz_cron_expression": "0 30 3 * * ?", "timezone_id": "America/Chicago"}},
+        {"file_arrival": {"url": "/Volumes/{catalog}/mf26_prices/price_drop/east/",
+                          "min_time_between_triggers_seconds": 300, "wait_after_last_change_seconds": 120}},
+        {"file_arrival": {"url": "/Volumes/{catalog}/mf26_prices/price_drop/west/",
+                          "min_time_between_triggers_seconds": 300, "wait_after_last_change_seconds": 120}},
+        {"periodic": {"interval": 6, "unit": "HOURS"}}
+      ]
+    }
+  ],
+  "must_reject": [
+    {"case": "six triggers (the Beta allows five)", "triggers": "six_file_arrivals"},
+    {"case": "triggers together with the legacy schedule field", "legacy": "schedule"}
+  ]
+}

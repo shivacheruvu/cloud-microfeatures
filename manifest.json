@@ -1111,6 +1111,28 @@
         "released": "2026-10-05",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 26,
+      "platform": "databricks",
+      "slug": "day-26-store-refresh-triggers",
+      "date": "2026-10-30",
+      "title": "One store price-refresh job with several triggers, each paused on its own",
+      "summary": "The store price-refresh job's run rules are three reviewed versions of a Lakeflow Jobs triggers array: a nightly schedule, then file-arrival triggers on the east and west store price-drop folders, then a holiday freeze that pauses only the nightly run and adds a 6-hourly safety refresh. A reconciler sends the complete array on each change (an update replaces it), checks the documented limits, and is run against the Jobs API with no compute.",
+      "headline": "4 triggers on one job; holiday freeze pauses only the nightly run (3 of 4 live)",
+      "skills": [
+        "Lakeflow Jobs",
+        "Jobs API",
+        "File arrival triggers",
+        "REST"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-26-store-refresh-triggers",
+      "new_feature": {
+        "name": "Multiple triggers for Lakeflow Jobs (Beta)",
+        "released": "2026-10-05",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
+      }
     }
   ]
 }
