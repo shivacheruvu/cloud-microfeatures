@@ -75,6 +75,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 23 | [Receipt line parser with REGEXP_EXTRACT_GROUPS](features/gcp/day-23-receipt-line-parser) | [REGEXP_EXTRACT_GROUPS function (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-26) | BigQuery, REGEXP_EXTRACT_GROUPS, Regular expressions, Text parsing | ran |
 | 24 | [Store drop buckets labelled at creation with gcloud --labels-file](features/gcp/day-24-labelled-drop-buckets) | [--labels and --labels-file for gcloud storage buckets create](https://docs.cloud.google.com/release-notes) (2026-10-27) | Cloud Storage, gcloud CLI, Resource labels, Lifecycle rules | ran |
 | 25 | [Size a Gemini shelf-tag job before running it with AI.COUNT_TOKENS](features/gcp/day-25-shelf-blurb-token-budget) | [AI.COUNT_TOKENS function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-27) | BigQuery, AI.COUNT_TOKENS, Gemini, Prompt cost | ran |
+| 26 | [Match receipt abbreviations to catalog products with AI.SIMILARITY on gemini-embedding-2](features/gcp/day-26-receipt-line-matcher) | [gemini-embedding-2 model in AI.EMBED / AI.SIMILARITY / AI.GENERATE_EMBEDDING (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-05) | BigQuery, AI.SIMILARITY, Embeddings, Entity matching | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself

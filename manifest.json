@@ -1089,6 +1089,28 @@
         "released": "2026-10-27",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 26,
+      "platform": "gcp",
+      "slug": "day-26-receipt-line-matcher",
+      "date": "2026-10-30",
+      "title": "Match receipt abbreviations to catalog products with AI.SIMILARITY on gemini-embedding-2",
+      "summary": "16 abbreviated receipt lines (GRND BF 80/20, PB CRMY, EVOO) are matched to 16 catalog products by scoring all 256 pairs in one BigQuery query with AI.SIMILARITY on the gemini-embedding-2 model, no model to create. The cloud run checks every pair gets a score in range and reports Gemini's top-1 accuracy next to a local character-trigram baseline (14 of 16).",
+      "headline": "AI.SIMILARITY on gemini-embedding-2 matches abbreviated receipt lines to products; local trigram baseline gets 14 of 16",
+      "skills": [
+        "BigQuery",
+        "AI.SIMILARITY",
+        "Embeddings",
+        "Entity matching"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-26-receipt-line-matcher",
+      "new_feature": {
+        "name": "gemini-embedding-2 model in AI.EMBED / AI.SIMILARITY / AI.GENERATE_EMBEDDING (GA)",
+        "released": "2026-10-05",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
