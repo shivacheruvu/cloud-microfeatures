@@ -13,7 +13,7 @@ set -uo pipefail
 STAMP=$(date +%s)
 DS="mf_day20_${STAMP}"
 DIR=$(mktemp -d); SQL="$DIR/q.sql"; ERR="$DIR/err.txt"
-redact() { sed "s/${GCP_PROJECT_ID}/<project>/g" | tr '\n' ' ' | tail -c 900; }
+redact() { tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e 's/[0-9]{6,}/<number>/g' | tail -c 900; }
 cleanup() { bq --quiet rm -r -f -d "${GCP_PROJECT_ID}:${DS}" >/dev/null 2>&1 || true; rm -rf "$DIR"; }
 trap cleanup EXIT
 

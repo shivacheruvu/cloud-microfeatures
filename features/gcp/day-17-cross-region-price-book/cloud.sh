@@ -11,7 +11,7 @@ set -uo pipefail
 STAMP=$(date +%s)
 US="mf_day17_us_${STAMP}"; EU="mf_day17_eu_${STAMP}"
 DIR=$(mktemp -d); SQL="$DIR/q.sql"; ERR="$DIR/err.txt"
-redact() { sed "s/${GCP_PROJECT_ID}/<project>/g" | tr '\n' ' ' | tail -c 900; }
+redact() { tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e 's/[0-9]{6,}/<number>/g' | tail -c 900; }
 cleanup() {
   bq --quiet rm -r -f -d "${GCP_PROJECT_ID}:${US}" >/dev/null 2>&1 || true
   bq --quiet rm -r -f -d "${GCP_PROJECT_ID}:${EU}" >/dev/null 2>&1 || true

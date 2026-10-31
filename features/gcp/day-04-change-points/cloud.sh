@@ -14,6 +14,6 @@ for wait in 10 30 0; do  # retry only BigQuery's "transient internal error" fail
   if [ "$wait" = 0 ] || ! grep -qiE "internal error|transient|backendError" "$OUT" "$ERR"; then break; fi
   echo "::warning title=BigQuery transient error::retrying in ${wait}s"; sleep "$wait"
 done
-msg=$( (tail -c 600 "$ERR"; tail -c 600 "$OUT") | sed "s/${GCP_PROJECT_ID}/<project>/g" | tr '\n' ' ')
+msg=$( (tail -c 600 "$ERR"; tail -c 600 "$OUT") | tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e 's/[0-9]{6,}/<number>/g')
 echo "::error title=ML.DETECT_CHANGE_POINTS query failed::${msg}"
 exit 1
