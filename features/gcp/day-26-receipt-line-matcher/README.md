@@ -44,4 +44,9 @@ a fraction of a cent. Well inside the free trial.
 ## Result
 Local trigram baseline: **14 of 16** lines matched (87.5%), mean margin over the runner-up 0.17. It misses the two
 lines that share no letters with their product: `EVOO` and `BATH TISSUE 12PK` (both score 0 against everything).
-Cloud result: see the day's report once the run has passed. Full local numbers in [`result.json`](result.json).
+
+**Cloud (2026-10-30, `gemini-embedding-2`):** all 256 pairs scored; the top-1 match was right for **16 of 16** lines
+(100%), including `EVOO` → *Extra Virgin Olive Oil* and `BATH TISSUE 12PK` → *Toilet Paper*, against 14 of 16 for the
+trigram baseline. Mean margin over the runner-up 0.138 (baseline 0.170: embedding scores sit closer together, so a
+margin threshold for "needs review" has to be set per model). The first run found the Vertex AI API disabled;
+`cloud.sh` now enables it. Full local numbers in [`result.json`](result.json).
