@@ -9,7 +9,7 @@ LOG=$(mktemp)
 step() {  # step "<name>" cmd...
   local name=$1; shift
   if ! "$@" >"$LOG.out" 2>"$LOG"; then
-    msg=$( (tail -c 600 "$LOG"; tail -c 600 "$LOG.out") | sed "s/${GCP_PROJECT_ID}/<project>/g" | tr '\n' ' ')
+    msg=$( (tail -c 600 "$LOG"; tail -c 600 "$LOG.out") | tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e 's/[0-9]{6,}/<number>/g')
     echo "::error title=${name} failed::${msg}"
     exit 1
   fi
@@ -38,7 +38,7 @@ query_with_retry() {  # query_with_retry <sql file>; prints the JSON of the firs
 try() {
   local name=$1; shift
   if ! "$@" >"$LOG.out" 2>"$LOG"; then
-    msg=$( (tail -c 600 "$LOG"; tail -c 600 "$LOG.out") | sed "s/${GCP_PROJECT_ID}/<project>/g" | tr '\n' ' ')
+    msg=$( (tail -c 600 "$LOG"; tail -c 600 "$LOG.out") | tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e 's/[0-9]{6,}/<number>/g')
     echo "::${LEVEL:-error} title=${name} failed::${msg}"
     return 1
   fi

@@ -75,7 +75,8 @@ def bigquery_sql(part: str, target: str = "DATASET") -> str:
 
 # ---------- reading bq output
 def _redact(text: str) -> str:
-    return text.replace(os.environ.get("GCP_PROJECT_ID") or "\0", "<project>")
+    # project numbers and other long digit runs too (a "service not enabled" error carries the project number)
+    return __import__("re").sub(r"\d{6,}", "<number>", text.replace(os.environ.get("GCP_PROJECT_ID") or "\0", "<project>"))
 
 
 def read_json(path: Path, want) -> object:

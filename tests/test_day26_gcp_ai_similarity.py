@@ -77,3 +77,17 @@ def test_result_json_is_current():
     result = json.loads((FEATURE / "result.json").read_text())
     s = m.summarise(m.local_scores())
     assert {k: result[k] for k in s} == s
+
+
+def test_every_gcp_cloud_script_redacts_long_numbers():
+    """Fix-forward from day 26's first run: a "Vertex AI API not enabled" error carries the project number, which
+    redacting the project ID alone let into the public annotation. Every script now redacts long digit runs too."""
+    scripts = sorted((FEATURE.parent).glob("day-*/cloud.sh"))
+    assert len(scripts) >= 26
+    for s in scripts:
+        assert "s/[0-9]{6,}/<number>/g" in s.read_text(), s.parent.name
+
+
+def test_cloud_script_enables_vertex_ai_before_querying():
+    text = (FEATURE / "cloud.sh").read_text()
+    assert text.index("gcloud services enable aiplatform.googleapis.com") < text.index("bq --quiet")
