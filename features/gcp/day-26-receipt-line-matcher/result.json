@@ -1,0 +1,13 @@
+{
+  "engine": "character-trigram cosine (local baseline) / AI.SIMILARITY with gemini-embedding-2 (cloud)",
+  "endpoint": "gemini-embedding-2",
+  "pairs_scored": 256,
+  "lines": 16,
+  "top1_correct": 14,
+  "top1_accuracy_pct": 87.5,
+  "mean_margin": 0.1703,
+  "wrong": {
+    "EVOO": "Organic Bananas",
+    "BATH TISSUE 12PK": "Organic Bananas"
+  }
+}
