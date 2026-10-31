@@ -1,0 +1,207 @@
+{
+  "engine": "in-memory Jobs API with the documented multiple-triggers rules (local) / Jobs API 2.2 (cloud)",
+  "steps": [
+    {
+      "step": "apply v1",
+      "call": "create",
+      "outcome": "ok",
+      "must_reject": false,
+      "triggers_after": [
+        {
+          "kind": "schedule",
+          "pause_status": "UNPAUSED",
+          "quartz_cron_expression": "0 30 3 * * ?",
+          "timezone_id": "America/Chicago"
+        }
+      ]
+    },
+    {
+      "step": "apply v1 again",
+      "call": "none",
+      "outcome": "ok",
+      "must_reject": false,
+      "triggers_after": [
+        {
+          "kind": "schedule",
+          "pause_status": "UNPAUSED",
+          "quartz_cron_expression": "0 30 3 * * ?",
+          "timezone_id": "America/Chicago"
+        }
+      ]
+    },
+    {
+      "step": "apply v2",
+      "call": "update (3 triggers)",
+      "outcome": "ok",
+      "must_reject": false,
+      "triggers_after": [
+        {
+          "kind": "file_arrival",
+          "pause_status": "UNPAUSED",
+          "url": "/Volumes/{catalog}/mf26_prices/price_drop/east/",
+          "min_time_between_triggers_seconds": 300,
+          "wait_after_last_change_seconds": 120
+        },
+        {
+          "kind": "file_arrival",
+          "pause_status": "UNPAUSED",
+          "url": "/Volumes/{catalog}/mf26_prices/price_drop/west/",
+          "min_time_between_triggers_seconds": 300,
+          "wait_after_last_change_seconds": 120
+        },
+        {
+          "kind": "schedule",
+          "pause_status": "UNPAUSED",
+          "quartz_cron_expression": "0 30 3 * * ?",
+          "timezone_id": "America/Chicago"
+        }
+      ]
+    },
+    {
+      "step": "apply v3",
+      "call": "update (4 triggers)",
+      "outcome": "ok",
+      "must_reject": false,
+      "triggers_after": [
+        {
+          "kind": "periodic",
+          "pause_status": "UNPAUSED",
+          "interval": 6,
+          "unit": "HOURS"
+        },
+        {
+          "kind": "file_arrival",
+          "pause_status": "UNPAUSED",
+          "url": "/Volumes/{catalog}/mf26_prices/price_drop/east/",
+          "min_time_between_triggers_seconds": 300,
+          "wait_after_last_change_seconds": 120
+        },
+        {
+          "kind": "file_arrival",
+          "pause_status": "UNPAUSED",
+          "url": "/Volumes/{catalog}/mf26_prices/price_drop/west/",
+          "min_time_between_triggers_seconds": 300,
+          "wait_after_last_change_seconds": 120
+        },
+        {
+          "kind": "schedule",
+          "pause_status": "PAUSED",
+          "quartz_cron_expression": "0 30 3 * * ?",
+          "timezone_id": "America/Chicago"
+        }
+      ]
+    },
+    {
+      "step": "update with six triggers (the Beta allows five)",
+      "call": "update",
+      "outcome": "rejected",
+      "must_reject": true,
+      "triggers_after": [
+        {
+          "kind": "periodic",
+          "pause_status": "UNPAUSED",
+          "interval": 6,
+          "unit": "HOURS"
+        },
+        {
+          "kind": "file_arrival",
+          "pause_status": "UNPAUSED",
+          "url": "/Volumes/{catalog}/mf26_prices/price_drop/east/",
+          "min_time_between_triggers_seconds": 300,
+          "wait_after_last_change_seconds": 120
+        },
+        {
+          "kind": "file_arrival",
+          "pause_status": "UNPAUSED",
+          "url": "/Volumes/{catalog}/mf26_prices/price_drop/west/",
+          "min_time_between_triggers_seconds": 300,
+          "wait_after_last_change_seconds": 120
+        },
+        {
+          "kind": "schedule",
+          "pause_status": "PAUSED",
+          "quartz_cron_expression": "0 30 3 * * ?",
+          "timezone_id": "America/Chicago"
+        }
+      ]
+    },
+    {
+      "step": "update with triggers together with the legacy schedule field",
+      "call": "update",
+      "outcome": "rejected",
+      "must_reject": true,
+      "triggers_after": [
+        {
+          "kind": "periodic",
+          "pause_status": "UNPAUSED",
+          "interval": 6,
+          "unit": "HOURS"
+        },
+        {
+          "kind": "file_arrival",
+          "pause_status": "UNPAUSED",
+          "url": "/Volumes/{catalog}/mf26_prices/price_drop/east/",
+          "min_time_between_triggers_seconds": 300,
+          "wait_after_last_change_seconds": 120
+        },
+        {
+          "kind": "file_arrival",
+          "pause_status": "UNPAUSED",
+          "url": "/Volumes/{catalog}/mf26_prices/price_drop/west/",
+          "min_time_between_triggers_seconds": 300,
+          "wait_after_last_change_seconds": 120
+        },
+        {
+          "kind": "schedule",
+          "pause_status": "PAUSED",
+          "quartz_cron_expression": "0 30 3 * * ?",
+          "timezone_id": "America/Chicago"
+        }
+      ]
+    },
+    {
+      "step": "delete the job",
+      "call": "delete",
+      "outcome": "ok",
+      "must_reject": false,
+      "triggers_after": null
+    }
+  ],
+  "api_calls_that_change_the_job": 6,
+  "noop_reapplies": 1,
+  "refused_as_expected": 2,
+  "versions": {
+    "v1": {
+      "why": "Nightly refresh only: prices land overnight from head office.",
+      "triggers": 1,
+      "live": 1,
+      "paused": [],
+      "watched_folders": [],
+      "scheduled_runs_per_week": 7
+    },
+    "v2": {
+      "why": "Stores drop their own price files: refresh when one lands in the east or west folder, nightly as backup.",
+      "triggers": 3,
+      "live": 3,
+      "paused": [],
+      "watched_folders": [
+        "east",
+        "west"
+      ],
+      "scheduled_runs_per_week": 7
+    },
+    "v3": {
+      "why": "Holiday price freeze: pause the nightly run only, keep store drops live, add a 6-hourly safety refresh.",
+      "triggers": 4,
+      "live": 3,
+      "paused": [
+        "schedule"
+      ],
+      "watched_folders": [
+        "east",
+        "west"
+      ],
+      "scheduled_runs_per_week": 28
+    }
+  }
+}
