@@ -1,0 +1,38 @@
+{
+  "engine": "hand-labelled answer key (local) / AI.AGG with output_schema on gemini-3.5-flash (cloud)",
+  "endpoint": "gemini-3.5-flash",
+  "stores": 3,
+  "comments": 24,
+  "categories": [
+    "checkout_wait",
+    "out_of_stock",
+    "produce_quality",
+    "price",
+    "staff",
+    "cleanliness"
+  ],
+  "output_fields": [
+    "top_issue",
+    "mentions",
+    "summary",
+    "suggested_fix"
+  ],
+  "answer_key": {
+    "east": {
+      "comments": 8,
+      "top_issue": "checkout_wait",
+      "mentions": 6
+    },
+    "north": {
+      "comments": 8,
+      "top_issue": "out_of_stock",
+      "mentions": 6
+    },
+    "south": {
+      "comments": 8,
+      "top_issue": "produce_quality",
+      "mentions": 5
+    }
+  },
+  "queries": 1
+}
