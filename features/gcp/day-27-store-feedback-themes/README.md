@@ -44,5 +44,14 @@ One query over inlined data (0 bytes scanned) and three Gemini calls of about 30
 cent, inside the free-trial credits.
 
 ## Result
-Answer key: 3 stores, 24 comments, one query. Cloud result: see the day's report. Full numbers in
+Ran in BigQuery on 2026-10-31 (one query, three Gemini calls): **3 of 3 stores agree with the answer key, and every
+mention count is exact.**
+
+| Store | Gemini `top_issue` | `mentions` | Answer key | Suggested fix (start) |
+|---|---|---|---|---|
+| east | checkout_wait | 6 | checkout_wait x6 | Open more checkout lanes during peak hours |
+| north | out_of_stock | 6 | out_of_stock x6 | Automated inventory tracking to restock popular items |
+| south | produce_quality | 5 | produce_quality x5 | Stricter daily quality checks and produce rotation |
+
+Full numbers in
 [`result.json`](result.json).
