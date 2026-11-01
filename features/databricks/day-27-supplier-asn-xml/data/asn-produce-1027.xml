@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<delivery id="ASN-P-1027" supplier="Riverbend Produce" store="east">
+  <line no="1"><sku>BAN-LB</sku><qty>60</qty><unit_cost>0.38</unit_cost></line>
+  <line no="2"><sku>AVO-HASS-EA</sku><qty>48</qty><unit_cost>0.82</unit_cost></line>
+  <line no="3"><sku>TOM-ROMA-LB</sku><qty>2 cs</qty><unit_cost>1.05</unit_cost></line>
+  <line no="4"><sku>LET-ROM-HD</sku><qty>24</qty><unit_cost>0.95</unit_cost></line>
+  <line no="5"><sku>STR-1LB</sku><qty>30</qty><unit_cost>2.40</unit_cost><lot>L-2231</lot></line>
+  <line no="6"><sku>APL-GALA-LB</sku><qty>40</qty><unit_cost>0.92</unit_cost></line>
+</delivery>
