@@ -1155,6 +1155,28 @@
         "released": "2026-10-29",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
       }
+    },
+    {
+      "day": 27,
+      "platform": "gcp",
+      "slug": "day-27-store-feedback-themes",
+      "date": "2026-10-31",
+      "title": "Store complaint themes as typed rows with AI.AGG and output_schema",
+      "summary": "24 customer comments from three stores are grouped by store in one BigQuery query; AI.AGG reads each store's comments and output_schema makes the answer a STRUCT (top_issue from six fixed categories, mentions INT64, summary, suggested_fix, all NOT NULL) instead of free text. Comments are inlined, nothing is created. The cloud run checks every STRUCT's shape and reports Gemini's top issue against a hand-labelled answer key.",
+      "headline": "One query, 3 stores, 24 comments: AI.AGG returns a typed top-issue STRUCT per store (answer key: checkout wait, out of stock, produce quality)",
+      "skills": [
+        "BigQuery",
+        "AI.AGG",
+        "Structured output",
+        "Gemini"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-27-store-feedback-themes",
+      "new_feature": {
+        "name": "AI.AGG function with output_schema argument (GA)",
+        "released": "2026-10-14",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }

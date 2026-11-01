@@ -1,0 +1,25 @@
+store,comment,issue
+east,"Only two registers open at 5pm, waited 20 minutes in line with a basket of six things.",checkout_wait
+east,Self-checkout kept freezing and there was a long line for the one staffed lane.,checkout_wait
+east,Love the bakery but the checkout queue on Saturdays is out the door.,checkout_wait
+east,Waited forever to pay. Please open more lanes after work hours.,checkout_wait
+east,The line at the register was so long I left my cart and went home.,checkout_wait
+east,"Prices on cereal went up again, two dollars more than last month.",price
+east,Floor near the dairy cooler was sticky and nobody cleaned it.,cleanliness
+east,Cashier was friendly but the wait to check out was still 15 minutes.,checkout_wait
+north,"Shelf for oat milk was empty again, third week in a row.",out_of_stock
+north,"Couldn't find any eggs at all, the whole section was out of stock.",out_of_stock
+north,The weekly flyer advertised chicken thighs but they were sold out by 10am.,out_of_stock
+north,Half the canned soup shelf was bare.,out_of_stock
+north,"Rotisserie chicken was gone by noon, no restock until evening.",out_of_stock
+north,Checkout was quick and the staff were helpful.,staff
+north,Bananas were bruised and the avocados were already brown.,produce_quality
+north,"Out of my usual coffee again, had to buy a different brand.",out_of_stock
+south,Strawberries were moldy the day after I bought them.,produce_quality
+south,Lettuce was wilted and slimy in the bag.,produce_quality
+south,"The tomatoes were mushy and the peppers soft, produce looks old.",produce_quality
+south,Bought peaches that were rotten inside.,produce_quality
+south,"Produce section looks tired, bruised apples everywhere.",produce_quality
+south,Prices are a bit high compared to the store across town.,price
+south,Parking lot was full of carts and trash.,cleanliness
+south,"Long line at the deli counter, only one person working it.",staff
