@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<delivery id="ASN-B-1027" supplier="Hearth Street Bakery" store="east">
+  <line no="1"><sku>BRD-SOUR-LF</sku><qty>15</qty><unit_cost>2.60</unit_cost></line>
+  <line no="2"><sku>BAG-PLN-6PK</sku><qty>20</qty><unit_cost>3,49</unit_cost></line>
+  <line no="3"><sku>MUF-BLU-4PK</sku><qty>12</qty><unit_cost>3.10</unit_cost></line>
+  <line no="4"><sku>BRD-WHT-LF</sku><qty>25</qty><unit_cost>1.85</unit_cost></line>
+</delivery>
