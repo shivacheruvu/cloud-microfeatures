@@ -34,5 +34,23 @@
       "mentions": 5
     }
   },
-  "queries": 1
+  "queries": 1,
+  "cloud_2026_10_31": {
+    "stores_agreeing": 3,
+    "mentions_exact": 3,
+    "themes": {
+      "east": [
+        "checkout_wait",
+        6
+      ],
+      "north": [
+        "out_of_stock",
+        6
+      ],
+      "south": [
+        "produce_quality",
+        5
+      ]
+    }
+  }
 }
