@@ -1,0 +1,62 @@
+{
+  "engine": "Python reference of read_files(format => 'xml') with explicit schema + rescuedDataColumn (local) / Databricks serverless SQL warehouse (cloud)",
+  "files": 3,
+  "lines": 16,
+  "rescued_lines": 3,
+  "null_without_rescue": 2,
+  "suppliers": [
+    {
+      "supplier": "Hearth Street Bakery",
+      "delivery": "ASN-B-1027",
+      "lines": 4,
+      "priced_lines": 3,
+      "units": 52,
+      "value": "122.45",
+      "rescued_lines": 1
+    },
+    {
+      "supplier": "Prairie Dairy Co-op",
+      "delivery": "ASN-D-1027",
+      "lines": 6,
+      "priced_lines": 6,
+      "units": 140,
+      "value": "361.88",
+      "rescued_lines": 0
+    },
+    {
+      "supplier": "Riverbend Produce",
+      "delivery": "ASN-P-1027",
+      "lines": 6,
+      "priced_lines": 5,
+      "units": 202,
+      "value": "193.76",
+      "rescued_lines": 2
+    }
+  ],
+  "rescued": [
+    {
+      "delivery": "ASN-B-1027",
+      "line": 2,
+      "sku": "BAG-PLN-6PK",
+      "rescued": {
+        "unit_cost": "3,49"
+      }
+    },
+    {
+      "delivery": "ASN-P-1027",
+      "line": 3,
+      "sku": "TOM-ROMA-LB",
+      "rescued": {
+        "qty": "2 cs"
+      }
+    },
+    {
+      "delivery": "ASN-P-1027",
+      "line": 5,
+      "sku": "STR-1LB",
+      "rescued": {
+        "lot": "L-2231"
+      }
+    }
+  ]
+}

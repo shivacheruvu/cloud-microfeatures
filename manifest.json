@@ -1133,6 +1133,28 @@
         "released": "2026-10-05",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
       }
+    },
+    {
+      "day": 27,
+      "platform": "databricks",
+      "slug": "day-27-supplier-asn-xml",
+      "date": "2026-10-31",
+      "title": "Supplier delivery notes in XML: native XML with a rescued data column",
+      "summary": "Three suppliers' advance shipping notices (XML, one <line> per product) are read in one read_files(format => 'xml', rowTag => 'line') query against an explicit schema with a rescued data column, so a qty of '2 cs', a decimal comma and an unexpected <lot> element are kept as JSON next to their line instead of becoming silent NULLs. Files go to a scratch volume through the Files API; the cloud run checks every line and rescued value against a pure-Python reference.",
+      "headline": "16 ASN lines from 3 XML files in one query; 3 misfit lines kept in _rescued instead of 2 silent NULLs",
+      "skills": [
+        "Native XML",
+        "read_files",
+        "Rescued data column",
+        "Unity Catalog volumes"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-27-supplier-asn-xml",
+      "new_feature": {
+        "name": "Native XML file format support (GA)",
+        "released": "2026-10-29",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
+      }
     }
   ]
 }

@@ -44,6 +44,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 24 | [One basket scan, three reports: df.cache() on serverless](features/databricks/day-24-basket-cache) | [DataFrame caching on serverless compute (Public Preview)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-23) | PySpark, Serverless jobs, DataFrame caching, Jobs API | built |
 | 25 | [Personal-data scan scope as code with the Data Classification API](features/databricks/day-25-pii-scan-scope) | [Data Classification API (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-14) | Data Classification API, Unity Catalog, Config as code, REST API | built |
 | 26 | [One store price-refresh job with several triggers, each paused on its own](features/databricks/day-26-store-refresh-triggers) | [Multiple triggers for Lakeflow Jobs (Beta)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-05) | Lakeflow Jobs, Jobs API, File arrival triggers, REST | built |
+| 27 | [Supplier delivery notes in XML: native XML with a rescued data column](features/databricks/day-27-supplier-asn-xml) | [Native XML file format support (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-29) | Native XML, read_files, Rescued data column, Unity Catalog volumes | built |
 <!-- databricks:end -->
 
 ## Google Cloud features

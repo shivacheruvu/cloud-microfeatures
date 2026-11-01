@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<delivery id="ASN-D-1027" supplier="Prairie Dairy Co-op" store="east">
+  <line no="1"><sku>MLK-2PCT-GAL</sku><qty>24</qty><unit_cost>2.89</unit_cost></line>
+  <line no="2"><sku>MLK-WHL-HGAL</sku><qty>18</qty><unit_cost>1.79</unit_cost></line>
+  <line no="3"><sku>YOG-GRK-32OZ</sku><qty>12</qty><unit_cost>3.95</unit_cost></line>
+  <line no="4"><sku>BTR-SALT-1LB</sku><qty>20</qty><unit_cost>3.49</unit_cost></line>
+  <line no="5"><sku>CHS-CHED-8OZ</sku><qty>30</qty><unit_cost>2.25</unit_cost></line>
+  <line no="6"><sku>EGG-LRG-DOZ</sku><qty>36</qty><unit_cost>2.10</unit_cost></line>
+</delivery>
