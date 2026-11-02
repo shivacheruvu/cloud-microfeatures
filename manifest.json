@@ -1177,6 +1177,28 @@
         "released": "2026-10-14",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 28,
+      "platform": "databricks",
+      "slug": "day-28-basket-join-contracts",
+      "date": "2026-11-01",
+      "title": "Basket join contracts: metric view relationships, audited against the data",
+      "summary": "Three Unity Catalog metric views (basket lines, products, stores) and two declared MANY TO ONE relationships (ALTER VIEW ... ADD CONSTRAINT ... RELATIONSHIP TO ... USING). Relationships are metadata only, so the feature reads them back with DESCRIBE TABLE EXTENDED and audits each with metric view queries: a duplicated oat-milk barcode would make a join overcount revenue by 24.43, and an unknown barcode and a new store would be dropped by an inner join.",
+      "headline": "2 metric view relationships declared, 0 hold on the data: a duplicate product row would overcount revenue by 24.43",
+      "skills": [
+        "Metric views",
+        "Relationships",
+        "Unity Catalog",
+        "Data contracts"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-28-basket-join-contracts",
+      "new_feature": {
+        "name": "Relationships between metric views (Beta)",
+        "released": "2026-10-30",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
+      }
     }
   ]
 }
