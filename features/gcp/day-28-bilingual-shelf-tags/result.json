@@ -1,0 +1,13 @@
+{
+  "engine": "hand-written Spanish reference (local) / AI.TRANSLATE NMT in BigQuery (cloud)",
+  "target_language": "es",
+  "source_language": "en",
+  "model": "nmt (default)",
+  "queries": 1,
+  "reference_check": {
+    "tags": 12,
+    "numbers_kept": 12,
+    "product_word": 12,
+    "changed": 12
+  }
+}
