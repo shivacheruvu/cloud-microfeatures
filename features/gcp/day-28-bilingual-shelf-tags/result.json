@@ -9,5 +9,25 @@
     "numbers_kept": 12,
     "product_word": 12,
     "changed": 12
+  },
+  "cloud_run": {
+    "date": "2026-11-01",
+    "tags": 12,
+    "status_ok": 12,
+    "numbers_kept": 10,
+    "product_word": 12,
+    "changed": 12,
+    "to_review": [
+      {
+        "sku": "P04",
+        "tag": "Sourdough bread 24 oz $5.99",
+        "es": "Pan de masa madre de 680 g (24 oz) $5.99"
+      },
+      {
+        "sku": "P05",
+        "tag": "Plain Greek yogurt 32 oz $6.49",
+        "es": "Yogur griego natural de 907 ml (32 oz) $6.49"
+      }
+    ]
   }
 }
