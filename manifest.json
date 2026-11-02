@@ -1207,14 +1207,14 @@
       "date": "2026-11-01",
       "title": "Bilingual shelf tags with AI.TRANSLATE, and a check that the prices survive",
       "summary": "12 English shelf tags are translated to Spanish in one BigQuery query with AI.TRANSLATE (default NMT, return_details => TRUE so every row carries a status). Each translation is checked for unchanged digit groups (price, size, multi-buy count; a moved decimal separator is fine), the Spanish product word and that it was actually translated. Tags are inlined, nothing is created.",
-      "headline": "AI.TRANSLATE: 12 shelf tags en->es in one query, every price, size and count checked after translation",
+      "headline": "AI.TRANSLATE: 12 shelf tags en->es in one query, all OK; prices kept on 12, but NMT added metric sizes to 2 (32 oz yogurt -> 907 ml)",
       "skills": [
         "BigQuery",
         "AI.TRANSLATE",
         "Cloud Translation",
         "Data quality"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-28-bilingual-shelf-tags",
       "new_feature": {
         "name": "AI.TRANSLATE function (GA)",
