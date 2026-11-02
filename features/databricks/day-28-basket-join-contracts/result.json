@@ -1,0 +1,49 @@
+{
+  "engine": "Python reference of metric view relationship audit (local) / Databricks serverless SQL warehouse with Unity Catalog metric views (cloud)",
+  "relationships_declared": 2,
+  "relationships_holding": 0,
+  "basket_revenue": "91.10",
+  "audits": [
+    {
+      "relationship": "basket_product",
+      "declared": "basket_mv MANY TO ONE products_mv",
+      "keys": [
+        "barcode"
+      ],
+      "one_side_duplicates": [
+        {
+          "key": "0001",
+          "rows": 2
+        }
+      ],
+      "orphan_keys": [
+        {
+          "key": "0009",
+          "rows": 1,
+          "value": "2.49"
+        }
+      ],
+      "fanout_overcount": "24.43",
+      "dropped_by_inner_join": "2.49",
+      "holds": false
+    },
+    {
+      "relationship": "basket_store",
+      "declared": "basket_mv MANY TO ONE stores_mv",
+      "keys": [
+        "store_id"
+      ],
+      "one_side_duplicates": [],
+      "orphan_keys": [
+        {
+          "key": "S4",
+          "rows": 3,
+          "value": "14.27"
+        }
+      ],
+      "fanout_overcount": "0.00",
+      "dropped_by_inner_join": "14.27",
+      "holds": false
+    }
+  ]
+}
