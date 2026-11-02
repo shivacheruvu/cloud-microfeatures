@@ -34,7 +34,18 @@ a check is a warning listing the tag for a human to fix.
 
 ## Result
 Local (hand-written Spanish reference, so the checker itself is verified): 12 of 12 numbers kept, product word, changed.
-Cloud: see the day's report; the run prints the counts and the first translations as a `::notice`.
+**Cloud (2026-11-01, PR #106):** all 12 tags came back with status OK in one query, product word on 12 of 12, all
+translated. **Numbers kept on 10 of 12**: no price changed, but NMT added a metric conversion to two tags:
+
+| Tag | AI.TRANSLATE (NMT) |
+|---|---|
+| Whole milk 1 gal $4.29 | Leche entera 1 galón $4.29 |
+| Ripe bananas $0.59/lb | Plátanos maduros $0.59/libra |
+| Sourdough bread 24 oz $5.99 | Pan de masa madre de **680 g** (24 oz) $5.99 (flagged) |
+| Plain Greek yogurt 32 oz $6.49 | Yogur griego natural de **907 ml** (32 oz) $6.49 (flagged) |
+
+The yogurt one is wrong as well as unrequested: 32 oz is a weight, and 907 ml is a volume. That's exactly the
+kind of tag the check is there to catch before it's printed.
 
 ## Why it matters
 Translation was a remote model plus a connection (`ML.TRANSLATE`); now it's one function call next to the data, and a

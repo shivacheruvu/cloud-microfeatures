@@ -80,7 +80,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 25 | [Size a Gemini shelf-tag job before running it with AI.COUNT_TOKENS](features/gcp/day-25-shelf-blurb-token-budget) | [AI.COUNT_TOKENS function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-27) | BigQuery, AI.COUNT_TOKENS, Gemini, Prompt cost | ran |
 | 26 | [Match receipt abbreviations to catalog products with AI.SIMILARITY on gemini-embedding-2](features/gcp/day-26-receipt-line-matcher) | [gemini-embedding-2 model in AI.EMBED / AI.SIMILARITY / AI.GENERATE_EMBEDDING (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-05) | BigQuery, AI.SIMILARITY, Embeddings, Entity matching | ran |
 | 27 | [Store complaint themes as typed rows with AI.AGG and output_schema](features/gcp/day-27-store-feedback-themes) | [AI.AGG function with output_schema argument (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-14) | BigQuery, AI.AGG, Structured output, Gemini | ran |
-| 28 | [Bilingual shelf tags with AI.TRANSLATE, and a check that the prices survive](features/gcp/day-28-bilingual-shelf-tags) | [AI.TRANSLATE function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-22) | BigQuery, AI.TRANSLATE, Cloud Translation, Data quality | built |
+| 28 | [Bilingual shelf tags with AI.TRANSLATE, and a check that the prices survive](features/gcp/day-28-bilingual-shelf-tags) | [AI.TRANSLATE function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-22) | BigQuery, AI.TRANSLATE, Cloud Translation, Data quality | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself
