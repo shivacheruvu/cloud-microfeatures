@@ -1,0 +1,95 @@
+{
+  "engine": "pure-Python sample covariance reference (local) / pyspark.pandas DataFrameGroupBy.cov on a Databricks serverless job (cloud)",
+  "rows": 84,
+  "most_price_sensitive": "west",
+  "least_price_sensitive": "east",
+  "stores": [
+    {
+      "store": "east",
+      "days": 28,
+      "units": 840,
+      "cov": {
+        "price": {
+          "price": 0.21164,
+          "units": -3.259259,
+          "promo": -0.21164
+        },
+        "units": {
+          "price": -3.259259,
+          "units": 53.925926,
+          "promo": 3.259259
+        },
+        "promo": {
+          "price": -0.21164,
+          "units": 3.259259,
+          "promo": 0.21164
+        }
+      },
+      "units_per_dollar_cut": 15.4,
+      "price_units_corr": -0.965,
+      "promo_lift_units": 15.4,
+      "price_promo_corr": -1.0,
+      "separable": false,
+      "price_effect_without_promo": null,
+      "promo_effect_at_same_price": null
+    },
+    {
+      "store": "west",
+      "days": 28,
+      "units": 820,
+      "cov": {
+        "price": {
+          "price": 0.21164,
+          "units": -4.063492,
+          "promo": -0.21164
+        },
+        "units": {
+          "price": -4.063492,
+          "units": 80.507937,
+          "promo": 4.063492
+        },
+        "promo": {
+          "price": -0.21164,
+          "units": 4.063492,
+          "promo": 0.21164
+        }
+      },
+      "units_per_dollar_cut": 19.2,
+      "price_units_corr": -0.984,
+      "promo_lift_units": 19.2,
+      "price_promo_corr": -1.0,
+      "separable": false,
+      "price_effect_without_promo": null,
+      "promo_effect_at_same_price": null
+    },
+    {
+      "store": "north",
+      "days": 28,
+      "units": 738,
+      "cov": {
+        "price": {
+          "price": 0.165344,
+          "units": -3.050265,
+          "promo": -0.15873
+        },
+        "units": {
+          "price": -3.050265,
+          "units": 63.349206,
+          "promo": 3.449735
+        },
+        "promo": {
+          "price": -0.15873,
+          "units": 3.449735,
+          "promo": 0.21164
+        }
+      },
+      "units_per_dollar_cut": 18.45,
+      "price_units_corr": -0.942,
+      "promo_lift_units": 16.3,
+      "price_promo_corr": -0.849,
+      "separable": true,
+      "price_effect_without_promo": 10.0,
+      "promo_effect_at_same_price": 8.8
+    }
+  ]
+}
