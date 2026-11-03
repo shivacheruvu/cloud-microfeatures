@@ -1258,7 +1258,7 @@
         "REST API",
         "pyarrow"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-29-price-book-arrow",
       "new_feature": {
         "name": "Arrow format query results in jobs.query (Preview)",
