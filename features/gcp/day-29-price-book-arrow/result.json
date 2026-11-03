@@ -1,0 +1,32 @@
+{
+  "engine": "pyarrow IPC built from the reference rows (local) / BigQuery jobs.query with queryResultsFormat ARROW (cloud)",
+  "rows": 120,
+  "page_row_count": 120,
+  "arrow_matches_reference": true,
+  "zstd_matches_reference": true,
+  "json_matches_reference": true,
+  "arrow_types": {
+    "store": "string",
+    "sku": "string",
+    "name": "string",
+    "price": "decimal128(38, 9)",
+    "pack_g": "int64",
+    "on_promo": "bool",
+    "price_date": "date32[day]",
+    "updated_at": "timestamp[us, tz=UTC]",
+    "price_per_kg": "decimal128(38, 9)"
+  },
+  "arrow_types_expected": true,
+  "payload_bytes": {
+    "json_rows": 17727,
+    "arrow": 10824,
+    "arrow_zstd": 4112
+  },
+  "price_book": {
+    "stores": 3,
+    "items": 40,
+    "promo_rows": 10,
+    "total_shelf_value": "552.81",
+    "dearest_per_kg": "salmon (east) 32.32/kg"
+  }
+}

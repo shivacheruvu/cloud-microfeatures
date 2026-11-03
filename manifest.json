@@ -1243,6 +1243,28 @@
         "released": "2026-08-17",
         "source": "https://docs.databricks.com/aws/en/release-notes/serverless"
       }
+    },
+    {
+      "day": 29,
+      "platform": "gcp",
+      "slug": "day-29-price-book-arrow",
+      "date": "2026-11-02",
+      "title": "The store price book as Apache Arrow, straight from jobs.query",
+      "summary": "A 120-row price book (NUMERIC prices, INT64 pack sizes, DATE, microsecond TIMESTAMP, computed price per kg) is queried three ways over the BigQuery REST API: default JSON rows, queryResultsFormat ARROW, and ARROW with ZSTD buffer compression. The Arrow batches are decoded with pyarrow and must equal the hand-parsed JSON rows and the local reference exactly; payload sizes and Arrow types are reported.",
+      "headline": "jobs.query returns the 120-row price book as typed Arrow: equal to the JSON rows, 17.7 KB JSON vs 10.8 KB Arrow vs 4.1 KB Arrow+ZSTD (local build)",
+      "skills": [
+        "BigQuery",
+        "Apache Arrow",
+        "REST API",
+        "pyarrow"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-29-price-book-arrow",
+      "new_feature": {
+        "name": "Arrow format query results in jobs.query (Preview)",
+        "released": "2026-10-30",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
