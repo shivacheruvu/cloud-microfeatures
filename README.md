@@ -82,6 +82,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 26 | [Match receipt abbreviations to catalog products with AI.SIMILARITY on gemini-embedding-2](features/gcp/day-26-receipt-line-matcher) | [gemini-embedding-2 model in AI.EMBED / AI.SIMILARITY / AI.GENERATE_EMBEDDING (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-05) | BigQuery, AI.SIMILARITY, Embeddings, Entity matching | ran |
 | 27 | [Store complaint themes as typed rows with AI.AGG and output_schema](features/gcp/day-27-store-feedback-themes) | [AI.AGG function with output_schema argument (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-14) | BigQuery, AI.AGG, Structured output, Gemini | ran |
 | 28 | [Bilingual shelf tags with AI.TRANSLATE, and a check that the prices survive](features/gcp/day-28-bilingual-shelf-tags) | [AI.TRANSLATE function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-22) | BigQuery, AI.TRANSLATE, Cloud Translation, Data quality | ran |
+| 29 | [The store price book as Apache Arrow, straight from jobs.query](features/gcp/day-29-price-book-arrow) | [Arrow format query results in jobs.query (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-30) | BigQuery, Apache Arrow, REST API, pyarrow | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself
