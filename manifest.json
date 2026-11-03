@@ -1221,6 +1221,28 @@
         "released": "2026-10-22",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 29,
+      "platform": "databricks",
+      "slug": "day-29-price-sensitivity-cov",
+      "date": "2026-11-02",
+      "title": "Oat-milk price sensitivity from one pandas-on-Spark groupby().cov()",
+      "summary": "28 days of oat-milk sales for three stores go through psdf.groupby('store')[['price','units','promo']].cov(), new in pandas API on Spark on serverless. Each 3x3 matrix gives the raw price slope, whether price and promo can be told apart, and if so the two-variable effects: east and west only change price on promo days (corr -1.0, not separable); north's mid-month price rise separates them, recovering 10 units per $1.",
+      "headline": "groupby().cov() on serverless: 3 stores' price/units/promo matrices; 2 of 3 can't separate price from promo, north recovers 10 units per $1",
+      "skills": [
+        "pandas API on Spark",
+        "Serverless jobs",
+        "Statistics",
+        "Pricing"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-29-price-sensitivity-cov",
+      "new_feature": {
+        "name": "DataFrameGroupBy.cov in pandas API on Spark (serverless, Databricks Runtime 19 updates)",
+        "released": "2026-08-17",
+        "source": "https://docs.databricks.com/aws/en/release-notes/serverless"
+      }
     }
   ]
 }
