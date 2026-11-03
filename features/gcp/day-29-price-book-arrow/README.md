@@ -28,7 +28,8 @@ JSON rows and the local reference exactly: Decimal prices, ints, dates, timestam
 | Arrow + ZSTD | 4,112 B | yes |
 
 All 120 rows fit the first page; 10 are on promo; shelf value 552.81; dearest per kg is salmon at 32.32/kg.
-The cloud run reports BigQuery's own byte counts and types next to these.
+**Cloud run (2026-11-02): matched.** BigQuery returned the same types and the same payload sizes byte for byte
+(17,727 / 10,824 / 4,112 B), and every row equalled the JSON rows and the reference.
 
 ## Why it matters
 A store app or notebook pulling the morning price book no longer has to choose between the slow-but-simple JSON
