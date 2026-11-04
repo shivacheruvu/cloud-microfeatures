@@ -47,6 +47,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 27 | [Supplier delivery notes in XML: native XML with a rescued data column](features/databricks/day-27-supplier-asn-xml) | [Native XML file format support (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-29) | Native XML, read_files, Rescued data column, Unity Catalog volumes | built |
 | 28 | [Basket join contracts: metric view relationships, audited against the data](features/databricks/day-28-basket-join-contracts) | [Relationships between metric views (Beta)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-30) | Metric views, Relationships, Unity Catalog, Data contracts | built |
 | 29 | [Oat-milk price sensitivity from one pandas-on-Spark groupby().cov()](features/databricks/day-29-price-sensitivity-cov) | [DataFrameGroupBy.cov in pandas API on Spark (serverless, Databricks Runtime 19 updates)](https://docs.databricks.com/aws/en/release-notes/serverless) (2026-08-17) | pandas API on Spark, Serverless jobs, Statistics, Pricing | built |
+| 30 | [Basket-size bands per store from one pandas-on-Spark groupby()[col].describe()](features/databricks/day-30-basket-bands-describe) | [SeriesGroupBy.describe in pandas API on Spark (serverless, Databricks Runtime 19 updates)](https://docs.databricks.com/aws/en/release-notes/serverless) (2026-08-17) | pandas API on Spark, Serverless jobs, Statistics, Loyalty | built |
 <!-- databricks:end -->
 
 ## Google Cloud features

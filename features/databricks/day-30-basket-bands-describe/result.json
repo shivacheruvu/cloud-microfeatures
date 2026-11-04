@@ -1,0 +1,91 @@
+{
+  "engine": "pure-Python reference (local) / pyspark.pandas SeriesGroupBy.describe on a Databricks serverless job (cloud)",
+  "rows": 120,
+  "stats": [
+    "count",
+    "mean",
+    "std",
+    "min",
+    "25%",
+    "50%",
+    "75%",
+    "max"
+  ],
+  "most_skewed": "suburb",
+  "coupon_baskets": 30,
+  "bulk_baskets": 3,
+  "stores": [
+    {
+      "store": "downtown",
+      "describe": {
+        "count": 40.0,
+        "mean": 42.0485,
+        "std": 30.0769,
+        "min": 18.0,
+        "25%": 26.75,
+        "50%": 38.41,
+        "75%": 48.33,
+        "max": 212.4
+      },
+      "pandas_interpolated_quartiles": {
+        "25%": 27.62,
+        "50%": 39.14,
+        "75%": 48.4025
+      },
+      "coupon_threshold": 48.33,
+      "bulk_fence": 80.7,
+      "coupon_baskets": 10,
+      "bulk_baskets": 1,
+      "mean_minus_median": 3.64,
+      "takings": 1681.94
+    },
+    {
+      "store": "suburb",
+      "describe": {
+        "count": 40.0,
+        "mean": 87.4453,
+        "std": 43.7274,
+        "min": 46.87,
+        "25%": 62.08,
+        "50%": 80.39,
+        "75%": 95.89,
+        "max": 268.95
+      },
+      "pandas_interpolated_quartiles": {
+        "25%": 62.2975,
+        "50%": 80.535,
+        "75%": 96.5925
+      },
+      "coupon_threshold": 95.89,
+      "bulk_fence": 146.61,
+      "coupon_baskets": 9,
+      "bulk_baskets": 2,
+      "mean_minus_median": 7.06,
+      "takings": 3497.81
+    },
+    {
+      "store": "campus",
+      "describe": {
+        "count": 40.0,
+        "mean": 20.8663,
+        "std": 5.9724,
+        "min": 11.29,
+        "25%": 15.25,
+        "50%": 20.66,
+        "75%": 26.03,
+        "max": 30.28
+      },
+      "pandas_interpolated_quartiles": {
+        "25%": 15.4675,
+        "50%": 21.085,
+        "75%": 26.1025
+      },
+      "coupon_threshold": 26.03,
+      "bulk_fence": 42.2,
+      "coupon_baskets": 11,
+      "bulk_baskets": 0,
+      "mean_minus_median": 0.21,
+      "takings": 834.65
+    }
+  ]
+}
