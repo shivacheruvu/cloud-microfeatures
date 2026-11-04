@@ -1287,6 +1287,28 @@
         "released": "2026-08-17",
         "source": "https://docs.databricks.com/aws/en/release-notes/serverless"
       }
+    },
+    {
+      "day": 30,
+      "platform": "gcp",
+      "slug": "day-30-store-scoped-prices",
+      "date": "2026-11-03",
+      "title": "One shelf-price view for every store, scoped per request with SECURE_CONTEXT",
+      "summary": "A 24-row store price table and one logical view that filters by SECURE_CONTEXT('store_id') and shows unit cost and margin only when SECURE_CONTEXT('role') = 'buyer'. Five callers run the same SQL over jobs.query, each passing only secureContext.secureParameterEntries; every answer must equal the local reference, and the documented failures (no context, a missing key, a top-level call) are checked.",
+      "headline": "One view, five callers: each store sees its own 8 prices, only the buyer sees cost (avg margin 36.2%), no store or role in the SQL",
+      "skills": [
+        "BigQuery",
+        "Row-level filtering",
+        "REST API",
+        "Governance"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-30-store-scoped-prices",
+      "new_feature": {
+        "name": "SECURE_CONTEXT function and jobs.query secureContext (Preview)",
+        "released": "2026-11-02",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
