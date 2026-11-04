@@ -84,7 +84,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 27 | [Store complaint themes as typed rows with AI.AGG and output_schema](features/gcp/day-27-store-feedback-themes) | [AI.AGG function with output_schema argument (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-14) | BigQuery, AI.AGG, Structured output, Gemini | ran |
 | 28 | [Bilingual shelf tags with AI.TRANSLATE, and a check that the prices survive](features/gcp/day-28-bilingual-shelf-tags) | [AI.TRANSLATE function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-22) | BigQuery, AI.TRANSLATE, Cloud Translation, Data quality | ran |
 | 29 | [The store price book as Apache Arrow, straight from jobs.query](features/gcp/day-29-price-book-arrow) | [Arrow format query results in jobs.query (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-30) | BigQuery, Apache Arrow, REST API, pyarrow | ran |
-| 30 | [One shelf-price view for every store, scoped per request with SECURE_CONTEXT](features/gcp/day-30-store-scoped-prices) | [SECURE_CONTEXT function and jobs.query secureContext (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-02) | BigQuery, Row-level filtering, REST API, Governance | built |
+| 30 | [One shelf-price view for every store, scoped per request with SECURE_CONTEXT](features/gcp/day-30-store-scoped-prices) | [SECURE_CONTEXT function and jobs.query secureContext (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-02) | BigQuery, Row-level filtering, REST API, Governance | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself

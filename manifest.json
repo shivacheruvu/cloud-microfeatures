@@ -1302,7 +1302,7 @@
         "REST API",
         "Governance"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-30-store-scoped-prices",
       "new_feature": {
         "name": "SECURE_CONTEXT function and jobs.query secureContext (Preview)",
