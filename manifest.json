@@ -1265,6 +1265,28 @@
         "released": "2026-10-30",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 30,
+      "platform": "databricks",
+      "slug": "day-30-basket-bands-describe",
+      "date": "2026-11-03",
+      "title": "Basket-size bands per store from one pandas-on-Spark groupby()[col].describe()",
+      "summary": "120 checkout baskets for three stores go through psdf.groupby('store')['basket'].describe(), new in pandas API on Spark on serverless. Each store's row sets a coupon threshold (Q3) and a bulk-order fence (Q3 + 1.5 IQR): 30 coupons, 3 catering/party orders flagged. Spark's quartiles are observed baskets (percentile_approx), not pandas-style interpolated values.",
+      "headline": "groupby()[col].describe() on serverless: per-store coupon thresholds $48.33 / $95.89 / $26.03, 3 bulk orders flagged; quartiles are real baskets, not interpolated",
+      "skills": [
+        "pandas API on Spark",
+        "Serverless jobs",
+        "Statistics",
+        "Loyalty"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-30-basket-bands-describe",
+      "new_feature": {
+        "name": "SeriesGroupBy.describe in pandas API on Spark (serverless, Databricks Runtime 19 updates)",
+        "released": "2026-08-17",
+        "source": "https://docs.databricks.com/aws/en/release-notes/serverless"
+      }
     }
   ]
 }
