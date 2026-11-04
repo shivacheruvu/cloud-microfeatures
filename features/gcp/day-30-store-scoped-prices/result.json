@@ -1,0 +1,324 @@
+{
+  "engine": "pure-Python reference (local) / BigQuery logical view with SECURE_CONTEXT, queried over jobs.query with secureContext (cloud)",
+  "table_rows": 24,
+  "views": 1,
+  "callers": [
+    {
+      "caller": "east clerk",
+      "store_id": "east",
+      "role": "clerk",
+      "rows": 8,
+      "promos": 2,
+      "basket_total": "42.73",
+      "cost_visible": false,
+      "avg_margin_pct": null
+    },
+    {
+      "caller": "west clerk",
+      "store_id": "west",
+      "role": "clerk",
+      "rows": 8,
+      "promos": 1,
+      "basket_total": "44.14",
+      "cost_visible": false,
+      "avg_margin_pct": null
+    },
+    {
+      "caller": "north clerk",
+      "store_id": "north",
+      "role": "clerk",
+      "rows": 8,
+      "promos": 0,
+      "basket_total": "43.42",
+      "cost_visible": false,
+      "avg_margin_pct": null
+    },
+    {
+      "caller": "north buyer",
+      "store_id": "north",
+      "role": "buyer",
+      "rows": 8,
+      "promos": 0,
+      "basket_total": "43.42",
+      "cost_visible": true,
+      "avg_margin_pct": "36.2"
+    },
+    {
+      "caller": "unknown store",
+      "store_id": "south",
+      "role": "clerk",
+      "rows": 0,
+      "promos": 0,
+      "basket_total": "0",
+      "cost_visible": false,
+      "avg_margin_pct": null
+    }
+  ],
+  "rows_by_caller": {
+    "east clerk": [
+      [
+        "0001",
+        "oat milk",
+        "3.82",
+        true,
+        null,
+        null
+      ],
+      [
+        "0002",
+        "whole milk",
+        "3.89",
+        false,
+        null,
+        null
+      ],
+      [
+        "0005",
+        "bananas",
+        "0.59",
+        false,
+        null,
+        null
+      ],
+      [
+        "0008",
+        "sourdough",
+        "5.49",
+        false,
+        null,
+        null
+      ],
+      [
+        "0010",
+        "eggs",
+        "3.29",
+        false,
+        null,
+        null
+      ],
+      [
+        "0013",
+        "salmon",
+        "10.99",
+        false,
+        null,
+        null
+      ],
+      [
+        "0017",
+        "coffee",
+        "9.99",
+        false,
+        null,
+        null
+      ],
+      [
+        "0021",
+        "ice cream",
+        "4.67",
+        true,
+        null,
+        null
+      ]
+    ],
+    "west clerk": [
+      [
+        "0001",
+        "oat milk",
+        "4.69",
+        false,
+        null,
+        null
+      ],
+      [
+        "0002",
+        "whole milk",
+        "4.09",
+        false,
+        null,
+        null
+      ],
+      [
+        "0005",
+        "bananas",
+        "0.79",
+        false,
+        null,
+        null
+      ],
+      [
+        "0008",
+        "sourdough",
+        "5.69",
+        false,
+        null,
+        null
+      ],
+      [
+        "0010",
+        "eggs",
+        "3.49",
+        false,
+        null,
+        null
+      ],
+      [
+        "0013",
+        "salmon",
+        "9.51",
+        true,
+        null,
+        null
+      ],
+      [
+        "0017",
+        "coffee",
+        "10.19",
+        false,
+        null,
+        null
+      ],
+      [
+        "0021",
+        "ice cream",
+        "5.69",
+        false,
+        null,
+        null
+      ]
+    ],
+    "north clerk": [
+      [
+        "0001",
+        "oat milk",
+        "4.39",
+        false,
+        null,
+        null
+      ],
+      [
+        "0002",
+        "whole milk",
+        "3.79",
+        false,
+        null,
+        null
+      ],
+      [
+        "0005",
+        "bananas",
+        "0.49",
+        false,
+        null,
+        null
+      ],
+      [
+        "0008",
+        "sourdough",
+        "5.39",
+        false,
+        null,
+        null
+      ],
+      [
+        "0010",
+        "eggs",
+        "3.19",
+        false,
+        null,
+        null
+      ],
+      [
+        "0013",
+        "salmon",
+        "10.89",
+        false,
+        null,
+        null
+      ],
+      [
+        "0017",
+        "coffee",
+        "9.89",
+        false,
+        null,
+        null
+      ],
+      [
+        "0021",
+        "ice cream",
+        "5.39",
+        false,
+        null,
+        null
+      ]
+    ],
+    "north buyer": [
+      [
+        "0001",
+        "oat milk",
+        "4.39",
+        false,
+        "2.95",
+        "32.8"
+      ],
+      [
+        "0002",
+        "whole milk",
+        "3.79",
+        false,
+        "2.71",
+        "28.5"
+      ],
+      [
+        "0005",
+        "bananas",
+        "0.49",
+        false,
+        "0.31",
+        "36.7"
+      ],
+      [
+        "0008",
+        "sourdough",
+        "5.39",
+        false,
+        "2.4",
+        "55.5"
+      ],
+      [
+        "0010",
+        "eggs",
+        "3.19",
+        false,
+        "2.36",
+        "26"
+      ],
+      [
+        "0013",
+        "salmon",
+        "10.89",
+        false,
+        "7.8",
+        "28.4"
+      ],
+      [
+        "0017",
+        "coffee",
+        "9.89",
+        false,
+        "6.1",
+        "38.3"
+      ],
+      [
+        "0021",
+        "ice cream",
+        "5.39",
+        false,
+        "3.05",
+        "43.4"
+      ]
+    ],
+    "unknown store": []
+  }
+}
