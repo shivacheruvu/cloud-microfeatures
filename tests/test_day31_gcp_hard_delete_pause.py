@@ -110,7 +110,7 @@ def test_cloud_run_end_to_end_against_fake_api(capsys, monkeypatch):
     out = capsys.readouterr().out
     assert "::notice title=Google Cloud day 31::hard delete pause read back enabled" in out
     assert "4 restored" in out and "24 price rows" in out and "HTTP 404" in out
-    assert "leftover" in out and fake.buckets == {}            # leftover and today's bucket both gone
+    assert "earlier run" in out and fake.buckets == {}         # earlier run's bucket both gone
     assert "my-proj-123" not in out and "4242424242" not in out
     patch_paths = [p for m, p, q in fake.calls if m == "PATCH"]
     assert len(patch_paths) >= 4                               # pause on, pause off, and teardown's two
@@ -165,3 +165,47 @@ def test_pause_only_body_is_tried_after_a_refusal(capsys, monkeypatch):
     out = capsys.readouterr().out
     assert "pause-only PATCH body worked" in out and "conditionNotMet: Precondition failed" in out
     assert "hard delete pause read back enabled" in out and fake.buckets == {}
+
+
+class MinDurationGcs(FakeGcs):
+    """What the real service did on 2026-11-04: a pause can't be lifted for 24 h (HTTP 412 conditionNotMet with an
+    'Allowed after' time), and a bucket with the pause on can't be deleted (HTTP 409)."""
+
+    def __init__(self):
+        super().__init__()
+        self.now_allowed = False
+
+    def __call__(self, method, url, body, ctype):
+        path = urllib.parse.urlparse(url).path.split("/storage/v1/")[1].split("/")
+        bk = self.buckets.get(path[1]) if len(path) > 1 else None
+        paused = bool(bk and bk["policy"].get("hardDeletePause", {}).get("enabled"))
+        if bk is not None and len(path) == 2 and paused:
+            if method == "PATCH" and not json.loads(body)["softDeletePolicy"].get("hardDeletePause", {}).get(
+                    "enabled", True) and not self.now_allowed:
+                return 412, json.dumps({"error": {"code": 412, "errors": [{"reason": "conditionNotMet"}],
+                                                  "message": "Hard Delete Pause can only be disabled after the minimum "
+                                                             "duration has passed. Allowed after: "
+                                                             "2026-11-06T10:00:00.123456+00:00."}}).encode()
+            if method == "DELETE":
+                return 409, json.dumps({"error": {"code": 409, "errors": [{"reason": "conflict"}], "message":
+                                                  "The bucket you tried to delete has hard delete pause enabled."}}
+                                       ).encode()
+        return super().__call__(method, url, body, ctype)
+
+
+def test_minimum_pause_duration_keeps_the_bucket_for_a_later_run(capsys, monkeypatch):
+    monkeypatch.setenv("GCP_PROJECT_ID", "my-proj-123")
+    fake = MinDurationGcs()
+    assert ph.cloud_main(ph.Gcs("my-proj-123", fake), "99") == 0
+    out = capsys.readouterr().out
+    assert "lifting the pause refused until the minimum duration has passed (24.0 h after it took effect)" in out
+    assert "one bucket kept" in out and "2026-11-06T10:00:00 UTC" in out and "::warning" not in out
+    assert len(fake.buckets) == 1 and not next(iter(fake.buckets.values()))["live"]   # kept, but emptied
+    fake.now_allowed = True                                                         # a day later
+    assert ph.cloud_main(ph.Gcs("my-proj-123", fake), "100") == 0
+    out = capsys.readouterr().out
+    assert "deleted one earlier run's bucket" in out and "pause lifted" in out and fake.buckets == {}
+
+
+def test_hours_between():
+    assert ph.hours_between("2026-11-05T10:00:00.5Z", "2026-11-06T10:00:00") == 24.0
