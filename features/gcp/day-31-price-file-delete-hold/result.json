@@ -1,0 +1,41 @@
+{
+  "engine": "local plan (pure Python) / Cloud Storage JSON API with softDeletePolicy.hardDeletePause (cloud)",
+  "files_uploaded": 7,
+  "bytes_uploaded": 1197,
+  "deleted_by_cleanup": [
+    "prices/2026-11-02/east.csv",
+    "prices/2026-11-02/north.csv",
+    "prices/2026-11-02/west.csv",
+    "prices/2026-11-03/east.csv",
+    "prices/2026-11-03/west-draft.csv"
+  ],
+  "restored": [
+    "prices/2026-11-02/east.csv",
+    "prices/2026-11-02/north.csv",
+    "prices/2026-11-02/west.csv",
+    "prices/2026-11-03/east.csv"
+  ],
+  "left_soft_deleted": [
+    "prices/2026-11-03/west-draft.csv"
+  ],
+  "live_before_restore": [
+    "prices/2026-11-03/north.csv",
+    "prices/2026-11-03/west.csv"
+  ],
+  "live_after": [
+    "prices/2026-11-02/east.csv",
+    "prices/2026-11-02/north.csv",
+    "prices/2026-11-02/west.csv",
+    "prices/2026-11-03/east.csv",
+    "prices/2026-11-03/north.csv",
+    "prices/2026-11-03/west.csv"
+  ],
+  "price_rows_recovered": 24,
+  "retention_days": 7,
+  "md5": {
+    "prices/2026-11-02/east.csv": "ognPvgUMaw/cZHSnAewXgA==",
+    "prices/2026-11-02/north.csv": "ExpsX9R+2/Bl8x1switgmQ==",
+    "prices/2026-11-02/west.csv": "bazuFhfnwHrFPWouj/86Jw==",
+    "prices/2026-11-03/east.csv": "nVXqrTl43a1fLVFLAVI/1Q=="
+  }
+}

@@ -1331,6 +1331,28 @@
         "released": "2026-08-17",
         "source": "https://docs.databricks.com/aws/en/release-notes/serverless"
       }
+    },
+    {
+      "day": 31,
+      "platform": "gcp",
+      "slug": "day-31-price-file-delete-hold",
+      "date": "2026-11-04",
+      "title": "Incident hold on the price-file bucket with Cloud Storage hard delete pause",
+      "summary": "A bad cleanup job soft-deletes 5 of 7 store price files. Hard deletion is paused (softDeletePolicy.hardDeletePause) so nothing can age out during the incident, the 4 good files are restored from their soft-deleted generations with their original MD5, the unapproved draft stays soft-deleted, and the pause is lifted.",
+      "headline": "Hard delete pause on a price-file bucket: 5 files soft-deleted by a bad cleanup, 4 restored with matching MD5, draft left deleted, pause lifted",
+      "skills": [
+        "Cloud Storage",
+        "Soft delete",
+        "JSON API",
+        "Incident response"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-31-price-file-delete-hold",
+      "new_feature": {
+        "name": "Cloud Storage hard delete pause for soft-deleted objects (softDeletePolicy.hardDeletePause)",
+        "released": "2026-11-04",
+        "source": "https://docs.cloud.google.com/release-notes"
+      }
     }
   ]
 }
