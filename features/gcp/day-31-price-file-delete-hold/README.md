@@ -71,6 +71,8 @@ earlier `cmf-d31-` bucket whose minimum has passed. Bucket names and the project
   was "the bucket ... has hard delete pause enabled". Fixed forward (#117): the refusal is an expected outcome, the
   bucket is kept and deleted by a later run. (#116's teardown also restored and re-deleted soft-deleted objects in
   rounds, which only added generations while soft delete stayed on; removed.)
+- 2026-11-04 (after #117): **ran.** Every step matched the plan; lifting the pause was refused until 24.0 h after it
+  took effect, and the bucket is kept for a later run to delete.
 
 ## Cost
 Seven ~170-byte objects kept a day or two under the pause (plus a few hundred tiny generations from #116's teardown
