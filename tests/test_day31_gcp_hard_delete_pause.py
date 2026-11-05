@@ -133,3 +133,35 @@ def test_compare_flags_a_lost_file_and_a_pause_that_did_not_stick():
              "pause_lifted": True}
     errors = ph.compare(cloud, RESULT)
     assert len(errors) == 3 and "enabled" in errors[0] and "effectiveTime" in errors[1] and "live_after" in errors[2]
+
+
+def test_error_text_is_one_line_with_the_reason():
+    body = json.dumps({"error": {"code": 412, "message": "Precondition\nfailed",
+                                 "errors": [{"reason": "conditionNotMet"}]}}, indent=2).encode()
+    assert ph.error_text(body) == "conditionNotMet: Precondition\nfailed"[:400]
+    assert ph.error_text(b"<html>\n oops\n</html>") == "<html> oops </html>"
+
+
+class PauseOnlyGcs(FakeGcs):
+    """Refuses the pause when the retention is in the same PATCH body (HTTP 412), accepts the pause-only body."""
+
+    def __call__(self, method, url, body, ctype):
+        if method == "PATCH":
+            p = json.loads(body)["softDeletePolicy"]
+            if "hardDeletePause" in p and "retentionDurationSeconds" in p:
+                return 412, json.dumps({"error": {"code": 412, "message": "Precondition failed",
+                                                  "errors": [{"reason": "conditionNotMet"}]}}).encode()
+            if "retentionDurationSeconds" not in p:
+                bk = self.buckets[urllib.parse.urlparse(url).path.split("/")[-1]]
+                p = {"retentionDurationSeconds": bk["policy"]["retentionDurationSeconds"], **p}
+                body = json.dumps({"softDeletePolicy": p}).encode()
+        return super().__call__(method, url, body, ctype)
+
+
+def test_pause_only_body_is_tried_after_a_refusal(capsys, monkeypatch):
+    monkeypatch.setenv("GCP_PROJECT_ID", "my-proj-123")
+    fake = PauseOnlyGcs()
+    assert ph.cloud_main(ph.Gcs("my-proj-123", fake), "88") == 0
+    out = capsys.readouterr().out
+    assert "pause-only PATCH body worked" in out and "conditionNotMet: Precondition failed" in out
+    assert "hard delete pause read back enabled" in out and fake.buckets == {}

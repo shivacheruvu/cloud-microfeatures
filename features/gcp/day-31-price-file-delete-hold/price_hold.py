@@ -91,7 +91,19 @@ def summarise() -> dict:
 
 # ---------------------------------------------------------------- cloud (JSON API with the runner's gcloud token)
 class GcsError(Exception):
-    pass
+    def __init__(self, message: str, status: int = 0):
+        super().__init__(message)
+        self.status = status
+
+
+def error_text(body: bytes) -> str:
+    """One line from a JSON API error body (reason + message), so the Actions annotation shows the whole reason."""
+    try:
+        err = json.loads(body).get("error") or {}
+        reasons = ",".join(e.get("reason", "") for e in err.get("errors") or [] if e.get("reason"))
+        return f"{reasons or err.get('status', '')}: {err.get('message', '')}"[:400]
+    except (ValueError, AttributeError):
+        return " ".join(body[:400].decode(errors="replace").split())
 
 
 def _token() -> str:
@@ -119,8 +131,8 @@ class Gcs:
         data = json.dumps(body).encode() if isinstance(body, dict) else body
         s, out = self.t(method, url, data, ctype)
         if s not in ok:
-            raise GcsError(f"{method} {url.split('?')[0].split('/storage/v1/')[-1]} -> HTTP {s}: "
-                           f"{out[:500].decode(errors='replace')}")
+            raise GcsError(f"{method} {url.split('?')[0].split('/storage/v1/')[-1]} -> HTTP {s}: {error_text(out)}",
+                           s)
         if raw:
             return s, out
         return json.loads(out) if out and out.strip() else {}
@@ -137,8 +149,19 @@ class Gcs:
             "labels": {"app": "cloud-microfeatures", "day": "31"}})
 
     def set_pause(self, bucket: str, enabled: bool, retention: int = RETENTION_SECONDS) -> dict:
-        return self.call("PATCH", f"{API}/b/{bucket}?fields=softDeletePolicy", {"softDeletePolicy": {
-            "retentionDurationSeconds": str(retention), "hardDeletePause": {"enabled": enabled}}})
+        """PATCH the pause. If the service refuses the body with the retention in it, retry with only the pause
+        block (the first cloud run, 2026-11-04, got HTTP 412 here), and say which form worked."""
+        url = f"{API}/b/{bucket}?fields=softDeletePolicy"
+        try:
+            return self.call("PATCH", url, {"softDeletePolicy": {
+                "retentionDurationSeconds": str(retention), "hardDeletePause": {"enabled": enabled}}})
+        except GcsError as first:
+            try:
+                out = self.call("PATCH", url, {"softDeletePolicy": {"hardDeletePause": {"enabled": enabled}}})
+            except GcsError as second:
+                raise GcsError(f"{first} | pause-only body: {second}", second.status) from None
+            print(f"::notice title=Google Cloud day 31::the pause-only PATCH body worked (with the retention: {first})")
+            return out
 
     def clear_soft_delete(self, bucket: str) -> dict:
         return self.call("PATCH", f"{API}/b/{bucket}?fields=softDeletePolicy",
@@ -201,7 +224,11 @@ def teardown(g: Gcs, bucket: str) -> None:
                 break
         g.delete_bucket(bucket)
     except GcsError as e:
-        print(f"::warning title=Google Cloud day 31 cleanup::{redact(str(e), bucket)}")
+        try:
+            left = f" (live {len(g.list(bucket))}, soft-deleted {len(g.list(bucket, soft_deleted=True))})"
+        except GcsError:
+            left = ""
+        print(f"::warning title=Google Cloud day 31 cleanup::{redact(str(e), bucket)}{left}")
 
 
 def incident(g: Gcs, bucket: str, ref: dict) -> dict:

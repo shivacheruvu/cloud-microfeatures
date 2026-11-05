@@ -58,6 +58,11 @@ from the Actions run ID, runs the incident, then tears down: lifts the pause, cl
 deletes anything left so it is gone for good, and deletes the bucket. Leftover `cmf-d31-` buckets from an
 interrupted run are torn down first. Bucket names and the project ID are redacted from the log.
 
+## Cloud runs
+- 2026-11-04 (after #115): **failed** at the pause PATCH with HTTP 412 (reason cut off in the annotation); teardown
+  couldn't delete the bucket (409). Fixed forward: one-line error reasons, a pause-only PATCH retry, and cleanup
+  counts in the warning.
+
 ## Cost
 Seven ~170-byte objects for a few seconds and about 40 JSON API calls: well under a cent.
 
