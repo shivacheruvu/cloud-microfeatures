@@ -24,7 +24,11 @@ plays out an incident:
    ```
 4. Lists the soft-deleted objects (`objects.list?softDeleted=true`), restores the 4 good files from their
    soft-deleted generations (`objects.restore?generation=G`), and leaves the draft soft-deleted.
-5. Lifts the pause (`enabled: false`).
+5. Tries to lift the pause (`enabled: false`). **Finding from the first cloud runs:** the service refuses this until a
+   minimum duration has passed (HTTP 412 `conditionNotMet`: "Hard Delete Pause can only be disabled after the minimum
+   duration has passed. Allowed after: ..."), about 24 hours after the pause took effect, and a bucket with the pause
+   on can't be deleted (HTTP 409). So a pause is a commitment of at least a day, and the run records the refusal and
+   the minimum it reports instead of failing.
 
 ## Result (local plan; the cloud run checks each step)
 | Step | Files |
@@ -38,7 +42,8 @@ plays out an incident:
 
 The cloud run checks: the pause reads back `enabled` with an `effectiveTime`; the soft-deleted listing is exactly the
 5 deleted files, each with a `hardDeleteTime`; a soft-deleted file can't be read; every restored file's `md5Hash`
-equals the original upload; the live listing equals the plan; the pause reads back as lifted.
+equals the original upload; the live listing equals the plan; and the pause either lifts or is refused with the
+minimum-duration reason.
 
 ## Why it matters
 Soft delete gives 7 to 90 days to notice a mistake, but incidents run long, and a file deleted on day 1 of a 7-day
@@ -53,20 +58,25 @@ pytest -q tests/test_day31_gcp_hard_delete_pause.py                  # plan + cl
 bash features/gcp/day-31-price-file-delete-hold/cloud.sh             # GitHub Actions (keyless), needs GCP_PROJECT_ID
 ```
 
-The cloud run creates a short-lived US bucket (uniform access, public access prevention, 7-day soft delete) named
-from the Actions run ID, runs the incident, then tears down: lifts the pause, clears soft delete, restores and
-deletes anything left so it is gone for good, and deletes the bucket. Leftover `cmf-d31-` buckets from an
-interrupted run are torn down first. Bucket names and the project ID are redacted from the log.
+The cloud run creates a US bucket (uniform access, public access prevention, 7-day soft delete) named from the
+Actions run ID and runs the incident. Because of the minimum pause duration the bucket can't be deleted the same day:
+teardown empties it and keeps it, and every later run first lifts the pause, clears soft delete and deletes any
+earlier `cmf-d31-` bucket whose minimum has passed. Bucket names and the project ID are redacted from the log.
 
 ## Cloud runs
 - 2026-11-04 (after #115): **failed** at the pause PATCH with HTTP 412 (reason cut off in the annotation); teardown
-  couldn't delete the bucket (409). Fixed forward: one-line error reasons, a pause-only PATCH retry, and cleanup
-  counts in the warning.
+  couldn't delete the bucket (409). Fixed forward (#116) with one-line error reasons.
+- 2026-11-04 (after #116): the reason showed: the pause had been set, the incident ran through the restore, and the
+  412 was on **lifting** the pause ("only after the minimum duration ... Allowed after" about 24 h later); the 409
+  was "the bucket ... has hard delete pause enabled". Fixed forward (#117): the refusal is an expected outcome, the
+  bucket is kept and deleted by a later run. (#116's teardown also restored and re-deleted soft-deleted objects in
+  rounds, which only added generations while soft delete stayed on; removed.)
 
 ## Cost
-Seven ~170-byte objects for a few seconds and about 40 JSON API calls: well under a cent.
+Seven ~170-byte objects kept a day or two under the pause (plus a few hundred tiny generations from #116's teardown
+in the first two buckets) and about 40 JSON API calls a run: well under a cent.
 
 ## Limits of this slice
 The run can't wait out a 7-day retention, so it doesn't show a paused object outliving its `hardDeleteTime`; it
-checks the pause is set and read back, and that restore works under it. The feature is a day old, so the JSON field
+checks the pause is set and read back, that restore works under it, and the minimum duration before it can be lifted. The feature is a day old, so the JSON field
 names follow the generated API clients, not a published guide.
