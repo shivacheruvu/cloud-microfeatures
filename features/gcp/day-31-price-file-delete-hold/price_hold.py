@@ -156,6 +156,8 @@ class Gcs:
             return self.call("PATCH", url, {"softDeletePolicy": {
                 "retentionDurationSeconds": str(retention), "hardDeletePause": {"enabled": enabled}}})
         except GcsError as first:
+            if min_duration_refusal(first):
+                raise
             try:
                 out = self.call("PATCH", url, {"softDeletePolicy": {"hardDeletePause": {"enabled": enabled}}})
             except GcsError as second:
@@ -199,36 +201,61 @@ class Gcs:
         return [b["name"] for b in r.get("items") or []]
 
 
+MIN_DURATION = re.compile(r"can only be disabled after the minimum duration has passed\. Allowed after: "
+                          r"(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d)")
+
+
+def min_duration_refusal(e: Exception) -> str | None:
+    """The 412 seen on the first cloud runs (2026-11-04): a pause can't be lifted until a minimum duration has passed.
+    Returns the 'Allowed after' time (UTC, to the second) or None."""
+    m = MIN_DURATION.search(str(e))
+    return m.group(1) if isinstance(e, GcsError) and e.status == 412 and m else None
+
+
+def hours_between(start: str, end: str) -> float:
+    from datetime import datetime
+    a = datetime.fromisoformat(start[:19])
+    b = datetime.fromisoformat(end[:19])
+    return round((b - a).total_seconds() / 3600, 1)
+
+
 def pause_of(resp: dict) -> dict:
     return (resp.get("softDeletePolicy") or {}).get("hardDeletePause") or {}
 
 
-def teardown(g: Gcs, bucket: str) -> None:
-    """Lift the pause, clear soft delete, bring back anything still soft-deleted so it can be deleted for good, delete
-    every live object, delete the bucket. Never raises."""
-    for step in (lambda: g.set_pause(bucket, False), lambda: g.clear_soft_delete(bucket)):
-        try:
-            step()
-        except GcsError:
-            pass
+def teardown(g: Gcs, bucket: str) -> bool:
+    """Lift the pause, clear soft delete, delete live objects, delete the bucket. A bucket whose pause is still inside
+    its minimum duration can't be deleted (HTTP 409), so it is kept and a later run deletes it. Returns True when the
+    bucket is gone. Never raises. (No restore-and-delete rounds: while soft delete is on they only add generations.)"""
     try:
-        for _ in range(3):
-            for it in g.list(bucket, soft_deleted=True):
-                try:
-                    g.restore(bucket, it["name"], it["generation"])
-                except GcsError:
-                    pass     # e.g. a live object with that name exists; deleting it below with soft delete off is final
-            for it in g.list(bucket):
-                g.delete(bucket, it["name"], ok=(200, 204, 404))
-            if not g.list(bucket, soft_deleted=True):
-                break
+        g.set_pause(bucket, False)
+    except GcsError as e:
+        until = min_duration_refusal(e)
+        if until:
+            try:
+                for it in g.list(bucket):
+                    g.delete(bucket, it["name"], ok=(200, 204, 404))
+            except GcsError:
+                pass
+            print(f"::notice title=Google Cloud day 31 cleanup::one bucket kept: its hard delete pause can only be "
+                  f"lifted after {until} UTC (the minimum duration), so a later run deletes it")
+            return False
+    try:
+        g.clear_soft_delete(bucket)
+    except GcsError:
+        pass
+    try:
+        for it in g.list(bucket):
+            g.delete(bucket, it["name"], ok=(200, 204, 404))
         g.delete_bucket(bucket)
+        return True
     except GcsError as e:
         try:
             left = f" (live {len(g.list(bucket))}, soft-deleted {len(g.list(bucket, soft_deleted=True))})"
         except GcsError:
             left = ""
         print(f"::warning title=Google Cloud day 31 cleanup::{redact(str(e), bucket)}{left}")
+        return False
 
 
 def incident(g: Gcs, bucket: str, ref: dict) -> dict:
@@ -250,7 +277,14 @@ def incident(g: Gcs, bucket: str, ref: dict) -> dict:
     # generation stays listed doesn't matter for the incident, so it's recorded, not checked)
     soft_after = [o["name"] for o in g.list(bucket, soft_deleted=True)]
     still_soft = sorted(set(soft_after) - set(live_after))
-    lifted = g.set_pause(bucket, False)
+    effective = pause_of(paused).get("effectiveTime") or ""
+    try:
+        lifted, lift_refused_until = g.set_pause(bucket, False), None
+    except GcsError as e:
+        lift_refused_until = min_duration_refusal(e)
+        if not lift_refused_until:
+            raise
+        lifted = paused
     return {
         "md5_mismatch_on_upload": md5_mismatch,
         "live_before_restore": live_before,
@@ -264,6 +298,8 @@ def incident(g: Gcs, bucket: str, ref: dict) -> dict:
         "left_soft_deleted": still_soft,
         "soft_deleted_listed_after_restore": len(soft_after),
         "pause_lifted": pause_of(lifted).get("enabled") is not True,
+        "lift_refused_until": lift_refused_until,
+        "min_pause_hours": hours_between(effective, lift_refused_until) if effective and lift_refused_until else None,
     }
 
 
@@ -286,8 +322,8 @@ def compare(cloud: dict, ref: dict) -> list[str]:
         errors.append("a soft-deleted object could still be read")
     if cloud["restored_md5"] != ref["md5"]:
         errors.append(f"restored MD5s {cloud['restored_md5']} vs originals {ref['md5']}")
-    if not cloud["pause_lifted"]:
-        errors.append("hardDeletePause still enabled after lifting it")
+    if not cloud["pause_lifted"] and not cloud.get("lift_refused_until"):
+        errors.append("hardDeletePause still enabled after lifting it, and the service gave no minimum-duration reason")
     return errors
 
 
@@ -304,9 +340,9 @@ def redact(text: str, bucket: str = "") -> str:
 
 def cloud_main(g: Gcs, run_id: str) -> int:
     ref = json.loads((HERE / "result.json").read_text())
-    for old in g.buckets(PREFIX):            # leftovers from an interrupted earlier run
-        teardown(g, old)
-        print("::notice title=Google Cloud day 31 cleanup::deleted one leftover bucket")
+    for old in g.buckets(PREFIX):            # earlier runs' buckets (kept while their pause was in its minimum duration)
+        if teardown(g, old):
+            print("::notice title=Google Cloud day 31 cleanup::deleted one earlier run's bucket")
     bucket = f"{PREFIX}{run_id}-{hashlib.sha1(run_id.encode()).hexdigest()[:6]}"
     try:
         cloud = incident(g, bucket, ref)
@@ -323,8 +359,11 @@ def cloud_main(g: Gcs, run_id: str) -> int:
     print(f"::notice title=Google Cloud day 31::hard delete pause read back enabled with an effective time; "
           f"{len(ref['deleted_by_cleanup'])} files soft-deleted by the bad cleanup, {len(ref['restored'])} restored "
           f"with their original MD5 ({ref['price_rows_recovered']} price rows), the draft left soft-deleted, "
-          f"soft-deleted reads refused (HTTP {cloud['soft_deleted_read_status'][0]}), pause lifted; "
-          f"live files {len(cloud['live_after'])} = plan; bucket deleted")
+          f"soft-deleted reads refused (HTTP {cloud['soft_deleted_read_status'][0]}); "
+          + ("pause lifted" if cloud["pause_lifted"] else
+             f"lifting the pause refused until the minimum duration has passed ({cloud['min_pause_hours']} h after it "
+             "took effect), so the bucket is kept and a later run deletes it")
+          + f"; live files {len(cloud['live_after'])} = plan")
     return 0
 
 
