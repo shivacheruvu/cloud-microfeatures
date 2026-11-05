@@ -1309,6 +1309,28 @@
         "released": "2026-11-02",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 31,
+      "platform": "databricks",
+      "slug": "day-31-scan-export-arrow-handoff",
+      "date": "2026-11-04",
+      "title": "Register scan export into Spark as Arrow: createDataFrame on ChunkedArray columns",
+      "summary": "A 42-scan register export (one Arrow record batch per lane) is read back as Arrow-backed pandas, every column a 3-chunk PyArrow ChunkedArray, and passed straight to spark.createDataFrame. Types and NULLs survive: 7 price-lookup misses stay NULL, so the lane report counts them and revenue ($366.44) skips them.",
+      "headline": "createDataFrame on Arrow-backed pandas: 42 scans, 3 chunks per column, 7 NULL prices kept as NULL, $366.44 revenue",
+      "skills": [
+        "PySpark",
+        "Apache Arrow",
+        "Serverless jobs",
+        "Data quality"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-31-scan-export-arrow-handoff",
+      "new_feature": {
+        "name": "createDataFrame with PyArrow ChunkedArray columns in pandas DataFrames (serverless, Databricks Runtime 19 updates)",
+        "released": "2026-08-17",
+        "source": "https://docs.databricks.com/aws/en/release-notes/serverless"
+      }
     }
   ]
 }
