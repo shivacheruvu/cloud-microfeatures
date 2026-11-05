@@ -1,0 +1,67 @@
+{
+  "engine": "pure-Python reference (local) / spark.createDataFrame on Arrow-backed pandas on a Databricks serverless job (cloud)",
+  "rows": 42,
+  "spark_schema": "lane:string,sku:string,product:string,qty:bigint,unit_price:double,loyalty_id:string",
+  "pandas_columns": {
+    "lane": {
+      "dtype": "string[pyarrow]",
+      "chunks": 3
+    },
+    "sku": {
+      "dtype": "string[pyarrow]",
+      "chunks": 3
+    },
+    "product": {
+      "dtype": "string[pyarrow]",
+      "chunks": 3
+    },
+    "qty": {
+      "dtype": "int64[pyarrow]",
+      "chunks": 3
+    },
+    "unit_price": {
+      "dtype": "double[pyarrow]",
+      "chunks": 3
+    },
+    "loyalty_id": {
+      "dtype": "string[pyarrow]",
+      "chunks": 3
+    }
+  },
+  "lanes": [
+    {
+      "lane": "lane-1",
+      "scans": 14,
+      "units": 35,
+      "revenue": 123.31,
+      "unpriced_scans": 2,
+      "loyalty_scans": 9,
+      "distinct_skus": 11
+    },
+    {
+      "lane": "lane-2",
+      "scans": 11,
+      "units": 27,
+      "revenue": 110.35,
+      "unpriced_scans": 2,
+      "loyalty_scans": 8,
+      "distinct_skus": 11
+    },
+    {
+      "lane": "self-checkout",
+      "scans": 17,
+      "units": 43,
+      "revenue": 132.78,
+      "unpriced_scans": 3,
+      "loyalty_scans": 11,
+      "distinct_skus": 11
+    }
+  ],
+  "revenue": 366.44,
+  "unpriced_scans": 7,
+  "unpriced_products": [
+    "bulk almonds",
+    "seasonal squash"
+  ],
+  "loyalty_share": 0.6667
+}
