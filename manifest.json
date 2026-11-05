@@ -1346,7 +1346,7 @@
         "JSON API",
         "Incident response"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-31-price-file-delete-hold",
       "new_feature": {
         "name": "Cloud Storage hard delete pause for soft-deleted objects (softDeletePolicy.hardDeletePause)",
