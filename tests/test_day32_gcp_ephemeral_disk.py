@@ -58,6 +58,15 @@ def test_job_entry_point_prints_one_result_line(tmp_path, monkeypatch, capsys):
     assert res["disk"]["left_after"] == 0 and res["disk"]["size_gib"] > 0
 
 
+def test_lost_and_found_is_not_a_leftover_run(tmp_path, monkeypatch, capsys):
+    (tmp_path / "lost+found").mkdir()                    # every fresh ext4 disk has one
+    monkeypatch.setattr(ss, "ROWS", 5_000)
+    monkeypatch.setenv("DAY32_DISK", str(tmp_path))
+    assert ss.job_main() == 0
+    res = json.loads(capsys.readouterr().out.split("DAY32_RESULT ", 1)[1])
+    assert res["disk"]["left_after"] == 0 and res["disk"]["other_entries"] == ["lost+found"]
+
+
 def test_create_args_mount_an_ephemeral_disk():
     args = cr.create_args("us-central1", "/tmp/env.yaml")
     assert args[:4] == ["run", "jobs", "create", ss.JOB]
