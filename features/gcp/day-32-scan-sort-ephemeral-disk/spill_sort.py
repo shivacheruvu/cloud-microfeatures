@@ -134,7 +134,9 @@ def job_main() -> int:
     facts = disk_facts(mount)
     out = external_sort(ROWS, mount, RUN_SIZE)
     out["disk"] = facts
-    out["disk"]["left_after"] = len(os.listdir(mount))
+    # only our run files count: a fresh ext4 disk also holds lost+found (fix forward after the first cloud run)
+    out["disk"]["left_after"] = sum(1 for n in os.listdir(mount) if n.startswith("run-"))
+    out["disk"]["other_entries"] = sorted(n for n in os.listdir(mount) if not n.startswith("run-"))
     out["seconds"] = round(time.time() - t0, 1)
     out["peak_rss_mib"] = round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024)
     out["engine"] = f"external merge sort on a Cloud Run ephemeral disk (Python {sys.version.split()[0]})"
