@@ -38,6 +38,10 @@ spill-and-merge path lost or double-counted nothing.
 Top SKUs by units: P0000 750,731 · P0001 310,319 · P0002 239,210 · P0003 200,902 · P0004 177,488.
 A local run of the job code peaked at 88 MiB RSS while spilling 98 MB, so the runs live on disk, not in memory.
 
+**Cloud run (2026-11-05, after the fix below):** matched local exactly. The mount was a 0.94 GiB ext4 disk (1 GiB
+requested, less filesystem overhead), peak RSS 92 MiB of the 512 MiB limit, sort 27.3 s inside the task, 81 s end to
+end including job creation and log read, job deleted.
+
 ## Why it matters
 Sorting, deduplicating or joining an export bigger than a job's memory needs scratch space. With the in-memory
 filesystem, every spilled byte also counts against the memory limit, so the job needs a bigger (pricier) memory
