@@ -1,0 +1,46 @@
+{
+  "engine": "pure-Python reference (local) / SET PATH in Spark SQL on a Databricks serverless job (cloud)",
+  "baskets": 3,
+  "units": 28,
+  "regular_total": 95.12,
+  "ad_week_total": 86.2,
+  "saved": 8.92,
+  "by_basket": [
+    {
+      "basket": "B1",
+      "regular": 26.8,
+      "ad_week": 23.38,
+      "saved": 3.42
+    },
+    {
+      "basket": "B2",
+      "regular": 34.24,
+      "ad_week": 30.66,
+      "saved": 3.58
+    },
+    {
+      "basket": "B3",
+      "regular": 34.08,
+      "ad_week": 32.16,
+      "saved": 1.92
+    }
+  ],
+  "deals": {
+    "0004": "2 for $5.00",
+    "0010": "20% off",
+    "0008": "$1.00 off"
+  },
+  "paths": {
+    "regular": "system.session,<catalog>.cmf_day32_regular,system.builtin",
+    "ad_week": "<catalog>.cmf_day32_ad_week,system.session,<catalog>.cmf_day32_regular,system.builtin",
+    "with_missing": "<catalog>.cmf_day32_missing,<catalog>.cmf_day32_ad_week,system.session,<catalog>.cmf_day32_regular,system.builtin"
+  },
+  "checks": {
+    "missing_schema_skipped": true,
+    "one_part_name": "INVALID_SQL_PATH_SCHEMA_REFERENCE",
+    "one_part_name_path_unchanged": true,
+    "duplicate_entry": "DUPLICATE_SQL_PATH_ENTRY",
+    "duplicate_entry_path_unchanged": true,
+    "no_session_schema": "TABLE_OR_VIEW_NOT_FOUND"
+  }
+}
