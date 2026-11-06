@@ -1390,7 +1390,7 @@
         "External sort",
         "Cloud Logging"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-32-scan-sort-ephemeral-disk",
       "new_feature": {
         "name": "Cloud Run ephemeral disk volumes (GA)",
