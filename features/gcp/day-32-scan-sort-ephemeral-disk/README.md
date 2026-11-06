@@ -59,6 +59,11 @@ default compute service account can't be used), executes it with `--wait`, and d
 One task of about a minute at 1 vCPU / 512 MiB plus 1 GiB of ephemeral disk for that minute: inside the Cloud Run free
 tier (well under a cent otherwise). A few Cloud Logging reads. Nothing is kept.
 
+## Fix forward (2026-11-05)
+The first cloud run (after #120) matched every number but failed the "nothing left on the disk" check: it counted
+`lost+found`, which every freshly formatted ext4 disk has. The check now counts only `run-*` files and reports other
+entries separately.
+
 ## Limits of this slice
 One task, one 1 GiB volume, Python's own sort. The regional ephemeral-disk quota starts at 0 and is granted (100 GiB)
 on first deploy; this slice doesn't test larger disks, parallel tasks or the 10-second shutdown window.
