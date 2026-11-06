@@ -1353,6 +1353,28 @@
         "released": "2026-11-04",
         "source": "https://docs.cloud.google.com/release-notes"
       }
+    },
+    {
+      "day": 32,
+      "platform": "databricks",
+      "slug": "day-32-price-book-path",
+      "date": "2026-11-05",
+      "title": "Switch the price book with SET PATH: one unqualified basket report, regular vs ad-week prices",
+      "summary": "Two price-book schemas: the regular one has shelf_price and line_total, the ad-week one only an overriding line_total with this week's deals. The same unqualified basket report gives $95.12 under the regular path and $86.20 with the ad-week schema first (shelf_price falls through), saving $8.92 over 3 baskets. Also checks that a missing schema is skipped, one-part and duplicate entries are refused, and a path without system.session hides temp views.",
+      "headline": "SET PATH: same report SQL, $95.12 regular vs $86.20 ad week (saved $8.92); missing schema skipped, bad entries refused",
+      "skills": [
+        "Databricks SQL",
+        "Unity Catalog",
+        "SQL UDFs",
+        "Name resolution"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-32-price-book-path",
+      "new_feature": {
+        "name": "SET PATH statement and current_path function (Databricks SQL 2026.43)",
+        "released": "2026-10-19",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
+      }
     }
   ]
 }
