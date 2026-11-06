@@ -1375,6 +1375,28 @@
         "released": "2026-10-19",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 32,
+      "platform": "gcp",
+      "slug": "day-32-scan-sort-ephemeral-disk",
+      "date": "2026-11-05",
+      "title": "Sort a 6-million-line scan export on a Cloud Run job's ephemeral disk",
+      "summary": "A Cloud Run job (1 vCPU, 512 MiB) with a 1 GiB ephemeral disk external-sorts a 6,000,000-line register scan export: six sorted 1-million-line runs (97.7 MB) spilled to /mnt/spill, then a streaming k-way merge rolls it up per SKU. The result (400 SKUs, 14,999,999 units, checksum 92ddc49fcdb05d50) must equal a no-sort local reference; the job is deleted afterwards.",
+      "headline": "Cloud Run ephemeral disk: 6M scan lines, 6 runs / 97.7 MB spilled to a 1 GiB disk, 400 SKUs rolled up, checksum matches local",
+      "skills": [
+        "Cloud Run jobs",
+        "Ephemeral disk",
+        "External sort",
+        "Cloud Logging"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-32-scan-sort-ephemeral-disk",
+      "new_feature": {
+        "name": "Cloud Run ephemeral disk volumes (GA)",
+        "released": "2026-11-04",
+        "source": "https://docs.cloud.google.com/release-notes"
+      }
     }
   ]
 }
