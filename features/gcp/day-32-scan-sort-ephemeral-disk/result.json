@@ -1,0 +1,40 @@
+{
+  "engine": "pure-Python reference, no sort (local) / external merge sort on a Cloud Run job's ephemeral disk (cloud)",
+  "rows_per_run": 1000000,
+  "disk_size": "1Gi",
+  "rows": 6000000,
+  "runs": 6,
+  "spilled_bytes": 97659429,
+  "merged_bytes": 97659429,
+  "distinct_skus": 400,
+  "units": 14999999,
+  "revenue": 112278835.5,
+  "top_skus": [
+    {
+      "sku": "P0000",
+      "units": 750731,
+      "revenue": 743223.69
+    },
+    {
+      "sku": "P0001",
+      "units": 310319,
+      "revenue": 422033.84
+    },
+    {
+      "sku": "P0002",
+      "units": 239210,
+      "revenue": 413833.3
+    },
+    {
+      "sku": "P0003",
+      "units": 200902,
+      "revenue": 421894.2
+    },
+    {
+      "sku": "P0004",
+      "units": 177488,
+      "revenue": 438395.36
+    }
+  ],
+  "checksum": "92ddc49fcdb05d50"
+}
