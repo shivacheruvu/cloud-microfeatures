@@ -1,0 +1,81 @@
+{
+  "engine": "DuckDB recursive CTE + plain-Python BFS (local) / BigQuery Graph GQL ANY SHORTEST on on-demand pricing (cloud)",
+  "stores": 9,
+  "roads": 9,
+  "surplus_stores": 2,
+  "short_stores": 5,
+  "pairs_within_3_hops": 7,
+  "routes": [
+    {
+      "src": "DC",
+      "dst": "S3",
+      "hops": 2,
+      "minutes": 22
+    },
+    {
+      "src": "DC",
+      "dst": "S5",
+      "hops": 3,
+      "minutes": 34
+    },
+    {
+      "src": "DC",
+      "dst": "S6",
+      "hops": 3,
+      "minutes": 38
+    },
+    {
+      "src": "S2",
+      "dst": "S3",
+      "hops": 2,
+      "minutes": 24
+    },
+    {
+      "src": "S2",
+      "dst": "S5",
+      "hops": 2,
+      "minutes": 16
+    },
+    {
+      "src": "S2",
+      "dst": "S6",
+      "hops": 2,
+      "minutes": 20
+    },
+    {
+      "src": "S2",
+      "dst": "S7",
+      "hops": 3,
+      "minutes": 33
+    }
+  ],
+  "plan": {
+    "S3": {
+      "from": "DC",
+      "hops": 2,
+      "minutes": 22
+    },
+    "S5": {
+      "from": "S2",
+      "hops": 2,
+      "minutes": 16
+    },
+    "S6": {
+      "from": "S2",
+      "hops": 2,
+      "minutes": 20
+    },
+    "S7": {
+      "from": "S2",
+      "hops": 3,
+      "minutes": 33
+    },
+    "S8": null
+  },
+  "cases_routed": 25,
+  "drive_minutes": 91,
+  "unserved": [
+    "S8"
+  ],
+  "headline": "4 of 5 short stores get a transfer route within 3 hops (25 cases, 91 drive minutes); no source within reach of S8"
+}
