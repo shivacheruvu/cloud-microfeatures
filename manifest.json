@@ -1434,7 +1434,7 @@
         "ANY SHORTEST",
         "Supply chain"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-33-stock-transfer-routes",
       "new_feature": {
         "name": "BigQuery Graph and GQL queries on on-demand pricing",
