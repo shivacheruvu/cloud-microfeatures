@@ -90,7 +90,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 30 | [One shelf-price view for every store, scoped per request with SECURE_CONTEXT](features/gcp/day-30-store-scoped-prices) | [SECURE_CONTEXT function and jobs.query secureContext (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-02) | BigQuery, Row-level filtering, REST API, Governance | ran |
 | 31 | [Incident hold on the price-file bucket with Cloud Storage hard delete pause](features/gcp/day-31-price-file-delete-hold) | [Cloud Storage hard delete pause for soft-deleted objects (softDeletePolicy.hardDeletePause)](https://docs.cloud.google.com/release-notes) (2026-11-04) | Cloud Storage, Soft delete, JSON API, Incident response | ran |
 | 32 | [Sort a 6-million-line scan export on a Cloud Run job's ephemeral disk](features/gcp/day-32-scan-sort-ephemeral-disk) | [Cloud Run ephemeral disk volumes (GA)](https://docs.cloud.google.com/release-notes) (2026-11-04) | Cloud Run jobs, Ephemeral disk, External sort, Cloud Logging | ran |
-| 33 | [Route oat-milk stock transfers between stores with BigQuery Graph ANY SHORTEST, on on-demand pricing](features/gcp/day-33-stock-transfer-routes) | [BigQuery Graph and GQL queries on on-demand pricing](https://docs.cloud.google.com/release-notes) (2026-11-06) | BigQuery Graph, GQL, ANY SHORTEST, Supply chain | built |
+| 33 | [Route oat-milk stock transfers between stores with BigQuery Graph ANY SHORTEST, on on-demand pricing](features/gcp/day-33-stock-transfer-routes) | [BigQuery Graph and GQL queries on on-demand pricing](https://docs.cloud.google.com/release-notes) (2026-11-06) | BigQuery Graph, GQL, ANY SHORTEST, Supply chain | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself
