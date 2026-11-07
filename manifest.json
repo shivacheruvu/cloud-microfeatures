@@ -1397,6 +1397,28 @@
         "released": "2026-11-04",
         "source": "https://docs.cloud.google.com/release-notes"
       }
+    },
+    {
+      "day": 33,
+      "platform": "databricks",
+      "slug": "day-33-scan-payload-validation",
+      "date": "2026-11-06",
+      "title": "Quarantine malformed VARIANT scan payloads with is_valid_variant before extracting fields",
+      "summary": "A lane-scanner export of 14 scan events stores its payload as a VARIANT; three rows are broken (truncated value, unknown metadata version, undefined type byte). Extracting fields from the raw file fails with MALFORMED_VARIANT; is_valid_variant keeps 11 rows and quarantines E05, E09 and E12, and the clean per-lane report (22 units, $67.48 over 3 lanes) equals a pure-Python reference.",
+      "headline": "is_valid_variant: 14 scan payloads, 3 malformed quarantined (raw extract fails with MALFORMED_VARIANT), clean report 22 units / $67.48",
+      "skills": [
+        "Databricks SQL",
+        "VARIANT",
+        "Data quality",
+        "Serverless jobs"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-33-scan-payload-validation",
+      "new_feature": {
+        "name": "is_valid_variant SQL function (serverless, Databricks Runtime 19 updates)",
+        "released": "2026-08-17",
+        "source": "https://docs.databricks.com/aws/en/release-notes/serverless"
+      }
     }
   ]
 }
