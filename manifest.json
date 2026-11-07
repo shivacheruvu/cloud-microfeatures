@@ -1419,6 +1419,28 @@
         "released": "2026-08-17",
         "source": "https://docs.databricks.com/aws/en/release-notes/serverless"
       }
+    },
+    {
+      "day": 33,
+      "platform": "gcp",
+      "slug": "day-33-stock-transfer-routes",
+      "date": "2026-11-06",
+      "title": "Route oat-milk stock transfers between stores with BigQuery Graph ANY SHORTEST, on on-demand pricing",
+      "summary": "Nine stores and nine two-way roads as a property graph. One GQL query on on-demand pricing (no reservation) finds, with ANY SHORTEST over 1-3 Road edges and LET minutes = SUM(e.minutes), the fewest-hop route from each surplus store to each short store: 7 pairs. Serving each short store from its nearest source routes 4 of 5 stores (25 cases, 91 drive minutes); the Airport store has no source within 3 hops. Rows and plan must equal a DuckDB recursive CTE / plain-Python BFS.",
+      "headline": "BigQuery Graph on on-demand pricing: ANY SHORTEST routes 4 of 5 short stores (25 cases, 91 drive minutes) within 3 hops",
+      "skills": [
+        "BigQuery Graph",
+        "GQL",
+        "ANY SHORTEST",
+        "Supply chain"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-33-stock-transfer-routes",
+      "new_feature": {
+        "name": "BigQuery Graph and GQL queries on on-demand pricing",
+        "released": "2026-11-06",
+        "source": "https://docs.cloud.google.com/release-notes"
+      }
     }
   ]
 }
