@@ -1,0 +1,46 @@
+{
+  "engine": "pure-Python reference (local) / is_valid_variant in Spark SQL on a Databricks serverless job (cloud)",
+  "events": 14,
+  "valid": 11,
+  "quarantined": [
+    "E05",
+    "E09",
+    "E12"
+  ],
+  "quarantine_kinds": {
+    "E05": "truncated",
+    "E09": "bad_header",
+    "E12": "bad_type"
+  },
+  "units": 22,
+  "revenue": 67.48,
+  "by_lane": [
+    {
+      "lane": 1,
+      "units": 6,
+      "revenue": 23.24,
+      "scans": 4
+    },
+    {
+      "lane": 2,
+      "units": 9,
+      "revenue": 21.41,
+      "scans": 4
+    },
+    {
+      "lane": 3,
+      "units": 7,
+      "revenue": 22.83,
+      "scans": 3
+    }
+  ],
+  "checks": {
+    "raw_extract": "MALFORMED_VARIANT",
+    "clean_extract_ok": true,
+    "spot": {
+      "parsed_json": true,
+      "json_null": true,
+      "sql_null": null
+    }
+  }
+}
