@@ -1,0 +1,50 @@
+{
+  "engine": "pure-Python set arithmetic (local reference) / tuple x theta sketch functions in Spark SQL (local pyspark, Databricks serverless job)",
+  "purchases": 1800,
+  "emailed": 250,
+  "stores": [
+    {
+      "store": "S1",
+      "buyers": 385,
+      "spend_cents": 1532878,
+      "reached_buyers": 128,
+      "reached_spend_cents": 495628,
+      "missed_buyers": 257,
+      "missed_spend_cents": 1037250,
+      "touched": 507,
+      "touched_spend_cents": 1532878
+    },
+    {
+      "store": "S2",
+      "buyers": 376,
+      "spend_cents": 1555854,
+      "reached_buyers": 125,
+      "reached_spend_cents": 526018,
+      "missed_buyers": 251,
+      "missed_spend_cents": 1029836,
+      "touched": 501,
+      "touched_spend_cents": 1555854
+    },
+    {
+      "store": "S3",
+      "buyers": 383,
+      "spend_cents": 1611408,
+      "reached_buyers": 126,
+      "reached_spend_cents": 497681,
+      "missed_buyers": 257,
+      "missed_spend_cents": 1113727,
+      "touched": 507,
+      "touched_spend_cents": 1611408
+    }
+  ],
+  "chain": {
+    "buyers": 569,
+    "spend_cents": 4700140,
+    "reached_buyers": 189,
+    "reached_spend_cents": 1519327,
+    "missed_buyers": 380,
+    "missed_spend_cents": 3180813,
+    "touched": 630,
+    "touched_spend_cents": 4700140
+  }
+}

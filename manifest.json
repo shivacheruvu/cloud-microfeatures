@@ -1456,12 +1456,34 @@
         "frozendict",
         "Pricing"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-34-shelf-price-py315",
       "new_feature": {
         "name": "Python 3.15 runtime (python315) for Cloud Run functions and runtime base images (Preview)",
         "released": "2026-11-02",
         "source": "https://docs.cloud.google.com/functions/docs/release-notes"
+      }
+    },
+    {
+      "day": 34,
+      "platform": "databricks",
+      "slug": "day-34-coupon-reach-tuple-theta",
+      "date": "2026-11-07",
+      "title": "Measure a coupon e-mail's reach and spend by combining tuple sketches with a theta sketch",
+      "summary": "Per-store tuple sketches of loyalty spend (customer keys with summed spend) combined with a theta sketch of e-mailed customers using tuple_intersection_theta_double, tuple_difference_theta_double and tuple_union_theta_double, per store and chain-wide after tuple_union_agg_double. The e-mail reached 189 of 569 buyers ($15,193.27 of $47,001.40 spend) and missed 380; 630 customers touched. Exact at this size, so local pyspark must equal plain set arithmetic.",
+      "headline": "Tuple x theta sketches: coupon e-mail reached 189 of 569 buyers, 32% of spend",
+      "skills": [
+        "Databricks SQL",
+        "Sketches",
+        "Serverless jobs",
+        "Marketing analytics"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-34-coupon-reach-tuple-theta",
+      "new_feature": {
+        "name": "tuple_union_theta, tuple_intersection_theta, tuple_difference_theta SQL functions (Databricks SQL 2026.15)",
+        "released": "2026-05-26",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
     }
   ]
