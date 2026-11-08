@@ -38,6 +38,10 @@ isn't called `python3`, it retries once with `python`.
 27 lines, 48 units; promo rules 8 raw → 6 distinct; median basket $14.345. Locally, `job315.py` under Python
 3.15.0b4 (uv) printed the same numbers with `utf8_mode=1`, `frozendict` built in and the lazy import deferred.
 
+**Cloud run (2026-11-07, right after the merge):** matched local exactly. The `python315` image ran **Python 3.15.0
+final** with `--command=python3` (no fallback needed) under the default job identity; `utf8_mode=1`, built-in
+`frozendict`, lazy import deferred; 129 s end to end including job creation, image pull and the log read; job deleted.
+
 ## Why it matters
 Python 3.15's comprehension unpacking and `frozendict` make layered config merges and rule dedup one-liners, and
 UTF-8-by-default ends the "works on my laptop, mojibake in the container" class of bugs for product names. Running on
