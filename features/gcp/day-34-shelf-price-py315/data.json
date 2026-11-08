@@ -1,0 +1,53 @@
+{
+  "_about": "Day 34 fixture: a chain price book, two regional overlays, three store overlays (later layers win), promo rules from two feeds (with duplicates), and 10 baskets. Prices are in cents.",
+  "products": {
+    "P01": "Oat milk 1 L",
+    "P02": "Jalapeño salsa 450 g",
+    "P03": "Crème fraîche 200 ml",
+    "P04": "Sourdough loaf",
+    "P05": "Bananas 1 kg",
+    "P06": "Café molido 340 g",
+    "P07": "Greek yogurt 500 g",
+    "P08": "Eggs, dozen"
+  },
+  "price_layers": {
+    "chain": {"P01": 349, "P02": 429, "P03": 299, "P04": 499, "P05": 69, "P06": 899, "P07": 459, "P08": 379},
+    "region:north": {"P01": 329, "P05": 65},
+    "region:south": {"P02": 399, "P06": 849, "P08": 359},
+    "store:S1": {"P04": 449},
+    "store:S3": {"P01": 299, "P07": 429},
+    "store:S4": {"P06": 799}
+  },
+  "stores": {
+    "S1": ["chain", "region:north", "store:S1"],
+    "S2": ["chain", "region:north"],
+    "S3": ["chain", "region:south", "store:S3"],
+    "S4": ["chain", "region:south", "store:S4"]
+  },
+  "promo_feeds": [
+    [
+      {"sku": "P01", "kind": "pct", "value": 10, "min_qty": 2},
+      {"sku": "P04", "kind": "off", "value": 50, "min_qty": 1},
+      {"sku": "P06", "kind": "pct", "value": 15, "min_qty": 1},
+      {"sku": "P08", "kind": "off", "value": 30, "min_qty": 2}
+    ],
+    [
+      {"min_qty": 2, "kind": "pct", "sku": "P01", "value": 10},
+      {"sku": "P07", "kind": "pct", "value": 20, "min_qty": 2},
+      {"sku": "P06", "kind": "pct", "value": 15, "min_qty": 1},
+      {"sku": "P02", "kind": "off", "value": 40, "min_qty": 1}
+    ]
+  ],
+  "baskets": [
+    {"id": "B01", "store": "S1", "lines": [["P01", 2], ["P04", 1], ["P05", 3]]},
+    {"id": "B02", "store": "S1", "lines": [["P06", 1], ["P08", 2]]},
+    {"id": "B03", "store": "S2", "lines": [["P01", 1], ["P02", 2], ["P03", 1]]},
+    {"id": "B04", "store": "S2", "lines": [["P07", 2], ["P05", 6], ["P04", 1]]},
+    {"id": "B05", "store": "S3", "lines": [["P01", 3], ["P07", 1]]},
+    {"id": "B06", "store": "S3", "lines": [["P02", 1], ["P06", 2], ["P08", 1]]},
+    {"id": "B07", "store": "S3", "lines": [["P03", 2], ["P04", 2]]},
+    {"id": "B08", "store": "S4", "lines": [["P06", 1], ["P07", 3], ["P08", 2]]},
+    {"id": "B09", "store": "S4", "lines": [["P01", 2], ["P02", 1], ["P05", 2]]},
+    {"id": "B10", "store": "S4", "lines": [["P04", 1], ["P03", 1], ["P01", 1]]}
+  ]
+}
