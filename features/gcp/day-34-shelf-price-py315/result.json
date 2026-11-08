@@ -1,0 +1,120 @@
+{
+  "engine": "Python 3.12 reference (local) / job315.py on the Cloud Run python315 runtime image (cloud)",
+  "image": "us-central1-docker.pkg.dev/serverless-runtimes/google-24-full/runtimes/python315",
+  "stores": 4,
+  "baskets": 10,
+  "lines": 27,
+  "units": 48,
+  "promo_rules_raw": 8,
+  "promo_rules_distinct": 6,
+  "rule_hits": [
+    [
+      "P01",
+      "pct",
+      10,
+      3
+    ],
+    [
+      "P02",
+      "off",
+      40,
+      3
+    ],
+    [
+      "P04",
+      "off",
+      50,
+      4
+    ],
+    [
+      "P06",
+      "pct",
+      15,
+      3
+    ],
+    [
+      "P07",
+      "pct",
+      20,
+      2
+    ],
+    [
+      "P08",
+      "off",
+      30,
+      2
+    ]
+  ],
+  "shelf_prices": {
+    "S1": {
+      "P01": 329,
+      "P02": 429,
+      "P03": 299,
+      "P04": 449,
+      "P05": 65,
+      "P06": 899,
+      "P07": 459,
+      "P08": 379
+    },
+    "S2": {
+      "P01": 329,
+      "P02": 429,
+      "P03": 299,
+      "P04": 499,
+      "P05": 65,
+      "P06": 899,
+      "P07": 459,
+      "P08": 379
+    },
+    "S3": {
+      "P01": 299,
+      "P02": 399,
+      "P03": 299,
+      "P04": 499,
+      "P05": 69,
+      "P06": 849,
+      "P07": 429,
+      "P08": 359
+    },
+    "S4": {
+      "P01": 349,
+      "P02": 399,
+      "P03": 299,
+      "P04": 499,
+      "P05": 69,
+      "P06": 799,
+      "P07": 459,
+      "P08": 359
+    }
+  },
+  "store_totals": {
+    "S1": {
+      "gross": 2959,
+      "discount": 309,
+      "net": 2650,
+      "baskets": 2
+    },
+    "S2": {
+      "gross": 3293,
+      "discount": 313,
+      "net": 2980,
+      "baskets": 2
+    },
+    "S3": {
+      "gross": 5378,
+      "discount": 483,
+      "net": 4895,
+      "baskets": 3
+    },
+    "S4": {
+      "gross": 5276,
+      "discount": 613,
+      "net": 4663,
+      "baskets": 3
+    }
+  },
+  "gross_cents": 16906,
+  "discount_cents": 1718,
+  "net_cents": 15188,
+  "median_basket_cents": 1434.5
+}

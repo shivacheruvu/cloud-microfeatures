@@ -1441,6 +1441,28 @@
         "released": "2026-11-06",
         "source": "https://docs.cloud.google.com/release-notes"
       }
+    },
+    {
+      "day": 34,
+      "platform": "gcp",
+      "slug": "day-34-shelf-price-py315",
+      "date": "2026-11-07",
+      "title": "Resolve shelf prices and total baskets with Python 3.15 code on Google's python315 runtime image",
+      "summary": "A Cloud Run job on Google's Python 3.15 runtime base image (Preview) runs a pricing step written with Python 3.15 features: comprehension unpacking merges chain/region/store price layers, the built-in frozendict collapses duplicate promo rules from two feeds (8 to 6), a lazy import defers statistics, and UTF-8 mode is the default. 10 baskets at 4 stores: gross $169.06, promo $17.18, net $151.88. Must equal a plain Python 3.12 reference and report Python 3.15.",
+      "headline": "Python 3.15 on Cloud Run's python315 runtime: 10 baskets, net $151.88, promo rules 8 -> 6 via frozendict",
+      "skills": [
+        "Cloud Run jobs",
+        "Python 3.15",
+        "frozendict",
+        "Pricing"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-34-shelf-price-py315",
+      "new_feature": {
+        "name": "Python 3.15 runtime (python315) for Cloud Run functions and runtime base images (Preview)",
+        "released": "2026-11-02",
+        "source": "https://docs.cloud.google.com/functions/docs/release-notes"
+      }
     }
   ]
 }
