@@ -1500,7 +1500,7 @@
         "Temporal",
         "Delivery slots"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-35-delivery-slots-node26",
       "new_feature": {
         "name": "Node.js 26 runtime (nodejs26) for Cloud Run and Cloud Run functions runtime base images (Preview)",
