@@ -1,0 +1,24 @@
+{
+  "note": "Online grocery orders around the end of US daylight saving time (Sunday 2026-11-01, 02:00 local). Phoenix (S3) has no DST.",
+  "day": "2026-11-01",
+  "stores": {
+    "S1": "America/Chicago",
+    "S2": "America/Denver",
+    "S3": "America/Phoenix",
+    "S4": "America/New_York"
+  },
+  "restock_shift": {"start": "2026-10-31T22:00", "end": "2026-11-01T06:00"},
+  "orders": [
+    {"id": "O01", "store": "S1", "placed": "2026-10-31T23:15", "promise_hours": 3, "lines": [["Whole milk 1 gal", 3.79], ["Half & Half 1.5 qt", 4.29]]},
+    {"id": "O02", "store": "S1", "placed": "2026-11-01T00:40", "promise_hours": 2, "lines": [["M&M's (Peanut) 10oz", 4.99], ["Bananas 2 lb", 1.18]]},
+    {"id": "O03", "store": "S1", "placed": "2026-11-01T01:30", "promise_hours": 1, "lines": [["Kombucha [Ginger] 16oz", 3.99], ["Eggs 12ct", 2.89]]},
+    {"id": "O04", "store": "S1", "placed": "2026-11-01T09:10", "promise_hours": 2, "lines": [["Dr. Pepper 2L", 2.79], ["Tortillas 10ct", 3.1]]},
+    {"id": "O05", "store": "S2", "placed": "2026-11-01T00:05", "promise_hours": 4, "lines": [["Half & Half 1x5 qt", 3.3], ["Jalapeño salsa 16oz", 4.49]]},
+    {"id": "O06", "store": "S2", "placed": "2026-11-01T01:50", "promise_hours": 1, "lines": [["M&M's Peanut 10oz", 4.79], ["Coffee 12oz", 9.99]]},
+    {"id": "O07", "store": "S3", "placed": "2026-11-01T00:40", "promise_hours": 2, "lines": [["Kombucha Ginger 16oz", 3.69], ["Avocados 4ct", 5.0]]},
+    {"id": "O08", "store": "S3", "placed": "2026-11-01T22:30", "promise_hours": 2, "lines": [["Dr Pepper 2L", 2.59], ["Bread", 2.99]]},
+    {"id": "O09", "store": "S4", "placed": "2026-10-31T23:55", "promise_hours": 3, "lines": [["Dr. Pepper 2L", 2.99], ["Crème fraîche 8oz", 4.1]]},
+    {"id": "O10", "store": "S4", "placed": "2026-11-01T01:20", "promise_hours": 2, "lines": [["M&M's (Peanut) 10oz", 5.19], ["Kombucha [Ginger] 16oz", 4.29], ["Oat milk 64oz", 4.7]]}
+  ],
+  "catalog_names": ["M&M's (Peanut)", "Half & Half 1.5 qt", "Dr. Pepper 2L", "Kombucha [Ginger]"]
+}

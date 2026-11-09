@@ -1485,6 +1485,28 @@
         "released": "2026-05-26",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 35,
+      "platform": "gcp",
+      "slug": "day-35-delivery-slots-node26",
+      "date": "2026-11-08",
+      "title": "Compute delivery promises across the end of daylight saving time with Node.js 26 on Google's nodejs26 runtime image",
+      "summary": "A Cloud Run job on Google's Node.js 26 runtime base image (Preview) computes delivery promises for 10 online orders placed around the 2026-11-01 DST change at stores in Chicago, Denver, Phoenix and New York: Temporal for exact-hour promises, next-day pickups, the 25-hour day and the repeated 01:00 hour; Math.sumPrecise for the order-line total; RegExp.escape for literal catalog-name matches; Uint8Array.fromBase64 to decode the data. 7 of 10 promises are an hour off with wall-clock maths. Must equal a Python zoneinfo reference and report Node.js 26.",
+      "headline": "Node.js 26 Temporal on Cloud Run's nodejs26 runtime: 7 of 10 DST-night delivery promises an hour off with wall-clock maths",
+      "skills": [
+        "Cloud Run jobs",
+        "Node.js 26",
+        "Temporal",
+        "Delivery slots"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-35-delivery-slots-node26",
+      "new_feature": {
+        "name": "Node.js 26 runtime (nodejs26) for Cloud Run and Cloud Run functions runtime base images (Preview)",
+        "released": "2026-07-27",
+        "source": "https://docs.cloud.google.com/run/docs/release-notes"
+      }
     }
   ]
 }
