@@ -1,7 +1,8 @@
 """Day 35 Google Cloud: the Python zoneinfo reference equals result.json and gets the fall-back night right; job26.js
-really uses the Node.js 26 features, is ASCII (the job decodes it with atob) and degrades to a reported error on an
-older Node; the gcloud orchestration creates the job on the nodejs26 runtime image, falls back to the next
-(image, command), compares, and always deletes the job (fake gcloud, no credentials)."""
+uses the Node.js 26 features, is ASCII (the job decodes it with atob), and its Intl.DateTimeFormat and Temporal
+(--harmony-temporal) paths both give the reference delivery times on the local node; the gcloud orchestration
+creates the job on the nodejs26 runtime image with the Temporal flag, falls back to no flag and then the next image
+stack, compares, and always deletes the job (fake gcloud, no credentials)."""
 import base64
 import importlib.util
 import json
@@ -60,27 +61,48 @@ def test_precise_total_and_literal_names():
 
 
 def test_job_uses_node_26_features():
-    for needle in ("Temporal.PlainDateTime.from(", ".hoursInDay", "placed.add({ days: 1 })", "Math.sumPrecise(prices)",
-                   "RegExp.escape(name)", "Uint8Array.fromBase64(raw)"):
+    for needle in ("Temporal.PlainDateTime.from(", ".hoursInDay", "z.add({ days: n })", "Math.sumPrecise(prices)",
+                   "RegExp.escape(name)", "Uint8Array.fromBase64(raw)", "new Intl.DateTimeFormat("):
         assert needle in JOB_SRC
     assert JOB_SRC.isascii()
     assert "," not in cr.COMMAND_ARG                       # gcloud splits --args on commas
 
 
-@pytest.mark.skipif(shutil.which("node") is None, reason="no node installed")
-def test_job_on_older_node_reports_missing_features(tmp_path):
+def _run_node(tmp_path, *flags):
     env = {"DAY35_CODE": base64.b64encode(JOB_SRC.encode()).decode(),
            "DAY35_DATA": base64.b64encode((FEATURE / "data.json").read_bytes()).decode()}
-    out = subprocess.run([shutil.which("node"), "-e", cr.COMMAND_ARG], env=env, capture_output=True, text=True,
-                         cwd=tmp_path, check=True).stdout
-    cloud = json.loads(out.split("DAY35_RESULT ", 1)[1])
-    assert cloud["total_naive"] == RESULT["total_naive"] and cloud["utf8_names"] == RESULT["utf8_names"]
+    p = subprocess.run([shutil.which("node"), *flags, "-e", cr.COMMAND_ARG], env=env, capture_output=True, text=True,
+                       cwd=tmp_path)
+    if p.returncode != 0 or "DAY35_RESULT " not in p.stdout:
+        return None
+    return json.loads(p.stdout.split("DAY35_RESULT ", 1)[1])
+
+
+TIME_KEYS = ("orders", "stores", "late_if_naive", "deliveries_in_repeated_hour", "total_naive", "total_precise",
+             "utf8_names")
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="no node installed")
+def test_job_intl_path_matches_reference_on_local_node(tmp_path):
+    cloud = _run_node(tmp_path)
+    assert cloud is not None
+    assert {k: cloud[k] for k in TIME_KEYS} == {k: RESULT[k] for k in TIME_KEYS}
     if not cloud["runtime"]["node"].startswith("26."):
         assert any("expected 26" in e for e in cr.compare(cloud, RESULT))
 
 
+@pytest.mark.skipif(shutil.which("node") is None, reason="no node installed")
+def test_job_temporal_path_matches_reference_where_the_flag_works(tmp_path):
+    cloud = _run_node(tmp_path, cr.TEMPORAL_FLAG)
+    if cloud is None or cloud["runtime"]["tz_engine"] != "Temporal":
+        pytest.skip("this node has no usable Temporal behind --harmony-temporal")
+    assert cloud["runtime"]["engines_agree"] is True
+    assert {k: cloud[k] for k in TIME_KEYS} == {k: RESULT[k] for k in TIME_KEYS}
+
+
 def _runtime(**kw):
-    rt = {"node": "26.12.1", "v8": "14.6.1", "errors": {}, "ms": 12,
+    rt = {"node": "26.12.1", "v8": "14.6.1", "errors": {}, "ms": 12, "tz_engine": "Temporal", "engines_agree": True,
+          "sum_engine": "integer cents", "temporal_with_harmony_flag": "object",
           "features": {"Temporal": "object", "Math.sumPrecise": "function", "RegExp.escape": "function",
                        "Uint8Array.fromBase64": "function"}}
     rt.update(kw)
@@ -94,8 +116,11 @@ def _good(**kw):
 def test_compare_flags_wrong_runtime():
     assert cr.compare(_good(), RESULT) == []
     assert "expected 26" in cr.compare(_good(runtime=_runtime(node="24.1.0")), RESULT)[0]
-    feats = {**_runtime()["features"], "Math.sumPrecise": "undefined"}
-    assert "Math.sumPrecise" in cr.compare(_good(runtime=_runtime(features=feats)), RESULT)[0]
+    feats = {**_runtime()["features"], "Math.sumPrecise": "undefined", "Temporal": "undefined"}
+    assert cr.compare(_good(runtime=_runtime(features=feats)), RESULT) == []      # optional, reported only
+    feats = {**_runtime()["features"], "RegExp.escape": "undefined"}
+    assert "RegExp.escape" in cr.compare(_good(runtime=_runtime(features=feats)), RESULT)[0]
+    assert "different" in cr.compare(_good(runtime=_runtime(engines_agree=False)), RESULT)[0]
     assert "threw" in cr.compare(_good(runtime=_runtime(errors={"Temporal orders": "x"})), RESULT)[0]
     assert "late_if_naive" in cr.compare(_good(late_if_naive=0), RESULT)[0]
 
@@ -104,7 +129,8 @@ def test_create_args_use_the_runtime_image():
     args = cr.create_args("us-central1", "/tmp/env.yaml")
     assert args[:4] == ["run", "jobs", "create", sl.JOB]
     assert f"--image={sl.IMAGES[0]}" in args and "--command=node" in args
-    assert f"--args=-e,{cr.COMMAND_ARG}" in args
+    assert f"--args=--harmony-temporal,-e,{cr.COMMAND_ARG}" in args
+    assert cr.node_args(()) == f"--args=-e,{cr.COMMAND_ARG}"
     assert "--max-retries=0" in args and "--memory=512Mi" in args
 
 
@@ -140,11 +166,15 @@ def test_run_matches_and_deletes(capsys):
     assert len([c for c in fake.calls if c[:3] == ["run", "jobs", "delete"]]) == 2   # leftover cleanup, and after
 
 
-def test_run_falls_back_to_next_image_and_command(capsys):
+def test_run_falls_back_to_no_flag_then_next_image(capsys):
+    fake = FakeGcloud(_good(), fail_executes=1)
+    assert cr.run(gcloud=fake, sleep=lambda s: None) == 0
+    updates = [c for c in fake.calls if c[:3] == ["run", "jobs", "update"]]
+    assert updates[-1][-1] == f"--args=-e,{cr.COMMAND_ARG}" and f"--image={sl.IMAGES[0]}" in updates[-1]
     fake = FakeGcloud(_good(), fail_executes=2)
     assert cr.run(gcloud=fake, sleep=lambda s: None) == 0
     updates = [c for c in fake.calls if c[:3] == ["run", "jobs", "update"]]
-    assert f"--image={sl.IMAGES[1]}" in updates[-1] and "--command=node" in updates[-1]
+    assert f"--image={sl.IMAGES[1]}" in updates[-1] and updates[-1][-1].startswith("--args=--harmony-temporal")
     assert "google-24-full" in capsys.readouterr().out
 
 

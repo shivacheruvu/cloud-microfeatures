@@ -1,0 +1,218 @@
+{
+  "engine": "Python re over DEFINE symbols (local reference)",
+  "price_rows": 126,
+  "skus": 6,
+  "scan_rows": 84,
+  "cards": 8,
+  "dips": [
+    {
+      "sku": "P01 Coffee 12oz",
+      "dip_no": 1,
+      "start_day": "2026-10-16",
+      "cut_day": "2026-10-17",
+      "back_day": "2026-10-23",
+      "days": 8,
+      "before_cents": 999,
+      "promo_cents": 799,
+      "back_cents": 999
+    },
+    {
+      "sku": "P02 Greek yogurt 32oz",
+      "dip_no": 1,
+      "start_day": "2026-10-14",
+      "cut_day": "2026-10-15",
+      "back_day": "2026-10-21",
+      "days": 8,
+      "before_cents": 549,
+      "promo_cents": 449,
+      "back_cents": 549
+    },
+    {
+      "sku": "P02 Greek yogurt 32oz",
+      "dip_no": 2,
+      "start_day": "2026-10-23",
+      "cut_day": "2026-10-24",
+      "back_day": "2026-10-27",
+      "days": 5,
+      "before_cents": 549,
+      "promo_cents": 499,
+      "back_cents": 549
+    },
+    {
+      "sku": "P05 Cereal 18oz",
+      "dip_no": 1,
+      "start_day": "2026-10-15",
+      "cut_day": "2026-10-16",
+      "back_day": "2026-10-24",
+      "days": 10,
+      "before_cents": 449,
+      "promo_cents": 349,
+      "back_cents": 449
+    }
+  ],
+  "trips": [
+    {
+      "card": "L01",
+      "trip_no": 1,
+      "first_scan": "2026-10-31 11:32:00",
+      "last_scan": "2026-10-31 12:44:00",
+      "scans": 9
+    },
+    {
+      "card": "L01",
+      "trip_no": 2,
+      "first_scan": "2026-10-31 15:29:00",
+      "last_scan": "2026-10-31 15:29:00",
+      "scans": 1
+    },
+    {
+      "card": "L02",
+      "trip_no": 1,
+      "first_scan": "2026-10-31 09:26:00",
+      "last_scan": "2026-10-31 09:50:00",
+      "scans": 5
+    },
+    {
+      "card": "L02",
+      "trip_no": 2,
+      "first_scan": "2026-10-31 15:35:00",
+      "last_scan": "2026-10-31 15:39:00",
+      "scans": 2
+    },
+    {
+      "card": "L02",
+      "trip_no": 3,
+      "first_scan": "2026-10-31 21:04:00",
+      "last_scan": "2026-10-31 21:30:00",
+      "scans": 4
+    },
+    {
+      "card": "L03",
+      "trip_no": 1,
+      "first_scan": "2026-10-31 10:01:00",
+      "last_scan": "2026-10-31 10:33:00",
+      "scans": 5
+    },
+    {
+      "card": "L03",
+      "trip_no": 2,
+      "first_scan": "2026-10-31 17:08:00",
+      "last_scan": "2026-10-31 17:08:00",
+      "scans": 1
+    },
+    {
+      "card": "L03",
+      "trip_no": 3,
+      "first_scan": "2026-10-31 22:13:00",
+      "last_scan": "2026-10-31 23:01:00",
+      "scans": 6
+    },
+    {
+      "card": "L04",
+      "trip_no": 1,
+      "first_scan": "2026-10-31 10:38:00",
+      "last_scan": "2026-10-31 10:38:00",
+      "scans": 1
+    },
+    {
+      "card": "L04",
+      "trip_no": 2,
+      "first_scan": "2026-10-31 13:13:00",
+      "last_scan": "2026-10-31 13:27:00",
+      "scans": 2
+    },
+    {
+      "card": "L04",
+      "trip_no": 3,
+      "first_scan": "2026-10-31 17:02:00",
+      "last_scan": "2026-10-31 17:24:00",
+      "scans": 3
+    },
+    {
+      "card": "L04",
+      "trip_no": 4,
+      "first_scan": "2026-11-01 00:29:00",
+      "last_scan": "2026-11-01 00:47:00",
+      "scans": 3
+    },
+    {
+      "card": "L05",
+      "trip_no": 1,
+      "first_scan": "2026-10-31 11:17:00",
+      "last_scan": "2026-10-31 12:43:00",
+      "scans": 10
+    },
+    {
+      "card": "L06",
+      "trip_no": 1,
+      "first_scan": "2026-10-31 12:37:00",
+      "last_scan": "2026-10-31 12:51:00",
+      "scans": 2
+    },
+    {
+      "card": "L06",
+      "trip_no": 2,
+      "first_scan": "2026-10-31 18:46:00",
+      "last_scan": "2026-10-31 18:46:00",
+      "scans": 1
+    },
+    {
+      "card": "L06",
+      "trip_no": 3,
+      "first_scan": "2026-11-01 01:51:00",
+      "last_scan": "2026-11-01 02:27:00",
+      "scans": 6
+    },
+    {
+      "card": "L06",
+      "trip_no": 4,
+      "first_scan": "2026-11-01 04:32:00",
+      "last_scan": "2026-11-01 04:36:00",
+      "scans": 2
+    },
+    {
+      "card": "L07",
+      "trip_no": 1,
+      "first_scan": "2026-10-31 19:24:00",
+      "last_scan": "2026-10-31 19:28:00",
+      "scans": 2
+    },
+    {
+      "card": "L07",
+      "trip_no": 2,
+      "first_scan": "2026-11-01 00:53:00",
+      "last_scan": "2026-11-01 02:13:00",
+      "scans": 9
+    },
+    {
+      "card": "L07",
+      "trip_no": 3,
+      "first_scan": "2026-11-01 04:48:00",
+      "last_scan": "2026-11-01 04:48:00",
+      "scans": 1
+    },
+    {
+      "card": "L08",
+      "trip_no": 1,
+      "first_scan": "2026-10-31 13:06:00",
+      "last_scan": "2026-10-31 13:06:00",
+      "scans": 1
+    },
+    {
+      "card": "L08",
+      "trip_no": 2,
+      "first_scan": "2026-10-31 15:21:00",
+      "last_scan": "2026-10-31 16:41:00",
+      "scans": 8
+    }
+  ],
+  "dip_count": 4,
+  "skus_with_dips": [
+    "P01 Coffee 12oz",
+    "P02 Greek yogurt 32oz",
+    "P05 Cereal 18oz"
+  ],
+  "deepest_dip_pct": 22.3,
+  "trip_count": 22,
+  "max_trips_per_card": 4
+}

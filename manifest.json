@@ -1492,8 +1492,8 @@
       "slug": "day-35-delivery-slots-node26",
       "date": "2026-11-08",
       "title": "Compute delivery promises across the end of daylight saving time with Node.js 26 on Google's nodejs26 runtime image",
-      "summary": "A Cloud Run job on Google's Node.js 26 runtime base image (Preview) computes delivery promises for 10 online orders placed around the 2026-11-01 DST change at stores in Chicago, Denver, Phoenix and New York: Temporal for exact-hour promises, next-day pickups, the 25-hour day and the repeated 01:00 hour; Math.sumPrecise for the order-line total; RegExp.escape for literal catalog-name matches; Uint8Array.fromBase64 to decode the data. 7 of 10 promises are an hour off with wall-clock maths. Must equal a Python zoneinfo reference and report Node.js 26.",
-      "headline": "Node.js 26 Temporal on Cloud Run's nodejs26 runtime: 7 of 10 DST-night delivery promises an hour off with wall-clock maths",
+      "summary": "A Cloud Run job on Google's Node.js 26 runtime base image (Preview) computes delivery promises for 10 online orders placed around the 2026-11-01 DST change at stores in Chicago, Denver, Phoenix and New York (exact-hour promises, next-day pickups, the 25-hour day, the repeated 01:00 hour), matches catalog names literally with RegExp.escape and decodes its data with Uint8Array.fromBase64. 7 of 10 promises are an hour off with wall-clock maths. Node 26 on the image has no Temporal global or Math.sumPrecise by default, so the job tries Temporal behind --harmony-temporal and otherwise uses Intl.DateTimeFormat. Must equal a Python zoneinfo reference and report Node.js 26.",
+      "headline": "Node.js 26 on Cloud Run's nodejs26 runtime: 7 of 10 DST-night delivery promises an hour off with wall-clock maths",
       "skills": [
         "Cloud Run jobs",
         "Node.js 26",
@@ -1506,6 +1506,28 @@
         "name": "Node.js 26 runtime (nodejs26) for Cloud Run and Cloud Run functions runtime base images (Preview)",
         "released": "2026-07-27",
         "source": "https://docs.cloud.google.com/run/docs/release-notes"
+      }
+    },
+    {
+      "day": 35,
+      "platform": "databricks",
+      "slug": "day-35-shelf-price-patterns",
+      "date": "2026-11-08",
+      "title": "Find temporary price reductions and shopping trips with MATCH_RECOGNIZE row patterns",
+      "summary": "Two MATCH_RECOGNIZE queries: PATTERN (strt down+ (flat | down)* up+) finds temporary price reductions in 21 days of shelf prices for 6 SKUs (4 TPRs in 3 SKUs, deepest 22.3%, including a two-step cut), and PATTERN (strt same_trip*) splits 84 loyalty scans on 8 cards into 22 shopping trips at 45-minute gaps. Local reference runs the PATTERN as a regular expression over DEFINE symbols; the serverless job must return the same rows.",
+      "headline": "MATCH_RECOGNIZE: 4 temporary price reductions in 3 of 6 SKUs, 84 scans -> 22 shopping trips",
+      "skills": [
+        "Databricks SQL",
+        "Row pattern matching",
+        "Serverless jobs",
+        "Pricing analytics"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-35-shelf-price-patterns",
+      "new_feature": {
+        "name": "MATCH_RECOGNIZE clause for row pattern recognition (Beta)",
+        "released": "2026-06-30",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
     }
   ]

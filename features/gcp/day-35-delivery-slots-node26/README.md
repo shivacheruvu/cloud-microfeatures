@@ -12,23 +12,30 @@
 A small slice: run real Node.js 26 code on Google's own Node 26 runtime image as a Cloud Run job (no build step, no
 Artifact Registry repo of our own), on a grocery problem that bites once a year: **online orders placed around the end
 of daylight saving time** (Sunday 2026-11-01, 02:00 local) at four stores in Chicago, Denver, Phoenix (no DST) and New
-York. [`job26.js`](job26.js) uses four JavaScript features that ship in Node.js 26:
+York. [`job26.js`](job26.js) uses:
 
-| Node.js 26 feature | Used for |
-|---|---|
-| `Temporal` (on by default) | "delivered within N hours" promises in exact elapsed time (`ZonedDateTime#add({hours})`), next-day pickups that keep the wall clock (`add({days: 1})`), `hoursInDay` of the fall-back day, the 9 h vs 8 h overnight restock shift, and which promises land in the *second* 01:00 hour |
-| `Math.sumPrecise` | the exactly rounded total of the 21 order lines in dollars ($85.13; a plain `reduce` gives 85.13000000000001) |
-| `RegExp.escape` | finds catalog names like `M&M's (Peanut)`, `Half & Half 1.5 qt`, `Kombucha [Ginger]` literally in order lines (unescaped, `(Peanut)` is a group, `.` matches `x`, `[Ginger]` is a character class) |
-| `Uint8Array.fromBase64` + `TextDecoder` | decodes the order data from the job's env var with UTF-8 names (Jalapeño, Crème fraîche) intact |
+| Feature | In Node.js 26 on the image? | Used for |
+|---|---|---|
+| `RegExp.escape` | yes (required) | finds catalog names like `M&M's (Peanut)`, `Half & Half 1.5 qt`, `Kombucha [Ginger]` literally in order lines (unescaped, `(Peanut)` is a group, `.` matches `x`, `[Ginger]` is a character class) |
+| `Uint8Array.fromBase64` + `TextDecoder` | yes (required) | decodes the order data from the job's env var with UTF-8 names (Jalapeño, Crème fraîche) intact |
+| `Temporal` | **not by default** (first cloud run); tried behind V8's `--harmony-temporal` flag | exact-hour promises (`ZonedDateTime#add({hours})`), next-day pickups that keep the wall clock (`add({days: 1})`), `hoursInDay`, the repeated 01:00 hour |
+| `Intl.DateTimeFormat` | yes | the same time-zone maths without Temporal (and a cross-check of Temporal when it is there) |
+| `Math.sumPrecise` | **no** (first cloud run) | used when present; otherwise the order-line total is summed exactly in integer cents ($85.13; a plain `reduce` gives 85.13000000000001) |
 
-Each section is guarded, so on an older Node it reports which feature is missing rather than crashing.
+**Fix forward (same day).** The first cloud run (right after PR #128) ran Node.js 26 on the image, and
+`RegExp.escape` and `Uint8Array.fromBase64` worked, but there was **no `Temporal` global and no `Math.sumPrecise`**,
+so it failed. The job now runs as `node --harmony-temporal` (falling back to plain `node` if the flag is rejected),
+uses Temporal when it exists and `Intl.DateTimeFormat` otherwise, and reports which engine ran, whether the two agree,
+and whether the flag exposes Temporal. On local Node 22 both paths give exactly the reference results (the test runs
+both).
 
 [`slots.py`](slots.py) is the same computation in Python with `zoneinfo`, `math.fsum` and `re.escape` (the local
 reference, writes `result.json`). [`cloud_run.py`](cloud_run.py) creates the job on the `nodejs26` image (1 vCPU,
-512 MiB, no retries) with `--command=node --args=-e,eval(atob(process.env.DAY35_CODE))`, sends the code and the
+512 MiB, no retries) with `--command=node --args=--harmony-temporal,-e,eval(atob(process.env.DAY35_CODE))`, sends the code and the
 fixture ([`data.json`](data.json)) as base64 env vars, executes it once, reads the `DAY35_RESULT` line from Cloud
-Logging, checks it equals the reference **and** reports Node.js 26.x with all four features present and no errors,
-then deletes the job. If a task fails it retries with `nodejs`, then on the `google-24-full` stack.
+Logging, checks it equals the reference **and** reports Node.js 26.x with `RegExp.escape` and `Uint8Array.fromBase64`
+built in, no errors, and Temporal agreeing with Intl when both ran, then deletes the job. If a task fails it retries
+without the flag, then on the `google-24-full` stack.
 
 ## Result (local reference; the cloud job must match it exactly)
 | Store | Zone | Hours in 2026-11-01 | Restock shift Sat 22:00 → Sun 06:00 |
@@ -50,13 +57,14 @@ then deletes the job. If a task fails it retries with `nodejs`, then on the `goo
 - Catalog name matches (escaped vs unescaped): M&M's (Peanut) 2 vs 1, Half & Half 1.5 qt 1 vs 2, Dr. Pepper 2L
   2 vs 2, Kombucha [Ginger] 2 vs 1.
 
-Node.js 26 isn't installable in the build session (only the Python reference ran locally; the job on Node 22 reports
-the four features as missing, which the test checks), so the cloud run is the first real run of `job26.js`.
+Locally (Node 22) the job's time-zone and total figures equal the reference on both the Intl and the Temporal path;
+only the name matches need Node 26's `RegExp.escape`, so they are checked in the cloud.
 
 ## Why it matters
-Temporal ends the classic "delivery promised for 02:40 when it's really 01:40" bug: elapsed-time and wall-clock
-arithmetic are different calls, ambiguous times have an explicit rule, and a day can be 25 hours long. `Math.sumPrecise`
-and `RegExp.escape` remove two more hand-rolled helpers from price and catalog code. Running on Google's runtime base
+Exact-time arithmetic (Temporal, or Intl until Node enables it) ends the classic "delivery promised for 02:40 when
+it's really 01:40" bug: elapsed-time and wall-clock arithmetic are different calls, ambiguous times have an explicit
+rule, and a day can be 25 hours long. `RegExp.escape` and `Uint8Array.fromBase64` remove two hand-rolled helpers from
+catalog and data-loading code. It also shows what "Node.js 26" does and doesn't give you yet on this runtime. Running on Google's runtime base
 image means Google patches the Node.js underneath when it is used for services/functions with automatic updates.
 Being Preview, this is for trying code before the GA runtime, not production.
 
