@@ -60,6 +60,12 @@ without the flag, then on the `google-24-full` stack.
 Locally (Node 22) the job's time-zone and total figures equal the reference on both the Intl and the Temporal path;
 only the name matches need Node 26's `RegExp.escape`, so they are checked in the cloud.
 
+**Cloud run (2026-11-08, after the fix in PR #129):** matched local exactly. The `nodejs26` image (`google-24`) ran
+**Node.js 26.12.1, V8 14.6**; `node --harmony-temporal` was accepted but still exposes **no Temporal** (V8 built
+without it), so the time zones ran on `Intl.DateTimeFormat` and the total in integer cents; `RegExp.escape` and
+`Uint8Array.fromBase64` built in; 51 s end to end including job creation, image pull and the log read; job deleted.
+The first run (after PR #128) had failed because it assumed Temporal and `Math.sumPrecise`.
+
 ## Why it matters
 Exact-time arithmetic (Temporal, or Intl until Node enables it) ends the classic "delivery promised for 02:40 when
 it's really 01:40" bug: elapsed-time and wall-clock arithmetic are different calls, ambiguous times have an explicit

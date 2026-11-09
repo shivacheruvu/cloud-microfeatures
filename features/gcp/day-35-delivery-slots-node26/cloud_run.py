@@ -183,7 +183,7 @@ def run(gcloud=_gcloud, sleep=time.sleep) -> int:
           f"{rt.get('sum_engine')}; Temporal with the flag: {rt.get('temporal_with_harmony_flag')}) matched local: {len(local['orders'])} orders at "
           f"{len(local['stores'])} stores; Nov 1 had {s1['hours_in_day']:g} h in Chicago; "
           f"{local['late_if_naive']} promises an hour off with wall-clock maths, "
-          f"{local['deliveries_in_repeated_hour']} due in the repeated 01:00 hour; sumPrecise "
-          f"{local['total_precise']:.2f} exactly (a plain reduce is off by "
+          f"{local['deliveries_in_repeated_hour']} due in the repeated 01:00 hour; order lines "
+          f"${local['total_precise']:.2f} exactly (a plain reduce is off by "
           f"{abs(local['total_naive'] - local['total_precise']):.1e}); {took}s; job deleted")
     return 0
