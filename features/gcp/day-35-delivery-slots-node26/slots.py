@@ -5,8 +5,9 @@ Google's **Node.js 26 runtime** base image (nodejs26, Preview, Cloud Run / Cloud
   python slots.py            # Python reference (zoneinfo, math.fsum, re.escape), writes result.json
   python slots.py --cloud    # GitHub Actions: run job26.js on the nodejs26 runtime image, compare, delete the job
 
-`job26.js` is the same computation written with JavaScript features that ship in Node.js 26 (Temporal, Math.sumPrecise,
-RegExp.escape, Uint8Array.fromBase64). The cloud result must equal this reference, and the job must report Node 26.
+`job26.js` is the same computation in JavaScript for Node.js 26 (RegExp.escape, Uint8Array.fromBase64; Temporal behind
+--harmony-temporal when available, else Intl.DateTimeFormat). The cloud result must equal this reference, and the job
+must report Node 26.
 """
 from __future__ import annotations
 

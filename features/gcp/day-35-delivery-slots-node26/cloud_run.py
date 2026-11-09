@@ -17,9 +17,13 @@ import slots as sl
 LOG_WAIT_SECONDS, LOG_POLL_SECONDS = 240, 15
 # node -e '<this>': decode and run job26.js (ASCII) from the env var. No commas: gcloud splits --args on them.
 COMMAND_ARG = "eval(atob(process.env.DAY35_CODE))"
-# The runtime image's node is expected on PATH; nodejs is a fallback name. Each image is tried with each command.
-COMMANDS = ("node", "nodejs")
-ATTEMPTS = tuple((image, cmd) for image in sl.IMAGES for cmd in COMMANDS)
+# Must be built in: the run fails without them. Temporal and Math.sumPrecise are used when present and reported.
+REQUIRED = ("RegExp.escape", "Uint8Array.fromBase64")
+# node is on PATH in the image (first cloud run, 2026-11-08). Node.js 26 has no Temporal global by default, so the
+# job first runs with V8's --harmony-temporal flag; if node rejects the flag, it runs without it (the job then uses
+# its Intl.DateTimeFormat path, which gives the same results). Each image stack is tried in turn.
+TEMPORAL_FLAG = "--harmony-temporal"
+ATTEMPTS = tuple((image, flags) for image in sl.IMAGES for flags in ((TEMPORAL_FLAG,), ()))
 
 
 class GcloudError(Exception):
@@ -34,10 +38,14 @@ def _gcloud(args: list[str], timeout: int = 900) -> str:
     return p.stdout
 
 
-def create_args(region: str, env_file: str, image: str = sl.IMAGES[0], command: str = "node",
+def node_args(flags: tuple = (TEMPORAL_FLAG,)) -> str:
+    return "--args=" + ",".join([*flags, "-e", COMMAND_ARG])
+
+
+def create_args(region: str, env_file: str, image: str = sl.IMAGES[0], flags: tuple = (TEMPORAL_FLAG,),
                 service_account: str | None = None) -> list[str]:
     args = ["run", "jobs", "create", sl.JOB, f"--region={region}", f"--image={image}",
-            f"--command={command}", f"--args=-e,{COMMAND_ARG}", f"--env-vars-file={env_file}",
+            "--command=node", node_args(flags), f"--env-vars-file={env_file}",
             "--cpu=1", "--memory=512Mi", "--tasks=1", "--max-retries=0", "--task-timeout=300s",
             "--labels=app=cloud-microfeatures,day=35"]
     if service_account:
@@ -76,9 +84,12 @@ def compare(cloud: dict, local: dict) -> list[str]:
     rt = cloud.get("runtime") or {}
     if str(rt.get("node", "")).split(".")[0] != "26":
         errors.append(f"job ran Node.js {rt.get('node')}, expected 26.x from the {sl.RUNTIME_ID} image")
-    missing = [k for k, v in (rt.get("features") or {}).items() if v not in ("function", "object")]
-    if missing or not rt.get("features"):
-        errors.append(f"not available in this Node.js: {', '.join(missing) or 'feature report missing'}")
+    feats = rt.get("features") or {}
+    missing = [k for k in REQUIRED if feats.get(k) != "function"]
+    if missing:
+        errors.append(f"not available in this Node.js: {', '.join(missing)}")
+    if rt.get("engines_agree") is False:
+        errors.append("Temporal and Intl.DateTimeFormat gave different delivery times")
     for name, msg in (rt.get("errors") or {}).items():
         errors.append(f"{name} threw: {msg}")
     return errors
@@ -114,24 +125,25 @@ def create_job(region: str, env_file: str, gcloud=_gcloud) -> str:
 
 
 def execute(region: str, gcloud=_gcloud, sleep=time.sleep, wait: int = LOG_WAIT_SECONDS):
-    """Execute the job; if the task fails (image stack or interpreter name), switch to the next (image, command) and
-    try again. Returns (result, image, command, seconds, notes)."""
+    """Execute the job; if the task fails (unknown V8 flag, image stack), switch to the next (image, flags) and try
+    again. Returns (result, image, flags, seconds, notes)."""
     notes = []
-    for i, (image, cmd) in enumerate(ATTEMPTS):
+    for i, (image, flags) in enumerate(ATTEMPTS):
         if i:
-            gcloud(["run", "jobs", "update", sl.JOB, f"--region={region}", f"--image={image}", f"--command={cmd}"])
+            gcloud(["run", "jobs", "update", sl.JOB, f"--region={region}", f"--image={image}", node_args(flags)])
         t0 = time.time()
         stack = image.split("/")[-3]
+        cmd = " ".join(["node", *flags])
         try:
             execution = gcloud(["run", "jobs", "execute", sl.JOB, f"--region={region}", "--wait",
                                 "--format=value(metadata.name)"], timeout=900).strip()
         except GcloudError as e:
-            notes.append(f"{stack} --command={cmd}: {str(e)[-250:]}")
+            notes.append(f"{stack} {cmd}: {str(e)[-250:]}")
             continue
         cloud, tail = read_result(execution, gcloud, sleep, wait)
         if cloud is not None:
             return cloud, image, cmd, round(time.time() - t0), notes
-        notes.append(f"{stack} --command={cmd}: no DAY35_RESULT line; last lines: {' | '.join(tail)[:250]}")
+        notes.append(f"{stack} {cmd}: no DAY35_RESULT line; last lines: {' | '.join(tail)[:250]}")
     return None, None, None, None, notes
 
 
@@ -167,7 +179,8 @@ def run(gcloud=_gcloud, sleep=time.sleep) -> int:
     rt = cloud["runtime"]
     s1 = local["stores"]["S1"]
     print(f"::notice title=Google Cloud day 35::Cloud Run job on {sl.RUNTIME_ID} ({image.split('/')[-3]}, Node.js "
-          f"{rt['node']}, V8 {rt['v8']}, --command={cmd}) matched local: {len(local['orders'])} orders at "
+          f"{rt['node']}, V8 {rt['v8']}, `{cmd}`; time zones via {rt.get('tz_engine')}, total via "
+          f"{rt.get('sum_engine')}; Temporal with the flag: {rt.get('temporal_with_harmony_flag')}) matched local: {len(local['orders'])} orders at "
           f"{len(local['stores'])} stores; Nov 1 had {s1['hours_in_day']:g} h in Chicago; "
           f"{local['late_if_naive']} promises an hour off with wall-clock maths, "
           f"{local['deliveries_in_repeated_hour']} due in the repeated 01:00 hour; sumPrecise "
