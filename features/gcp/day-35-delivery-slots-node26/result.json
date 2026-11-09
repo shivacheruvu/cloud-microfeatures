@@ -1,0 +1,158 @@
+{
+  "engine": "Python zoneinfo reference (local) / job26.js on the Cloud Run nodejs26 runtime image (cloud)",
+  "image": "us-central1-docker.pkg.dev/serverless-runtimes/google-24/runtimes/nodejs26",
+  "orders": [
+    {
+      "id": "O01",
+      "store": "S1",
+      "placed": "2026-10-31T23:15-05:00",
+      "deliver_by": "2026-11-01T01:15-06:00",
+      "naive_deliver_by": "2026-11-01T02:15",
+      "late_if_naive": true,
+      "next_day_pickup": "2026-11-01T23:15-06:00",
+      "hours_to_pickup": 25.0
+    },
+    {
+      "id": "O02",
+      "store": "S1",
+      "placed": "2026-11-01T00:40-05:00",
+      "deliver_by": "2026-11-01T01:40-06:00",
+      "naive_deliver_by": "2026-11-01T02:40",
+      "late_if_naive": true,
+      "next_day_pickup": "2026-11-02T00:40-06:00",
+      "hours_to_pickup": 25.0
+    },
+    {
+      "id": "O03",
+      "store": "S1",
+      "placed": "2026-11-01T01:30-05:00",
+      "deliver_by": "2026-11-01T01:30-06:00",
+      "naive_deliver_by": "2026-11-01T02:30",
+      "late_if_naive": true,
+      "next_day_pickup": "2026-11-02T01:30-06:00",
+      "hours_to_pickup": 25.0
+    },
+    {
+      "id": "O04",
+      "store": "S1",
+      "placed": "2026-11-01T09:10-06:00",
+      "deliver_by": "2026-11-01T11:10-06:00",
+      "naive_deliver_by": "2026-11-01T11:10",
+      "late_if_naive": false,
+      "next_day_pickup": "2026-11-02T09:10-06:00",
+      "hours_to_pickup": 24.0
+    },
+    {
+      "id": "O05",
+      "store": "S2",
+      "placed": "2026-11-01T00:05-06:00",
+      "deliver_by": "2026-11-01T03:05-07:00",
+      "naive_deliver_by": "2026-11-01T04:05",
+      "late_if_naive": true,
+      "next_day_pickup": "2026-11-02T00:05-07:00",
+      "hours_to_pickup": 25.0
+    },
+    {
+      "id": "O06",
+      "store": "S2",
+      "placed": "2026-11-01T01:50-06:00",
+      "deliver_by": "2026-11-01T01:50-07:00",
+      "naive_deliver_by": "2026-11-01T02:50",
+      "late_if_naive": true,
+      "next_day_pickup": "2026-11-02T01:50-07:00",
+      "hours_to_pickup": 25.0
+    },
+    {
+      "id": "O07",
+      "store": "S3",
+      "placed": "2026-11-01T00:40-07:00",
+      "deliver_by": "2026-11-01T02:40-07:00",
+      "naive_deliver_by": "2026-11-01T02:40",
+      "late_if_naive": false,
+      "next_day_pickup": "2026-11-02T00:40-07:00",
+      "hours_to_pickup": 24.0
+    },
+    {
+      "id": "O08",
+      "store": "S3",
+      "placed": "2026-11-01T22:30-07:00",
+      "deliver_by": "2026-11-02T00:30-07:00",
+      "naive_deliver_by": "2026-11-02T00:30",
+      "late_if_naive": false,
+      "next_day_pickup": "2026-11-02T22:30-07:00",
+      "hours_to_pickup": 24.0
+    },
+    {
+      "id": "O09",
+      "store": "S4",
+      "placed": "2026-10-31T23:55-04:00",
+      "deliver_by": "2026-11-01T01:55-05:00",
+      "naive_deliver_by": "2026-11-01T02:55",
+      "late_if_naive": true,
+      "next_day_pickup": "2026-11-01T23:55-05:00",
+      "hours_to_pickup": 25.0
+    },
+    {
+      "id": "O10",
+      "store": "S4",
+      "placed": "2026-11-01T01:20-04:00",
+      "deliver_by": "2026-11-01T02:20-05:00",
+      "naive_deliver_by": "2026-11-01T03:20",
+      "late_if_naive": true,
+      "next_day_pickup": "2026-11-02T01:20-05:00",
+      "hours_to_pickup": 25.0
+    }
+  ],
+  "stores": {
+    "S1": {
+      "time_zone": "America/Chicago",
+      "hours_in_day": 25.0,
+      "restock_hours": 9.0
+    },
+    "S2": {
+      "time_zone": "America/Denver",
+      "hours_in_day": 25.0,
+      "restock_hours": 9.0
+    },
+    "S3": {
+      "time_zone": "America/Phoenix",
+      "hours_in_day": 24.0,
+      "restock_hours": 8.0
+    },
+    "S4": {
+      "time_zone": "America/New_York",
+      "hours_in_day": 25.0,
+      "restock_hours": 9.0
+    }
+  },
+  "late_if_naive": 7,
+  "deliveries_in_repeated_hour": 5,
+  "total_naive": 85.13000000000001,
+  "total_precise": 85.13,
+  "name_matches": [
+    [
+      "M&M's (Peanut)",
+      2,
+      1
+    ],
+    [
+      "Half & Half 1.5 qt",
+      1,
+      2
+    ],
+    [
+      "Dr. Pepper 2L",
+      2,
+      2
+    ],
+    [
+      "Kombucha [Ginger]",
+      2,
+      1
+    ]
+  ],
+  "utf8_names": [
+    "Jalapeño salsa 16oz",
+    "Crème fraîche 8oz"
+  ]
+}
