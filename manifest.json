@@ -1544,12 +1544,34 @@
         "Zstandard",
         "Data archiving"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-36-scan-archive-zstd",
       "new_feature": {
         "name": "ZSTD_COMPRESS, ZSTD_DECOMPRESS_TO_BYTES, ZSTD_DECOMPRESS_TO_STRING compression functions (Preview)",
         "released": "2026-11-09",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
+    },
+    {
+      "day": 36,
+      "platform": "databricks",
+      "slug": "day-36-markdown-window-dates",
+      "date": "2026-11-09",
+      "title": "Plan grocery markdowns with dates from the job itself: date arithmetic in Lakeflow Jobs parameters",
+      "summary": "A daily markdown-planning job takes every date as a task parameter resolved by date arithmetic in dynamic value references (Beta), e.g. {{(job.start_time + 3.days).iso_date}} for the sell-by cutoff and {{(job.start_time - 1.week).iso_date}} for the velocity window, instead of current_date() maths in SQL. A stdlib resolver for the documented syntax passes the four documented examples and six edge cases; the plan pulls 2 expired lots, marks down 8 (298 units) and keeps 3. The cloud run creates the job, runs it once on serverless and checks all 12 resolved values against the resolver for that run's start time.",
+      "headline": "Date arithmetic in job parameters: 13 short-dated lots, 2 pull, 8 markdowns, 3 keep",
+      "skills": [
+        "Lakeflow Jobs",
+        "Dynamic value references",
+        "Serverless",
+        "Markdown planning"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-36-markdown-window-dates",
+      "new_feature": {
+        "name": "Date arithmetic in Lakeflow Jobs dynamic value references (Beta)",
+        "released": "2026-11-09",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/november"
       }
     }
   ]
