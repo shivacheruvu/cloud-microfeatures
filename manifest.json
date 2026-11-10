@@ -1529,6 +1529,28 @@
         "released": "2026-06-30",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 36,
+      "platform": "gcp",
+      "slug": "day-36-scan-archive-zstd",
+      "date": "2026-11-09",
+      "title": "Archive raw scan exports as Zstandard-compressed BYTES with BigQuery's ZSTD_COMPRESS",
+      "summary": "One BigQuery query compresses five synthetic store scan exports (CSV with UTF-8 product names) with ZSTD_COMPRESS at levels -5, 1, 3 (and the default) and 19, and reads them back with ZSTD_DECOMPRESS_TO_STRING and ZSTD_DECOMPRESS_TO_BYTES (with a size_limit). Every frame BigQuery returns must decompress locally with plain libzstd to the exact export and carry its size in the frame header. Level 3 gives 5.6x overall (19: 6.25x); a header-only export grows 47 to 56 bytes. A second query checks size_limit refuses an oversized decompress.",
+      "headline": "ZSTD_COMPRESS in BigQuery: scan exports 5.6x smaller as standard zstd frames any tool can read",
+      "skills": [
+        "BigQuery",
+        "GoogleSQL",
+        "Zstandard",
+        "Data archiving"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-36-scan-archive-zstd",
+      "new_feature": {
+        "name": "ZSTD_COMPRESS, ZSTD_DECOMPRESS_TO_BYTES, ZSTD_DECOMPRESS_TO_STRING compression functions (Preview)",
+        "released": "2026-11-09",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
