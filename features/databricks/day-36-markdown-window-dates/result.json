@@ -1,0 +1,191 @@
+{
+  "engine": "date_refs.py resolver + DuckDB (local) / Lakeflow Jobs task parameters on serverless (cloud)",
+  "run_start_utc": "2026-11-09T11:00:07.123Z",
+  "parameters": {
+    "start_ms": "{{job.start_time.timestamp_ms}}",
+    "run_date": "{{job.start_time.iso_date}}",
+    "yesterday": "{{(job.start_time - 1.day).iso_date}}",
+    "yesterday_last_week": "{{(job.start_time - 8.days).iso_date}}",
+    "week_start": "{{(job.start_time - 1.week).iso_date}}",
+    "sell_by_cutoff": "{{(job.start_time + 3.days).iso_date}}",
+    "last_month": "{{(job.start_time - 1.month).month}}",
+    "last_month_year": "{{(job.start_time - 1.month).year}}",
+    "same_day_last_year": "{{(job.start_time - 1.year).iso_date}}",
+    "six_hours_ago_ms": "{{(job.start_time - 6.hours).timestamp_ms}}",
+    "ninety_min_ago_hour": "{{(job.start_time - 90.minutes).hour}}",
+    "tomorrow_iso_weekday": "{{(job.start_time + 1.day).iso_weekday}}"
+  },
+  "resolved": {
+    "start_ms": "1794222007123",
+    "run_date": "2026-11-09",
+    "yesterday": "2026-11-08",
+    "yesterday_last_week": "2026-11-01",
+    "week_start": "2026-11-02",
+    "sell_by_cutoff": "2026-11-12",
+    "last_month": "10",
+    "last_month_year": "2026",
+    "same_day_last_year": "2025-11-09",
+    "six_hours_ago_ms": "1794200407123",
+    "ninety_min_ago_hour": "9",
+    "tomorrow_iso_weekday": "2"
+  },
+  "lots_considered": 13,
+  "actions": {
+    "pull": 2,
+    "50% off": 5,
+    "25% off": 3,
+    "keep": 3
+  },
+  "units_to_mark_down": 298,
+  "units_to_pull": 51,
+  "store_units": {
+    "yesterday": 153,
+    "same_weekday_last_week": 160
+  },
+  "edge_cases_passed": "10/10",
+  "plan": [
+    {
+      "store": "chi-01",
+      "sku": "bagels-6ct",
+      "lot": "L005",
+      "sell_by": "2026-11-08",
+      "on_hand": 37,
+      "days_left": -1,
+      "per_day": 9.57,
+      "expected_to_sell": 0,
+      "action": "pull"
+    },
+    {
+      "store": "chi-01",
+      "sku": "milk-1gal",
+      "lot": "L002",
+      "sell_by": "2026-11-08",
+      "on_hand": 14,
+      "days_left": -1,
+      "per_day": 32.43,
+      "expected_to_sell": 0,
+      "action": "pull"
+    },
+    {
+      "store": "chi-01",
+      "sku": "yogurt-4pk",
+      "lot": "L003",
+      "sell_by": "2026-11-10",
+      "on_hand": 8,
+      "days_left": 1,
+      "per_day": 12.43,
+      "expected_to_sell": 12,
+      "action": "keep"
+    },
+    {
+      "store": "chi-01",
+      "sku": "bagels-6ct",
+      "lot": "L006",
+      "sell_by": "2026-11-11",
+      "on_hand": 4,
+      "days_left": 2,
+      "per_day": 9.57,
+      "expected_to_sell": 19,
+      "action": "keep"
+    },
+    {
+      "store": "chi-01",
+      "sku": "milk-1gal",
+      "lot": "L001",
+      "sell_by": "2026-11-11",
+      "on_hand": 58,
+      "days_left": 2,
+      "per_day": 32.43,
+      "expected_to_sell": 64,
+      "action": "keep"
+    },
+    {
+      "store": "chi-01",
+      "sku": "salad-kit",
+      "lot": "L008",
+      "sell_by": "2026-11-12",
+      "on_hand": 48,
+      "days_left": 3,
+      "per_day": 8.57,
+      "expected_to_sell": 25,
+      "action": "25% off"
+    },
+    {
+      "store": "den-02",
+      "sku": "bagels-6ct",
+      "lot": "L017",
+      "sell_by": "2026-11-09",
+      "on_hand": 6,
+      "days_left": 0,
+      "per_day": 5.86,
+      "expected_to_sell": 0,
+      "action": "50% off"
+    },
+    {
+      "store": "den-02",
+      "sku": "hummus-10oz",
+      "lot": "L024",
+      "sell_by": "2026-11-09",
+      "on_hand": 31,
+      "days_left": 0,
+      "per_day": 3.71,
+      "expected_to_sell": 0,
+      "action": "50% off"
+    },
+    {
+      "store": "den-02",
+      "sku": "milk-1gal",
+      "lot": "L013",
+      "sell_by": "2026-11-10",
+      "on_hand": 41,
+      "days_left": 1,
+      "per_day": 19.86,
+      "expected_to_sell": 19,
+      "action": "50% off"
+    },
+    {
+      "store": "den-02",
+      "sku": "yogurt-4pk",
+      "lot": "L015",
+      "sell_by": "2026-11-10",
+      "on_hand": 60,
+      "days_left": 1,
+      "per_day": 6.86,
+      "expected_to_sell": 6,
+      "action": "50% off"
+    },
+    {
+      "store": "den-02",
+      "sku": "yogurt-4pk",
+      "lot": "L016",
+      "sell_by": "2026-11-10",
+      "on_hand": 60,
+      "days_left": 1,
+      "per_day": 6.86,
+      "expected_to_sell": 6,
+      "action": "50% off"
+    },
+    {
+      "store": "den-02",
+      "sku": "rotisserie-chkn",
+      "lot": "L022",
+      "sell_by": "2026-11-11",
+      "on_hand": 17,
+      "days_left": 2,
+      "per_day": 8.43,
+      "expected_to_sell": 16,
+      "action": "25% off"
+    },
+    {
+      "store": "den-02",
+      "sku": "salad-kit",
+      "lot": "L019",
+      "sell_by": "2026-11-12",
+      "on_hand": 35,
+      "days_left": 3,
+      "per_day": 4.57,
+      "expected_to_sell": 13,
+      "action": "25% off"
+    }
+  ]
+}
