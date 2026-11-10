@@ -53,5 +53,10 @@ Two queries over inlined literals: 0 bytes scanned, so $0 under on-demand pricin
 | 19 | 4,948 B | 6.25x |
 
 30,927 raw bytes (269 extra bytes from multi-byte UTF-8 characters, so `BYTE_LENGTH` ≠ `CHAR_LENGTH`). Level 3 per
-export: 5.2x-6.0x; `tiny-05` grows 47 → 56 B. Cloud result: see the day's report. Numbers in
+export: 5.2x-6.0x; `tiny-05` grows 47 → 56 B.
+
+**Cloud (2026-11-09, after #131 merged): ran and matched.** All 20 BigQuery frames decompress with libzstd to the
+exact exports with the size in the header, no checksum flag; the default level is 3; and **all 20 frames are
+byte-identical to libzstd 1.5.7**, so BigQuery's sizes equal the table above. The size_limit guard refused as
+documented: "ZSTD output is too large: (9883 bytes) > limit (4096 bytes)". Numbers in
 [`result.json`](result.json).
