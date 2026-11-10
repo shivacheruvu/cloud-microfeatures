@@ -1,0 +1,48 @@
+{
+  "engine": "libzstd via python zstandard (local) / BigQuery ZSTD_COMPRESS (cloud)",
+  "exports": 5,
+  "raw_bytes_total": 30927,
+  "multibyte_chars": 269,
+  "compressed_bytes_total": {
+    "level -5": 9874,
+    "level 1": 5558,
+    "level 3": 5486,
+    "level 19": 4948
+  },
+  "ratio_total": {
+    "level -5": 3.13,
+    "level 1": 5.56,
+    "level 3": 5.64,
+    "level 19": 6.25
+  },
+  "level_3_by_export": {
+    "chi-01": {
+      "raw": 8559,
+      "zstd": 1479,
+      "ratio": 5.79
+    },
+    "den-02": {
+      "raw": 6846,
+      "zstd": 1244,
+      "ratio": 5.5
+    },
+    "nyc-04": {
+      "raw": 9883,
+      "zstd": 1635,
+      "ratio": 6.04
+    },
+    "phx-03": {
+      "raw": 5592,
+      "zstd": 1072,
+      "ratio": 5.22
+    },
+    "tiny-05": {
+      "raw": 47,
+      "zstd": 56,
+      "ratio": 0.84
+    }
+  },
+  "grew_when_compressed": [
+    "tiny-05"
+  ]
+}
