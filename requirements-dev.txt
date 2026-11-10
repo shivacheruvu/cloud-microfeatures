@@ -4,3 +4,4 @@ pyspark>=3.5
 numpy>=1.26   # DuckDB Python UDFs (day 3 Databricks local run)
 pandas>=2.2,<3   # pandas API on Spark (day 29 Databricks local run; pyspark 4.3 recommends pandas < 3)
 pyarrow>=18   # pandas API on Spark (day 29 Databricks local run)
+zstandard>=0.23   # libzstd reference for BigQuery ZSTD_COMPRESS (day 36 Google Cloud)
