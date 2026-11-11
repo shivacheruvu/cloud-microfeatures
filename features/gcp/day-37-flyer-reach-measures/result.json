@@ -1,0 +1,42 @@
+{
+  "engine": "DuckDB key-grain dedupe + plain Python (local) / BigQuery Graph measures via GRAPH_EXPAND + AGG (cloud)",
+  "brands": 3,
+  "products": 8,
+  "flyers": 4,
+  "flyer_slots": 14,
+  "by_brand": [
+    {
+      "brand": "Green Valley Dairy-Free",
+      "naive_units": 1820,
+      "units": 830,
+      "products": 3,
+      "slots": 6,
+      "naive_households": 117000,
+      "households": 78000
+    },
+    {
+      "brand": "Harbor Bakery",
+      "naive_units": 670,
+      "units": 490,
+      "products": 2,
+      "slots": 3,
+      "naive_households": 111000,
+      "households": 63000
+    },
+    {
+      "brand": "Sunny Fields Produce",
+      "naive_units": 2190,
+      "units": 1150,
+      "products": 3,
+      "slots": 5,
+      "naive_households": 114000,
+      "households": 84000
+    }
+  ],
+  "units_true": 2470,
+  "units_naive": 4680,
+  "units_overcount_pct": 89.5,
+  "worst_brand": "Green Valley Dairy-Free",
+  "worst_brand_factor": 2.19,
+  "headline": "AGG over graph measures: 2470 weekly units across 3 brands; naive SUM over the flattened graph says 4680 (+89.5%), Green Valley Dairy-Free inflated 2.19x"
+}
