@@ -1573,6 +1573,28 @@
         "released": "2026-11-09",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/november"
       }
+    },
+    {
+      "day": 37,
+      "platform": "gcp",
+      "slug": "day-37-flyer-reach-measures",
+      "date": "2026-11-10",
+      "title": "Brand units and flyer reach without double counting: BigQuery Graph measures",
+      "summary": "A promo property graph (3 brands, 8 products, 4 flyers, 14 flyer slots) declares MEASURE(SUM(...)) properties keyed to products and flyers. One GRAPH_EXPAND query puts the naive SUM over the flattened rows next to AGG over the measures per brand; every number must equal a DuckDB / plain-Python model. Naive SUM overcounts weekly units by 89.5% (Green Valley 2.19x, its oat milk is on three flyers); AGG counts each product and flyer once. A second query checks SUM over a measure is refused.",
+      "headline": "Graph measures in BigQuery: 2,470 weekly units, not the 4,680 a naive SUM over flyer placements reports",
+      "skills": [
+        "BigQuery",
+        "BigQuery Graph",
+        "GoogleSQL",
+        "Semantic modeling"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-37-flyer-reach-measures",
+      "new_feature": {
+        "name": "Graph measures with GRAPH_EXPAND and AGG in BigQuery Graph (GA)",
+        "released": "2026-11-10",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
