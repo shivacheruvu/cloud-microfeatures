@@ -34,8 +34,8 @@ GCP_PROJECT_ID=... bash features/gcp/day-37-flyer-reach-measures/cloud.sh   # in
 ```
 
 ## Cost
-A temporary dataset (deleted on exit, tables expire in 1 h), four tiny INSERTs and two queries, each billed at the
-10 MiB minimum with a 20 MiB cap: well under one cent on on-demand pricing. No reservation or edition is bought.
+A temporary dataset (deleted on exit, tables expire in 1 h), four tiny INSERTs (10 MiB minimum each) and the
+`GRAPH_EXPAND` query, which bills a 40 MiB minimum: about $0.0005 a run on on-demand pricing. No reservation or edition is bought.
 
 ## Result (local)
 | Brand | Products | Slots | Units: SUM (naive) | Units: AGG (measure) | Households: SUM | Households: AGG |
@@ -48,4 +48,8 @@ A temporary dataset (deleted on exit, tables expire in 1 h), four tiny INSERTs a
 Households AGG = the sum over the distinct flyers carrying the brand (an upper bound on reach: flyer audiences may
 overlap). Numbers in [`result.json`](result.json).
 
-**Cloud:** runs in GitHub Actions after merge; see the report for the outcome.
+**Cloud (2026-11-10, after #133 / #134 merged): ran and matched.** All 18 numbers from `GRAPH_EXPAND` + `AGG` (and the
+naive `SUM`s next to them) equal the local table. `SUM(Products_total_units)` was refused as documented: "MEASURE-typed
+arguments are only permitted in the AGG function". The first run (#133) was refused at the 20 MiB
+`maximum_bytes_billed` cap: the graph query bills a **40 MiB minimum** (41,943,040 bytes, about $0.00025 on demand), so
+`cloud.sh` now raises the cap to what BigQuery asks for, up to 1 GiB (#134).

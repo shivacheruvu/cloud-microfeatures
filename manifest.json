@@ -1588,7 +1588,7 @@
         "GoogleSQL",
         "Semantic modeling"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-37-flyer-reach-measures",
       "new_feature": {
         "name": "Graph measures with GRAPH_EXPAND and AGG in BigQuery Graph (GA)",
