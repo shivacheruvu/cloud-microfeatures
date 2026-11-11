@@ -1588,12 +1588,34 @@
         "GoogleSQL",
         "Semantic modeling"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-37-flyer-reach-measures",
       "new_feature": {
         "name": "Graph measures with GRAPH_EXPAND and AGG in BigQuery Graph (GA)",
         "released": "2026-11-10",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
+    },
+    {
+      "day": 37,
+      "platform": "databricks",
+      "slug": "day-37-restock-after-receiving",
+      "date": "2026-11-10",
+      "title": "Restock plan that starts only after both receiving jobs finish, with a Lakeflow Jobs job completion trigger",
+      "summary": "A restock-plan job carries a job completion trigger on two receiving jobs (DC truck, DSD vendors) with if_status SUCCESS and gets the contributing runs through {{job.trigger.job_completion.completed_jobs}}. A stdlib model of the documented rules (AND across jobs, latest completion wins, SUCCESS_WITH_FAILURES matches, nothing before the trigger, reset after firing) replays a receiving day: 7 upstream runs -> 2 restock runs, 120 cases received, 88 straight to the shelf. The cloud run creates the three serverless jobs, runs both receiving jobs and checks the trigger hands over exactly those runs; everything is deleted.",
+      "headline": "Job completion trigger: 7 receiving runs -> 2 restock plans, the corrected ASN re-run replaces the stale one",
+      "skills": [
+        "Lakeflow Jobs",
+        "Job triggers",
+        "Serverless jobs",
+        "Databricks REST API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-37-restock-after-receiving",
+      "new_feature": {
+        "name": "Job completion triggers for Lakeflow Jobs (Beta)",
+        "released": "2026-11-03",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/november"
       }
     }
   ]

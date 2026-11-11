@@ -1,0 +1,71 @@
+{
+  "engine": "stdlib model of the documented job completion trigger rules (local) / Lakeflow Jobs job completion trigger on serverless (cloud)",
+  "upstream_completions": 7,
+  "downstream_runs": {
+    "SUCCESS": 2,
+    "DONE": 2,
+    "FAILED": 0
+  },
+  "runs": [
+    {
+      "started_after": "2026-11-10T07:30",
+      "uses": {
+        "receive-dc-truck": "9102 SUCCESS",
+        "receive-dsd-vendors": "9202 SUCCESS"
+      },
+      "plan": {
+        "bananas 40 lb": {
+          "received": 12,
+          "to_shelf": 7,
+          "to_backroom": 5
+        },
+        "eggs 12 ct": {
+          "received": 18,
+          "to_shelf": 18,
+          "to_backroom": 0
+        },
+        "oat milk 64 oz": {
+          "received": 40,
+          "to_shelf": 20,
+          "to_backroom": 20
+        },
+        "sourdough loaf": {
+          "received": 24,
+          "to_shelf": 18,
+          "to_backroom": 6
+        }
+      }
+    },
+    {
+      "started_after": "2026-11-10T13:00",
+      "uses": {
+        "receive-dc-truck": "9103 SUCCESS_WITH_FAILURES",
+        "receive-dsd-vendors": "9203 SUCCESS"
+      },
+      "plan": {
+        "bananas 40 lb": {
+          "received": 8,
+          "to_shelf": 7,
+          "to_backroom": 1
+        },
+        "eggs 12 ct": {
+          "received": 12,
+          "to_shelf": 12,
+          "to_backroom": 0
+        },
+        "oat milk 64 oz": {
+          "received": 6,
+          "to_shelf": 6,
+          "to_backroom": 0
+        }
+      }
+    }
+  ],
+  "done_filter_first_run_uses": [
+    "9102",
+    "9201"
+  ],
+  "cases_received": 120,
+  "cases_to_shelf": 88,
+  "headline": "7 receiving runs -> 2 restock-plan runs with if_status SUCCESS (DONE: 2, FAILED: 0); the 06:00 DC run is superseded by its 06:40 re-run and the failed vendor run never counts"
+}
