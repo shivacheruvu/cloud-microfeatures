@@ -1,0 +1,43 @@
+{
+  "engine": "plain Python (local reference)",
+  "shelf_lines": 8,
+  "cases": 15,
+  "units": 162,
+  "cases_by_sku": {
+    "MLK-2L": 4,
+    "YOG-500": 2,
+    "EGG-12": 0,
+    "PAS-500": 2,
+    "RIC-2KG": 1,
+    "OIL-1L": 0,
+    "CRL-500": 3,
+    "PEA-1KG": 3
+  },
+  "cases_by_aisle": {
+    "A01": 6,
+    "B07": 3,
+    "B09": 3,
+    "F03": 3
+  },
+  "lines_needing_no_cases": [
+    "EGG-12",
+    "OIL-1L"
+  ],
+  "pick_list": [
+    "A01 MLK-2L #1",
+    "A01 MLK-2L #2",
+    "A01 MLK-2L #3",
+    "A01 MLK-2L #4",
+    "A01 YOG-500 #1",
+    "A01 YOG-500 #2",
+    "B07 PAS-500 #1",
+    "B07 PAS-500 #2",
+    "B07 RIC-2KG #1",
+    "B09 CRL-500 #1",
+    "B09 CRL-500 #2",
+    "B09 CRL-500 #3",
+    "F03 PEA-1KG #1",
+    "F03 PEA-1KG #2",
+    "F03 PEA-1KG #3"
+  ]
+}
