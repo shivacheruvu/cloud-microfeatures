@@ -99,6 +99,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 35 | [Compute delivery promises across the end of daylight saving time with Node.js 26 on Google's nodejs26 runtime image](features/gcp/day-35-delivery-slots-node26) | [Node.js 26 runtime (nodejs26) for Cloud Run and Cloud Run functions runtime base images (Preview)](https://docs.cloud.google.com/run/docs/release-notes) (2026-07-27) | Cloud Run jobs, Node.js 26, Temporal, Delivery slots | ran |
 | 36 | [Archive raw scan exports as Zstandard-compressed BYTES with BigQuery's ZSTD_COMPRESS](features/gcp/day-36-scan-archive-zstd) | [ZSTD_COMPRESS, ZSTD_DECOMPRESS_TO_BYTES, ZSTD_DECOMPRESS_TO_STRING compression functions (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-09) | BigQuery, GoogleSQL, Zstandard, Data archiving | ran |
 | 37 | [Brand units and flyer reach without double counting: BigQuery Graph measures](features/gcp/day-37-flyer-reach-measures) | [Graph measures with GRAPH_EXPAND and AGG in BigQuery Graph (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-10) | BigQuery, BigQuery Graph, GoogleSQL, Semantic modeling | ran |
+| 38 | [Count every picked item in nested tote manifests with BigQuery's JSON_FLATTEN](features/gcp/day-38-tote-manifest-flatten) | [JSON_FLATTEN function (GA)](https://docs.cloud.google.com/release-notes) (2026-11-11) | BigQuery, GoogleSQL, JSON, Semi-structured data | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself
