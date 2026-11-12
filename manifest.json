@@ -1617,6 +1617,28 @@
         "released": "2026-11-03",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/november"
       }
+    },
+    {
+      "day": 38,
+      "platform": "gcp",
+      "slug": "day-38-tote-manifest-flatten",
+      "date": "2026-11-11",
+      "title": "Count every picked item in nested tote manifests with BigQuery's JSON_FLATTEN",
+      "summary": "Eight synthetic online grocery orders pack items at depths 1 to 4 (tote, bag, bag-in-bag, express flat list). One BigQuery query unnests JSON_FLATTEN over each order's totes and totals items, units and value next to the old fixed-depth JSON_QUERY_ARRAY unnest; every number must equal a plain-Python model. JSON_FLATTEN finds all 33 items ($418.62); the fixed-depth unnest silently drops 8 ($108.96) from four orders. Substitutes inside items are not counted twice. A second query reports JSON_FLATTEN's edge cases.",
+      "headline": "JSON_FLATTEN in BigQuery: 33 of 33 picked items found at any depth; a fixed-depth unnest silently drops 8",
+      "skills": [
+        "BigQuery",
+        "GoogleSQL",
+        "JSON",
+        "Semi-structured data"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-38-tote-manifest-flatten",
+      "new_feature": {
+        "name": "JSON_FLATTEN function (GA)",
+        "released": "2026-11-11",
+        "source": "https://docs.cloud.google.com/release-notes"
+      }
     }
   ]
 }
