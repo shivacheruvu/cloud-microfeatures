@@ -58,4 +58,7 @@ cap). Nothing is created.
 Items by depth: 3 at depth 1, 2 at depth 2, 25 at depth 3, 3 at depth 4. Six items with substitutes are counted once.
 Numbers in [`result.json`](result.json).
 
-**Cloud:** pending the first run after merge.
+**Cloud (2026-11-11, after #136 merged): ran and matched.** All 8 orders equal the local model in BigQuery: 33 items /
+68 units / $418.62 with `JSON_FLATTEN`, 25 items / $309.66 with the fixed-depth unnest; item order equals document
+order on 8/8 orders. The edge-case query matched the local model on 9/9: `[]` and `[[], [[]], [1]]` flatten to `[]` and
+`[1]` (empty arrays contribute nothing), JSON `null` gives `[null]`, SQL `NULL` gives SQL `NULL`.
