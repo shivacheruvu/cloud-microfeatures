@@ -1632,12 +1632,34 @@
         "JSON",
         "Semi-structured data"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-38-tote-manifest-flatten",
       "new_feature": {
         "name": "JSON_FLATTEN function (GA)",
         "released": "2026-11-11",
         "source": "https://docs.cloud.google.com/release-notes"
+      }
+    },
+    {
+      "day": 38,
+      "platform": "databricks",
+      "slug": "day-38-restock-cases-udf-tvf",
+      "date": "2026-11-11",
+      "title": "Night restock pick list with a scalar UDF passed straight into range()",
+      "summary": "A temporary SQL UDF cases_to_pick(on_hand, par, pack) is passed as an argument of the range table-valued function to make one row per case for the night crew, a query open-source Spark 4.3 refuses with NON_FOLDABLE_ARGUMENT. Eight shelf lines become 15 cases (162 units); at-par and overstocked lines get none. The serverless job also builds the list the old way with explode(sequence) and both must equal the plain-Python reference.",
+      "headline": "A UDF inside range(): 8 shelf lines become a 15-case pick list in one query",
+      "skills": [
+        "Databricks SQL",
+        "SQL UDFs",
+        "Table-valued functions",
+        "Serverless jobs"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-38-restock-cases-udf-tvf",
+      "new_feature": {
+        "name": "Scalar UDFs as table-valued function arguments (Databricks SQL 2026.32)",
+        "released": "2026-08-11",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
     }
   ]
