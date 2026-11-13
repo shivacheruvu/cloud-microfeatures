@@ -1676,12 +1676,34 @@
         "AI.GENERATE",
         "Structured output"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-39-shopping-list-hydrogen",
       "new_feature": {
         "name": "gemini-4-hydrogen model in BigQuery generative AI functions (GA)",
         "released": "2026-11-12",
         "source": "https://docs.cloud.google.com/release-notes"
+      }
+    },
+    {
+      "day": 39,
+      "platform": "databricks",
+      "slug": "day-39-price-volume-undrop",
+      "date": "2026-11-12",
+      "title": "Get a dropped price-file volume back with UNDROP VOLUME",
+      "summary": "Three store price files sit in a managed Unity Catalog volume with a comment and a READ VOLUME grant. A serverless job snapshots it (SHA-256 per file, rows and price total read with Spark, comment, grant), drops it, finds it in SHOW VOLUMES DROPPED by the ID recorded at creation rather than by name, restores it with UNDROP VOLUME WITH ID and snapshots again; both snapshots must equal the local reference (3 files, 15 rows, 59.35) and the volume must keep its ID and comment.",
+      "headline": "UNDROP VOLUME: a dropped price-file volume comes back byte for byte, with its grant and ID",
+      "skills": [
+        "Unity Catalog",
+        "Volumes",
+        "Databricks SQL",
+        "Serverless jobs"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-39-price-volume-undrop",
+      "new_feature": {
+        "name": "Recover dropped Unity Catalog volumes with UNDROP VOLUME",
+        "released": "2026-11-07",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/"
       }
     }
   ]

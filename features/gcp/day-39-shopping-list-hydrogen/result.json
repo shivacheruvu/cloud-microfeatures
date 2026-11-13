@@ -82,5 +82,11 @@
       "quantity": 18.0,
       "unit": "each"
     }
+  },
+  "cloud_run": {
+    "date": "2026-11-12",
+    "hydrogen_correct": 14,
+    "baseline_correct": 14,
+    "lines": 14
   }
 }
