@@ -1,0 +1,86 @@
+{
+  "engine": "hand-worked answer key (local) / AI.GENERATE on gemini-4-hydrogen vs gemini-3.5-flash-lite (cloud)",
+  "new_endpoint": "gemini-4-hydrogen",
+  "baseline_endpoint": "gemini-3.5-flash-lite",
+  "lines": 14,
+  "lines_by_unit": {
+    "each": 4,
+    "g": 6,
+    "ml": 4
+  },
+  "tolerance": 0.01,
+  "queries": 1,
+  "model_calls": 28,
+  "answer_key": {
+    "1": {
+      "line": "2 dozen eggs",
+      "quantity": 24.0,
+      "unit": "each"
+    },
+    "2": {
+      "line": "half a kilo of ground beef",
+      "quantity": 500.0,
+      "unit": "g"
+    },
+    "3": {
+      "line": "three 2L bottles of milk",
+      "quantity": 6000.0,
+      "unit": "ml"
+    },
+    "4": {
+      "line": "a 6-pack of 330ml sparkling water",
+      "quantity": 1980.0,
+      "unit": "ml"
+    },
+    "5": {
+      "line": "1.5 lb chicken thighs",
+      "quantity": 680.388,
+      "unit": "g"
+    },
+    "6": {
+      "line": "bananas x7",
+      "quantity": 7.0,
+      "unit": "each"
+    },
+    "7": {
+      "line": "250 g butter",
+      "quantity": 250.0,
+      "unit": "g"
+    },
+    "8": {
+      "line": "two 400g tins chopped tomatoes",
+      "quantity": 800.0,
+      "unit": "g"
+    },
+    "9": {
+      "line": "a litre of orange juice",
+      "quantity": 1000.0,
+      "unit": "ml"
+    },
+    "10": {
+      "line": "four 1.5 kg bags of flour",
+      "quantity": 6000.0,
+      "unit": "g"
+    },
+    "11": {
+      "line": "a baker's dozen bagels",
+      "quantity": 13.0,
+      "unit": "each"
+    },
+    "12": {
+      "line": "750ml olive oil, two bottles",
+      "quantity": 1500.0,
+      "unit": "ml"
+    },
+    "13": {
+      "line": "100 g fresh basil",
+      "quantity": 100.0,
+      "unit": "g"
+    },
+    "14": {
+      "line": "a dozen and a half lemons",
+      "quantity": 18.0,
+      "unit": "each"
+    }
+  }
+}
