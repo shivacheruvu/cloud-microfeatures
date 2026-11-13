@@ -1,0 +1,33 @@
+{
+  "engine": "plain Python (local reference)",
+  "files": [
+    {
+      "file": "prices_chi01.csv",
+      "sha256": "f3c82171ab6c51daae850726cbbbeed491332ba2b738192035382b339f9cd174",
+      "rows": 5,
+      "price_total": "21.55"
+    },
+    {
+      "file": "prices_chi02.csv",
+      "sha256": "eb14bed240d569a1c65ecc7fc4fe80eee36cdadad527a8c9399c93b8c483ccf7",
+      "rows": 4,
+      "price_total": "17.56"
+    },
+    {
+      "file": "prices_chi03.csv",
+      "sha256": "32093f192e933dde544153d55d86741147b1c868c406c742e7d288cc0cc275d2",
+      "rows": 6,
+      "price_total": "20.24"
+    }
+  ],
+  "file_count": 3,
+  "rows": 15,
+  "price_total": "59.35",
+  "comment": "cloud-microfeatures day 39: store shelf price files",
+  "grants": [
+    [
+      "account users",
+      "READ VOLUME"
+    ]
+  ]
+}

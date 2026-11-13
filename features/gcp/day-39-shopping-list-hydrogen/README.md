@@ -48,4 +48,9 @@ API: well under one cent of free-trial credit per run.
 ## Result
 Answer key (local): 14 lines → 4 counted in **each**, 6 in **g**, 4 in **ml**; e.g. three 2L bottles = 6000 ml,
 1.5 lb = 680.388 g, a baker's dozen = 13, two 400g tins = 800 g. The cloud run reports how many lines each model gets
-right; see the report for the day the run finished. Numbers in [`result.json`](result.json).
+right.
+
+**Cloud run (2026-11-12, first run after the merge):** `gemini-4-hydrogen` answered all 14 lines with a typed
+quantity and unit, and **14/14 equal the answer key**; the default `gemini-3.5-flash-lite` also got **14/14**. On
+lines this short the newer model's value is a tie, not a win: the side-by-side check is what tells you so before
+switching. Numbers in [`result.json`](result.json).
