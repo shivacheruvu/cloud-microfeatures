@@ -56,6 +56,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 36 | [Plan grocery markdowns with dates from the job itself: date arithmetic in Lakeflow Jobs parameters](features/databricks/day-36-markdown-window-dates) | [Date arithmetic in Lakeflow Jobs dynamic value references (Beta)](https://docs.databricks.com/aws/en/release-notes/product/2026/november) (2026-11-09) | Lakeflow Jobs, Dynamic value references, Serverless, Markdown planning | built |
 | 37 | [Restock plan that starts only after both receiving jobs finish, with a Lakeflow Jobs job completion trigger](features/databricks/day-37-restock-after-receiving) | [Job completion triggers for Lakeflow Jobs (Beta)](https://docs.databricks.com/aws/en/release-notes/product/2026/november) (2026-11-03) | Lakeflow Jobs, Job triggers, Serverless jobs, Databricks REST API | built |
 | 38 | [Night restock pick list with a scalar UDF passed straight into range()](features/databricks/day-38-restock-cases-udf-tvf) | [Scalar UDFs as table-valued function arguments (Databricks SQL 2026.32)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-08-11) | Databricks SQL, SQL UDFs, Table-valued functions, Serverless jobs | built |
+| 39 | [Get a dropped price-file volume back with UNDROP VOLUME](features/databricks/day-39-price-volume-undrop) | [Recover dropped Unity Catalog volumes with UNDROP VOLUME](https://docs.databricks.com/aws/en/release-notes/product/) (2026-11-07) | Unity Catalog, Volumes, Databricks SQL, Serverless jobs | built |
 <!-- databricks:end -->
 
 ## Google Cloud features
@@ -101,7 +102,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 36 | [Archive raw scan exports as Zstandard-compressed BYTES with BigQuery's ZSTD_COMPRESS](features/gcp/day-36-scan-archive-zstd) | [ZSTD_COMPRESS, ZSTD_DECOMPRESS_TO_BYTES, ZSTD_DECOMPRESS_TO_STRING compression functions (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-09) | BigQuery, GoogleSQL, Zstandard, Data archiving | ran |
 | 37 | [Brand units and flyer reach without double counting: BigQuery Graph measures](features/gcp/day-37-flyer-reach-measures) | [Graph measures with GRAPH_EXPAND and AGG in BigQuery Graph (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-10) | BigQuery, BigQuery Graph, GoogleSQL, Semantic modeling | ran |
 | 38 | [Count every picked item in nested tote manifests with BigQuery's JSON_FLATTEN](features/gcp/day-38-tote-manifest-flatten) | [JSON_FLATTEN function (GA)](https://docs.cloud.google.com/release-notes) (2026-11-11) | BigQuery, GoogleSQL, JSON, Semi-structured data | ran |
-| 39 | [Messy shopping-list lines to a pick quantity with AI.GENERATE on gemini-4-hydrogen](features/gcp/day-39-shopping-list-hydrogen) | [gemini-4-hydrogen model in BigQuery generative AI functions (GA)](https://docs.cloud.google.com/release-notes) (2026-11-12) | BigQuery, Gemini, AI.GENERATE, Structured output | built |
+| 39 | [Messy shopping-list lines to a pick quantity with AI.GENERATE on gemini-4-hydrogen](features/gcp/day-39-shopping-list-hydrogen) | [gemini-4-hydrogen model in BigQuery generative AI functions (GA)](https://docs.cloud.google.com/release-notes) (2026-11-12) | BigQuery, Gemini, AI.GENERATE, Structured output | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself
