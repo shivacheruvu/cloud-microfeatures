@@ -1661,6 +1661,28 @@
         "released": "2026-08-11",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 39,
+      "platform": "gcp",
+      "slug": "day-39-shopping-list-hydrogen",
+      "date": "2026-11-12",
+      "title": "Messy shopping-list lines to a pick quantity with AI.GENERATE on gemini-4-hydrogen",
+      "summary": "14 free-text click-and-collect lines (\"2 dozen eggs\", \"1.5 lb chicken thighs\", \"a baker's dozen bagels\", \"two 400g tins\") go through one BigQuery query that asks AI.GENERATE with output_schema for one quantity in one base unit (each, g, ml) on the new gemini-4-hydrogen model and on the default gemini-3.5-flash-lite. Every gemini-4-hydrogen answer must come back typed; agreement with a hand-worked answer key (within 1 %) is reported for both models.",
+      "headline": "gemini-4-hydrogen in BigQuery: 14 messy shopping-list lines to typed pick quantities, side by side with the default model",
+      "skills": [
+        "BigQuery",
+        "Gemini",
+        "AI.GENERATE",
+        "Structured output"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-39-shopping-list-hydrogen",
+      "new_feature": {
+        "name": "gemini-4-hydrogen model in BigQuery generative AI functions (GA)",
+        "released": "2026-11-12",
+        "source": "https://docs.cloud.google.com/release-notes"
+      }
     }
   ]
 }
