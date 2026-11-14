@@ -1705,6 +1705,28 @@
         "released": "2026-11-07",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/"
       }
+    },
+    {
+      "day": 40,
+      "platform": "gcp",
+      "slug": "day-40-allergen-flags-carbon",
+      "date": "2026-11-13",
+      "title": "Allergen flags from ingredient lists with AI.GENERATE on gemini-4-carbon",
+      "summary": "14 own-brand ingredient lists (whey, semolina, soy lecithin, coconut milk, pine nuts...) go through one BigQuery query: AI.GENERATE with an output_schema of six BOOL columns (milk, egg, peanut, tree nut, wheat, soy) on gemini-4-carbon, next to the default gemini-3.5-flash-lite. Every gemini-4-carbon answer must come back with six booleans; agreement with a hand-worked key (84 flags) is reported, with missed allergens listed apart from false alarms.",
+      "headline": "gemini-4-carbon in AI.GENERATE: six typed allergen flags per product, checked against an 84-flag answer key",
+      "skills": [
+        "BigQuery",
+        "AI.GENERATE",
+        "Gemini",
+        "Structured output"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-40-allergen-flags-carbon",
+      "new_feature": {
+        "name": "gemini-4-carbon model in BigQuery generative AI functions (GA)",
+        "released": "2026-11-10",
+        "source": "https://docs.cloud.google.com/release-notes"
+      }
     }
   ]
 }

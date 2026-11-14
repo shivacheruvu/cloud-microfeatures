@@ -1,0 +1,115 @@
+{
+  "engine": "hand-worked answer key (local) / AI.GENERATE on gemini-4-carbon vs gemini-3.5-flash-lite (cloud)",
+  "new_endpoint": "gemini-4-carbon",
+  "baseline_endpoint": "gemini-3.5-flash-lite",
+  "products": 14,
+  "flags_per_product": 6,
+  "flags_checked": 84,
+  "products_with": {
+    "milk": 6,
+    "egg": 6,
+    "peanut": 2,
+    "tree_nut": 4,
+    "wheat": 5,
+    "soy": 4
+  },
+  "allergen_free_products": 3,
+  "queries": 1,
+  "model_calls": 28,
+  "answer_key": {
+    "1": {
+      "product": "House pesto",
+      "contains": [
+        "milk",
+        "tree_nut"
+      ]
+    },
+    "2": {
+      "product": "Oat crunch granola",
+      "contains": [
+        "tree_nut"
+      ]
+    },
+    "3": {
+      "product": "Classic mayonnaise",
+      "contains": [
+        "egg",
+        "soy"
+      ]
+    },
+    "4": {
+      "product": "Protein bar choc",
+      "contains": [
+        "milk",
+        "tree_nut",
+        "soy"
+      ]
+    },
+    "5": {
+      "product": "Fresh egg pasta",
+      "contains": [
+        "egg",
+        "wheat"
+      ]
+    },
+    "6": {
+      "product": "Satay sauce",
+      "contains": [
+        "peanut",
+        "wheat",
+        "soy"
+      ]
+    },
+    "7": {
+      "product": "Vegan cheddar slices",
+      "contains": []
+    },
+    "8": {
+      "product": "Brioche buns",
+      "contains": [
+        "milk",
+        "egg",
+        "wheat"
+      ]
+    },
+    "9": {
+      "product": "Hummus",
+      "contains": []
+    },
+    "10": {
+      "product": "Pecan praline ice cream",
+      "contains": [
+        "milk",
+        "egg",
+        "tree_nut"
+      ]
+    },
+    "11": {
+      "product": "Teriyaki marinade",
+      "contains": [
+        "wheat",
+        "soy"
+      ]
+    },
+    "12": {
+      "product": "Rice crackers",
+      "contains": []
+    },
+    "13": {
+      "product": "Caesar dressing",
+      "contains": [
+        "milk",
+        "egg"
+      ]
+    },
+    "14": {
+      "product": "Peanut butter cookies",
+      "contains": [
+        "milk",
+        "egg",
+        "peanut",
+        "wheat"
+      ]
+    }
+  }
+}
