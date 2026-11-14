@@ -1,0 +1,108 @@
+{
+  "engine": "plain Python (local) / Databricks serverless materialized view (cloud)",
+  "rows_batch_1": 10,
+  "rows_batch_2": 6,
+  "before_refresh": [
+    {
+      "store": "S01",
+      "sale_date": "2026-11-10",
+      "receipts": 2,
+      "units": 4,
+      "revenue_cents": 1402
+    },
+    {
+      "store": "S01",
+      "sale_date": "2026-11-11",
+      "receipts": 2,
+      "units": 4,
+      "revenue_cents": 736
+    },
+    {
+      "store": "S02",
+      "sale_date": "2026-11-10",
+      "receipts": 1,
+      "units": 2,
+      "revenue_cents": 1248
+    },
+    {
+      "store": "S02",
+      "sale_date": "2026-11-11",
+      "receipts": 1,
+      "units": 2,
+      "revenue_cents": 850
+    },
+    {
+      "store": "S03",
+      "sale_date": "2026-11-10",
+      "receipts": 2,
+      "units": 4,
+      "revenue_cents": 1156
+    }
+  ],
+  "after_refresh": [
+    {
+      "store": "S01",
+      "sale_date": "2026-11-10",
+      "receipts": 2,
+      "units": 4,
+      "revenue_cents": 1402
+    },
+    {
+      "store": "S01",
+      "sale_date": "2026-11-11",
+      "receipts": 2,
+      "units": 4,
+      "revenue_cents": 736
+    },
+    {
+      "store": "S01",
+      "sale_date": "2026-11-12",
+      "receipts": 1,
+      "units": 2,
+      "revenue_cents": 724
+    },
+    {
+      "store": "S02",
+      "sale_date": "2026-11-10",
+      "receipts": 1,
+      "units": 2,
+      "revenue_cents": 1248
+    },
+    {
+      "store": "S02",
+      "sale_date": "2026-11-11",
+      "receipts": 3,
+      "units": 5,
+      "revenue_cents": 1387
+    },
+    {
+      "store": "S03",
+      "sale_date": "2026-11-10",
+      "receipts": 2,
+      "units": 4,
+      "revenue_cents": 1156
+    },
+    {
+      "store": "S03",
+      "sale_date": "2026-11-11",
+      "receipts": 1,
+      "units": 4,
+      "revenue_cents": 1946
+    }
+  ],
+  "totals_before": {
+    "store_days": 5,
+    "units": 16,
+    "revenue_cents": 5392
+  },
+  "totals_after": {
+    "store_days": 7,
+    "units": 25,
+    "revenue_cents": 8599
+  },
+  "store_days_changed_by_refresh": [
+    "S01 2026-11-12",
+    "S02 2026-11-11",
+    "S03 2026-11-11"
+  ]
+}
