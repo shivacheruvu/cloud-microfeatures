@@ -51,4 +51,10 @@ AI API: well under one cent of free-trial credit per run.
 ## Result
 Answer key (local): 14 products, 84 flags; products with milk 6, egg 6, peanut 2, tree nut 4, wheat 5, soy 4; 3 are
 free of all six (vegan cheddar, hummus, rice crackers). The cloud run reports how many flags and products each model
-gets right. Numbers in [`result.json`](result.json).
+gets right.
+
+**Cloud run (2026-11-13, first run after the merge):** `gemini-4-carbon` answered all 14 products with six
+booleans and got **84/84 flags right (14/14 products, no missed allergens, no false alarms)**; the default
+`gemini-3.5-flash-lite` also got **84/84**. With the definitions spelled out in the prompt (coconut isn't a tree nut,
+semolina is wheat) both models handle these lists; the new model ties the default here. Numbers in
+[`result.json`](result.json).

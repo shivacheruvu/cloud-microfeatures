@@ -1720,12 +1720,34 @@
         "Gemini",
         "Structured output"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-40-allergen-flags-carbon",
       "new_feature": {
         "name": "gemini-4-carbon model in BigQuery generative AI functions (GA)",
         "released": "2026-11-10",
         "source": "https://docs.cloud.google.com/release-notes"
+      }
+    },
+    {
+      "day": 40,
+      "platform": "databricks",
+      "slug": "day-40-store-day-mv-notebook",
+      "date": "2026-11-13",
+      "title": "Store-day sales materialized view, created and refreshed from serverless compute",
+      "summary": "A serverless job (no SQL warehouse) creates a till-receipts table and a standalone materialized view of receipts, units and revenue per store per day with CREATE MATERIALIZED VIEW sent through spark.sql, reads it, loads six late receipts, reads it again (it must still give the first answer), runs REFRESH MATERIALIZED VIEW and reads it a third time. All three reads must equal the local reference: 5 store-days / 16 units / 53.92 before, 7 / 25 / 85.99 after.",
+      "headline": "spark.sql on serverless now owns a materialized view: stale until REFRESH, then 7 store-days, 25 units, 85.99",
+      "skills": [
+        "Materialized views",
+        "Serverless jobs",
+        "Databricks SQL",
+        "Unity Catalog"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-40-store-day-mv-notebook",
+      "new_feature": {
+        "name": "Standalone pipelines (materialized views and streaming tables) on serverless general compute (GA)",
+        "released": "2026-11-11",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/november"
       }
     }
   ]
