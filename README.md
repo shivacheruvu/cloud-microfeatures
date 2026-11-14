@@ -103,6 +103,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 37 | [Brand units and flyer reach without double counting: BigQuery Graph measures](features/gcp/day-37-flyer-reach-measures) | [Graph measures with GRAPH_EXPAND and AGG in BigQuery Graph (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-10) | BigQuery, BigQuery Graph, GoogleSQL, Semantic modeling | ran |
 | 38 | [Count every picked item in nested tote manifests with BigQuery's JSON_FLATTEN](features/gcp/day-38-tote-manifest-flatten) | [JSON_FLATTEN function (GA)](https://docs.cloud.google.com/release-notes) (2026-11-11) | BigQuery, GoogleSQL, JSON, Semi-structured data | ran |
 | 39 | [Messy shopping-list lines to a pick quantity with AI.GENERATE on gemini-4-hydrogen](features/gcp/day-39-shopping-list-hydrogen) | [gemini-4-hydrogen model in BigQuery generative AI functions (GA)](https://docs.cloud.google.com/release-notes) (2026-11-12) | BigQuery, Gemini, AI.GENERATE, Structured output | ran |
+| 40 | [Allergen flags from ingredient lists with AI.GENERATE on gemini-4-carbon](features/gcp/day-40-allergen-flags-carbon) | [gemini-4-carbon model in BigQuery generative AI functions (GA)](https://docs.cloud.google.com/release-notes) (2026-11-10) | BigQuery, AI.GENERATE, Gemini, Structured output | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself

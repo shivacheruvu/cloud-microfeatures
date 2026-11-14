@@ -1,0 +1,15 @@
+product_no,product,ingredients,milk,egg,peanut,tree_nut,wheat,soy
+1,House pesto,"basil, olive oil, parmesan (milk), pine nuts, garlic, salt",1,0,0,1,0,0
+2,Oat crunch granola,"rolled oats, honey, sunflower oil, almonds, sunflower seeds, salt",0,0,0,1,0,0
+3,Classic mayonnaise,"soybean oil, water, whole eggs, vinegar, egg yolks, salt, lemon juice",0,1,0,0,0,1
+4,Protein bar choc,"whey protein isolate, cashew butter, cocoa, soy lecithin, sea salt",1,0,0,1,0,1
+5,Fresh egg pasta,"durum wheat semolina, eggs, water",0,1,0,0,1,0
+6,Satay sauce,"water, roasted peanuts, coconut milk, soy sauce (soybeans, wheat), brown sugar, chilli",0,0,1,0,1,1
+7,Vegan cheddar slices,"water, coconut oil, potato starch, salt, olive extract, beta carotene",0,0,0,0,0,0
+8,Brioche buns,"wheat flour, butter (milk), sugar, eggs, yeast, skimmed milk powder, salt",1,1,0,0,1,0
+9,Hummus,"chickpeas, tahini (sesame), lemon juice, garlic, olive oil, salt",0,0,0,0,0,0
+10,Pecan praline ice cream,"cream, skim milk, sugar, pecans, egg yolks, caramel",1,1,0,1,0,0
+11,Teriyaki marinade,"water, soy sauce (water, soybeans, wheat, salt), sugar, mirin, ginger",0,0,0,0,1,1
+12,Rice crackers,"rice flour, sunflower oil, salt, rosemary extract",0,0,0,0,0,0
+13,Caesar dressing,"canola oil, water, egg yolk, parmesan cheese (milk), anchovies, garlic, lemon juice",1,1,0,0,0,0
+14,Peanut butter cookies,"wheat flour, peanut butter (peanuts), brown sugar, butter (milk), egg, baking soda",1,1,1,0,1,0
