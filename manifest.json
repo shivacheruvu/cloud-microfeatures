@@ -1749,6 +1749,28 @@
         "released": "2026-11-11",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/november"
       }
+    },
+    {
+      "day": 41,
+      "platform": "gcp",
+      "slug": "day-41-aisle-graph-schema",
+      "date": "2026-11-14",
+      "title": "Self-describing aisle graph: the GRAPH_EXPAND schema read back with BQ.SHOW_GRAPH_EXPAND_SCHEMA",
+      "summary": "One Python definition builds a shelf property graph (3 aisles, 7 products, 12 restock scans) whose properties and measures carry OPTIONS(description=...) and the contract of the 12 columns GRAPH_EXPAND should return. In BigQuery, CALL BQ.SHOW_GRAPH_EXPAND_SCHEMA must report every contract column with exactly the three measures flagged and matching descriptions; then a GRAPH_EXPAND + AGG rollup per aisle must equal a DuckDB / plain-Python model (31 facings by AGG, 64 by a naive SUM over scans).",
+      "headline": "BQ.SHOW_GRAPH_EXPAND_SCHEMA as a CI contract: 12 columns, 3 measures, 7 descriptions; 31 facings, not 64",
+      "skills": [
+        "BigQuery",
+        "BigQuery Graph",
+        "System procedures",
+        "Data contracts"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-41-aisle-graph-schema",
+      "new_feature": {
+        "name": "BQ.SHOW_GRAPH_EXPAND_SCHEMA system procedure and OPTIONS descriptions on graph properties (GA, with graph measures)",
+        "released": "2026-11-10",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
