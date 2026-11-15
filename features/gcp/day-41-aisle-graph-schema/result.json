@@ -1,0 +1,39 @@
+{
+  "engine": "DuckDB + plain Python (local) / BQ.SHOW_GRAPH_EXPAND_SCHEMA + GRAPH_EXPAND + AGG (cloud)",
+  "aisles": 3,
+  "products": 7,
+  "shelf_scans": 12,
+  "graph_expand_columns": 12,
+  "measure_columns": 3,
+  "described_columns": 7,
+  "by_aisle": [
+    {
+      "aisle": "Bakery",
+      "products": 2,
+      "scans": 3,
+      "naive_facings": 12,
+      "facings": 7,
+      "units": 36
+    },
+    {
+      "aisle": "Dairy",
+      "products": 3,
+      "scans": 5,
+      "naive_facings": 25,
+      "facings": 13,
+      "units": 72
+    },
+    {
+      "aisle": "Produce",
+      "products": 2,
+      "scans": 4,
+      "naive_facings": 27,
+      "facings": 11,
+      "units": 119
+    }
+  ],
+  "facings_true": 31,
+  "facings_naive": 64,
+  "units": 227,
+  "headline": "GRAPH_EXPAND schema contract: 12 columns (3 measures, 7 described); 31 shelf facings by AGG, not the 64 a SUM over restock scans gives"
+}
