@@ -58,6 +58,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 38 | [Night restock pick list with a scalar UDF passed straight into range()](features/databricks/day-38-restock-cases-udf-tvf) | [Scalar UDFs as table-valued function arguments (Databricks SQL 2026.32)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-08-11) | Databricks SQL, SQL UDFs, Table-valued functions, Serverless jobs | built |
 | 39 | [Get a dropped price-file volume back with UNDROP VOLUME](features/databricks/day-39-price-volume-undrop) | [Recover dropped Unity Catalog volumes with UNDROP VOLUME](https://docs.databricks.com/aws/en/release-notes/product/) (2026-11-07) | Unity Catalog, Volumes, Databricks SQL, Serverless jobs | built |
 | 40 | [Store-day sales materialized view, created and refreshed from serverless compute](features/databricks/day-40-store-day-mv-notebook) | [Standalone pipelines (materialized views and streaming tables) on serverless general compute (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/november) (2026-11-11) | Materialized views, Serverless jobs, Databricks SQL, Unity Catalog | built |
+| 41 | [Slim null-padded product payloads with variant_strip_nulls](features/databricks/day-41-product-json-strip-nulls) | [variant_strip_nulls SQL function (serverless, Databricks Runtime 19 updates)](https://docs.databricks.com/aws/en/release-notes/runtime/19) (2026-09-01) | Variant, Databricks SQL, Serverless jobs, Data quality | built |
 <!-- databricks:end -->
 
 ## Google Cloud features
