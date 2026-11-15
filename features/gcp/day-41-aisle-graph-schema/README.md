@@ -47,5 +47,9 @@ A temporary dataset (deleted on exit, tables expire in 1 h), three tiny INSERTs,
 | Produce | 2 | 4 | 27 | **11** | 119 |
 | **Total** | 7 | 12 | 64 | **31** | 227 |
 
-Schema contract: 12 columns, 3 measures, 7 described. Numbers in [`result.json`](result.json). Cloud result: see the
-day's report (the merge commit's check-run annotations).
+Schema contract: 12 columns, 3 measures, 7 described. Numbers in [`result.json`](result.json).
+
+**Cloud, first run (2026-11-14, after #142):** the graph with all seven `OPTIONS(description)` was created and the
+procedure returned `{"fields": [{"name": ..., "type": ..., "mode": ...}, ...]}`. Two shapes the reader didn't expect,
+fixed forward the same day: `bq` prints a script's result sets as a list of lists, and each property's options arrive
+as a JSON string in `description` (`"{\"description\": \"Store aisle as shown on the shelf sign\"}"`).

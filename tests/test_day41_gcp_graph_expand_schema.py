@@ -84,6 +84,25 @@ def test_check_schema_shapes(tmp_path, capsys):
     assert m.main(["--check-schema", str(f)]) == 1
 
 
+def test_bigquery_script_output_shape(tmp_path, capsys):
+    """As seen on the 2026-11-14 run: a script prints one list per result set, and each property's OPTIONS come back
+    as a JSON string in "description"."""
+    fields = []
+    for col, v in m.expected_schema().items():
+        f = {"name": col, "type": "STRING", "mode": "NULLABLE"}
+        if v["measure"]:
+            f["is_measure"] = True
+        if v["description"]:
+            f["description"] = json.dumps({"description": v["description"]})
+        fields.append(f)
+    f = tmp_path / "schema.json"
+    f.write_text(json.dumps([[{"graph_schema": json.dumps({"fields": fields})}]]))
+    assert m.main(["--check-schema", str(f)]) == 0
+    out = capsys.readouterr().out
+    assert "descriptions read back 7/7" in out and "::warning" not in out
+    assert m.parse_schema({"fields": [{"name": "x", "type": "INT64", "is_measure": "false"}]})["x"]["measure"] is False
+
+
 def test_cloud_compare(tmp_path, capsys):
     rows = [{c: (str(v) if i else v) for i, (c, v) in enumerate(zip(m.COLS, r))} for r in LOCAL]
     f = tmp_path / "rollup.json"

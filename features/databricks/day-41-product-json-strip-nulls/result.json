@@ -1,0 +1,109 @@
+{
+  "engine": "pure-Python reference (local) / variant_strip_nulls in Spark SQL on a Databricks serverless job (cloud)",
+  "products": 8,
+  "null_values_removed": 28,
+  "bytes_raw": 1722,
+  "bytes_stripped": 1382,
+  "bytes_saved_pct": 19.7,
+  "nutriment_completeness_pct": 70.0,
+  "fully_described": [
+    "0004",
+    "0008"
+  ],
+  "no_nutriments": [
+    "0003"
+  ],
+  "per_product": [
+    {
+      "code": "0001",
+      "bytes_raw": 236,
+      "bytes_stripped": 218,
+      "nutriments_filled": 4,
+      "labels": 2,
+      "label_slots_kept": 3,
+      "packaging_empty": false,
+      "has_packaging": true
+    },
+    {
+      "code": "0002",
+      "bytes_raw": 205,
+      "bytes_stripped": 136,
+      "nutriments_filled": 4,
+      "labels": 0,
+      "label_slots_kept": 2,
+      "packaging_empty": true,
+      "has_packaging": true
+    },
+    {
+      "code": "0003",
+      "bytes_raw": 181,
+      "bytes_stripped": 83,
+      "nutriments_filled": 0,
+      "labels": 1,
+      "label_slots_kept": 1,
+      "packaging_empty": false,
+      "has_packaging": false
+    },
+    {
+      "code": "0004",
+      "bytes_raw": 232,
+      "bytes_stripped": 232,
+      "nutriments_filled": 5,
+      "labels": 2,
+      "label_slots_kept": 2,
+      "packaging_empty": false,
+      "has_packaging": true
+    },
+    {
+      "code": "0005",
+      "bytes_raw": 249,
+      "bytes_stripped": 209,
+      "nutriments_filled": 4,
+      "labels": 2,
+      "label_slots_kept": 4,
+      "packaging_empty": false,
+      "has_packaging": true
+    },
+    {
+      "code": "0006",
+      "bytes_raw": 213,
+      "bytes_stripped": 176,
+      "nutriments_filled": 2,
+      "labels": 0,
+      "label_slots_kept": 0,
+      "packaging_empty": false,
+      "has_packaging": true
+    },
+    {
+      "code": "0007",
+      "bytes_raw": 200,
+      "bytes_stripped": 126,
+      "nutriments_filled": 4,
+      "labels": 0,
+      "label_slots_kept": 0,
+      "packaging_empty": false,
+      "has_packaging": true
+    },
+    {
+      "code": "0008",
+      "bytes_raw": 206,
+      "bytes_stripped": 202,
+      "nutriments_filled": 5,
+      "labels": 0,
+      "label_slots_kept": 1,
+      "packaging_empty": false,
+      "has_packaging": true
+    }
+  ],
+  "checks": {
+    "null_values": 28,
+    "stripped_equal_reference": true,
+    "kept_arrays_equal_reference": true,
+    "spot": {
+      "top_level_null": "null",
+      "sql_null_is_null": true,
+      "nested": "{\"a\":{\"c\":[1]}}",
+      "keep_arrays": "{\"a\":[1,null]}"
+    }
+  }
+}
