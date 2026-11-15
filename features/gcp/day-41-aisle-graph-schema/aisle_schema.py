@@ -170,7 +170,12 @@ def bigquery_sql(part: str, ds: str, ref: str | None = None) -> str:
 def _descr(field: dict) -> str | None:
     for k, v in field.items():
         if "description" in k.lower() and isinstance(v, str) and v:
-            return v
+            # BigQuery returns the property's OPTIONS as a JSON string: "description": "{\"description\": \"...\"}"
+            try:
+                inner = json.loads(v)
+            except ValueError:
+                return v
+            return _descr(inner) if isinstance(inner, dict) else v
         if isinstance(v, dict) and (d := _descr(v)):
             return d
         if isinstance(v, list):
@@ -191,7 +196,7 @@ def parse_schema(obj) -> dict:
     def walk(o):
         if isinstance(o, dict):
             if isinstance(o.get("name"), str) and any(k in o for k in ("type", "mode", "is_measure")):
-                cols[o["name"]] = {"measure": bool(o.get("is_measure")), "description": _descr(o)}
+                cols[o["name"]] = {"measure": str(o.get("is_measure", "")).lower() == "true", "description": _descr(o)}
                 return
             for v in o.values():
                 walk(v)
@@ -249,6 +254,8 @@ def _json_rows(path: Path) -> list[dict]:
         except ValueError:
             i += 1
             continue
+        if isinstance(obj, list) and obj and all(isinstance(r, list) for r in obj):   # a script: one list per result
+            obj = next((r for r in reversed(obj) if r and all(isinstance(x, dict) for x in r)), None)
         if isinstance(obj, list) and obj and all(isinstance(r, dict) for r in obj):
             found = obj
         i = end
