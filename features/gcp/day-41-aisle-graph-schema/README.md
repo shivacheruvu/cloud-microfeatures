@@ -53,3 +53,9 @@ Schema contract: 12 columns, 3 measures, 7 described. Numbers in [`result.json`]
 procedure returned `{"fields": [{"name": ..., "type": ..., "mode": ...}, ...]}`. Two shapes the reader didn't expect,
 fixed forward the same day: `bq` prints a script's result sets as a list of lists, and each property's options arrive
 as a JSON string in `description` (`"{\"description\": \"Store aisle as shown on the shelf sign\"}"`).
+
+**Cloud, re-run (2026-11-14, after #143): ran and matched.** `BQ.SHOW_GRAPH_EXPAND_SCHEMA` reported exactly the 12
+contract columns (no extras), flagged exactly `Products_total_facings`, `ShelfScans_scan_count` and
+`ShelfScans_total_units` as measures, and read back all 7 descriptions. The `GRAPH_EXPAND` + `AGG` rollup equals the
+local table (Bakery 7 / Dairy 13 / Produce 11 facings; 36 / 72 / 119 units). The rollup bills a 30 MiB minimum, so
+`cloud.sh` raised the cap to it (about $0.0002).
