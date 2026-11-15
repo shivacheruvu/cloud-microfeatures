@@ -1764,7 +1764,7 @@
         "System procedures",
         "Data contracts"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-41-aisle-graph-schema",
       "new_feature": {
         "name": "BQ.SHOW_GRAPH_EXPAND_SCHEMA system procedure and OPTIONS descriptions on graph properties (GA, with graph measures)",
