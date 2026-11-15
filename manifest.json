@@ -1771,6 +1771,28 @@
         "released": "2026-11-10",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 41,
+      "platform": "databricks",
+      "slug": "day-41-product-json-strip-nulls",
+      "date": "2026-11-14",
+      "title": "Slim null-padded product payloads with variant_strip_nulls",
+      "summary": "A serverless job (no SQL warehouse) parses 8 Open Food Facts-style product payloads padded with JSON nulls into VARIANT, strips them with variant_strip_nulls (and variant_strip_nulls(v, false) to keep null label slots), and reports JSON bytes, filled nutriments, labels and empty packaging blocks per product. Every stripped payload must equal a pure-Python strip; 28 nulls removed, 1,722 -> 1,382 bytes (-19.7%), nutriment completeness 70%.",
+      "headline": "variant_strip_nulls: 28 nulls gone, payloads 19.7% smaller, completeness becomes a key count (70%)",
+      "skills": [
+        "Variant",
+        "Databricks SQL",
+        "Serverless jobs",
+        "Data quality"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-41-product-json-strip-nulls",
+      "new_feature": {
+        "name": "variant_strip_nulls SQL function (serverless, Databricks Runtime 19 updates)",
+        "released": "2026-09-01",
+        "source": "https://docs.databricks.com/aws/en/release-notes/runtime/19"
+      }
     }
   ]
 }
