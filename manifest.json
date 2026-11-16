@@ -1793,6 +1793,28 @@
         "released": "2026-09-01",
         "source": "https://docs.databricks.com/aws/en/release-notes/runtime/19"
       }
+    },
+    {
+      "day": 42,
+      "platform": "gcp",
+      "slug": "day-42-supplier-sheet-parse",
+      "date": "2026-11-15",
+      "title": "Supplier PDF price sheet to rows with AI.PARSE_DOCUMENT",
+      "summary": "A one-page supplier price sheet (6 SKUs, case packs, case costs) is written as a PDF byte for byte, so the answer key is exactly what's printed. In BigQuery, AI.PARSE_DOCUMENT (layout-v1) turns it into layout blocks; the run must find the title, every SKU and every case cost with no errors, and reports block types, whether a table came back and how many SKU rows are rebuilt with the right cost.",
+      "headline": "One SQL function reads a supplier PDF: 6 SKUs and 6 case costs ($160.75) checked against the printed sheet",
+      "skills": [
+        "BigQuery",
+        "AI.PARSE_DOCUMENT",
+        "Document AI",
+        "Cloud Storage"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-42-supplier-sheet-parse",
+      "new_feature": {
+        "name": "AI.PARSE_DOCUMENT function (GA)",
+        "released": "2026-11-02",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
