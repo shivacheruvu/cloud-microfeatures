@@ -1808,12 +1808,34 @@
         "Document AI",
         "Cloud Storage"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-42-supplier-sheet-parse",
       "new_feature": {
         "name": "AI.PARSE_DOCUMENT function (GA)",
         "released": "2026-11-02",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
+    },
+    {
+      "day": 42,
+      "platform": "databricks",
+      "slug": "day-42-price-view-replace",
+      "date": "2026-11-15",
+      "title": "Widen a governed price view with CREATE OR REPLACE VIEW without losing its comment, tags or grants",
+      "summary": "A serverless job builds shelf_cost_v over the Harbor Farms price sheet with a comment, two governed tags and a SELECT grant to account users, then replaces it with a wider definition (units, unit cost) that says nothing about governance. information_schema snapshots before and after must show the comment, tags and grant kept and the rows must equal a pure-Python reference; open-source Spark 4.3 locally returns the same rows but drops the comment and properties.",
+      "headline": "View widened 3 -> 5 columns; comment, 2 tags and the grant survive the replace (OSS Spark drops them)",
+      "skills": [
+        "Databricks SQL",
+        "Unity Catalog",
+        "Governed tags",
+        "Serverless jobs"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-42-price-view-replace",
+      "new_feature": {
+        "name": "CREATE OR REPLACE VIEW atomic replacement preserving identity, grants, tags and comments on Unity Catalog views (Databricks SQL 2026.35)",
+        "released": "2026-08-24",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
     }
   ]
