@@ -56,4 +56,9 @@ that scans 0 bytes. The processor has no idle fee and is kept so later runs reus
 
 ## Result
 Answer key (local): 1 page, 2,611-byte PDF, 6 SKUs, case costs totalling **$160.75**, lowest unit cost **HF-3001**
-(large eggs, $2.49 a dozen). The cloud run reports what the parser returned. Numbers in [`result.json`](result.json).
+(large eggs, $2.49 a dozen).
+
+**Cloud run (2026-11-15, first run after the merge):** the Document AI API was enabled by the script, then
+`AI.PARSE_DOCUMENT` returned **5 layout-v1 blocks: 2 headings (the sheet title came back as a heading, not a
+`title`), 1 table, 2 text**; title, all 6 SKUs and all 6 case costs found, and the table came back as HTML whose rows
+rebuild **6/6 SKUs with the right case cost**. Numbers in [`result.json`](result.json).
