@@ -1,0 +1,49 @@
+{
+  "engine": "answer key written with the PDF (local) / AI.PARSE_DOCUMENT layout-v1 (cloud)",
+  "new_feature": "AI.PARSE_DOCUMENT",
+  "pages": 1,
+  "pdf_bytes": 2611,
+  "skus": 6,
+  "case_cost_total": "160.75",
+  "lowest_unit_cost": "HF-3001",
+  "answer_key": {
+    "HF-1001": {
+      "product": "Whole milk",
+      "case_pack": "4 x 1 gal",
+      "case_cost": "13.96",
+      "unit_cost": "3.49"
+    },
+    "HF-1002": {
+      "product": "Reduced fat milk 2%",
+      "case_pack": "4 x 1 gal",
+      "case_cost": "13.56",
+      "unit_cost": "3.39"
+    },
+    "HF-2001": {
+      "product": "Greek yogurt plain",
+      "case_pack": "6 x 32 oz",
+      "case_cost": "23.40",
+      "unit_cost": "3.90"
+    },
+    "HF-2002": {
+      "product": "Salted butter",
+      "case_pack": "12 x 1 lb",
+      "case_cost": "41.88",
+      "unit_cost": "3.49"
+    },
+    "HF-3001": {
+      "product": "Large eggs grade A",
+      "case_pack": "15 x 12 ct",
+      "case_cost": "37.35",
+      "unit_cost": "2.49"
+    },
+    "HF-3002": {
+      "product": "Sharp cheddar block",
+      "case_pack": "12 x 8 oz",
+      "case_cost": "30.60",
+      "unit_cost": "2.55"
+    }
+  },
+  "queries": 1,
+  "document_ai_pages": 1
+}
