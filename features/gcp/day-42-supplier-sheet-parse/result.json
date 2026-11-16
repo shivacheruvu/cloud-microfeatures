@@ -45,5 +45,18 @@
     }
   },
   "queries": 1,
-  "document_ai_pages": 1
+  "document_ai_pages": 1,
+  "cloud_run": {
+    "date": "2026-11-15",
+    "blocks": 5,
+    "block_types": {
+      "heading": 2,
+      "table": 1,
+      "text": 2
+    },
+    "html_table": true,
+    "skus_found": 6,
+    "case_costs_found": 6,
+    "rows_rebuilt_right": 6
+  }
 }
