@@ -1,0 +1,89 @@
+{
+  "engine": "pure-Python reference (local) / CREATE OR REPLACE VIEW in Unity Catalog on a Databricks serverless job (cloud)",
+  "rows": 6,
+  "columns_before": [
+    "sku",
+    "product",
+    "case_cost"
+  ],
+  "columns_after": [
+    "sku",
+    "product",
+    "case_cost",
+    "units",
+    "unit_cost"
+  ],
+  "rows_after": [
+    [
+      "HF-1001",
+      "Whole milk",
+      "13.96",
+      4,
+      "3.49"
+    ],
+    [
+      "HF-1002",
+      "Reduced fat milk 2%",
+      "13.56",
+      4,
+      "3.39"
+    ],
+    [
+      "HF-2001",
+      "Greek yogurt plain",
+      "23.40",
+      6,
+      "3.90"
+    ],
+    [
+      "HF-2002",
+      "Salted butter",
+      "41.88",
+      12,
+      "3.49"
+    ],
+    [
+      "HF-3001",
+      "Large eggs grade A",
+      "37.35",
+      15,
+      "2.49"
+    ],
+    [
+      "HF-3002",
+      "Sharp cheddar block",
+      "30.60",
+      12,
+      "2.55"
+    ]
+  ],
+  "cheapest_unit": {
+    "sku": "HF-3001",
+    "unit_cost": "2.49"
+  },
+  "before": {
+    "comment": "Case cost per SKU for the store dashboards (owner: pricing)",
+    "tags": {
+      "audience": "store-dashboards",
+      "domain": "pricing"
+    },
+    "grants": [
+      "SELECT to account users"
+    ]
+  },
+  "after": {
+    "comment": "Case cost per SKU for the store dashboards (owner: pricing)",
+    "tags": {
+      "audience": "store-dashboards",
+      "domain": "pricing"
+    },
+    "grants": [
+      "SELECT to account users"
+    ]
+  },
+  "kept": {
+    "comment": true,
+    "tags": true,
+    "grant": true
+  }
+}
