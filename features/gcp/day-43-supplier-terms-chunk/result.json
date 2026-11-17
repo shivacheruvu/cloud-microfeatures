@@ -1,0 +1,53 @@
+{
+  "engine": "answer key written with the PDF (local) / AI.CHUNK_DOCUMENT (cloud)",
+  "new_feature": "AI.CHUNK_DOCUMENT",
+  "pages": 2,
+  "pdf_bytes": 3760,
+  "sections": 8,
+  "terms": 8,
+  "words_per_page": [
+    171,
+    140
+  ],
+  "chunk_sizes": [
+    100,
+    500
+  ],
+  "questions": 8,
+  "answer_key": {
+    "6 cases per SKU": {
+      "page": 1,
+      "section": "1. Ordering"
+    },
+    "Tuesday and Friday before 7:00 AM": {
+      "page": 1,
+      "section": "2. Delivery"
+    },
+    "held for 14 days": {
+      "page": 1,
+      "section": "3. Prices"
+    },
+    "within 48 hours of delivery": {
+      "page": 1,
+      "section": "4. Returns"
+    },
+    "within 2 hours of a recall notice": {
+      "page": 2,
+      "section": "5. Recalls"
+    },
+    "41 F or below": {
+      "page": 2,
+      "section": "6. Cold chain"
+    },
+    "take a 2% discount": {
+      "page": 2,
+      "section": "7. Payment"
+    },
+    "credit memo within 5 business days": {
+      "page": 2,
+      "section": "8. Shortage claims"
+    }
+  },
+  "queries": 1,
+  "document_ai_pages": 4
+}
