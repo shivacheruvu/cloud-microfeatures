@@ -49,5 +49,35 @@
     }
   },
   "queries": 1,
-  "document_ai_pages": 4
+  "document_ai_pages": 4,
+  "cloud_run": {
+    "date": "2026-11-16",
+    "chunks": {
+      "100": 4,
+      "500": 1
+    },
+    "longest_chars": {
+      "100": 522,
+      "500": 1635
+    },
+    "terms_whole_on_page": {
+      "100": 8,
+      "500": 8
+    },
+    "columns": [
+      "chunk_id",
+      "content",
+      "content_type",
+      "end_page",
+      "generation",
+      "md5_hash",
+      "metadata",
+      "ref",
+      "size",
+      "start_page",
+      "status",
+      "updated",
+      "uri"
+    ]
+  }
 }

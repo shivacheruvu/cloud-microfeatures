@@ -61,4 +61,10 @@ a query that scans 0 bytes. Nothing is kept except the existing processor (no id
 Answer key (local): 2 pages, 3,760-byte PDF, 8 sections and 8 terms (4 per page), 171 + 140 words, 8 clerk questions
 mapped to their terms. Numbers in [`result.json`](result.json).
 
-**Cloud run:** pending the first run after the merge.
+**Cloud run (2026-11-16, first run after the merge): passed.** `AI.CHUNK_DOCUMENT` returned **4 chunks at
+`chunk_size` 100** (longest 522 characters) and **1 chunk at 500** (1,635 characters: the whole two-page document);
+all 8 terms present at both sizes and **8/8 sit whole in one chunk whose page range holds their page** at both
+sizes. Besides `chunk_id`, `content`, `start_page` and `end_page`, each row carries the source object's
+`ObjectRef`-style columns (`uri`, `ref`, `content_type`, `size`, `md5_hash`, `generation`, `updated`, `metadata`)
+and a `status`. Reading: even at 100 no term was cut, and the 4 chunks average about 400 characters, so the chunker keeps
+layout units together rather than slicing text at a fixed length.
