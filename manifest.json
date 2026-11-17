@@ -1853,12 +1853,34 @@
         "Cloud Storage",
         "RAG"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-43-supplier-terms-chunk",
       "new_feature": {
         "name": "AI.CHUNK_DOCUMENT function (GA)",
         "released": "2026-10-21",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
+    },
+    {
+      "day": 43,
+      "platform": "databricks",
+      "slug": "day-43-cost-table-replace",
+      "date": "2026-11-16",
+      "title": "Weekly cost-table reload with CREATE OR REPLACE TABLE that keeps its table and column comments",
+      "summary": "A serverless job creates supplier_case_costs (the Harbor Farms sheet) with a table comment and four column comments, then reloads it for week 47 with a CTAS CREATE OR REPLACE TABLE that names no comments and adds unit_cost and week. information_schema before and after must show every comment kept and the rows must equal a pure-Python reference; open-source Spark 4.3 locally (drop + CTAS) returns the same rows with every comment gone.",
+      "headline": "Week 47 reload: 4 -> 6 columns, 3 new case costs, table comment and 4 column comments survive (OSS drop + CTAS loses them)",
+      "skills": [
+        "Databricks SQL",
+        "Delta Lake",
+        "Unity Catalog",
+        "Serverless jobs"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-43-cost-table-replace",
+      "new_feature": {
+        "name": "CREATE OR REPLACE TABLE preserves existing table and column comments (serverless, Databricks Runtime 18 updates)",
+        "released": "2026-07-06",
+        "source": "https://docs.databricks.com/aws/en/release-notes/serverless/"
       }
     }
   ]
