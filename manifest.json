@@ -1837,6 +1837,29 @@
         "released": "2026-08-24",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 43,
+      "platform": "gcp",
+      "slug": "day-43-supplier-terms-chunk",
+      "date": "2026-11-16",
+      "title": "Supplier terms PDF to search-ready chunks with AI.CHUNK_DOCUMENT",
+      "summary": "A two-page supplier terms PDF (ordering, delivery, returns, recalls, cold chain, payment ...) is written byte for byte, so the 8 terms that answer 8 clerk questions and their pages are known. In BigQuery, AI.CHUNK_DOCUMENT chunks it at chunk_size 100 and 500 in one query; the run must find every term at both sizes on pages 1-2 with no errors, and reports chunk counts and how many terms sit whole in one chunk on the right page.",
+      "headline": "One FROM clause chunks a supplier terms PDF for retrieval: 8 clerk-question terms checked whole, at two chunk sizes",
+      "skills": [
+        "BigQuery",
+        "AI.CHUNK_DOCUMENT",
+        "Document AI",
+        "Cloud Storage",
+        "RAG"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-43-supplier-terms-chunk",
+      "new_feature": {
+        "name": "AI.CHUNK_DOCUMENT function (GA)",
+        "released": "2026-10-21",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
