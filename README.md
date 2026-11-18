@@ -111,6 +111,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 41 | [Self-describing aisle graph: the GRAPH_EXPAND schema read back with BQ.SHOW_GRAPH_EXPAND_SCHEMA](features/gcp/day-41-aisle-graph-schema) | [BQ.SHOW_GRAPH_EXPAND_SCHEMA system procedure and OPTIONS descriptions on graph properties (GA, with graph measures)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-10) | BigQuery, BigQuery Graph, System procedures, Data contracts | ran |
 | 42 | [Supplier PDF price sheet to rows with AI.PARSE_DOCUMENT](features/gcp/day-42-supplier-sheet-parse) | [AI.PARSE_DOCUMENT function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-02) | BigQuery, AI.PARSE_DOCUMENT, Document AI, Cloud Storage | ran |
 | 43 | [Supplier terms PDF to search-ready chunks with AI.CHUNK_DOCUMENT](features/gcp/day-43-supplier-terms-chunk) | [AI.CHUNK_DOCUMENT function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-21) | BigQuery, AI.CHUNK_DOCUMENT, Document AI, Cloud Storage, RAG | ran |
+| 44 | [Aisle finder whose embeddings keep themselves current (autonomous embedding generation)](features/gcp/day-44-aisle-finder-embeddings) | [Autonomous embedding generation (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-06-17) | BigQuery, AI.EMBED, AI.SEARCH, embeddinggemma, Semantic search | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself

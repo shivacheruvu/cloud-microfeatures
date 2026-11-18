@@ -1882,6 +1882,29 @@
         "released": "2026-07-06",
         "source": "https://docs.databricks.com/aws/en/release-notes/serverless/"
       }
+    },
+    {
+      "day": 44,
+      "platform": "gcp",
+      "slug": "day-44-aisle-finder-embeddings",
+      "date": "2026-11-17",
+      "title": "Aisle finder whose embeddings keep themselves current (autonomous embedding generation)",
+      "summary": "A products table declares its description embedding as GENERATED ALWAYS AS (AI.EMBED(description, model => 'embeddinggemma-300m')) STORED with asynchronous generation, so BigQuery embeds rows in background jobs. The run inserts 11 products, waits for the fill, inserts oat milk late and waits again, then answers 9 shopper queries with AI.SEARCH against an answer key. A word-overlap baseline gets 1 of 9.",
+      "headline": "Insert a product, get its embedding: 9 shopper queries searched over a self-maintaining embedding column",
+      "skills": [
+        "BigQuery",
+        "AI.EMBED",
+        "AI.SEARCH",
+        "embeddinggemma",
+        "Semantic search"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-44-aisle-finder-embeddings",
+      "new_feature": {
+        "name": "Autonomous embedding generation (GA)",
+        "released": "2026-06-17",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
