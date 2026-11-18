@@ -49,5 +49,22 @@ Vertex AI calls. Well under a cent. The dataset is deleted on exit (tables also 
 
 ## Result
 Local: a word-overlap search (what `LIKE` / keywords would do) gets **1 of 9** queries right and finds no
-overlapping word at all for 5 of them. The cloud result is in the day's report and the run's annotations. Numbers in
-[`result.json`](result.json).
+overlapping word at all for 5 of them.
+
+Cloud (first run, 2026-11-17, after #149): BigQuery's background jobs embedded the first 11 products in **49 s** and
+the late oat milk in **72 s** (768 dimensions, no errors); `AI.SEARCH` put the expected product first for **7 of 9**
+queries (word overlap: 1 of 9).
+
+| Query | Expected | AI.SEARCH #1 |
+|---|---|---|
+| hot cereal for breakfast | Rolled oats | ✓ |
+| something to wash the dishes after dinner | Dish soap | ✓ |
+| leafy greens for a salad | Baby spinach | ✓ |
+| cold sweet dessert | Vanilla ice cream | ✓ |
+| fruit for a lunchbox | Bananas | ✓ |
+| pasta sauce | Marinara sauce | Spaghetti (marinara's tag never says "pasta" or "sauce") |
+| fresh bread | Sourdough loaf | ✓ |
+| ingredients for an omelette | Large eggs | ✓ |
+| dairy-free milk for my coffee | Oat milk (inserted late) | Whole milk; oat milk #2 |
+
+Numbers in [`result.json`](result.json).
