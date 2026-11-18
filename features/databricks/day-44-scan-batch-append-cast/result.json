@@ -1,0 +1,122 @@
+{
+  "engine": "pure-Python reference (local) / writeTo().append() and saveAsTable append into Unity Catalog Delta on a Databricks serverless job (cloud)",
+  "rows": 10,
+  "schema_before": {
+    "store_id": "int",
+    "sku": "string",
+    "qty": "bigint",
+    "unit_price": "decimal(10,2)",
+    "scan_date": "date"
+  },
+  "schema_after": {
+    "store_id": "int",
+    "sku": "string",
+    "qty": "bigint",
+    "unit_price": "decimal(10,2)",
+    "scan_date": "date"
+  },
+  "batch_types": {
+    "store_7": "store_id SMALLINT, sku STRING, qty INT, unit_price DECIMAL(6,2), scan_date DATE",
+    "store_9": "store_id INT, sku STRING, qty INT, unit_price DECIMAL(5,2), scan_date DATE"
+  },
+  "appends": {
+    "store_7": {
+      "method": "writeTo().append()",
+      "ok": true
+    },
+    "store_9": {
+      "method": "write.mode(\"append\").saveAsTable()",
+      "ok": true
+    }
+  },
+  "rows_after": [
+    [
+      3,
+      "HF-1001",
+      2,
+      "3.59",
+      "2026-11-16"
+    ],
+    [
+      3,
+      "PN-6001",
+      1,
+      "4.29",
+      "2026-11-16"
+    ],
+    [
+      3,
+      "PR-4001",
+      6,
+      "0.29",
+      "2026-11-16"
+    ],
+    [
+      7,
+      "FZ-8001",
+      1,
+      "6.99",
+      "2026-11-17"
+    ],
+    [
+      7,
+      "HF-2002",
+      2,
+      "5.49",
+      "2026-11-17"
+    ],
+    [
+      7,
+      "HF-3001",
+      1,
+      "4.99",
+      "2026-11-17"
+    ],
+    [
+      7,
+      "PN-6003",
+      3,
+      "3.79",
+      "2026-11-17"
+    ],
+    [
+      9,
+      "BK-5001",
+      1,
+      "5.99",
+      "2026-11-17"
+    ],
+    [
+      9,
+      "DA-1005",
+      2,
+      "4.49",
+      "2026-11-17"
+    ],
+    [
+      9,
+      "HH-7001",
+      4,
+      "2.89",
+      "2026-11-17"
+    ]
+  ],
+  "by_store": {
+    "3": {
+      "scans": 3,
+      "units": 9,
+      "revenue": "13.21"
+    },
+    "7": {
+      "scans": 4,
+      "units": 7,
+      "revenue": "34.33"
+    },
+    "9": {
+      "scans": 3,
+      "units": 7,
+      "revenue": "26.53"
+    }
+  },
+  "revenue_total": "74.07"
+}

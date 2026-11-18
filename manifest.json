@@ -1898,12 +1898,35 @@
         "embeddinggemma",
         "Semantic search"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-44-aisle-finder-embeddings",
       "new_feature": {
         "name": "Autonomous embedding generation (GA)",
         "released": "2026-06-17",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
+    },
+    {
+      "day": 44,
+      "platform": "databricks",
+      "slug": "day-44-scan-batch-append-cast",
+      "date": "2026-11-17",
+      "title": "Store scan batches with narrower types append without hand-written casts",
+      "summary": "Two store batches with narrower column types (SMALLINT / INT / DECIMAL(6,2) and DECIMAL(5,2)) are appended to a Delta scan table (INT / BIGINT / DECIMAL(10,2)) with writeTo().append() and write.mode(\"append\").saveAsTable(), with no casts. Since the 2026-07-06 serverless release both cast type-compatible columns instead of failing with DELTA_FAILED_TO_MERGE_FIELDS; the run checks the schema is unchanged and the rows and per-store totals equal the reference.",
+      "headline": "Two store feeds with narrower types land in the scan table as is: 10 scans, $74.07, schema unchanged",
+      "skills": [
+        "PySpark",
+        "Delta Lake",
+        "Unity Catalog",
+        "Serverless jobs",
+        "Schema contracts"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-44-scan-batch-append-cast",
+      "new_feature": {
+        "name": "writeTo().append() and saveAsTable append cast type-compatible columns (serverless, Databricks Runtime 18 updates)",
+        "released": "2026-07-06",
+        "source": "https://docs.databricks.com/aws/en/release-notes/serverless/"
       }
     }
   ]
