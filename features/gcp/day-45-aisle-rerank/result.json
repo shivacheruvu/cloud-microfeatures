@@ -69,5 +69,16 @@
       "q6": "PN-6002",
       "q9": "HF-1001"
     }
+  },
+  "cloud": {
+    "date": "2026-11-18",
+    "call_form": 1,
+    "correct": 9,
+    "rows_per_query": 12,
+    "fixed_day44_misses": [
+      "q6",
+      "q9"
+    ],
+    "misses": {}
   }
 }

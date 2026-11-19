@@ -57,6 +57,14 @@ and one ranking query (10 MiB on-demand minimums each). AI.RANK uses the Vertex 
 the free-trial credits. Enabling the Discovery Engine API itself costs nothing.
 
 ## Result
-Local: word overlap puts the right product first for **1/9** queries; day 44's embedding search got **7/9**. The cloud
-result (call form used, queries right, which day-44 misses were fixed) is in the first run's annotation and in the
-report; numbers in [`result.json`](result.json).
+**Cloud (2026-11-18, after the fix-forward): AI.RANK put the expected product first for 9/9 queries**, with call
+form 1 (`AI.RANK(TABLE products, 'description', query)`), every product ranked for every query (12 rows each).
+
+| Approach | Right first | "pasta sauce" | "dairy-free milk for my coffee" |
+|---|---:|---|---|
+| Word overlap (local) | 1/9 | Marinara sauce | Whole milk |
+| Day 44: `AI.SEARCH` over `embeddinggemma-300m` embeddings | 7/9 (6/9 on the 11-18 re-run) | Spaghetti | Whole milk (oat milk #2) |
+| **Day 45: `AI.RANK`** | **9/9** | **Marinara sauce** | **Oat milk** |
+
+Both of day 44's misses are fixed and nothing new is missed. Local baseline and answer key in
+[`result.json`](result.json).
