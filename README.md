@@ -114,7 +114,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 42 | [Supplier PDF price sheet to rows with AI.PARSE_DOCUMENT](features/gcp/day-42-supplier-sheet-parse) | [AI.PARSE_DOCUMENT function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-02) | BigQuery, AI.PARSE_DOCUMENT, Document AI, Cloud Storage | ran |
 | 43 | [Supplier terms PDF to search-ready chunks with AI.CHUNK_DOCUMENT](features/gcp/day-43-supplier-terms-chunk) | [AI.CHUNK_DOCUMENT function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-21) | BigQuery, AI.CHUNK_DOCUMENT, Document AI, Cloud Storage, RAG | ran |
 | 44 | [Aisle finder whose embeddings keep themselves current (autonomous embedding generation)](features/gcp/day-44-aisle-finder-embeddings) | [Autonomous embedding generation (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-06-17) | BigQuery, AI.EMBED, AI.SEARCH, embeddinggemma, Semantic search | ran |
-| 45 | [Aisle finder that reads the question: shopper queries ranked with AI.RANK](features/gcp/day-45-aisle-rerank) | [AI.RANK function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-17) | BigQuery, AI.RANK, Reranking, Semantic search | built |
+| 45 | [Aisle finder that reads the question: shopper queries ranked with AI.RANK](features/gcp/day-45-aisle-rerank) | [AI.RANK function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-17) | BigQuery, AI.RANK, Reranking, Semantic search | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself

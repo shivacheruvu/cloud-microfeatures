@@ -246,9 +246,11 @@ def main(argv: list[str]) -> int:
         print("DAY45_RESULT " + json.dumps({k: e[k] for k in ("correct", "wrong", "fixed_day44_misses", "columns")}))
         return 0
     s = summarise()
+    prev = json.loads((HERE / "result.json").read_text()) if (HERE / "result.json").exists() else {}
+    cloud = {"cloud": prev["cloud"]} if "cloud" in prev else {}   # recorded from the cloud run's annotation
     (HERE / "result.json").write_text(json.dumps(
-        {"engine": "word-overlap baseline + day-44 embedding result + answer key (local) / AI.RANK (cloud)", **s},
-        indent=2) + "\n")
+        {"engine": "word-overlap baseline + day-44 embedding result + answer key (local) / AI.RANK (cloud)", **s,
+         **cloud}, indent=2) + "\n")
     print(json.dumps(s, indent=1))
     return 0
 
