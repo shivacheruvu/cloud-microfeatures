@@ -101,6 +101,16 @@ echo "WARNING: --scopes"
 python3 "$ROWS" "$sql"
 """
 
+FAKE_GCLOUD = r"""#!/usr/bin/env bash
+# fake gcloud: the Discovery Engine API is enabled unless $API_OFF is set; `services enable` succeeds
+echo "gcloud $*" >> "$LOG"
+case "$*" in
+  "services list"*) [ -z "$API_OFF" ] && echo "discoveryengine.googleapis.com"; exit 0;;
+  "services enable"*) exit 0;;
+esac
+exit 1
+"""
+
 ROWS = r"""import json, re, sys
 sql = sys.argv[1]
 expected = {"q1": "PN-6001", "q2": "HH-7001", "q3": "PR-4002", "q4": "FZ-8001", "q5": "PR-4001",
@@ -114,16 +124,20 @@ print(json.dumps(out))
 """
 
 
-def _run_cloud(tmp_path, refuse):
+def _run_cloud(tmp_path, refuse, api_off=""):
     if not shutil.which("bash"):
         pytest.skip("bash needed")
     bindir = tmp_path / "bin"
-    bindir.mkdir()
+    bindir.mkdir(exist_ok=True)
     (bindir / "bq").write_text(FAKE_BQ)
     (bindir / "bq").chmod(0o755)
+    (bindir / "gcloud").write_text(FAKE_GCLOUD)
+    (bindir / "gcloud").chmod(0o755)
+    (bindir / "sleep").write_text("#!/bin/sh\nexit 0\n")
+    (bindir / "sleep").chmod(0o755)
     (tmp_path / "rows.py").write_text(ROWS)
     env = {**os.environ, "PATH": f"{bindir}:{os.environ['PATH']}", "GCP_PROJECT_ID": "my-proj",
-           "REFUSE": refuse, "LOG": str(tmp_path / "log.sql"), "ROWS": str(tmp_path / "rows.py")}
+           "REFUSE": refuse, "API_OFF": api_off, "LOG": str(tmp_path / "log.sql"), "ROWS": str(tmp_path / "rows.py")}
     return subprocess.run(["bash", "cloud.sh"], cwd=FEATURE, env=env, capture_output=True, text=True, timeout=120)
 
 
@@ -141,3 +155,13 @@ def test_cloud_sh_reports_every_refused_form(tmp_path):
     assert p.returncode == 1
     assert "::error title=Day 45 AI.RANK refused in every call form::" in p.stdout
     assert "[form 1]" in p.stdout and "form 3 refused" in p.stdout and "123456789" not in p.stdout
+
+
+def test_cloud_sh_enables_the_ranking_api_once(tmp_path):
+    p = _run_cloud(tmp_path, "", api_off="1")
+    assert p.returncode == 0, p.stdout + p.stderr
+    assert "enabled the Discovery Engine API (discoveryengine.googleapis.com) for AI.RANK" in p.stdout
+    assert "gcloud services enable discoveryengine.googleapis.com" in (tmp_path / "log.sql").read_text()
+    assert "call form 1" in p.stdout
+    p = _run_cloud(tmp_path, "")
+    assert "enabled the Discovery Engine API" not in p.stdout
