@@ -18,6 +18,18 @@ redact() { tr -d '\n' | sed -E -e "s/${GCP_PROJECT_ID}/<project>/g" -e 's/[0-9]{
 cleanup() { bq --quiet rm -r -f -d "${GCP_PROJECT_ID}:${DS}" >/dev/null 2>&1 || true; rm -rf "$DIR"; }
 trap cleanup EXIT
 
+# AI.RANK calls the Vertex AI ranking API (Discovery Engine): the first run (2026-11-18) was refused with "the
+# Discovery Engine API (discoveryengine.googleapis.com) is not enabled". Enable it once, like day 43 does for Document
+# AI. Ranking API list price: $1 per 1,000 ranking queries (up to 100 records each), so 9 queries = about $0.009.
+if [ -z "$(gcloud services list --enabled --filter='config.name=discoveryengine.googleapis.com' --format='value(config.name)' 2>/dev/null)" ]; then
+  if gcloud services enable discoveryengine.googleapis.com --quiet >/dev/null 2>"$ERR"; then
+    echo "::notice title=Google Cloud day 45::enabled the Discovery Engine API (discoveryengine.googleapis.com) for AI.RANK"
+    sleep 60
+  else
+    echo "::error title=Could not enable the Discovery Engine API::$(tail -c 600 "$ERR" | redact)"; exit 1
+  fi
+fi
+
 if ! bq --quiet --location=US mk -d --default_table_expiration 3600 --label project:ai-frontier \
      "${GCP_PROJECT_ID}:${DS}" > "$ERR" 2>&1; then
   echo "::error title=Create dataset failed::$(redact < "$ERR")"; exit 1

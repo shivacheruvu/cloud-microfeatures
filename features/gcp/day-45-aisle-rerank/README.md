@@ -26,6 +26,11 @@ accepts; the annotation names it, and if none is accepted every form's error is 
 | 2 | `AI.RANK((SELECT sku, name, description FROM products), 'description', query)` |
 | 3 | `AI.RANK(TABLE products, 'description', query, top_k => 12)` |
 
+The first run (2026-11-18) showed forms 1 and 2 parse and form 3 doesn't ("Named argument top_k not found in
+signature for call to function AI.RANK"), and that `AI.RANK` calls the Vertex AI ranking API: both accepted forms were
+refused with "the Discovery Engine API (discoveryengine.googleapis.com) is not enabled". Fixed forward the same day:
+`cloud.sh` now enables that API once (the CI service account is a project editor, as for day 43's Document AI).
+
 Each output row is read as `TO_JSON_STRING` of the whole row, so the check finds `sku` and the rank or score column
 by name, whatever the output shape.
 
@@ -46,8 +51,10 @@ bash features/gcp/day-45-aisle-rerank/cloud.sh             # GitHub Actions, key
 
 ## Cost
 A short-lived US dataset with one 12-row table (deleted on exit; tables also expire after an hour), one probe query
-per tried call form and one ranking query: 9 queries x 12 short descriptions through AI.RANK's model, plus 10 MiB
-on-demand minimums. Estimated well under one cent of the free-trial credits.
+and one ranking query (10 MiB on-demand minimums each). AI.RANK uses the Vertex AI ranking API, list price **$1 per
+1,000 ranking queries** of up to 100 records ([Vertex AI Search pricing](https://cloud.google.com/generative-ai-app-builder/pricing)):
+10 calls (probe + 9 queries) of 12 records = about **$0.01 per run**, about $0.35 for the daily re-runs to day 80, inside
+the free-trial credits. Enabling the Discovery Engine API itself costs nothing.
 
 ## Result
 Local: word overlap puts the right product first for **1/9** queries; day 44's embedding search got **7/9**. The cloud
