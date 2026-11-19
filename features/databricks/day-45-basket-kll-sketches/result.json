@@ -1,0 +1,53 @@
+{
+  "engine": "pure-Python exact percentiles (local reference) / KLL sketches merged on a Databricks serverless job (cloud)",
+  "raw_rows": 10538,
+  "daily_sketches": 21,
+  "week": [
+    "2026-11-09",
+    "2026-11-15"
+  ],
+  "quantiles": [
+    0.5,
+    0.9,
+    0.99
+  ],
+  "eps": 0.03,
+  "exact": {
+    "3": {
+      "n": 3156,
+      "p": [
+        2903,
+        6235,
+        13412
+      ],
+      "mean_cents": 3567
+    },
+    "7": {
+      "n": 3537,
+      "p": [
+        3834,
+        9083,
+        21112
+      ],
+      "mean_cents": 4968
+    },
+    "9": {
+      "n": 3845,
+      "p": [
+        1413,
+        3236,
+        7584
+      ],
+      "mean_cents": 1803
+    },
+    "chain": {
+      "n": 10538,
+      "p": [
+        2521,
+        6552,
+        15640
+      ],
+      "mean_cents": 3394
+    }
+  }
+}

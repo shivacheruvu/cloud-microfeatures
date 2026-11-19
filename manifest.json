@@ -1928,6 +1928,29 @@
         "released": "2026-07-06",
         "source": "https://docs.databricks.com/aws/en/release-notes/serverless/"
       }
+    },
+    {
+      "day": 45,
+      "platform": "databricks",
+      "slug": "day-45-basket-kll-sketches",
+      "date": "2026-11-18",
+      "title": "Weekly basket-size percentiles from mergeable daily KLL sketches",
+      "summary": "One KLL quantile sketch per store and day of basket totals (kll_sketch_agg_bigint) is stored in a Delta table; weekly per-store and chain-wide median, p90 and p99 come from merging the stored sketches only (kll_merge_agg_bigint + kll_sketch_get_quantile_bigint). The run checks every merged sketch counts exactly its baskets and every percentile is within 0.03 normalized rank of the exact one.",
+      "headline": "21 small daily sketches answer the weekly basket percentiles for 10,538 baskets, all within 0.03 rank of exact",
+      "skills": [
+        "Databricks SQL",
+        "KLL sketches",
+        "Delta Lake",
+        "Serverless jobs",
+        "Approximate analytics"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-45-basket-kll-sketches",
+      "new_feature": {
+        "name": "KLL quantile sketch functions in SQL (Databricks Runtime 19)",
+        "released": "2026-06-15",
+        "source": "https://docs.databricks.com/gcp/en/release-notes/runtime/19"
+      }
     }
   ]
 }
