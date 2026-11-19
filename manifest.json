@@ -1951,6 +1951,28 @@
         "released": "2026-06-15",
         "source": "https://docs.databricks.com/gcp/en/release-notes/runtime/19"
       }
+    },
+    {
+      "day": 45,
+      "platform": "gcp",
+      "slug": "day-45-aisle-rerank",
+      "date": "2026-11-18",
+      "title": "Aisle finder that reads the question: shopper queries ranked with AI.RANK",
+      "summary": "Day 44's 12-product catalog as a plain table (no embeddings, no connection); AI.RANK reorders the products by how well each description answers each of the 9 shopper queries, reading query and text together. The run checks the first-ranked product against day 44's answer key, where embedding search got 7/9 and word overlap 1/9.",
+      "headline": "AI.RANK reads the shopper's words and the shelf tag together: 9 queries checked against day 44's 7/9",
+      "skills": [
+        "BigQuery",
+        "AI.RANK",
+        "Reranking",
+        "Semantic search"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-45-aisle-rerank",
+      "new_feature": {
+        "name": "AI.RANK function (GA)",
+        "released": "2026-11-17",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
