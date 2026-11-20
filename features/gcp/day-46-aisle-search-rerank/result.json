@@ -61,5 +61,17 @@
       "engine": "AI.RANK over all 12 rows (day 45)",
       "correct": "9/9"
     }
+  },
+  "cloud": {
+    "date": "2026-11-19",
+    "call_form": 1,
+    "correct": 9,
+    "candidates_per_query": 5,
+    "answer_in_candidates": 9,
+    "vector_top1_correct": 7,
+    "rerank_changed_top_pick": 2,
+    "order_column": "rerank_score",
+    "embedding_wait_seconds": 26,
+    "misses": {}
   }
 }
