@@ -1973,6 +1973,29 @@
         "released": "2026-11-17",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 46,
+      "platform": "databricks",
+      "slug": "day-46-delivery-threshold-ranks",
+      "date": "2026-11-19",
+      "title": "Free-delivery threshold shares from merged KLL sketch ranks",
+      "summary": "One KLL sketch per store and day of basket totals (kll_sketch_agg_bigint) is stored in a Delta table; the share of baskets at or under $35, $50 and $75 per store and chain-wide comes from merging the stored sketches (kll_merge_agg_bigint) and one kll_sketch_get_rank_bigint call with an array of thresholds. The run checks every merged sketch counts exactly its baskets and every rank is within 0.03 of the exact share.",
+      "headline": "A $50 free-delivery minimum covers 17.7% of 10,506 baskets chain-wide but 2.6% at the small-format store; all 12 sketch ranks within 0.005 of exact",
+      "skills": [
+        "Databricks SQL",
+        "KLL sketches",
+        "Delta Lake",
+        "Serverless jobs",
+        "Approximate analytics"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-46-delivery-threshold-ranks",
+      "new_feature": {
+        "name": "KLL sketch rank function kll_sketch_get_rank_bigint (KLL quantile functions in SQL, Databricks Runtime 19)",
+        "released": "2026-06-15",
+        "source": "https://docs.databricks.com/gcp/en/release-notes/runtime/19"
+      }
     }
   ]
 }
