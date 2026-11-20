@@ -1,0 +1,65 @@
+{
+  "engine": "answer key + day 44 / 45 baselines (local) / AI.SEARCH with rerank (cloud)",
+  "model": "embeddinggemma-300m",
+  "products": 12,
+  "queries": 9,
+  "top_k": 5,
+  "min_correct": 7,
+  "answer_key": {
+    "q1": {
+      "query": "hot cereal for breakfast",
+      "sku": "PN-6001",
+      "product": "Rolled oats"
+    },
+    "q2": {
+      "query": "something to wash the dishes after dinner",
+      "sku": "HH-7001",
+      "product": "Dish soap"
+    },
+    "q3": {
+      "query": "leafy greens for a salad",
+      "sku": "PR-4002",
+      "product": "Baby spinach"
+    },
+    "q4": {
+      "query": "cold sweet dessert",
+      "sku": "FZ-8001",
+      "product": "Vanilla ice cream"
+    },
+    "q5": {
+      "query": "fruit for a lunchbox",
+      "sku": "PR-4001",
+      "product": "Bananas"
+    },
+    "q6": {
+      "query": "pasta sauce",
+      "sku": "PN-6003",
+      "product": "Marinara sauce"
+    },
+    "q7": {
+      "query": "fresh bread",
+      "sku": "BK-5001",
+      "product": "Sourdough loaf"
+    },
+    "q8": {
+      "query": "ingredients for an omelette",
+      "sku": "HF-3001",
+      "product": "Large eggs"
+    },
+    "q9": {
+      "query": "dairy-free milk for my coffee",
+      "sku": "DA-1005",
+      "product": "Oat milk"
+    }
+  },
+  "baselines": {
+    "day44_vector_search": {
+      "engine": "AI.SEARCH over the generated column, no rerank (day 44)",
+      "correct": "6-7/9"
+    },
+    "day45_ai_rank": {
+      "engine": "AI.RANK over all 12 rows (day 45)",
+      "correct": "9/9"
+    }
+  }
+}
