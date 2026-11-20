@@ -2004,7 +2004,7 @@
       "date": "2026-11-19",
       "title": "Two-stage aisle finder: AI.SEARCH retrieves, the rerank option reorders",
       "summary": "Day 44's 12-product catalog with an autonomously generated embeddinggemma-300m column; AI.SEARCH with the rerank option takes the top 5 products by vector distance for each of 9 shopper queries and has the ranking model reorder them. The run checks the first product against the day-44 answer key (vector search alone 6-7/9, AI.RANK over every row 9/9) and reports how often the rerank changed the top pick.",
-      "headline": "Vector search picks 5 candidates, the reranker picks the answer: two-stage search in one AI.SEARCH call",
+      "headline": "AI.SEARCH + rerank: 9/9 shopper queries right from 5 vector candidates each (vector distance alone 7/9)",
       "skills": [
         "BigQuery",
         "AI.SEARCH",
@@ -2012,7 +2012,7 @@
         "Autonomous embeddings",
         "Semantic search"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-46-aisle-search-rerank",
       "new_feature": {
         "name": "AI.SEARCH rerank option (GA)",

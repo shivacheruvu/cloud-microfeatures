@@ -52,6 +52,15 @@ background embedding jobs (built-in model on BigQuery slots), and about 10 ranki
 per 1,000 ranking queries: about $0.01). The Discovery Engine API that reranking uses was enabled by day 45.
 
 ## Result
-Local: answer key and the day 44 / 45 baselines in [`result.json`](result.json). The cloud result (form accepted,
-x/9 correct, answer-in-candidates, vector-only score, top picks changed) is the `Google Cloud day 46` annotation of
-the run after merge, recorded in the daily report.
+Cloud run after merge (2026-11-19, GitHub Actions): **form 1 accepted** (`top_k => 5, rerank => TRUE`); the output
+carries a `rerank_score` column. BigQuery embedded all 12 rows in the background in 26 s.
+
+| Measure | Result |
+|---|---:|
+| Expected product first after rerank | **9/9** |
+| Answer among the 5 vector candidates | 9/9 |
+| Vector distance alone (same candidates) | 7/9 |
+| Top pick changed by the rerank | 2 queries |
+
+Same 9/9 as day 45's `AI.RANK` over every row, but the ranker only read 5 candidates per query instead of the whole
+table, and the vector stage found the answer every time. Numbers in [`result.json`](result.json) (`cloud`).
