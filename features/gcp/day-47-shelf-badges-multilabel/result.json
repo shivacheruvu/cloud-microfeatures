@@ -128,5 +128,22 @@
         "vegetarian"
       ]
     }
+  },
+  "cloud": {
+    "date": "2026-11-20",
+    "call_form": 1,
+    "precision": 1.0,
+    "recall": 0.889,
+    "f1": 0.941,
+    "products_exact": 11,
+    "missed": [
+      "6:gluten_free",
+      "8:dairy_free",
+      "8:vegan",
+      "9:gluten_free"
+    ],
+    "extra": [],
+    "single_label_correct": 13,
+    "single_label_recall": 0.361
   }
 }

@@ -55,3 +55,10 @@ under one cent of free-trial credit per run. Nothing to clean up.
 Answer key (local): 14 products, 36 badges (vegan 5, vegetarian 11, gluten-free 8, dairy-free 8, contains nuts 4);
 7 products carry 3 or more badges, 1 carries none. Single-label's ceiling: recall 0.361 (13/36). The cloud run reports
 multi-label precision / recall / F1 and the single-label baseline. Numbers in [`result.json`](result.json).
+
+**Cloud run (2026-11-20, first run after the merge):** call form 1 (labels with descriptions, `output_mode =>
+'multi'`) was accepted. Multi-label `AI.CLASSIFY` returned an array for all 14 products with **precision 1.0, recall
+0.889, F1 0.941** over 36 badges: **no false badges**, 11/14 products with exactly the right set. Missed: gluten-free
+on the pecan ice cream and the Greek yogurt, vegan and dairy-free on the cashew stir-fry sauce (it is cautious rather
+than wrong-way: a missing badge hides a product from a filter, a false one would mislead a shopper). Single-label on
+the same input got 13/36 badges, its ceiling.
