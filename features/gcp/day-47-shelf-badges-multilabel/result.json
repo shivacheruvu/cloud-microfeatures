@@ -1,0 +1,132 @@
+{
+  "engine": "hand-worked answer key (local) / AI.CLASSIFY output_mode => 'multi' (cloud)",
+  "products": 14,
+  "badges": [
+    "vegan",
+    "vegetarian",
+    "gluten_free",
+    "dairy_free",
+    "contains_nuts"
+  ],
+  "badges_in_key": 36,
+  "per_badge": {
+    "vegan": 5,
+    "vegetarian": 11,
+    "gluten_free": 8,
+    "dairy_free": 8,
+    "contains_nuts": 4
+  },
+  "products_with_no_badge": 1,
+  "products_with_3_plus_badges": 7,
+  "single_label_max_recall": 0.361,
+  "min_f1": 0.8,
+  "queries": 1,
+  "model_calls": 28,
+  "answer_key": {
+    "1": {
+      "product": "Hummus",
+      "badges": [
+        "dairy_free",
+        "gluten_free",
+        "vegan",
+        "vegetarian"
+      ]
+    },
+    "2": {
+      "product": "Brioche buns",
+      "badges": [
+        "vegetarian"
+      ]
+    },
+    "3": {
+      "product": "Almond honey granola",
+      "badges": [
+        "contains_nuts",
+        "dairy_free",
+        "gluten_free",
+        "vegetarian"
+      ]
+    },
+    "4": {
+      "product": "Chicken caesar wrap",
+      "badges": []
+    },
+    "5": {
+      "product": "Rice crackers",
+      "badges": [
+        "dairy_free",
+        "gluten_free",
+        "vegan",
+        "vegetarian"
+      ]
+    },
+    "6": {
+      "product": "Pecan praline ice cream",
+      "badges": [
+        "contains_nuts",
+        "gluten_free",
+        "vegetarian"
+      ]
+    },
+    "7": {
+      "product": "Beef chili",
+      "badges": [
+        "dairy_free",
+        "gluten_free"
+      ]
+    },
+    "8": {
+      "product": "Cashew stir-fry sauce",
+      "badges": [
+        "contains_nuts",
+        "dairy_free",
+        "vegan",
+        "vegetarian"
+      ]
+    },
+    "9": {
+      "product": "Greek yogurt",
+      "badges": [
+        "gluten_free",
+        "vegetarian"
+      ]
+    },
+    "10": {
+      "product": "Peanut butter cookies",
+      "badges": [
+        "contains_nuts",
+        "vegetarian"
+      ]
+    },
+    "11": {
+      "product": "Smoked salmon",
+      "badges": [
+        "dairy_free",
+        "gluten_free"
+      ]
+    },
+    "12": {
+      "product": "Oat milk",
+      "badges": [
+        "dairy_free",
+        "vegan",
+        "vegetarian"
+      ]
+    },
+    "13": {
+      "product": "Vegan cheddar slices",
+      "badges": [
+        "dairy_free",
+        "gluten_free",
+        "vegan",
+        "vegetarian"
+      ]
+    },
+    "14": {
+      "product": "Margherita pizza",
+      "badges": [
+        "vegetarian"
+      ]
+    }
+  }
+}

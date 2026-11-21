@@ -1,0 +1,15 @@
+product_no,product,ingredients,badges
+1,Hummus,"chickpeas, tahini (sesame), lemon juice, garlic, olive oil, salt",vegan;vegetarian;gluten_free;dairy_free
+2,Brioche buns,"wheat flour, butter (milk), eggs, sugar, yeast, skimmed milk powder, salt",vegetarian
+3,Almond honey granola,"certified gluten-free rolled oats, honey, almonds, sunflower oil, salt",vegetarian;gluten_free;dairy_free;contains_nuts
+4,Chicken caesar wrap,"wheat tortilla, grilled chicken, romaine lettuce, parmesan cheese (milk), egg yolk, anchovies",
+5,Rice crackers,"rice flour, sunflower oil, salt, rosemary extract",vegan;vegetarian;gluten_free;dairy_free
+6,Pecan praline ice cream,"cream, skim milk, sugar, pecans, egg yolks, caramel (sugar, butter)",vegetarian;gluten_free;contains_nuts
+7,Beef chili,"ground beef, kidney beans, tomatoes, onion, chili powder, salt",gluten_free;dairy_free
+8,Cashew stir-fry sauce,"water, soy sauce (soybeans, wheat), cashews, sugar, garlic, ginger",vegan;vegetarian;dairy_free;contains_nuts
+9,Greek yogurt,"pasteurized milk, live yogurt cultures",vegetarian;gluten_free
+10,Peanut butter cookies,"wheat flour, peanut butter (peanuts), brown sugar, butter (milk), egg, baking soda",vegetarian;contains_nuts
+11,Smoked salmon,"Atlantic salmon, salt, oak smoke",gluten_free;dairy_free
+12,Oat milk,"water, oats, rapeseed oil, sea salt",vegan;vegetarian;dairy_free
+13,Vegan cheddar slices,"water, coconut oil, potato starch, salt, olive extract, beta carotene",vegan;vegetarian;gluten_free;dairy_free
+14,Margherita pizza,"wheat flour dough, tomato sauce, mozzarella (milk), basil, olive oil",vegetarian

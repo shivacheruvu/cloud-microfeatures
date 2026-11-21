@@ -2019,6 +2019,28 @@
         "released": "2026-11-17",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 47,
+      "platform": "gcp",
+      "slug": "day-47-shelf-badges-multilabel",
+      "date": "2026-11-20",
+      "title": "Shelf diet badges with multi-label AI.CLASSIFY",
+      "summary": "14 grocery products get every diet badge that applies (vegan, vegetarian, gluten-free, dairy-free, contains nuts) from one AI.CLASSIFY call with output_mode => 'multi', next to the default single-label call. Checked against a hand-worked key of 36 badges: precision, recall, F1 and exact badge sets.",
+      "headline": "Multi-label AI.CLASSIFY: all 36 diet badges in reach vs 13/36 for single-label",
+      "skills": [
+        "BigQuery",
+        "AI.CLASSIFY",
+        "Multi-label classification",
+        "Gemini"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-47-shelf-badges-multilabel",
+      "new_feature": {
+        "name": "Multi-label AI.CLASSIFY (output_mode => 'multi', GA)",
+        "released": "2026-11-17",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
