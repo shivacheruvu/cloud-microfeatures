@@ -50,5 +50,14 @@
       "units": null,
       "total_cents": null
     }
+  },
+  "cloud": {
+    "date": "2026-11-21",
+    "orders_matched": 8,
+    "lines": 17,
+    "units": 28,
+    "total_cents": 4188,
+    "null_stayed_null": true,
+    "empty_bundles": "[]"
   }
 }

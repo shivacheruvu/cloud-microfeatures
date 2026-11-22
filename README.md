@@ -64,6 +64,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 44 | [Store scan batches with narrower types append without hand-written casts](features/databricks/day-44-scan-batch-append-cast) | [writeTo().append() and saveAsTable append cast type-compatible columns (serverless, Databricks Runtime 18 updates)](https://docs.databricks.com/aws/en/release-notes/serverless/) (2026-07-06) | PySpark, Delta Lake, Unity Catalog, Serverless jobs, Schema contracts | built |
 | 45 | [Weekly basket-size percentiles from mergeable daily KLL sketches](features/databricks/day-45-basket-kll-sketches) | [KLL quantile sketch functions in SQL (Databricks Runtime 19)](https://docs.databricks.com/gcp/en/release-notes/runtime/19) (2026-06-15) | Databricks SQL, KLL sketches, Delta Lake, Serverless jobs, Approximate analytics | built |
 | 46 | [Free-delivery threshold shares from merged KLL sketch ranks](features/databricks/day-46-delivery-threshold-ranks) | [KLL sketch rank function kll_sketch_get_rank_bigint (KLL quantile functions in SQL, Databricks Runtime 19)](https://docs.databricks.com/gcp/en/release-notes/runtime/19) (2026-06-15) | Databricks SQL, KLL sketches, Delta Lake, Serverless jobs, Approximate analytics | built |
+| 47 | [One basket query, three price books, switched with SET PATH](features/databricks/day-47-price-book-path) | [SET PATH and current_path() (Databricks SQL 2026.43, Preview)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-10-19) | Databricks SQL, SET PATH, Name resolution, Unity Catalog, Serverless jobs | built |
 <!-- databricks:end -->
 
 ## Google Cloud features
@@ -118,7 +119,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 45 | [Aisle finder that reads the question: shopper queries ranked with AI.RANK](features/gcp/day-45-aisle-rerank) | [AI.RANK function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-17) | BigQuery, AI.RANK, Reranking, Semantic search | ran |
 | 46 | [Two-stage aisle finder: AI.SEARCH retrieves, the rerank option reorders](features/gcp/day-46-aisle-search-rerank) | [AI.SEARCH rerank option (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-17) | BigQuery, AI.SEARCH, Reranking, Autonomous embeddings, Semantic search | ran |
 | 47 | [Shelf diet badges with multi-label AI.CLASSIFY](features/gcp/day-47-shelf-badges-multilabel) | [Multi-label AI.CLASSIFY (output_mode => 'multi', GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-17) | BigQuery, AI.CLASSIFY, Multi-label classification, Gemini | ran |
-| 48 | [Basket lines from nested order JSON with JSON_FLATTEN](features/gcp/day-48-basket-lines-json-flatten) | [JSON_FLATTEN function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-11) | BigQuery, JSON_FLATTEN, JSON, Nested data | built |
+| 48 | [Basket lines from nested order JSON with JSON_FLATTEN](features/gcp/day-48-basket-lines-json-flatten) | [JSON_FLATTEN function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-11) | BigQuery, JSON_FLATTEN, JSON, Nested data | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself

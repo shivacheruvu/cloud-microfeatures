@@ -47,3 +47,8 @@ One query over inlined literals: 0 bytes scanned, no model calls, $0. Nothing to
 ## Result
 Reference (local): 8 orders, 17 line objects, 28 units, basket total 4,188 cents; 5 orders nested beyond one level
 (deepest: 3), 1 NULL order. Per-order figures in [`result.json`](result.json). The cloud run must match every order.
+
+**Cloud run (2026-11-21, first run after the merge):** passed on the first try. `JSON_FLATTEN` returned exactly the
+reference for all 8 orders, element for element and in order: 17 line objects, 28 units, 4,188 cents; the three-level
+bundle came out flat, the bare object was wrapped, the `subs` arrays stayed inside their line, `[[], [[]]]` gave `[]`
+and the NULL order stayed NULL. 0 bytes scanned.
