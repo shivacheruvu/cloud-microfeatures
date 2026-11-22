@@ -1,0 +1,54 @@
+{
+  "engine": "pure-Python JSON_FLATTEN reference (local) / BigQuery JSON_FLATTEN (cloud)",
+  "orders": 8,
+  "lines": 17,
+  "units": 28,
+  "total_cents": 4188,
+  "max_depth": 3,
+  "orders_nested": 5,
+  "null_orders": 1,
+  "queries": 1,
+  "bytes_scanned": 0,
+  "per_order": {
+    "1": {
+      "line_count": 2,
+      "units": 3,
+      "total_cents": 507
+    },
+    "2": {
+      "line_count": 4,
+      "units": 9,
+      "total_cents": 500
+    },
+    "3": {
+      "line_count": 3,
+      "units": 3,
+      "total_cents": 1447
+    },
+    "4": {
+      "line_count": 1,
+      "units": 1,
+      "total_cents": 389
+    },
+    "5": {
+      "line_count": 2,
+      "units": 5,
+      "total_cents": 390
+    },
+    "6": {
+      "line_count": 5,
+      "units": 7,
+      "total_cents": 955
+    },
+    "7": {
+      "line_count": 0,
+      "units": null,
+      "total_cents": null
+    },
+    "8": {
+      "line_count": 0,
+      "units": null,
+      "total_cents": null
+    }
+  }
+}

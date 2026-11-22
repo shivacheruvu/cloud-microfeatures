@@ -2041,6 +2041,28 @@
         "released": "2026-11-17",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 48,
+      "platform": "gcp",
+      "slug": "day-48-basket-lines-json-flatten",
+      "date": "2026-11-21",
+      "title": "Basket lines from nested order JSON with JSON_FLATTEN",
+      "summary": "Eight grocery orders arrive with line JSON in every shape a cart produces: flat, meal deals as nested arrays, a bundle three levels deep, a bare object, empty bundles and NULL. One BigQuery query flattens them with JSON_FLATTEN and prices each basket; every order is checked element for element against a pure-Python reference.",
+      "headline": "JSON_FLATTEN: 8 orders, any nesting depth, 17 lines and 4,188 cents in one query",
+      "skills": [
+        "BigQuery",
+        "JSON_FLATTEN",
+        "JSON",
+        "Nested data"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-48-basket-lines-json-flatten",
+      "new_feature": {
+        "name": "JSON_FLATTEN function (GA)",
+        "released": "2026-11-11",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
