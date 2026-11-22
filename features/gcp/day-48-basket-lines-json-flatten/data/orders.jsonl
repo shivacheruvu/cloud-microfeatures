@@ -1,0 +1,8 @@
+{"order_id": 1, "note": "flat list of lines", "lines": [{"sku": "MILK-1L", "qty": 2, "cents": 129}, {"sku": "BREAD-WHITE", "qty": 1, "cents": 249}]}
+{"order_id": 2, "note": "meal deal grouped as a nested array", "lines": [{"sku": "BANANA", "qty": 6, "cents": 25}, [{"sku": "SANDWICH-BLT", "qty": 1, "cents": 350}, {"sku": "CRISPS-SALTED", "qty": 1, "cents": 0}, {"sku": "WATER-500ML", "qty": 1, "cents": 0}]]}
+{"order_id": 3, "note": "bundle inside a bundle (three levels)", "lines": [[[{"sku": "YOGURT-4PK", "qty": 1, "cents": 299}], {"sku": "GRANOLA", "qty": 1, "cents": 399}], {"sku": "COFFEE-BEANS", "qty": 1, "cents": 749}]}
+{"order_id": 4, "note": "one line sent as an object, not an array", "lines": {"sku": "EGGS-12", "qty": 1, "cents": 389}}
+{"order_id": 5, "note": "arrays inside a line object stay intact", "lines": [{"sku": "TOMATO", "qty": 4, "cents": 60, "subs": [["TOMATO-VINE"], ["TOMATO-CHERRY"]]}, [{"sku": "BASIL", "qty": 1, "cents": 150}]]}
+{"order_id": 6, "note": "two meal deals side by side plus a loose line", "lines": [[{"sku": "WRAP-FALAFEL", "qty": 1, "cents": 375}, {"sku": "JUICE-ORANGE", "qty": 1, "cents": 0}], [{"sku": "SANDWICH-EGG", "qty": 1, "cents": 325}, {"sku": "APPLE", "qty": 1, "cents": 0}], {"sku": "CHOC-BAR", "qty": 3, "cents": 85}]}
+{"order_id": 7, "note": "empty bundles only", "lines": [[], [[]]]}
+{"order_id": 8, "note": "cart abandoned: no lines field (SQL NULL)", "lines": null}
