@@ -1,0 +1,34 @@
+{
+  "engine": "pure-Python name-resolution model + DuckDB search_path (local) / SET PATH on a Databricks serverless job (cloud)",
+  "basket_lines": 6,
+  "units": 14,
+  "everyday_cents": 2050,
+  "promo_cents": 1745,
+  "promo_saving_cents": 305,
+  "scenarios": 7,
+  "reference": {
+    "totals": {
+      "live": 2050,
+      "promo_first": 1745,
+      "missing_skipped": 2050,
+      "view_captured": 1745,
+      "direct_after_view": 2050
+    },
+    "current_path": {
+      "live": "system.builtin,system.ai,<catalog>.cmf_day47_live",
+      "promo_first": "system.builtin,system.ai,<catalog>.cmf_day47_promo,<catalog>.cmf_day47_live",
+      "missing_skipped": "system.builtin,system.ai,<catalog>.cmf_day47_not_there,<catalog>.cmf_day47_live",
+      "view_captured": "system.builtin,system.ai,<catalog>.cmf_day47_live",
+      "direct_after_view": "system.builtin,system.ai,<catalog>.cmf_day47_live"
+    },
+    "errors": {
+      "one_part": "INVALID_SQL_PATH_SCHEMA_REFERENCE",
+      "duplicate": "DUPLICATE_SQL_PATH_ENTRY"
+    },
+    "path_unchanged_after_errors": true
+  },
+  "duckdb": {
+    "live": 2050,
+    "promo_first": 1745
+  }
+}

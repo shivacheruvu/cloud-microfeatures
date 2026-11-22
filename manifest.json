@@ -2056,12 +2056,35 @@
         "JSON",
         "Nested data"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-48-basket-lines-json-flatten",
       "new_feature": {
         "name": "JSON_FLATTEN function (GA)",
         "released": "2026-11-11",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
+    },
+    {
+      "day": 47,
+      "platform": "databricks",
+      "slug": "day-47-price-book-path",
+      "date": "2026-11-21",
+      "title": "One basket query, three price books, switched with SET PATH",
+      "summary": "An everyday and a weekend-promo price book live in two scratch schemas; one unqualified basket query is priced under four SET PATH settings (live, promo first with the basket falling through to live, a missing schema skipped, a view keeping the path it was created under) and two refused forms, with current_path() read at every step. Checked against a Python model of the documented resolution rules and DuckDB's search_path.",
+      "headline": "Same SQL, no schema names: 2,050 cents everyday, 1,745 with the promo schema first; the view keeps its promo path",
+      "skills": [
+        "Databricks SQL",
+        "SET PATH",
+        "Name resolution",
+        "Unity Catalog",
+        "Serverless jobs"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-47-price-book-path",
+      "new_feature": {
+        "name": "SET PATH and current_path() (Databricks SQL 2026.43, Preview)",
+        "released": "2026-10-19",
+        "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
     }
   ]
