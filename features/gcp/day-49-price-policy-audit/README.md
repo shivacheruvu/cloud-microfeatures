@@ -51,3 +51,9 @@ The dataset is deleted at the end of the run (tables also expire after an hour).
 Local replay: 12 rows, 3 policies opening 6 / 2 / 0 rows; 8 rows visible to the runner, 4 uncovered
 (S3 bread and eggs, S4 bread and milk), 1 dead policy (`closed_store_s9`). Figures in [`result.json`](result.json).
 The cloud run must match.
+
+**Cloud run (2026-11-22, first run after the merge):** passed on the first try. The view listed all 3 policies with
+their filter predicates, all 3 stored exactly as written; replayed in DuckDB they opened 6, 2 and 0 rows, and the
+runner saw exactly the 8 predicted rows, none of the 4 uncovered ones. The view's columns: `table_catalog`,
+`table_schema`, `table_name`, `row_access_policy_name`, `filter_predicate`, `creation_time`, `last_modified_time`
+(no grantee column). Dataset deleted at the end.
