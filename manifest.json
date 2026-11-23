@@ -2086,6 +2086,29 @@
         "released": "2026-10-19",
         "source": "https://docs.databricks.com/aws/en/sql/release-notes/2026"
       }
+    },
+    {
+      "day": 49,
+      "platform": "gcp",
+      "slug": "day-49-price-policy-audit",
+      "date": "2026-11-22",
+      "title": "Row-level security audit of a store price table from INFORMATION_SCHEMA.ROW_ACCESS_POLICIES",
+      "summary": "A 12-row, four-store price table gets three row access policies (north stores, south promos, a closed store). The new INFORMATION_SCHEMA.ROW_ACCESS_POLICIES view lists them with their filter predicates; each stored predicate is replayed in DuckDB to find the rows it opens, dead policies and uncovered rows, and the protected table must return exactly the predicted union.",
+      "headline": "3 policies read back from INFORMATION_SCHEMA: 6 + 2 + 0 rows opened, 1 dead policy, 4 rows no policy covers",
+      "skills": [
+        "BigQuery",
+        "Row-level security",
+        "INFORMATION_SCHEMA",
+        "DuckDB",
+        "Governance"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-49-price-policy-audit",
+      "new_feature": {
+        "name": "INFORMATION_SCHEMA.ROW_ACCESS_POLICIES view (GA)",
+        "released": "2026-11-18",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }

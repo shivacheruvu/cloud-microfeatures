@@ -1,0 +1,21 @@
+{
+  "engine": "DuckDB replay of the policy predicates (local) / BigQuery row access policies + INFORMATION_SCHEMA.ROW_ACCESS_POLICIES (cloud)",
+  "rows": 12,
+  "policies": 3,
+  "per_policy": {
+    "north_stores": 6,
+    "south_promos": 2,
+    "closed_store_s9": 0
+  },
+  "visible": 8,
+  "uncovered": 4,
+  "dead_policies": [
+    "closed_store_s9"
+  ],
+  "uncovered_rows": [
+    "S3/BREAD-WHITE",
+    "S3/EGGS-12",
+    "S4/BREAD-WHITE",
+    "S4/MILK-2L"
+  ]
+}
