@@ -1,0 +1,37 @@
+{
+  "engine": "deterministic generator + local baselines (local) / ai_forecast version 2 on a serverless SQL warehouse (cloud)",
+  "history_rows": 2325,
+  "skus": 3,
+  "history_days": 775,
+  "forecast_days": 16,
+  "horizon_rows": 48,
+  "thanksgivings_in_history": 2,
+  "planned_promo_days": 6,
+  "variants": [
+    "plain",
+    "holiday",
+    "promo"
+  ],
+  "baselines": {
+    "actual_turkey_peak": 80,
+    "actual_units_horizon": 745,
+    "last_week": {
+      "wape": 0.726,
+      "wape_thanksgiving_week": 0.823,
+      "per_sku": {
+        "TURKEY-WHOLE": 0.874,
+        "CRANBERRY-SAUCE": 0.614,
+        "PUMPKIN-PIE": 0.679
+      }
+    },
+    "last_thanksgiving": {
+      "wape": 0.188,
+      "wape_thanksgiving_week": 0.218,
+      "per_sku": {
+        "TURKEY-WHOLE": 0.223,
+        "CRANBERRY-SAUCE": 0.157,
+        "PUMPKIN-PIE": 0.181
+      }
+    }
+  }
+}

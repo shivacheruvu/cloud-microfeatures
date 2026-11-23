@@ -17,5 +17,26 @@
     "S3/EGGS-12",
     "S4/BREAD-WHITE",
     "S4/MILK-2L"
-  ]
+  ],
+  "cloud": {
+    "date": "2026-11-22",
+    "policies_listed": 3,
+    "predicates_verbatim": 3,
+    "rows_opened": [
+      6,
+      2,
+      0
+    ],
+    "runner_saw": 8,
+    "uncovered_leaked": 0,
+    "view_columns": [
+      "creation_time",
+      "filter_predicate",
+      "last_modified_time",
+      "row_access_policy_name",
+      "table_catalog",
+      "table_name",
+      "table_schema"
+    ]
+  }
 }

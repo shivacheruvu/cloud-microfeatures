@@ -2102,12 +2102,35 @@
         "DuckDB",
         "Governance"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-49-price-policy-audit",
       "new_feature": {
         "name": "INFORMATION_SCHEMA.ROW_ACCESS_POLICIES view (GA)",
         "released": "2026-11-18",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
+    },
+    {
+      "day": 48,
+      "platform": "databricks",
+      "slug": "day-48-thanksgiving-forecast",
+      "date": "2026-11-22",
+      "title": "Thanksgiving-week demand with ai_forecast version 2: holidays, a promo covariate, no negative turkeys",
+      "summary": "775 days of daily units for turkeys, cranberry sauce and pumpkin pie (two Thanksgivings, weekly pattern, promos) from a deterministic generator; ai_forecast version 2 forecasts 2026-11-15..30 three ways (plain; holiday_region 'US' + positive_only; plus the planned promo as a covariate). Each result must have 16 days x 3 SKUs, ordered intervals and no negatives under positive_only; WAPE against the held-out days is reported next to two local baselines.",
+      "headline": "ai_forecast v2 over Thanksgiving: 48 held-out days, baselines WAPE 0.726 (last week) and 0.188 (last Thanksgiving)",
+      "skills": [
+        "Databricks SQL",
+        "ai_forecast",
+        "Time series forecasting",
+        "AI Functions",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-48-thanksgiving-forecast",
+      "new_feature": {
+        "name": "ai_forecast version 2 with holiday_region, covariate_col and positive_only (GA)",
+        "released": "2026-11-18",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/november"
       }
     }
   ]
