@@ -1,0 +1,13 @@
+sub_no,ordered,ordered_kind,ordered_variant,ordered_size,ordered_price,ordered_allergens,substitute,sub_kind,sub_variant,sub_size,sub_price,sub_allergens,verdict,new_allergen
+1,"Organic whole milk, 1 gal",milk,whole,128,699,milk,"Store-brand whole milk, 1 gal",milk,whole,128,449,milk,accept,0
+2,"Creamy peanut butter, 16 oz",peanut butter,creamy,16,399,peanut,"Crunchy peanut butter, 16 oz",peanut butter,crunchy,16,399,peanut,ask_customer,0
+3,"Whole young turkey, 12 lb",whole turkey,plain,12,2388,,"Whole young turkey, 14 lb",whole turkey,plain,14,2786,,accept,0
+4,"Gluten-free stuffing mix, 12 oz",stuffing mix,gluten-free,12,549,,"Classic stuffing mix, 12 oz",stuffing mix,classic,12,349,wheat,reject,1
+5,"Unsweetened almond milk, 64 oz",plant milk,almond,64,399,tree nut,"Unsweetened soy milk, 64 oz",plant milk,soy,64,379,soy,reject,1
+6,"Russet potatoes, 5 lb bag",potatoes,russet,5,449,,"Yukon Gold potatoes, 5 lb bag",potatoes,yukon gold,5,499,,ask_customer,0
+7,"Fresh cranberries, 12 oz bag",fresh cranberries,plain,12,329,,"Sweetened dried cranberries, 6 oz",dried cranberries,sweetened,6,349,,reject,0
+8,"Unsalted butter, 1 lb",butter,unsalted,16,529,milk,"Salted butter, 1 lb",butter,salted,16,529,milk,ask_customer,0
+9,"Large eggs, 12 count",eggs,large,12,459,egg,"Large eggs, 18 count",eggs,large,18,649,egg,ask_customer,0
+10,"Low-sodium chicken broth, 32 oz (brand)",chicken broth,low-sodium,32,349,,"Store-brand low-sodium chicken broth, 32 oz",chicken broth,low-sodium,32,249,,accept,0
+11,"Dinner rolls, 12 count",dinner rolls,plain,12,379,milk;wheat,"Brioche rolls, 12 count",dinner rolls,brioche,12,449,milk;wheat;egg,reject,1
+12,"Pecan pie, 9 inch",pie,pecan,9,1299,tree nut;egg;milk;wheat,"Apple pie, 9 inch",pie,apple,9,1099,wheat;milk,ask_customer,0

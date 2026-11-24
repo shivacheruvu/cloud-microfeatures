@@ -1,0 +1,17 @@
+{
+  "engine": "store rule vs hand-labelled key (local) / ai_decide on a serverless SQL warehouse (cloud)",
+  "substitutions": 12,
+  "questions": [
+    "verdict",
+    "new_allergen",
+    "closeness"
+  ],
+  "calls_per_row": 1,
+  "rule_matches_key": 12,
+  "verdicts": {
+    "accept": 3,
+    "ask_customer": 5,
+    "reject": 4
+  },
+  "new_allergen": 3
+}
