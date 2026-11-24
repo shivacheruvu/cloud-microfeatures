@@ -1,0 +1,15 @@
+product_no,product,price_cents,pack_count,amount,unit
+1,"Whole young turkey, 12 lb",2388,1,12,lb
+2,"Jellied cranberry sauce 14 oz can",229,1,14,oz
+3,"Turkey stock carton 32 fl oz",349,1,32,fl_oz
+4,"Sparkling water 12 x 355 ml cans",599,12,355,ml
+5,"Russet potatoes, 5 lb bag",449,1,5,lb
+6,"Unsalted butter, 4 x 4 oz sticks",529,4,4,oz
+7,"Heavy cream 1 pint (473 ml)",399,1,473,ml
+8,"Dinner rolls, 12 count",379,1,12,each
+9,"Pumpkin pie filling, 2 x 425 g tins",549,2,425,g
+10,"Pecan halves 0.5 kg",899,1,0.5,kg
+11,"Extra virgin olive oil 1.5 L",1499,1,1.5,l
+12,"Large brown eggs, one dozen",459,1,12,each
+13,"Stuffing mix six-pack, 170 g boxes",1194,6,170,g
+14,"Fresh apple cider, 1 gallon jug",699,1,1,gal

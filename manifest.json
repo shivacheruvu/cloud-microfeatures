@@ -2132,6 +2132,28 @@
         "released": "2026-11-18",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/november"
       }
+    },
+    {
+      "day": 50,
+      "platform": "gcp",
+      "slug": "day-50-unit-price-labels-neon",
+      "date": "2026-11-23",
+      "title": "Unit-price shelf labels from messy pack sizes with AI.GENERATE on gemini-4-neon",
+      "summary": "14 Thanksgiving-shop product names ('12 x 355 ml cans', 'one dozen', 'six-pack, 170 g boxes', '1 pint (473 ml)') go through one BigQuery query: AI.GENERATE with an output_schema of pack_count INT64, amount FLOAT64 and unit STRING on gemini-4-neon, next to the default gemini-3.5-flash-lite. Every gemini-4-neon answer must be a usable size; fields (42) and unit-price labels per 100 g / 100 ml / item are checked against a hand-worked key.",
+      "headline": "gemini-4-neon in AI.GENERATE: typed pack sizes for 14 products, turned into unit-price labels and checked to the cent",
+      "skills": [
+        "BigQuery",
+        "AI.GENERATE",
+        "Gemini",
+        "Structured output"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-50-unit-price-labels-neon",
+      "new_feature": {
+        "name": "gemini-4-neon model in BigQuery generative AI functions (GA)",
+        "released": "2026-11-19",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
