@@ -1,0 +1,88 @@
+{
+  "engine": "hand-worked answer key (local) / AI.GENERATE on gemini-4-neon vs gemini-3.5-flash-lite (cloud)",
+  "new_endpoint": "gemini-4-neon",
+  "baseline_endpoint": "gemini-3.5-flash-lite",
+  "products": 14,
+  "fields_per_product": 3,
+  "fields_checked": 42,
+  "multipacks": 4,
+  "label_families": {
+    "100 g": 7,
+    "100 ml": 5,
+    "item": 2
+  },
+  "queries": 1,
+  "model_calls": 28,
+  "answer_key": {
+    "1": {
+      "product": "Whole young turkey, 12 lb",
+      "size": "1 x 12 lb",
+      "label": "$0.44 / 100 g"
+    },
+    "2": {
+      "product": "Jellied cranberry sauce 14 oz can",
+      "size": "1 x 14 oz",
+      "label": "$0.58 / 100 g"
+    },
+    "3": {
+      "product": "Turkey stock carton 32 fl oz",
+      "size": "1 x 32 fl_oz",
+      "label": "$0.37 / 100 ml"
+    },
+    "4": {
+      "product": "Sparkling water 12 x 355 ml cans",
+      "size": "12 x 355 ml",
+      "label": "$0.14 / 100 ml"
+    },
+    "5": {
+      "product": "Russet potatoes, 5 lb bag",
+      "size": "1 x 5 lb",
+      "label": "$0.20 / 100 g"
+    },
+    "6": {
+      "product": "Unsalted butter, 4 x 4 oz sticks",
+      "size": "4 x 4 oz",
+      "label": "$1.17 / 100 g"
+    },
+    "7": {
+      "product": "Heavy cream 1 pint (473 ml)",
+      "size": "1 x 473 ml",
+      "label": "$0.84 / 100 ml"
+    },
+    "8": {
+      "product": "Dinner rolls, 12 count",
+      "size": "1 x 12 each",
+      "label": "$0.32 / item"
+    },
+    "9": {
+      "product": "Pumpkin pie filling, 2 x 425 g tins",
+      "size": "2 x 425 g",
+      "label": "$0.65 / 100 g"
+    },
+    "10": {
+      "product": "Pecan halves 0.5 kg",
+      "size": "1 x 0.5 kg",
+      "label": "$1.80 / 100 g"
+    },
+    "11": {
+      "product": "Extra virgin olive oil 1.5 L",
+      "size": "1 x 1.5 l",
+      "label": "$1.00 / 100 ml"
+    },
+    "12": {
+      "product": "Large brown eggs, one dozen",
+      "size": "1 x 12 each",
+      "label": "$0.38 / item"
+    },
+    "13": {
+      "product": "Stuffing mix six-pack, 170 g boxes",
+      "size": "6 x 170 g",
+      "label": "$1.17 / 100 g"
+    },
+    "14": {
+      "product": "Fresh apple cider, 1 gallon jug",
+      "size": "1 x 1 gal",
+      "label": "$0.18 / 100 ml"
+    }
+  }
+}

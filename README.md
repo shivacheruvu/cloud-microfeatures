@@ -122,6 +122,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 47 | [Shelf diet badges with multi-label AI.CLASSIFY](features/gcp/day-47-shelf-badges-multilabel) | [Multi-label AI.CLASSIFY (output_mode => 'multi', GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-17) | BigQuery, AI.CLASSIFY, Multi-label classification, Gemini | ran |
 | 48 | [Basket lines from nested order JSON with JSON_FLATTEN](features/gcp/day-48-basket-lines-json-flatten) | [JSON_FLATTEN function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-11) | BigQuery, JSON_FLATTEN, JSON, Nested data | ran |
 | 49 | [Row-level security audit of a store price table from INFORMATION_SCHEMA.ROW_ACCESS_POLICIES](features/gcp/day-49-price-policy-audit) | [INFORMATION_SCHEMA.ROW_ACCESS_POLICIES view (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-18) | BigQuery, Row-level security, INFORMATION_SCHEMA, DuckDB, Governance | ran |
+| 50 | [Unit-price shelf labels from messy pack sizes with AI.GENERATE on gemini-4-neon](features/gcp/day-50-unit-price-labels-neon) | [gemini-4-neon model in BigQuery generative AI functions (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-19) | BigQuery, AI.GENERATE, Gemini, Structured output | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself
