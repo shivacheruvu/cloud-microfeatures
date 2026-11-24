@@ -54,3 +54,8 @@ AI API: well under one cent of free-trial credit per run.
 Answer key (local): 14 products, 42 fields; 4 multipacks; labels per 100 g (7), per 100 ml (5) and per item (2). For
 example sparkling water $0.14 / 100 ml, butter $1.17 / 100 g, eggs $0.38 / item, turkey $0.44 / 100 g. The cloud run
 reports how many fields, products and labels each model gets right. Numbers in [`result.json`](result.json).
+
+**Cloud run (2026-11-23, first run after the merge, PR #164):** `gemini-4-neon` answered all 14 products with usable
+typed sizes and got **42/42 fields right (14/14 products, 14/14 unit-price labels to the cent)**; the default
+`gemini-3.5-flash-lite` also got **42/42**. With the rules spelled out in the prompt ("six-pack is 6", "a dozen is 12",
+"use the metric size in brackets"), both models read these names correctly; the new model ties the default here.

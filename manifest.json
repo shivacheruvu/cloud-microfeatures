@@ -2147,12 +2147,34 @@
         "Gemini",
         "Structured output"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-50-unit-price-labels-neon",
       "new_feature": {
         "name": "gemini-4-neon model in BigQuery generative AI functions (GA)",
         "released": "2026-11-19",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
+    },
+    {
+      "day": 49,
+      "platform": "databricks",
+      "slug": "day-49-substitution-ai-decide",
+      "date": "2026-11-23",
+      "title": "Out-of-stock substitution calls with ai_decide: verdict, allergen risk and closeness in one inference",
+      "summary": "Twelve Thanksgiving out-of-stock pairs (store-brand milk for organic, classic stuffing for gluten-free, soy milk for almond, brioche for dinner rolls...) go through one ai_decide call per row with three constant questions: a choice verdict (accept / ask the customer / reject), a noul probability that the substitute adds an allergen, and a closeness score. Answers must be well formed; agreement with a local store rule that reproduces the hand-labelled key (12/12) is reported.",
+      "headline": "ai_decide: 3 questions, 1 inference per row; the store rule says accept 3, ask 5, reject 4 of 12 substitutions",
+      "skills": [
+        "Databricks SQL",
+        "ai_decide",
+        "AI Functions",
+        "Statement Execution API"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-49-substitution-ai-decide",
+      "new_feature": {
+        "name": "ai_decide AI function (Beta)",
+        "released": "2026-10-28",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
       }
     }
   ]
