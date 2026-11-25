@@ -65,3 +65,12 @@ through the Vertex AI API: well under one cent of free-trial credit per run.
 Answer key (local): 24 comments, 16 complaints, 6 sold-out mentions; 4 departments, 12 checked fields (table above).
 The cloud run reports how many of the 12 fields `AI.AGG` matches and the headlines. Numbers in
 [`result.json`](result.json).
+
+**Cloud run (2026-11-24, first run after the merge, PR #166):** `AI.AGG` returned a usable typed STRUCT for all four
+departments and **matched 11/12 fields (3/4 departments)**. Bakery (wait_time, negative), dairy (price, negative) and
+produce (out_of_stock, negative, six different sold-out items read as one issue) were right. The miss is the planted
+trap: for meat it gave `top_issue = out_of_stock` from a single shopper's sold-out turkeys, although the instruction says
+`none` when fewer than two shoppers complain; its sentiment (positive) and sold-out flag (true) were right. Headlines:
+"Bakery pre-order pickup service was significantly delayed due to understaffing during the holiday rush", "Customers are
+highly satisfied with meat quality and staff service despite some turkey size shortages". Lesson: typed output fixes the
+shape, not the threshold rule; counting ("fewer than two") is better done in SQL.

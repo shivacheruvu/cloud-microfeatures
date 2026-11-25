@@ -1,0 +1,18 @@
+{
+  "engine": "pure Python + DuckDB ALTER/UPDATE (local) / efficient column updates on a serverless SQL warehouse (cloud)",
+  "products": 24,
+  "batches": 2,
+  "new_columns": [
+    "ingredient_count INT",
+    "nut_warning BOOLEAN"
+  ],
+  "tables": [
+    "catalog_ecu (ECU on)",
+    "catalog_std (control)"
+  ],
+  "nut_warnings": 8,
+  "ingredients_total": 96,
+  "single_ingredient_products": 8,
+  "duckdb_equals_reference": true,
+  "statements": 13
+}

@@ -2191,12 +2191,34 @@
         "Gemini",
         "Structured output"
       ],
-      "status": "built",
+      "status": "ran",
       "path": "features/gcp/day-51-feedback-digest-ai-agg",
       "new_feature": {
         "name": "output_schema (structured output) for AI.AGG in BigQuery (GA)",
         "released": "2026-10-14",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
+    },
+    {
+      "day": 50,
+      "platform": "databricks",
+      "slug": "day-50-catalog-backfill-ecu",
+      "date": "2026-11-24",
+      "title": "Backfilling new shelf-tag columns on a catalog table with efficient column updates",
+      "summary": "A 24-product Thanksgiving catalog loaded in two batches gets two new columns (ingredient_count INT, nut_warning BOOLEAN) filled with one UPDATE, on a table with 'delta.enableColumnUpdates-preview' = 'true' and on a standard control table. Values must equal a pure-Python and DuckDB reference, also after rolling ECU back (property false + REORG TABLE APPLY (PURGE)); DESCRIBE HISTORY metrics show whether the update wrote column files or fell back to a full rewrite. The scratch schema is dropped.",
+      "headline": "Efficient column updates: 24-product backfill, 8 nut warnings, ECU table vs control and a clean rollback",
+      "skills": [
+        "Databricks SQL",
+        "Delta Lake",
+        "Efficient column updates",
+        "Serverless SQL warehouse"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-50-catalog-backfill-ecu",
+      "new_feature": {
+        "name": "Efficient column updates for Delta tables (Beta)",
+        "released": "2026-11-13",
+        "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/november"
       }
     }
   ]
