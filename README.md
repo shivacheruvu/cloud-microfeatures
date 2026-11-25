@@ -67,6 +67,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 47 | [One basket query, three price books, switched with SET PATH](features/databricks/day-47-price-book-path) | [SET PATH and current_path() (Databricks SQL 2026.43, Preview)](https://docs.databricks.com/aws/en/sql/release-notes/2026) (2026-10-19) | Databricks SQL, SET PATH, Name resolution, Unity Catalog, Serverless jobs | built |
 | 48 | [Thanksgiving-week demand with ai_forecast version 2: holidays, a promo covariate, no negative turkeys](features/databricks/day-48-thanksgiving-forecast) | [ai_forecast version 2 with holiday_region, covariate_col and positive_only (GA)](https://docs.databricks.com/aws/en/release-notes/product/2026/november) (2026-11-18) | Databricks SQL, ai_forecast, Time series forecasting, AI Functions, Statement Execution API | built |
 | 49 | [Out-of-stock substitution calls with ai_decide: verdict, allergen risk and closeness in one inference](features/databricks/day-49-substitution-ai-decide) | [ai_decide AI function (Beta)](https://docs.databricks.com/aws/en/release-notes/product/2026/october) (2026-10-28) | Databricks SQL, ai_decide, AI Functions, Statement Execution API | built |
+| 50 | [Backfilling new shelf-tag columns on a catalog table with efficient column updates](features/databricks/day-50-catalog-backfill-ecu) | [Efficient column updates for Delta tables (Beta)](https://docs.databricks.com/aws/en/release-notes/product/2026/november) (2026-11-13) | Databricks SQL, Delta Lake, Efficient column updates, Serverless SQL warehouse | built |
 <!-- databricks:end -->
 
 ## Google Cloud features
@@ -124,7 +125,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 48 | [Basket lines from nested order JSON with JSON_FLATTEN](features/gcp/day-48-basket-lines-json-flatten) | [JSON_FLATTEN function (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-11) | BigQuery, JSON_FLATTEN, JSON, Nested data | ran |
 | 49 | [Row-level security audit of a store price table from INFORMATION_SCHEMA.ROW_ACCESS_POLICIES](features/gcp/day-49-price-policy-audit) | [INFORMATION_SCHEMA.ROW_ACCESS_POLICIES view (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-18) | BigQuery, Row-level security, INFORMATION_SCHEMA, DuckDB, Governance | ran |
 | 50 | [Unit-price shelf labels from messy pack sizes with AI.GENERATE on gemini-4-neon](features/gcp/day-50-unit-price-labels-neon) | [gemini-4-neon model in BigQuery generative AI functions (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-19) | BigQuery, AI.GENERATE, Gemini, Structured output | ran |
-| 51 | [Post-Thanksgiving feedback digest per department with typed AI.AGG output](features/gcp/day-51-feedback-digest-ai-agg) | [output_schema (structured output) for AI.AGG in BigQuery (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-14) | BigQuery, AI.AGG, Gemini, Structured output | built |
+| 51 | [Post-Thanksgiving feedback digest per department with typed AI.AGG output](features/gcp/day-51-feedback-digest-ai-agg) | [output_schema (structured output) for AI.AGG in BigQuery (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-14) | BigQuery, AI.AGG, Gemini, Structured output | ran |
 <!-- gcp:end -->
 
 ## Run any of them yourself
