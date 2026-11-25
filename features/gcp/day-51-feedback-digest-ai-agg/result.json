@@ -1,0 +1,38 @@
+{
+  "engine": "hand-labelled answer key (local) / AI.AGG with output_schema on BigQuery (cloud)",
+  "function": "AI.AGG",
+  "new_argument": "output_schema",
+  "comments": 24,
+  "departments": 4,
+  "fields_per_department": 3,
+  "fields_checked": 12,
+  "complaints": 16,
+  "sold_out_mentions": 6,
+  "queries": 1,
+  "answer_key": {
+    "bakery": {
+      "comments": 6,
+      "top_issue": "wait_time",
+      "sentiment": "negative",
+      "any_out_of_stock": false
+    },
+    "dairy": {
+      "comments": 6,
+      "top_issue": "price",
+      "sentiment": "negative",
+      "any_out_of_stock": false
+    },
+    "meat": {
+      "comments": 6,
+      "top_issue": "none",
+      "sentiment": "positive",
+      "any_out_of_stock": true
+    },
+    "produce": {
+      "comments": 6,
+      "top_issue": "out_of_stock",
+      "sentiment": "negative",
+      "any_out_of_stock": true
+    }
+  }
+}
