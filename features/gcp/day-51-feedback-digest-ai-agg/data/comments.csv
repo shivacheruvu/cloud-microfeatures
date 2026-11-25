@@ -1,0 +1,25 @@
+comment_no,department,comment,issue,out_of_stock,sentiment
+1,produce,"Came Wednesday morning and the fresh cranberries were completely gone.",out_of_stock,true,negative
+2,produce,"No sweet potatoes left at all by noon, had to drive to another store.",out_of_stock,true,negative
+3,produce,"Empty bins where the russet potatoes should be. Very frustrating the day before Thanksgiving.",out_of_stock,true,negative
+4,produce,"Fresh sage and thyme were sold out, only dried herbs on the shelf.",out_of_stock,true,negative
+5,produce,"The green beans looked great and were nicely trimmed.",none,false,positive
+6,produce,"Celery and onions all gone by the afternoon, nothing to restock them with.",out_of_stock,true,negative
+7,bakery,"Waited forty minutes at the bakery counter to pick up a pre-ordered pie.",wait_time,false,negative
+8,bakery,"The bakery line wrapped around the aisle and only one person was serving.",wait_time,false,negative
+9,bakery,"Pumpkin pie was delicious, worth it.",none,false,positive
+10,bakery,"Took over half an hour just to collect my dinner rolls order.",wait_time,false,negative
+11,bakery,"Pickup for pre-orders was painfully slow, nobody called the numbers.",wait_time,false,negative
+12,bakery,"Way too long a queue at the bakery for a pre-paid order.",wait_time,false,negative
+13,dairy,"Heavy cream went up a dollar since last week.",price,false,negative
+14,dairy,"Butter is far more expensive than in October.",price,false,negative
+15,dairy,"Plenty of milk and eggs on the shelves, easy trip.",none,false,positive
+16,dairy,"Whipped cream cans cost almost double what they did last year.",price,false,negative
+17,dairy,"Sour cream and cream cheese prices are getting ridiculous.",price,false,negative
+18,dairy,"Why is the store-brand butter priced the same as the name brand now?",price,false,negative
+19,meat,"Our turkey was juicy and perfectly fresh, best one in years.",none,false,positive
+20,meat,"Staff at the meat counter helped me pick the right size bird.",none,false,positive
+21,meat,"The 20 lb turkeys were sold out, so we got two smaller ones instead. They were great.",out_of_stock,true,positive
+22,meat,"Great quality ham, the whole family loved it.",none,false,positive
+23,meat,"Butcher trimmed and tied the roast for free, very friendly.",none,false,positive
+24,meat,"Fresh turkey breast was excellent and fairly priced.",none,false,positive

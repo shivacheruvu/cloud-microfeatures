@@ -2176,6 +2176,28 @@
         "released": "2026-10-28",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/october"
       }
+    },
+    {
+      "day": 51,
+      "platform": "gcp",
+      "slug": "day-51-feedback-digest-ai-agg",
+      "date": "2026-11-24",
+      "title": "Post-Thanksgiving feedback digest per department with typed AI.AGG output",
+      "summary": "24 Thanksgiving-week shopper comments (six each for produce, bakery, dairy and meat) are grouped by department in one BigQuery query; AI.AGG with output_schema returns a STRUCT per group (top_issue, sentiment, any_out_of_stock BOOL, headline) while COUNT(*) supplies the exact counts. Every digest must be a usable STRUCT; the 12 labelled fields are checked against a key derived from hand-labelled comments, with traps (six sold-out items are one issue; a glowing meat counter with one sold-out mention).",
+      "headline": "AI.AGG output_schema: one typed digest per department (top issue, mood, sold-out flag) checked against hand labels",
+      "skills": [
+        "BigQuery",
+        "AI.AGG",
+        "Gemini",
+        "Structured output"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-51-feedback-digest-ai-agg",
+      "new_feature": {
+        "name": "output_schema (structured output) for AI.AGG in BigQuery (GA)",
+        "released": "2026-10-14",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
