@@ -59,7 +59,10 @@ Local baselines on the 84 held-out values (WAPE = sum of absolute errors / sum o
 |---|---|---|---|---|
 | Seasonal naive (same weekday last week) | 5.69% | 5.01% | 5.00% | 6.34% |
 | 4-week weekday mean | 4.00% | 5.56% | 3.96% | 3.42% |
-| TimesFM 3.0 multi-target, one call (cloud) | see the run's notice | | | |
-| TimesFM 2.5 univariate, six series (cloud) | see the run's notice | | | |
+| **TimesFM 3.0 multi-target, one call (cloud)** | **4.05%** | 4.24% | **3.50%** | 4.26% |
+| TimesFM 2.5 univariate, six series (cloud) | 4.31% | 4.30% | 3.90% | 4.53% |
 
-The cloud numbers are filled in from the GitHub Actions annotations once the merge run finishes.
+Cloud run of 2026-11-25 (merge of PR #168): all 84 forecasts present, positive and inside their own intervals, every
+`ai_forecast_status` empty, and the 90% intervals held **94%** of the actual values. The single multi-target call
+beat seasonal naive by 1.6 points and the six separate univariate TimesFM 2.5 forecasts by 0.26 points; it is level
+with the 4-week weekday mean (4.00%), which suits this synthetic data's steady weekly pattern.

@@ -21,5 +21,14 @@
     "butter": 3.96,
     "eggs": 3.42
   },
-  "headline": "3 items x 2 stores in one TimesFM 3.0 call; local baselines: seasonal naive WAPE 5.69%, 4-week weekday mean 4.0%"
+  "headline": "3 items x 2 stores in one TimesFM 3.0 call: WAPE 4.05% vs seasonal naive 5.69% and univariate TimesFM 2.5 4.31%",
+  "cloud_run": "2026-11-25",
+  "wape_timesfm3_multi_target": 4.05,
+  "wape_timesfm3_multi_target_by_item": {
+    "flour": 4.24,
+    "butter": 3.5,
+    "eggs": 4.26
+  },
+  "wape_timesfm25_univariate": 4.31,
+  "interval_90_coverage": 0.94
 }

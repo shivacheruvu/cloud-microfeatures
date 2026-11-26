@@ -1,0 +1,154 @@
+{
+  "engine": "pure Python + DuckDB reference (local) / Lakeflow serverless pipeline with a REPLACE USING flow (cloud)",
+  "stores": 3,
+  "rounds": [
+    {
+      "round": 1,
+      "files_delivered": [
+        "S1 v1",
+        "S2 v1",
+        "S3 v1"
+      ],
+      "rows_delivered_so_far": 14,
+      "shelf_rows": 14,
+      "keep_latest_per_sku_rows": 14,
+      "stores": {
+        "S1": {
+          "file_version": 1,
+          "skus": 5
+        },
+        "S2": {
+          "file_version": 1,
+          "skus": 5
+        },
+        "S3": {
+          "file_version": 1,
+          "skus": 4
+        }
+      }
+    },
+    {
+      "round": 2,
+      "files_delivered": [
+        "S1 v2",
+        "S3 v2"
+      ],
+      "rows_delivered_so_far": 23,
+      "shelf_rows": 14,
+      "keep_latest_per_sku_rows": 15,
+      "stores": {
+        "S1": {
+          "file_version": 2,
+          "skus": 4
+        },
+        "S2": {
+          "file_version": 1,
+          "skus": 5
+        },
+        "S3": {
+          "file_version": 2,
+          "skus": 5
+        }
+      }
+    },
+    {
+      "round": 3,
+      "files_delivered": [
+        "S2 v2",
+        "S1 v1"
+      ],
+      "rows_delivered_so_far": 33,
+      "shelf_rows": 14,
+      "keep_latest_per_sku_rows": 15,
+      "stores": {
+        "S1": {
+          "file_version": 2,
+          "skus": 4
+        },
+        "S2": {
+          "file_version": 2,
+          "skus": 5
+        },
+        "S3": {
+          "file_version": 2,
+          "skus": 5
+        }
+      }
+    }
+  ],
+  "final_prices": [
+    {
+      "store_id": "S1",
+      "sku": "0702",
+      "price_cents": 389
+    },
+    {
+      "store_id": "S1",
+      "sku": "0711",
+      "price_cents": 429
+    },
+    {
+      "store_id": "S1",
+      "sku": "2201",
+      "price_cents": 449
+    },
+    {
+      "store_id": "S1",
+      "sku": "4011",
+      "price_cents": 59
+    },
+    {
+      "store_id": "S2",
+      "sku": "0702",
+      "price_cents": 349
+    },
+    {
+      "store_id": "S2",
+      "sku": "0711",
+      "price_cents": 379
+    },
+    {
+      "store_id": "S2",
+      "sku": "0903",
+      "price_cents": 489
+    },
+    {
+      "store_id": "S2",
+      "sku": "2201",
+      "price_cents": 489
+    },
+    {
+      "store_id": "S2",
+      "sku": "4011",
+      "price_cents": 62
+    },
+    {
+      "store_id": "S3",
+      "sku": "0702",
+      "price_cents": 379
+    },
+    {
+      "store_id": "S3",
+      "sku": "0711",
+      "price_cents": 439
+    },
+    {
+      "store_id": "S3",
+      "sku": "0903",
+      "price_cents": 469
+    },
+    {
+      "store_id": "S3",
+      "sku": "2201",
+      "price_cents": 509
+    },
+    {
+      "store_id": "S3",
+      "sku": "4011",
+      "price_cents": 57
+    }
+  ],
+  "s1_0903_delisted": true,
+  "late_s1_v1_ignored": true,
+  "headline": "33 price rows in 6 files -> 14 shelf prices; recalled SKU gone from S1, late old S1 file ignored (keep-latest per SKU would keep 15 rows)"
+}
