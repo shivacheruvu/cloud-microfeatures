@@ -126,6 +126,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 49 | [Row-level security audit of a store price table from INFORMATION_SCHEMA.ROW_ACCESS_POLICIES](features/gcp/day-49-price-policy-audit) | [INFORMATION_SCHEMA.ROW_ACCESS_POLICIES view (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-18) | BigQuery, Row-level security, INFORMATION_SCHEMA, DuckDB, Governance | ran |
 | 50 | [Unit-price shelf labels from messy pack sizes with AI.GENERATE on gemini-4-neon](features/gcp/day-50-unit-price-labels-neon) | [gemini-4-neon model in BigQuery generative AI functions (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-19) | BigQuery, AI.GENERATE, Gemini, Structured output | ran |
 | 51 | [Post-Thanksgiving feedback digest per department with typed AI.AGG output](features/gcp/day-51-feedback-digest-ai-agg) | [output_schema (structured output) for AI.AGG in BigQuery (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-14) | BigQuery, AI.AGG, Gemini, Structured output | ran |
+| 52 | [Baking-aisle forecast: flour, butter and eggs for two stores in one TimesFM 3.0 multi-target call](features/gcp/day-52-baking-aisle-multi-target) | [TimesFM 3.0 multi-target forecasting (several target_cols) in AI.FORECAST (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-07) | BigQuery, AI.FORECAST, TimesFM 3.0, Forecasting | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself

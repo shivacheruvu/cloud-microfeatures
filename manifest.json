@@ -2220,6 +2220,28 @@
         "released": "2026-11-13",
         "source": "https://docs.databricks.com/aws/en/release-notes/product/2026/november"
       }
+    },
+    {
+      "day": 52,
+      "platform": "gcp",
+      "slug": "day-52-baking-aisle-multi-target",
+      "date": "2026-11-25",
+      "title": "Baking-aisle forecast: flour, butter and eggs for two stores in one TimesFM 3.0 multi-target call",
+      "summary": "16 weeks of daily flour, butter and egg sales at two stores go into one BigQuery AI.FORECAST call with TimesFM 3.0 and target_cols => ['flour', 'butter', 'eggs'] (id_cols => ['store']): 84 forecasts with 90% intervals come back wide, one STRUCT per item. Checked against the 14 held-out days and local seasonal-naive / weekday-mean baselines, and compared with six univariate TimesFM 2.5 forecasts of the same series.",
+      "headline": "3 items x 2 stores x 14 days in one TimesFM 3.0 call; baselines: seasonal naive WAPE 5.69%, 4-week weekday mean 4.0%",
+      "skills": [
+        "BigQuery",
+        "AI.FORECAST",
+        "TimesFM 3.0",
+        "Forecasting"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-52-baking-aisle-multi-target",
+      "new_feature": {
+        "name": "TimesFM 3.0 multi-target forecasting (several target_cols) in AI.FORECAST (Preview)",
+        "released": "2026-10-07",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
