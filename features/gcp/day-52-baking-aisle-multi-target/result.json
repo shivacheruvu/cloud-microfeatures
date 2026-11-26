@@ -1,0 +1,25 @@
+{
+  "engine": "pure-Python seasonal naive and 4-week weekday mean (local) / BigQuery AI.FORECAST with TimesFM 3.0 multi-target target_cols (cloud)",
+  "stores": 2,
+  "items": [
+    "flour",
+    "butter",
+    "eggs"
+  ],
+  "history_days": 112,
+  "horizon_days": 14,
+  "forecasts_checked": 84,
+  "wape_seasonal_naive": 5.69,
+  "wape_four_week_weekday_mean": 4.0,
+  "wape_seasonal_naive_by_item": {
+    "flour": 5.01,
+    "butter": 5.0,
+    "eggs": 6.34
+  },
+  "wape_four_week_weekday_mean_by_item": {
+    "flour": 5.56,
+    "butter": 3.96,
+    "eggs": 3.42
+  },
+  "headline": "3 items x 2 stores in one TimesFM 3.0 call; local baselines: seasonal naive WAPE 5.69%, 4-week weekday mean 4.0%"
+}
