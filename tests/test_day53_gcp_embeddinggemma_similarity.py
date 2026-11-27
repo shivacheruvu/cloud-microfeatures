@@ -27,7 +27,8 @@ def test_baseline_gets_only_the_shared_word_half():
 def test_sql_scores_every_pair_with_the_named_endpoint():
     q = m.sql()
     assert q.count("STRUCT(") == 16 and "CROSS JOIN UNNEST" in q
-    assert "AI.SIMILARITY(content1 => search, content2 => name, endpoint => 'embeddinggemma-300m')" in q
+    assert "AI.SIMILARITY(content1 => search, content2 => name, model => 'embeddinggemma-300m')" in q
+    assert "endpoint => 'embeddinggemma-300m'" not in q  # built-in model: the first cloud run rejected endpoint =>
     assert "endpoint => 'gemini-embedding-2'" in m.sql("gemini-embedding-2")
     assert q.lstrip().startswith("--") and "--maximum" not in q
 

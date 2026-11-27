@@ -2286,6 +2286,28 @@
         "released": "2026-11-23",
         "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
       }
+    },
+    {
+      "day": 52,
+      "platform": "databricks",
+      "slug": "day-52-inventory-snapshot-cdc",
+      "date": "2026-11-26",
+      "title": "On-hand history from nightly inventory snapshots with SQL AUTO CDC FROM SNAPSHOT (SCD type 2)",
+      "summary": "A store's complete on-hand export for four Thanksgiving-week nights lands in a Delta table in two rounds; a serverless pipeline turns the snapshots into SCD type 2 history with FLOW AUTO CDC FROM SNAPSHOT ... WITH VERSION ... KEYS (sku). One update must process two versions in order, an unchanged SKU must not get new rows, and a SKU missing from the export must be closed as a delete. The history must equal a pure-Python diff and a DuckDB reference after each round.",
+      "headline": "SQL snapshot CDC: 18 snapshot rows over 4 nights -> 10 history rows, 4 current; pulled pie crusts closed as a delete",
+      "skills": [
+        "Lakeflow pipelines",
+        "AUTO CDC FROM SNAPSHOT",
+        "SCD type 2",
+        "DuckDB"
+      ],
+      "status": "built",
+      "path": "features/databricks/day-52-inventory-snapshot-cdc",
+      "new_feature": {
+        "name": "AUTO CDC ... FROM SNAPSHOT in SQL with WITH VERSION, current_snapshot_version() and last_snapshot_version() (Databricks Runtime 18.3+)",
+        "released": "2026-11-09",
+        "source": "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-ddl-create-streaming-table-auto-cdc"
+      }
     }
   ]
 }

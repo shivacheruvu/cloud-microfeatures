@@ -4,7 +4,9 @@
 generally available (GA) per the [BigQuery release notes](https://docs.cloud.google.com/bigquery/docs/release-notes)
 on **2026-11-23** (same entry: `embeddinggemma-2` in `AI.EMBED`, Preview).
 [AI.SIMILARITY reference](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-similarity).
-Like day 26's `gemini-embedding-2`, the function names the endpoint: no `CREATE MODEL`, no connection. Syntax follows
+Unlike day 26's `gemini-embedding-2` (a Vertex AI endpoint), EmbeddingGemma is a **built-in** model, picked with
+`model => 'embeddinggemma-300m'`; with `model`, the `endpoint`, `model_params` and `connection_id` arguments are not
+allowed. No `CREATE MODEL`, no connection. Syntax follows
 Google's [`bigquery-ai-ml` skill](https://github.com/google/skills/tree/main/skills/cloud/bigquery-ai-ml)
 (`references/ai_similarity.md`).
 
@@ -15,7 +17,7 @@ with an answer key) and 16 products ([`data/catalog.csv`](data/catalog.csv)) giv
 
 ```sql
 SELECT search, sku,
-       TO_JSON_STRING(AI.SIMILARITY(content1 => search, content2 => name, endpoint => 'embeddinggemma-300m')) AS raw
+       TO_JSON_STRING(AI.SIMILARITY(content1 => search, content2 => name, model => 'embeddinggemma-300m')) AS raw
 FROM UNNEST([...search terms...]) AS search
 CROSS JOIN UNNEST([STRUCT(... AS sku, ... AS name), ...])
 ```
@@ -50,4 +52,7 @@ seven terms that share a word and misses all nine meaning-only ones (`aubergine`
 counts as no match; `courgette` goes to *Cola*, `nappies` to *Shortbread Cookies*, `crisps` to *Heavy Whipping
 Cream*).
 
-Cloud: pending the first run after merge (numbers will be added here and in [`result.json`](result.json)).
+**Cloud, first run (2026-11-26, merge of PR #170): failed.** The query passed `endpoint => 'embeddinggemma-300m'`
+and BigQuery answered `Unsupported remote model endpoint embeddinggemma-300m`. Fixed forward the same day: the
+model is built in and takes `model =>` (as in BigQuery DataFrames' `bbq.ai.similarity(..., model=...)`, checked in
+its source because the docs pages could not be read from this run). Numbers follow after the next cloud run.
