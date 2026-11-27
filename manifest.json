@@ -2264,6 +2264,28 @@
         "released": "2026-09-17",
         "source": "https://docs.databricks.com/aws/en/ldp/flows-replace-using"
       }
+    },
+    {
+      "day": 53,
+      "platform": "gcp",
+      "slug": "day-53-search-synonyms-gemma",
+      "date": "2026-11-26",
+      "title": "Search-box synonyms: shopper words matched to catalog names with AI.SIMILARITY on embeddinggemma-300m",
+      "summary": "16 shopper search terms (aubergine, kitchen roll, nappies, fizzy pop ...) are scored against 16 catalog products in one BigQuery query with AI.SIMILARITY on embeddinggemma-300m; a second query scores the same 256 pairs with gemini-embedding-2. Seven terms share a word with their product, nine only meaning; a local character-trigram baseline gets 7 of 16.",
+      "headline": "embeddinggemma-300m in AI.SIMILARITY: 16 shopper search words vs a catalog; trigram baseline gets 7 of 16",
+      "skills": [
+        "BigQuery",
+        "AI.SIMILARITY",
+        "EmbeddingGemma",
+        "Embeddings"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-53-search-synonyms-gemma",
+      "new_feature": {
+        "name": "embeddinggemma-300m model in BigQuery AI.EMBED and AI.SIMILARITY (GA)",
+        "released": "2026-11-23",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }
