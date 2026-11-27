@@ -1,0 +1,20 @@
+{
+  "engine": "character-trigram cosine (local baseline) / AI.SIMILARITY with embeddinggemma-300m and gemini-embedding-2 (cloud)",
+  "endpoint": "embeddinggemma-300m",
+  "pairs_scored": 256,
+  "searches": 16,
+  "top1_correct": 7,
+  "top1_accuracy_pct": 43.8,
+  "mean_margin": 0.1078,
+  "wrong": {
+    "aubergine": "(no match)",
+    "courgette": "Cola 12-Pack Cans",
+    "coriander leaves": "Shortbread Cookies",
+    "rocket salad": "Potato Chips Sea Salt",
+    "garbanzo beans": "Cola 12-Pack Cans",
+    "crisps": "Heavy Whipping Cream",
+    "fizzy pop": "Powdered Sugar 2 lb",
+    "biscuits for tea": "Potato Chips Sea Salt",
+    "nappies": "Shortbread Cookies"
+  }
+}
