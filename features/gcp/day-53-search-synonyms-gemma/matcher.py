@@ -91,13 +91,21 @@ def summarise(scores: dict[tuple[str, str], float]) -> dict:
 
 
 # ---------------------------------------------------------------- BigQuery
+def model_arg(name: str) -> str:
+    """embeddinggemma-300m is a BUILT-IN model: it is selected with `model =>` (and then endpoint, model_params and
+    connection_id are not allowed); Vertex AI models such as gemini-embedding-2 go through `endpoint =>`.
+    Fix-forward from the first cloud run (2026-11-26): endpoint => 'embeddinggemma-300m' failed with
+    "Unsupported remote model endpoint". Argument as used by BigQuery DataFrames' bbq.ai.similarity(model=...)."""
+    return f"model => '{name}'" if name == ENDPOINT else f"endpoint => '{name}'"
+
+
 def sql(endpoint: str = ENDPOINT) -> str:
     ts = ", ".join(json.dumps(s["search"]) for s in searches())
     ps = ",\n    ".join(f"STRUCT({json.dumps(p['sku'])} AS sku, {json.dumps(p['name'])} AS name)" for p in catalog())
     return f"""-- Day 53: score every (search term, catalog product) pair with AI.SIMILARITY on {endpoint}.
 -- TO_JSON_STRING keeps a NULL (an error) visible as "null".
 SELECT search, sku,
-       TO_JSON_STRING(AI.SIMILARITY(content1 => search, content2 => name, endpoint => '{endpoint}')) AS raw
+       TO_JSON_STRING(AI.SIMILARITY(content1 => search, content2 => name, {model_arg(endpoint)})) AS raw
 FROM UNNEST([{ts}]) AS search
 CROSS JOIN UNNEST([
     {ps}

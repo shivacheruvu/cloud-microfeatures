@@ -1,0 +1,99 @@
+{
+  "engine": "pure Python diff + DuckDB reference (local) / Lakeflow serverless pipeline with AUTO CDC FROM SNAPSHOT SCD type 2 (cloud)",
+  "snapshots": 4,
+  "skus": 5,
+  "rounds": [
+    {
+      "round": 1,
+      "versions_landed": [
+        1,
+        2
+      ],
+      "snapshot_rows_so_far": 9,
+      "history_rows": 7,
+      "current_rows": 5
+    },
+    {
+      "round": 2,
+      "versions_landed": [
+        3,
+        4
+      ],
+      "snapshot_rows_so_far": 18,
+      "history_rows": 10,
+      "current_rows": 4
+    }
+  ],
+  "history": [
+    {
+      "sku": "cranberry",
+      "on_hand": 95,
+      "start_at": 3,
+      "end_at": null
+    },
+    {
+      "sku": "cranberry",
+      "on_hand": 120,
+      "start_at": 1,
+      "end_at": 3
+    },
+    {
+      "sku": "pie_crust",
+      "on_hand": 60,
+      "start_at": 1,
+      "end_at": 4
+    },
+    {
+      "sku": "stuffing",
+      "on_hand": 55,
+      "start_at": 2,
+      "end_at": null
+    },
+    {
+      "sku": "stuffing",
+      "on_hand": 80,
+      "start_at": 1,
+      "end_at": 2
+    },
+    {
+      "sku": "turkey",
+      "on_hand": 6,
+      "start_at": 4,
+      "end_at": null
+    },
+    {
+      "sku": "turkey",
+      "on_hand": 25,
+      "start_at": 2,
+      "end_at": 4
+    },
+    {
+      "sku": "turkey",
+      "on_hand": 40,
+      "start_at": 1,
+      "end_at": 2
+    },
+    {
+      "sku": "whipped",
+      "on_hand": 40,
+      "start_at": 4,
+      "end_at": null
+    },
+    {
+      "sku": "whipped",
+      "on_hand": 90,
+      "start_at": 2,
+      "end_at": 4
+    }
+  ],
+  "current_on_hand": {
+    "cranberry": 95,
+    "stuffing": 55,
+    "turkey": 6,
+    "whipped": 40
+  },
+  "deleted_skus": [
+    "pie_crust"
+  ],
+  "headline": "18 snapshot rows over 4 nights -> 10 history rows, 4 current; pie crusts closed as a delete at v4, stuffing kept one row through 3 unchanged nights"
+}
