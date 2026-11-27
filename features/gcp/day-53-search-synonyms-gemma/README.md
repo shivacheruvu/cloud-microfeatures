@@ -55,4 +55,17 @@ Cream*).
 **Cloud, first run (2026-11-26, merge of PR #170): failed.** The query passed `endpoint => 'embeddinggemma-300m'`
 and BigQuery answered `Unsupported remote model endpoint embeddinggemma-300m`. Fixed forward the same day: the
 model is built in and takes `model =>` (as in BigQuery DataFrames' `bbq.ai.similarity(..., model=...)`, checked in
-its source because the docs pages could not be read from this run). Numbers follow after the next cloud run.
+its source because the docs pages could not be read from this run).
+
+**Cloud, after the fix (2026-11-26, merge of PR #171): passed.** All 256 pairs scored by both models.
+
+| Matcher | Top-1 right | Mean margin over runner-up | Misses |
+|---|---|---|---|
+| Character trigrams (local) | 7 of 16 | 0.108 | all nine meaning-only terms |
+| **`embeddinggemma-300m` (built-in)** | **14 of 16** | 0.094 | `rocket salad` → *Eggplant*, `fizzy pop` → *Eggplant* |
+| `gemini-embedding-2` (Vertex AI) | 16 of 16 | 0.163 | none |
+
+The small built-in model gets `courgette`, `aubergine`, `nappies`, `crisps`, `garbanzo beans` and `kitchen roll`
+right with no Vertex AI endpoint; it misses the two terms whose meaning is a regional idiom (`rocket` for arugula,
+`pop` for soda), where both go to the same product. Its margins are about half Gemini's, so a "needs review"
+threshold has to be set per model (as day 26 found).
