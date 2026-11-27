@@ -16,5 +16,16 @@
     "fizzy pop": "Powdered Sugar 2 lb",
     "biscuits for tea": "Potato Chips Sea Salt",
     "nappies": "Shortbread Cookies"
-  }
+  },
+  "cloud_run": "2026-11-26",
+  "top1_correct_embeddinggemma_300m": 14,
+  "top1_accuracy_pct_embeddinggemma_300m": 87.5,
+  "mean_margin_embeddinggemma_300m": 0.0935,
+  "wrong_embeddinggemma_300m": {
+    "rocket salad": "Eggplant",
+    "fizzy pop": "Eggplant"
+  },
+  "top1_correct_gemini_embedding_2": 16,
+  "mean_margin_gemini_embedding_2": 0.1628,
+  "headline": "embeddinggemma-300m in AI.SIMILARITY: 14 of 16 shopper search words matched (gemini-embedding-2 16, trigram baseline 7)"
 }
