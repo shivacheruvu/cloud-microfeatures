@@ -1,0 +1,39 @@
+{
+  "engine": "answer key + keyword baseline (local) / AI.IF optimization_mode MINIMIZE_COST vs MAXIMIZE_QUALITY (cloud)",
+  "reviews": 40,
+  "problems_in_key": 20,
+  "keyword_baseline": {
+    "accuracy": 0.525,
+    "precision": 0.545,
+    "recall": 0.3,
+    "flagged": 11,
+    "nulls": 0,
+    "wrong": [
+      3,
+      4,
+      7,
+      8,
+      10,
+      15,
+      17,
+      19,
+      21,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      32,
+      33,
+      36,
+      38
+    ]
+  },
+  "min_accuracy": 0.85,
+  "queries": 1,
+  "forms": {
+    "1": "MINIMIZE_COST and MAXIMIZE_QUALITY side by side",
+    "2": "MINIMIZE_COST only"
+  }
+}

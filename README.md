@@ -130,6 +130,7 @@ Days 1–14 run on the Databricks 14-day trial, then on Databricks Free Edition.
 | 51 | [Post-Thanksgiving feedback digest per department with typed AI.AGG output](features/gcp/day-51-feedback-digest-ai-agg) | [output_schema (structured output) for AI.AGG in BigQuery (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-14) | BigQuery, AI.AGG, Gemini, Structured output | ran |
 | 52 | [Baking-aisle forecast: flour, butter and eggs for two stores in one TimesFM 3.0 multi-target call](features/gcp/day-52-baking-aisle-multi-target) | [TimesFM 3.0 multi-target forecasting (several target_cols) in AI.FORECAST (Preview)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-10-07) | BigQuery, AI.FORECAST, TimesFM 3.0, Forecasting | ran |
 | 53 | [Search-box synonyms: shopper words matched to catalog names with AI.SIMILARITY on embeddinggemma-300m](features/gcp/day-53-search-synonyms-gemma) | [embeddinggemma-300m model in BigQuery AI.EMBED and AI.SIMILARITY (GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-23) | BigQuery, AI.SIMILARITY, EmbeddingGemma, Embeddings | ran |
+| 54 | [Shopper-review triage with AI.IF in optimized mode (MINIMIZE_COST vs MAXIMIZE_QUALITY)](features/gcp/day-54-review-triage-ai-if-optimized) | [Optimized mode for AI.IF (optimization_mode => 'MINIMIZE_COST' / 'MAXIMIZE_QUALITY', GA)](https://docs.cloud.google.com/bigquery/docs/release-notes) (2026-11-17) | BigQuery, AI.IF, optimized mode, Gemini | built |
 <!-- gcp:end -->
 
 ## Run any of them yourself
