@@ -56,3 +56,9 @@ through the Vertex AI API: well under one cent of free-trial credit per run. Not
 Local: 40 reviews, 20 problems in the key. The keyword baseline gets **accuracy 0.525** (precision 0.545, recall 0.3):
 it misses "cracked", "thawed", "crushed", "six buns" and flags "late", "rude", "pricey" and "not a single bad berry".
 The cloud run reports both AI.IF modes against the key. Numbers in [`result.json`](result.json).
+
+**Cloud run (2026-11-27, first run after the merge):** call form 1 (both modes side by side) was accepted.
+`MINIMIZE_COST` got **40 of 40** reviews right (precision 1.0, recall 1.0, no NULLs), and so did `MAXIMIZE_QUALITY`;
+**the two modes agreed on all 40**. That includes the traps the keyword rule fell for ("not a single bad berry",
+late delivery, rude service) and the ones it missed (thawed peas, crushed chips, six buns in a pack of eight). The
+query doesn't report how many rows the distilled model answered locally, so the saving itself isn't measured here.

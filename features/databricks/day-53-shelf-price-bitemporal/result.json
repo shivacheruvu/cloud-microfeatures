@@ -1,0 +1,176 @@
+{
+  "engine": "Python bitemporal rows + two DuckDB checks (local) / Lakeflow serverless pipeline with AUTO CDC STORED AS BITEMPORAL (cloud)",
+  "feed_rows": 9,
+  "feed_batches": 5,
+  "skus": 4,
+  "rounds": [
+    {
+      "round": 1,
+      "batches_landed": [
+        1,
+        2
+      ],
+      "bitemporal_rows": 7,
+      "as_of_answers": 42
+    },
+    {
+      "round": 2,
+      "batches_landed": [
+        3,
+        4,
+        5
+      ],
+      "bitemporal_rows": 12,
+      "as_of_answers": 140
+    }
+  ],
+  "rows": [
+    [
+      "cranberry",
+      2.79,
+      20,
+      null,
+      4,
+      null
+    ],
+    [
+      "cranberry",
+      2.99,
+      20,
+      null,
+      1,
+      4
+    ],
+    [
+      "pie_crust",
+      4.99,
+      25,
+      null,
+      5,
+      null
+    ],
+    [
+      "stuffing",
+      2.99,
+      23,
+      null,
+      2,
+      5
+    ],
+    [
+      "stuffing",
+      3.49,
+      20,
+      null,
+      1,
+      2
+    ],
+    [
+      "stuffing",
+      3.49,
+      20,
+      null,
+      5,
+      null
+    ],
+    [
+      "stuffing",
+      3.49,
+      20,
+      23,
+      2,
+      5
+    ],
+    [
+      "turkey",
+      0.99,
+      24,
+      null,
+      2,
+      null
+    ],
+    [
+      "turkey",
+      1.29,
+      22,
+      24,
+      3,
+      null
+    ],
+    [
+      "turkey",
+      1.49,
+      20,
+      null,
+      1,
+      2
+    ],
+    [
+      "turkey",
+      1.49,
+      20,
+      22,
+      3,
+      null
+    ],
+    [
+      "turkey",
+      1.49,
+      20,
+      24,
+      2,
+      3
+    ]
+  ],
+  "current_view_rows": 6,
+  "closed_beliefs": 6,
+  "as_of_answers": 140,
+  "answers_revised_later": 40,
+  "examples": {
+    "turkey on the 22nd, as of batch 2": 1.49,
+    "turkey on the 22nd, as of batch 5": 1.29,
+    "cranberry on the 21st, as of batch 3": 2.99,
+    "cranberry on the 21st, as of batch 5": 2.79,
+    "stuffing on the 23rd, as of batch 4": 2.99,
+    "stuffing on the 23rd, as of batch 5": 3.49
+  },
+  "current_view": [
+    [
+      "cranberry",
+      2.79,
+      20,
+      null
+    ],
+    [
+      "pie_crust",
+      4.99,
+      25,
+      null
+    ],
+    [
+      "stuffing",
+      3.49,
+      20,
+      null
+    ],
+    [
+      "turkey",
+      0.99,
+      24,
+      null
+    ],
+    [
+      "turkey",
+      1.29,
+      22,
+      24
+    ],
+    [
+      "turkey",
+      1.49,
+      20,
+      22
+    ]
+  ],
+  "headline": "9 price changes in 5 feed batches -> 12 bitemporal rows (6 in the current view); 40 of 140 as-of answers were later revised (turkey on the 22nd: 1.49 as of batch 2, 1.29 now)"
+}
