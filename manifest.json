@@ -2308,6 +2308,28 @@
         "released": "2026-11-09",
         "source": "https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-syntax-ddl-create-streaming-table-auto-cdc"
       }
+    },
+    {
+      "day": 54,
+      "platform": "gcp",
+      "slug": "day-54-review-triage-ai-if-optimized",
+      "date": "2026-11-27",
+      "title": "Shopper-review triage with AI.IF in optimized mode (MINIMIZE_COST vs MAXIMIZE_QUALITY)",
+      "summary": "40 shopper reviews, half reporting a product-quality problem (moldy, cracked, thawed, short count, wrong item) and half not (price, late delivery, rude service, praise). One BigQuery query runs AI.IF with optimization_mode => 'MINIMIZE_COST' (a local distilled model answers most rows) and 'MAXIMIZE_QUALITY' (every row to Gemini) side by side and scores both against a hand-made answer key and a generic keyword rule.",
+      "headline": "AI.IF optimized mode vs full Gemini on 40 reviews; keyword baseline 0.525 accuracy",
+      "skills": [
+        "BigQuery",
+        "AI.IF",
+        "optimized mode",
+        "Gemini"
+      ],
+      "status": "built",
+      "path": "features/gcp/day-54-review-triage-ai-if-optimized",
+      "new_feature": {
+        "name": "Optimized mode for AI.IF (optimization_mode => 'MINIMIZE_COST' / 'MAXIMIZE_QUALITY', GA)",
+        "released": "2026-11-17",
+        "source": "https://docs.cloud.google.com/bigquery/docs/release-notes"
+      }
     }
   ]
 }

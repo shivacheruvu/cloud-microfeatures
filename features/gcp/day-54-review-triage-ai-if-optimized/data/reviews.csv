@@ -1,0 +1,41 @@
+review_no,product,review,problem
+1,Strawberries 1 lb,"Half the box was moldy when I opened it the same day.",true
+2,Whole milk,"Great price this week, will buy again.",false
+3,Eggs dozen,"Three eggs were cracked and stuck to the carton.",true
+4,Sourdough loaf,"Delivery came two hours late but the bread was lovely.",false
+5,Greek yogurt,"Best-by date was last Tuesday. Already expired on arrival.",true
+6,Bananas,"Perfectly ripe, exactly how I like them.",false
+7,Tortilla chips,"Bag was crushed flat, mostly crumbs inside.",true
+8,Olive oil,"A bit pricey compared to the other store.",false
+9,Chicken breast,"Smelled off as soon as I opened the pack.",true
+10,Oat milk,"I ordered oat milk and got almond milk instead.",true
+11,Avocados,"Rock hard on Monday, perfect by Thursday. As expected.",false
+12,Orange juice,"Carton was leaking all over the other groceries.",true
+13,Cheddar cheese,"Tastes sharper than the old brand, my kids prefer it.",false
+14,Crackers,"Stale. Soft and chewy, clearly old stock.",true
+15,Frozen peas,"Arrived fully thawed and warm.",true
+16,Coffee beans,"Love the new bag design.",false
+17,Spinach,"Slimy leaves at the bottom of the bag.",true
+18,Pasta,"Cooks in 9 minutes like the box says.",false
+19,Ground beef,"Packaging was torn and the meat was grey.",true
+20,Apples,"Crisp and sweet. Five stars.",false
+21,Canned tomatoes,"Can was badly dented and bulging at the top.",true
+22,Ice cream,"Wish they had more flavors.",false
+23,Rotisserie chicken,"Still warm when I got home, delicious.",false
+24,Blueberries,"Wonderful, not a single bad berry. Shocked, honestly.",false
+25,Hot dog buns,"The bag had only six buns, the label says eight.",true
+26,Salmon fillet,"Customer service was rude on the phone.",false
+27,Cereal,"Inner bag was ripped open and there was a bug in it.",true
+28,Butter,"I always buy this brand, never had a bad one.",false
+29,Grapes,"Some grapes were wrinkled and shrivelled, a lot went in the trash.",true
+30,Peanut butter,"Too salty for my taste.",false
+31,Bagels,"Fresh from the bakery, still soft.",false
+32,Lettuce,"Brown and wilted on day one.",true
+33,Sparkling water,"Two cans exploded in the box, the case was soaked.",true
+34,Tofu,"Good protein for the price.",false
+35,Cookies,"Sale price did not ring up at checkout.",false
+36,Pumpkin pie,"Pie was smashed, filling all over the lid.",true
+37,Milk chocolate bar,"Not as creamy as I remember from years ago.",false
+38,Bread rolls,"Green spots on two of the rolls.",true
+39,Pineapple,"Bigger than I expected!",false
+40,Honey,"Lid was not sealed and honey leaked into the bag.",true
