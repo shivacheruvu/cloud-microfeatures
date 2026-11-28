@@ -35,5 +35,25 @@
   "forms": {
     "1": "MINIMIZE_COST and MAXIMIZE_QUALITY side by side",
     "2": "MINIMIZE_COST only"
+  },
+  "cloud": {
+    "date": "2026-11-27",
+    "call_form": 1,
+    "minimize_cost": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "flagged": 20,
+      "nulls": 0,
+      "wrong": []
+    },
+    "maximize_quality": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "nulls": 0,
+      "wrong": []
+    },
+    "modes_agree": 40
   }
 }
